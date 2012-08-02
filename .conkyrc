@@ -1,0 +1,38 @@
+# Conky, a system monitor, based on torsmo
+#
+# Any original torsmo code is licensed under the BSD license
+#
+# All code written since the fork of torsmo is licensed under the GPL
+#
+# Please see COPYING for details
+#
+# Copyright (c) 2004, Hannu Saransaari and Lauri Hakkarainen
+# Copyright (c) 2005-2010 Brenden Matthews, Philip Kovacs, et. al. (see AUTHORS)
+# All rights reserved.
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
+
+background        no
+no_buffers        yes
+out_to_console    yes
+out_to_x          no
+update_interval   2
+cpu_avg_samples   2
+net_avg_samples   2
+uppercase         no
+if_up_strictness  address
+# use_spacer        right
+
+TEXT
+^fg(\#5f5fff)*^fg() bat{${if_match "on-line" == "${execi 4 echo $(acpi -a | cut -c12-18)}"}^fg(\#00af5f)${battery_percent}% - C${else}^fg(\#ffaf5f)${battery_percent}%${endif}^fg()} ^fg(\#5f5fff)*^fg() cpu{^fg(\#ffaf5f)${cpu cpu1}% ${cpu cpu2}% ${cpu cpu3}% ${cpu cpu4}%^fg()} ^fg(\#5f5fff)*^fg() ram{^fg(\#ffaf5f)${memperc}%^fg()}${if_up wlan0} ^fg(\#5f5fff)*^fg() ${wireless_essid wlan0}{${if_match ${wireless_link_qual_perc wlan0} > 70}^fg(\#00af5f)${wireless_link_qual_perc wlan0}%${else}^fg(\#ffaf5f)${wireless_link_qual_perc wlan0}%${endif}^fg(), ^fg(\#ffaf5f)${downspeed wlan0} ${upspeed wlan0}^fg()}${endif}${if_up eth0} ^fg(\#5f5fff)*^fg() eth0{^fg(\#ffaf5f)${downspeed eth0} ${upspeed eth0}^fg()}${endif} ^fg(\#5f5fff)*^fg() /root{^fg(\#ffaf5f)${fs_used_perc /}%^fg()} ^fg(\#5f5fff)*^fg() vol{^fg(\#ffaf5f)${execi 2 /home/hsp/bin/vol}^fg()} ^fg(\#5f5fff)* ^fg(\#ffaf5f)${execi 60 date | cut -c1-16} ^fg(\#5f5fff)*^fg()
