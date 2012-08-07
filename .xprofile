@@ -1,5 +1,0 @@
-xmodmap /home/hsp/.Xmodmap
-transmission-daemon
-urxvtd -q -o -f
-
-sleep 10 && dropboxd &
