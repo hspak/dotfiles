@@ -11,10 +11,8 @@ URxvt*font:		        xft:anonymous pro:pixelsize=13
 URxvt.urgentOnBell:		True
 
 URxvt*transparent:		false
-=======
 URxvt*matcher.button:	1
-URxvt*font:		        xft:tamsyn:pixelsize=14
-URxvt*boldfont:			xft:tamsyn:pixelsize=14
+URxvt*font:		        xft:anaymous pro:pixelsize=13
 
 URxvt.urgentOnBell:		True
 
@@ -23,7 +21,6 @@ URxvt.preeditType:		OnTheSpot,None
 
 URxvt*transparent:		false
 URxvt*shading:			25
->>>>>>> 0e4def2f1b903861338a9fbad4d7caf84bd73fb7
 URxvt*depth:			32
 
 Xft.dpi: 96
@@ -135,37 +132,62 @@ URxvt*iso14755_52:  false
 ! *color5:  #ad7fa8
 ! *color13: #cb99e1
 
-! terminal colours
-<<<<<<< HEAD
-*foreground:#f9f9f9
-=======
-*foreground:#c9c9c9
->>>>>>> 0e4def2f1b903861338a9fbad4d7caf84bd73fb7
-*background:#272822
 
 !molokai inspired colors
+! *foreground:#f9f9f9
+! *background:#272822
+
+! !black
+! *color0:    #1b1d1e
+! *color8:    #505354
+! !red
+! *color1:    #f92672
+! *color9:    #ff5995
+! !green
+! *color2:    #82b414
+! *color10:   #b6e354
+! !yellow
+! *color3:    #fd971f
+! *color11:   #feed6c
+! !blue
+! *color4:    #66d9ef
+! *color12:   #86e3f5
+! !magenta
+! *color5:    #8c54fe
+! *color13:   #9e6ffe
+! !cyan
+! *color6:    #465457
+! *color14:   #899ca1
+! !white
+! *color7:    #ccccc6
+! *color15:   #f8f8f2
+
+! Stolen scheme from Rasi for ArchLinux forums 
+! Edited foreground/background
+*foreground:              #191919
+*background:              #b4b4b4
 
 !black
-*color0:    #1b1d1e
-*color8:    #505354
+*color0:                  #1B1D1E
+*color8:                  #505354
 !red
-*color1:    #f92672
-*color9:    #ff5995
+*color1:                  #F92672
+*color9:                  #FF5995
 !green
-*color2:    #82b414
-*color10:   #b6e354
+*color2:                  #82B414
+*color10:                 #B6E354
 !yellow
-*color3:    #fd971f
-*color11:   #feed6c
+*color3:                  #FD971F
+*color11:                 #FEED6C
 !blue
-*color4:    #66d9ef
-*color12:   #86e3f5
+*color4:                  #4E82AA
+*color12:                 #0C73C2
 !magenta
-*color5:    #8c54fe
-*color13:   #9e6ffe
+*color5:                  #8C54FE
+*color13:                 #9E6FFE
 !cyan
-*color6:    #465457
-*color14:   #899ca1
+*color6:                  #465457
+*color14:                 #899CA1
 !white
-*color7:    #ccccc6
-*color15:   #f8f8f2
+*color7:                  #CCCCC6
+*color15:                 #F8F8F2
