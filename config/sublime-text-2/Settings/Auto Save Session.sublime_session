@@ -1,0 +1,494 @@
+{
+	"folder_history":
+	[
+	],
+	"last_window_id": 5,
+	"settings":
+	{
+		"new_window_height": 0.0,
+		"new_window_settings":
+		{
+			"auto_complete":
+			{
+				"selected_items":
+				[
+				]
+			},
+			"build_system": "",
+			"command_palette":
+			{
+				"height": 52.0,
+				"selected_items":
+				[
+					[
+						"pack remove ",
+						"Package Control: Remove Package"
+					],
+					[
+						"user",
+						"Preferences: Settings - User"
+					],
+					[
+						"pac in",
+						"Package Control: Install Package"
+					],
+					[
+						"pack in",
+						"Package Control: Install Package"
+					],
+					[
+						":w",
+						":w - Save"
+					],
+					[
+						"user ",
+						"Preferences: Key Bindings - User"
+					],
+					[
+						"Package Control: install",
+						"Package Control: Install Package"
+					]
+				],
+				"width": 593.0
+			},
+			"console":
+			{
+				"height": 125.0
+			},
+			"distraction_free":
+			{
+				"menu_visible": true,
+				"show_minimap": false,
+				"show_open_files": false,
+				"show_tabs": false,
+				"side_bar_visible": false,
+				"status_bar_visible": false
+			},
+			"file_history":
+			[
+				"/home/hsp/Dropbox/code/C/Mine/fileop.c",
+				"/home/hsp/.config/sublime-text-2/Packages/Default/Preferences.sublime-settings",
+				"/home/hsp/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
+				"/home/hsp/.config/sublime-text-2/Packages/User/Distraction Free.sublime-settings",
+				"/home/hsp/.config/sublime-text-2/Packages/User/JSON.sublime-settings",
+				"/home/hsp/.config/sublime-text-2/Packages/C++/C++.sublime-settings",
+				"/home/hsp/Dropbox/code/C/enumfail/test.c",
+				"/home/hsp/.config/sublime-text-2/Packages/C++/C.sublime-settings",
+				"/home/hsp/Dropbox/code/C/junk/fscanf.c",
+				"/home/hsp/Dropbox/code/C/celi/celi.c",
+				"/home/hsp/Dropbox/code/C/pointer/test.c",
+				"/home/hsp/Dropbox/code/C++/multi cin.cpp",
+				"/home/hsp/Dropbox/code/C/Headers/confutil.c",
+				"/home/hsp/.config/sublime-text-2/Packages/C++/C.tmLanguage",
+				"/home/hsp/.config/sublime-text-2/Packages/C++/Indentation Rules.tmPreferences",
+				"/home/hsp/Dropbox/code/C/test.c",
+				"/home/hsp/.config/sublime-text-2/Packages/Vintage/Preferences.sublime-settings",
+				"/home/hsp/.config/sublime-text-2/Packages/User/Default (Linux).sublime-keymap",
+				"/home/hsp/.vim/colors/molokai.vim",
+				"/media/Linux Wifi  A guide to tuning your wifi for adverse conditions..mhtml",
+				"/home/hsp/Desktop/Home.desktop",
+				"/home/hsp/.bashrc",
+				"/home/hsp/.bash_profile",
+				"/home/hsp/.xinitrc"
+			],
+			"find":
+			{
+				"height": 0.0
+			},
+			"find_in_files":
+			{
+				"height": 0.0,
+				"where_history":
+				[
+				]
+			},
+			"find_state":
+			{
+				"case_sensitive": false,
+				"find_history":
+				[
+					"4",
+					"save",
+					"        { \"key\": \"following_text\", \"operator\": \"regex_contains\", \"operand\": \"^[)\\\"\\\\]]\", \"match_all\": true },\n        { \"key\": \"auto_complete_visible\", \"operator\": \"equal\", \"operand\": false }\n    ]   \n}\n",
+					"        ",
+					"    "
+				],
+				"highlight": true,
+				"in_selection": false,
+				"preserve_case": false,
+				"regex": false,
+				"replace_history":
+				[
+				],
+				"reverse": false,
+				"show_context": true,
+				"use_buffer2": true,
+				"whole_word": false,
+				"wrap": true
+			},
+			"incremental_find":
+			{
+				"height": 34.0
+			},
+			"input":
+			{
+				"height": 0.0
+			},
+			"layout":
+			{
+				"cells":
+				[
+					[
+						0,
+						0,
+						1,
+						1
+					],
+					[
+						1,
+						0,
+						2,
+						1
+					]
+				],
+				"cols":
+				[
+					0.0,
+					0.5,
+					1.0
+				],
+				"rows":
+				[
+					0.0,
+					1.0
+				]
+			},
+			"menu_visible": true,
+			"replace":
+			{
+				"height": 0.0
+			},
+			"save_all_on_build": true,
+			"select_file":
+			{
+				"height": 0.0,
+				"selected_items":
+				[
+					[
+						"user",
+						"/home/hsp/.config/sublime-text-2/Packages/User/Default (Linux).sublime-keymap"
+					]
+				],
+				"width": 0.0
+			},
+			"select_project":
+			{
+				"height": 0.0,
+				"selected_items":
+				[
+				],
+				"width": 0.0
+			},
+			"show_minimap": true,
+			"show_open_files": true,
+			"show_tabs": true,
+			"side_bar_visible": true,
+			"side_bar_width": 180.0,
+			"status_bar_visible": true
+		},
+		"new_window_width": 0.0
+	},
+	"windows":
+	[
+		{
+			"auto_complete":
+			{
+				"selected_items":
+				[
+				]
+			},
+			"buffers":
+			[
+				{
+					"file": "/home/hsp/Dropbox/code/C/ptd/ptd.c",
+					"settings":
+					{
+						"buffer_size": 3457,
+						"line_ending": "Unix"
+					}
+				},
+				{
+					"file": "/home/hsp/dotfiles/README.md",
+					"settings":
+					{
+						"buffer_size": 52,
+						"line_ending": "Unix"
+					}
+				}
+			],
+			"build_system": "",
+			"command_palette":
+			{
+				"height": 352.0,
+				"selected_items":
+				[
+					[
+						"pac re",
+						"Package Control: Remove Package"
+					],
+					[
+						":w",
+						":w - Save"
+					],
+					[
+						"side",
+						"View: Toggle Side Bar"
+					],
+					[
+						"defaul",
+						"Preferences: Settings - Default"
+					],
+					[
+						"pack remove ",
+						"Package Control: Remove Package"
+					],
+					[
+						"user",
+						"Preferences: Settings - User"
+					],
+					[
+						"pac in",
+						"Package Control: Install Package"
+					],
+					[
+						"pack in",
+						"Package Control: Install Package"
+					],
+					[
+						"user ",
+						"Preferences: Key Bindings - User"
+					],
+					[
+						"Package Control: install",
+						"Package Control: Install Package"
+					]
+				],
+				"width": 593.0
+			},
+			"console":
+			{
+				"height": 125.0
+			},
+			"distraction_free":
+			{
+				"menu_visible": true,
+				"show_minimap": false,
+				"show_open_files": false,
+				"show_tabs": false,
+				"side_bar_visible": false,
+				"status_bar_visible": false
+			},
+			"file_history":
+			[
+				"/media/unorganized/The Big Book of Words You Should Know- Over 3,000 Words Every Person Should be Able to Use[Team Nanban]tmrg/README.txt",
+				"/home/hsp/Dropbox/code/C/Mine/fileop.h",
+				"/home/hsp/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
+				"/home/hsp/Dropbox/code/C/Mine/fileop.c",
+				"/home/hsp/.config/sublime-text-2/Packages/Default/Preferences.sublime-settings",
+				"/home/hsp/Dropbox/code/C/ptd/ptd.c",
+				"/home/hsp/.config/sublime-text-2/Packages/User/Distraction Free.sublime-settings",
+				"/home/hsp/.config/sublime-text-2/Packages/User/JSON.sublime-settings",
+				"/home/hsp/.config/sublime-text-2/Packages/C++/C++.sublime-settings",
+				"/home/hsp/Dropbox/code/C/enumfail/test.c",
+				"/home/hsp/.config/sublime-text-2/Packages/C++/C.sublime-settings",
+				"/home/hsp/Dropbox/code/C/junk/fscanf.c",
+				"/home/hsp/Dropbox/code/C/celi/celi.c",
+				"/home/hsp/Dropbox/code/C/pointer/test.c",
+				"/home/hsp/Dropbox/code/C++/multi cin.cpp",
+				"/home/hsp/Dropbox/code/C/Headers/confutil.c",
+				"/home/hsp/.config/sublime-text-2/Packages/C++/C.tmLanguage",
+				"/home/hsp/.config/sublime-text-2/Packages/C++/Indentation Rules.tmPreferences",
+				"/home/hsp/Dropbox/code/C/test.c",
+				"/home/hsp/.config/sublime-text-2/Packages/Vintage/Preferences.sublime-settings",
+				"/home/hsp/.config/sublime-text-2/Packages/User/Default (Linux).sublime-keymap",
+				"/home/hsp/.vim/colors/molokai.vim",
+				"/media/Linux Wifi  A guide to tuning your wifi for adverse conditions..mhtml",
+				"/home/hsp/Desktop/Home.desktop",
+				"/home/hsp/.bashrc",
+				"/home/hsp/.bash_profile",
+				"/home/hsp/.xinitrc"
+			],
+			"find":
+			{
+				"height": 0.0
+			},
+			"find_in_files":
+			{
+				"height": 0.0,
+				"where_history":
+				[
+				]
+			},
+			"find_state":
+			{
+				"case_sensitive": false,
+				"find_history":
+				[
+					"dir",
+					"word",
+					"4",
+					"save",
+					"        { \"key\": \"following_text\", \"operator\": \"regex_contains\", \"operand\": \"^[)\\\"\\\\]]\", \"match_all\": true },\n        { \"key\": \"auto_complete_visible\", \"operator\": \"equal\", \"operand\": false }\n    ]   \n}\n",
+					"        ",
+					"    "
+				],
+				"highlight": true,
+				"in_selection": false,
+				"preserve_case": false,
+				"regex": false,
+				"replace_history":
+				[
+					"dir_path\ndir_path"
+				],
+				"reverse": false,
+				"show_context": true,
+				"use_buffer2": true,
+				"whole_word": false,
+				"wrap": true
+			},
+			"groups":
+			[
+				{
+					"selected": 1,
+					"sheets":
+					[
+						{
+							"buffer": 0,
+							"file": "/home/hsp/Dropbox/code/C/ptd/ptd.c",
+							"settings":
+							{
+								"buffer_size": 3457,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										2263,
+										2263
+									]
+								],
+								"settings":
+								{
+									"syntax": "Packages/C++/C.tmLanguage",
+									"translate_tabs_to_spaces": false
+								},
+								"translation.x": 0.0,
+								"translation.y": 1008.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						},
+						{
+							"buffer": 1,
+							"file": "/home/hsp/dotfiles/README.md",
+							"settings":
+							{
+								"buffer_size": 52,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										52,
+										52
+									]
+								],
+								"settings":
+								{
+									"syntax": "Packages/Markdown/Markdown.tmLanguage"
+								},
+								"translation.x": 0.0,
+								"translation.y": 0.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						}
+					]
+				}
+			],
+			"incremental_find":
+			{
+				"height": 34.0
+			},
+			"input":
+			{
+				"height": 0.0
+			},
+			"layout":
+			{
+				"cells":
+				[
+					[
+						0,
+						0,
+						1,
+						1
+					]
+				],
+				"cols":
+				[
+					0.0,
+					1.0
+				],
+				"rows":
+				[
+					0.0,
+					1.0
+				]
+			},
+			"menu_visible": true,
+			"position": "0,0,0,0,0,0,27,959,1050,1920,1080",
+			"replace":
+			{
+				"height": 62.0
+			},
+			"save_all_on_build": true,
+			"select_file":
+			{
+				"height": 0.0,
+				"selected_items":
+				[
+					[
+						"user",
+						"/home/hsp/.config/sublime-text-2/Packages/User/Default (Linux).sublime-keymap"
+					]
+				],
+				"width": 0.0
+			},
+			"select_project":
+			{
+				"height": 0.0,
+				"selected_items":
+				[
+				],
+				"width": 0.0
+			},
+			"show_minimap": true,
+			"show_open_files": true,
+			"show_tabs": true,
+			"side_bar_visible": false,
+			"side_bar_width": 180.0,
+			"status_bar_visible": true,
+			"window_id": 1,
+			"workspace_name": ""
+		}
+	],
+	"workspaces":
+	{
+		"recent_workspaces":
+		[
+		]
+	}
+}

@@ -1,0 +1,171 @@
+! - Urxvt Settings ------------------------------
+URxvt*perl-ext-common:	default,url-select
+URxvt*keysym.M-u:       perl:url-select:select_next
+URxvt*urlLauncher:      /usr/bin/google-chrome
+URxvt*underlineURLs:    true
+<<<<<<< HEAD
+
+URxvt*matcher.button:	1
+URxvt*font:		        xft:anonymous pro:pixelsize=13
+
+URxvt.urgentOnBell:		True
+
+URxvt*transparent:		false
+=======
+URxvt*matcher.button:	1
+URxvt*font:		        xft:tamsyn:pixelsize=14
+URxvt*boldfont:			xft:tamsyn:pixelsize=14
+
+URxvt.urgentOnBell:		True
+
+URxvt.inputMethod:		ibus
+URxvt.preeditType:		OnTheSpot,None
+
+URxvt*transparent:		false
+URxvt*shading:			25
+>>>>>>> 0e4def2f1b903861338a9fbad4d7caf84bd73fb7
+URxvt*depth:			32
+
+Xft.dpi: 96
+Xft.antialias: 1
+Xft.rgba: rgb
+Xft.autohint: 1
+Xft.hinting: 1
+Xft.hintstyle: hintslight
+
+URxvt*saveLines:	512
+URxvt*scrollBar:	false
+
+URxvt*iso14755:     false
+URxvt*iso14755_52:  false
+
+! - Terminal Colors -----------------------------
+
+! -- Black background adpated
+! *foreground:#f5f5f5
+! *background:#000000
+
+! ! - Black
+! ! - Dark Grey
+! *color0: #2e3436
+! *color8: #555753
+
+! ! - Dark Red
+! ! - Red
+! *color1: #ce0c0c
+! *color9: #ef2929
+
+! ! - Dark Green
+! ! - Green
+! *color2: #4e9a06
+! *color10: #99cc33
+
+! ! - Dark Yellow
+! ! - Yellow
+! *color3: #c4a000
+! *color11: #fce94f
+
+! ! - Dark Blue
+! ! - Blue
+! *color4: #274b7b
+! *color12: #55779b
+
+! ! - Dark Magenta
+! ! - Magenta
+! *color5: #75507b
+! *color13: #ad7fa8
+
+! ! - Dark Cyan
+! ! - Cyan
+! *color6: #0b939b
+! *color14: #00f5e9
+
+! ! - Light Grey
+! ! - Grey
+! *color7: #b0b0b0
+! *color15: #eeeeec
+
+! -- Grey background adpated
+! *background: #222222
+! *foreground: #dadada
+
+! ! - Black
+! ! - Dark Grey
+! *color0: #000000
+! *color8: #555753
+
+! ! - Dark Red
+! ! - Red
+! *color1: #e5505f
+! *color9: #bf7f7a
+
+! ! - Dark Green
+! ! - Green
+! ! *color2:  #9ea30f
+! *color2:  #91d14a
+! *color10: #c0d631
+
+! ! - Dark Yellow
+! ! - Yellow
+! *color3:  #bf7f3f
+! *color11: #e8621d
+
+! ! - Dark Blue
+! ! - Blue
+! *color12: #0088cc
+! *color4:  #577ba2
+
+! ! - Dark Magenta
+! ! - Magenta
+! *color5:  #9872a8
+! *color13: #ad7fa8
+
+! ! - Dark Cyan
+! ! - Cyan
+! *color6:  #6b9b8b
+! *color14: #25a9a9
+
+! ! - Light Grey
+! ! - Grey
+! *color7:  #babdb6
+! *color15: #e9e9e9
+
+! BACKUP
+! -----------------
+! *color5:  #ad7fa8
+! *color13: #cb99e1
+
+! terminal colours
+<<<<<<< HEAD
+*foreground:#f9f9f9
+=======
+*foreground:#c9c9c9
+>>>>>>> 0e4def2f1b903861338a9fbad4d7caf84bd73fb7
+*background:#272822
+
+!molokai inspired colors
+
+!black
+*color0:    #1b1d1e
+*color8:    #505354
+!red
+*color1:    #f92672
+*color9:    #ff5995
+!green
+*color2:    #82b414
+*color10:   #b6e354
+!yellow
+*color3:    #fd971f
+*color11:   #feed6c
+!blue
+*color4:    #66d9ef
+*color12:   #86e3f5
+!magenta
+*color5:    #8c54fe
+*color13:   #9e6ffe
+!cyan
+*color6:    #465457
+*color14:   #899ca1
+!white
+*color7:    #ccccc6
+*color15:   #f8f8f2
