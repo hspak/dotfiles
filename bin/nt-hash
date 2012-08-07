@@ -1,0 +1,8 @@
+#!/usr/bin/perl
+use Crypt::SmbHash;
+$pass = $ARGV[0];
+if ( !$pass ) {
+	exit 1;
+}
+($lm, $nt) = ntlmgen $pass;
+printf "%s\n %s\n %s\n", $pass, $lm, $nt;

@@ -1,0 +1,22 @@
+# 
+# backup.lst: used with rsbackup
+#
+
+# Include
++ /dev/console
++ /dev/initctl
++ /dev/null
++ /dev/zero
+
+# Exclude
+- /dev/*
+- /proc/*
+- /sys/*
+- /tmp/*
+- lost+found/
+- /media/*
+- /mnt*
+- /home/hsp/bridge/*
+- /home/hsp/hpak/*
+- /var/lock/*
+- /var/run/*

@@ -1,0 +1,77 @@
+#!/bin/sh
+#
+# backupbackup: backs up my data/system, possibly twice
+#
+
+DATA_LABEL=bridge
+DATA_DIR='/home/hsp/bridge/'
+DATA_BACKUP_LABEL=external
+DATA_BACKUP_DIR='/media'
+
+SYSTEM_BACKUP_LIST='/home/hsp/bin/backup.lst'
+SYSTEM_BACKUP_LABEL=snap
+SYSTEM_BACKUP_DIR='/mnt'
+SYSTEM_BACKUP_BACKUP_LABEL=snapback
+SYSTEM_BACKUP_BACKUP_DIR='/media'
+
+# check if partition exists
+if findfs LABEL=${SYSTEM_BACKUP_LABEL} &> /dev/null; then
+	# mount partition if not mounted
+	if ! grep -qs ${SYSTEM_BACKUP_DIR} /proc/mounts; then
+		sudo mount /dev/disk/by-label/${SYSTEM_BACKUP_LABEL} ${SYSTEM_BACKUP_DIR}
+	fi
+
+	# check for proper mount and then rsync
+	if grep -qs ${SYSTEM_BACKUP_DIR} /proc/mounts; then
+		echo "Syncing system to ${SYSTEM_BACKUP_LABEL}"
+		sudo rsync -a --delete-excluded --exclude-from=${SYSTEM_BACKUP_LIST} / ${SYSTEM_BACKUP_DIR}
+
+		# backup backup <3
+		# check if partition exists
+		if findfs LABEL=${SYSTEM_BACKUP_BACKUP_LABEL} &> /dev/null; then
+			# mount partition if not mounted
+			if ! grep -qs ${SYSTEM_BACKUP_BACKUP_DIR} /proc/mounts; then
+				sudo mount /dev/disk/by-label/${SYSTEM_BACKUP_BACKUP_LABEL} ${SYSTEM_BACKUP_BACKUP_DIR}
+			fi
+			# check for proper mount and then rsync
+			if grep -qs ${SYSTEM_BACKUP_BACKUP_DIR} /proc/mounts; then
+				echo "Syncing ${SYSTEM_BACKUP_LABEL} to ${SYSTEM_BACKUP_BACKUP_LABEL}"
+				sudo rsync --delete -a ${SYSTEM_BACKUP_DIR}/ ${SYSTEM_BACKUP_BACKUP_DIR}
+				sudo umount /dev/disk/by-label/${SYSTEM_BACKUP_BACKUP_LABEL}
+			else
+				echo "${SYSTEM_BACKUP_BACKUP_LABEL} not mounted on ${SYSTEM_BACKUP_BACKUP_DIR}!"
+			fi
+		else
+			echo "Skipping backup on ${SYSTEM_BACKUP_BACKUP_LABEL}. Can't find partition. :("
+		fi
+ 
+		sudo umount /dev/disk/by-label/${SYSTEM_BACKUP_LABEL}
+	else
+		echo "${SYSTEM_BACKUP_LABEL} not mounted on ${SYSTEM_BACKUP_DIR}!"
+	fi
+else
+	echo "Skipping backup on ${SYSTEM_BACKUP_LABEL}. Can't find partition. :("
+fi
+
+# check if partition exists
+if findfs LABEL=${DATA_LABEL} &> /dev/null; then
+	# check for proper mount and then rsync
+	if findfs LABEL=${DATA_BACKUP_LABEL} &> /dev/null; then
+		# mount partition if not mounted
+		if ! grep -qs ${DATA_BACKUP_DIR} /proc/mounts; then
+			sudo mount /dev/disk/by-label/${DATA_BACKUP_LABEL} ${DATA_BACKUP_DIR}
+		fi
+		# check for proper mount and then rsync
+		if grep -qs ${DATA_BACKUP_DIR} /proc/mounts; then
+			echo "Syncing ${DATA_LABEL} to ${DATA_BACKUP_LABEL}"
+			sudo rsync -a ${DATA_DIR} ${DATA_BACKUP_DIR}
+			sudo umount /dev/disk/by-label/${DATA_BACKUP_LABEL}
+		else
+			echo "${DATA_BACKUP_LABEL} not mounted on ${DATA_BACKUP_DIR}!"
+		fi
+	else
+		echo "Skipping backup on ${DATA_BACKUP_LABEL}. Can't find partition. :("
+	fi
+else
+	echo "Can't backup ${DATA_LABEL}. Can't find partition :("
+fi

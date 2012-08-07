@@ -1,0 +1,9 @@
+#!/bin/sh
+#
+# ytdl: Lazy wrapper for youtube-dl
+#
+
+read -p 'Enter Youtube URL: ' url
+
+cd /home/hsp/bridge/videos/
+youtube-dl -l $url

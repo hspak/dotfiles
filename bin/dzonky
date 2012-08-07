@@ -1,0 +1,17 @@
+#!/bin/sh
+#
+# dzonky: pipes conky through dzen2
+#
+. ~/bin/dzen2_header
+
+# I don't know how to detect if a process is running so for now...
+killall conky
+killall dzen2
+
+# -- Detect External Monitor
+VGA=`xrandr | grep "VGA1 connected"`
+if [ "${VGA}" != "" ]; then
+	sleep 2 && conky | dzen2 -x '1120' -w '800' -ta r -bg $DZEN_BG -fn $DZEN_FONT &
+else
+	sleep 2 && conky | dzen2 -x '800' -w '800' -ta r -bg $DZEN_BG -fn $DZEN_FONT &
+fi

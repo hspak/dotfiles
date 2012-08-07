@@ -1,0 +1,11 @@
+#!/bin/sh
+#
+# ytaud: Lazy wrapper around youtube-dl to rip audio
+#
+#
+
+read -p 'Enter Youtube URL: ' url
+read -p 'Enter Directory: ' dir
+
+cd $dir
+youtube-dl -l $url --extract-audio --audio-format mp3 --audio-quality 320k

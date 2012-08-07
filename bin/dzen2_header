@@ -1,0 +1,6 @@
+DZEN_BG='#222222'
+DZEN_FONT='-*-tamsyn-medium-r-*-*-12-*-*-*-*-*-*-*'
+DZEN_OFFSET=300
+DZEN_LENGTH=500
+
+# vim: set syn=sh :
