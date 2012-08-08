@@ -210,18 +210,29 @@
 			"buffers":
 			[
 				{
-					"file": "/home/hsp/Dropbox/code/C/ptd/ptd.c",
+					"contents": "/* Copyright (c) 2011-2012 Hong Shick Pak\n*\n* celi.c\n*\n* Permission is hereby granted, free of charge, to any person\n* obtaining a copy of this software and associated documentation\n* files (the \"Software\"), to deal in the Software without\n* restriction, including without limitation the rights to use,\n* copy, modify, merge, publish, distribute, sublicense, and/or sell\n* copies of the Software, and to permit persons to whom the\n* Software is furnished to do so, subject to the following\n* conditions:\n*\n* The above copyright notice and this permission notice shall be\n* included in all copies or substantial portions of the Software.\n*\n* THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND,\n* EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES\n* OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND\n* NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT\n* HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,\n* WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING\n* FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR HTE USE OR\n* OTHER DEALINGS IN THE SOFTWARE.\n*/\n\n#include <stdio.h>\n#include <stdlib.h>\n#include <unistd.h>\n#include <string.h>\n\n// void print_version()\n// {\n// 	printf(\"celi %s\\n\", CELI_VERSION);\n// }\n\nvoid print_help(char *prog_name)\n{\n	printf(\"Usage: celi <file> [action option oriention]\\n\\n\"\n\n	       \"    Actions\\n\"\n	       \"      -s --sort           Sort by option\\n\"\n	       \"      -c --calc           Calculate by option\\n\"\n	       \"      -r#-#               Replace 1st number by 2nd (no options)\\n\"\n	       \"    Option\\n\"\n	       \"      inc                 Sort by increasing\\n\"\n	       \"      dec                 Sort by decreasing\\n\\n\"\n\n	       \"      avg                 Calculate average of numbers\\n\"\n	       \"      sum                 Calculate sum of numbers\\n\"\n	       \"    Oriention\\n\"\n	       \"      row                 Apply the action by row\\n\"\n	       \"      col                 Apply the action by column\\n\"\n	       \"      both                Apply the action to both\\n\\n\"\n\n	       \"    General\\n\"\n	       \"      -h  --help\\n\"\n	       \"      -v  --version\\n\\n\");\n}\n\nvoid read_command(int argc, int *argv[])\n{\n	opterr = 0;\n	while (1) {\n		static struct option long_options[] =\n		{\n			{\"sort\", required_argument, 0, 's'},\n			{\"calc\", required_argument, 0, 'c'},\n			{\"help\", no_argument,	    0, 'h'},\n			{\"version\", no_argument,    0, 'v'},\n			{0, 0, 0, 0}\n		};\n\n		int option_index = 0;\n		c = getopt_long(argc, argv, \"s:c:hv\", long_options, &option_index);\n		if(c == -1) \n			break;\n\n	}\n}\n\nint main(int argc, char *argv[]) \n{\n	if (argc == 1) {\n		printf(\"No options given. Type \\\"celi --help\\\" for commands.\\n\");\n		return 1;\n\n	/* this allows the General options (-h, -v) to pass */\n	} else if (argc == 2 && strncmp(\"-\", argv[1], 1) != 0) {\n		printf(\"No action entered, echoing data...\\n\");\n		// Print\n	}\n\n	// read\n	// parse\n	// calc\n	// print\n\n	return 0;\n}\n",
+					"file": "/home/hsp/Dropbox/code/C/celi/celi.c",
+					"file_size": 2943,
+					"file_write_time": 1344405689000000,
 					"settings":
 					{
-						"buffer_size": 3457,
+						"buffer_size": 2947,
 						"line_ending": "Unix"
 					}
 				},
 				{
-					"file": "/home/hsp/dotfiles/README.md",
+					"file": "/home/hsp/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
 					"settings":
 					{
-						"buffer_size": 52,
+						"buffer_size": 424,
+						"line_ending": "Unix"
+					}
+				},
+				{
+					"file": "/home/hsp/Dropbox/code/C/celi/celi_old.c",
+					"settings":
+					{
+						"buffer_size": 11035,
 						"line_ending": "Unix"
 					}
 				}
@@ -229,9 +240,13 @@
 			"build_system": "",
 			"command_palette":
 			{
-				"height": 352.0,
+				"height": 152.0,
 				"selected_items":
 				[
+					[
+						"user",
+						"Preferences: Settings - User"
+					],
 					[
 						"pac re",
 						"Package Control: Remove Package"
@@ -251,10 +266,6 @@
 					[
 						"pack remove ",
 						"Package Control: Remove Package"
-					],
-					[
-						"user",
-						"Preferences: Settings - User"
 					],
 					[
 						"pac in",
@@ -290,12 +301,14 @@
 			},
 			"file_history":
 			[
+				"/home/hsp/Dropbox/code/C/celi/celi_new.c",
+				"/home/hsp/Dropbox/code/C/ptd/ptd.c",
+				"/home/hsp/dotfiles/README.md",
 				"/media/unorganized/The Big Book of Words You Should Know- Over 3,000 Words Every Person Should be Able to Use[Team Nanban]tmrg/README.txt",
 				"/home/hsp/Dropbox/code/C/Mine/fileop.h",
 				"/home/hsp/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
 				"/home/hsp/Dropbox/code/C/Mine/fileop.c",
 				"/home/hsp/.config/sublime-text-2/Packages/Default/Preferences.sublime-settings",
-				"/home/hsp/Dropbox/code/C/ptd/ptd.c",
 				"/home/hsp/.config/sublime-text-2/Packages/User/Distraction Free.sublime-settings",
 				"/home/hsp/.config/sublime-text-2/Packages/User/JSON.sublime-settings",
 				"/home/hsp/.config/sublime-text-2/Packages/C++/C++.sublime-settings",
@@ -334,6 +347,7 @@
 				"case_sensitive": false,
 				"find_history":
 				[
+					">\n",
 					"dir",
 					"word",
 					"4",
@@ -364,18 +378,18 @@
 					[
 						{
 							"buffer": 0,
-							"file": "/home/hsp/Dropbox/code/C/ptd/ptd.c",
+							"file": "/home/hsp/Dropbox/code/C/celi/celi.c",
 							"settings":
 							{
-								"buffer_size": 3457,
+								"buffer_size": 2947,
 								"regions":
 								{
 								},
 								"selection":
 								[
 									[
-										2263,
-										2263
+										2566,
+										2566
 									]
 								],
 								"settings":
@@ -384,33 +398,67 @@
 									"translate_tabs_to_spaces": false
 								},
 								"translation.x": 0.0,
-								"translation.y": 1008.0,
+								"translation.y": 350.0,
 								"zoom_level": 1.0
 							},
 							"type": "text"
 						},
 						{
 							"buffer": 1,
-							"file": "/home/hsp/dotfiles/README.md",
+							"file": "/home/hsp/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
 							"settings":
 							{
-								"buffer_size": 52,
+								"buffer_size": 424,
 								"regions":
 								{
 								},
 								"selection":
 								[
 									[
-										52,
-										52
+										255,
+										255
 									]
 								],
 								"settings":
 								{
-									"syntax": "Packages/Markdown/Markdown.tmLanguage"
+									"syntax": "Packages/JavaScript/JSON.tmLanguage",
+									"translate_tabs_to_spaces": false
 								},
 								"translation.x": 0.0,
 								"translation.y": 0.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						}
+					]
+				},
+				{
+					"selected": 0,
+					"sheets":
+					[
+						{
+							"buffer": 2,
+							"file": "/home/hsp/Dropbox/code/C/celi/celi_old.c",
+							"settings":
+							{
+								"buffer_size": 11035,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										3278,
+										3278
+									]
+								],
+								"settings":
+								{
+									"syntax": "Packages/C++/C.tmLanguage",
+									"translate_tabs_to_spaces": false
+								},
+								"translation.x": 0.0,
+								"translation.y": 1404.0,
 								"zoom_level": 1.0
 							},
 							"type": "text"
@@ -435,11 +483,18 @@
 						0,
 						1,
 						1
+					],
+					[
+						1,
+						0,
+						2,
+						1
 					]
 				],
 				"cols":
 				[
 					0.0,
+					0.5,
 					1.0
 				],
 				"rows":
@@ -449,7 +504,7 @@
 				]
 			},
 			"menu_visible": true,
-			"position": "0,0,0,0,0,0,27,959,1050,1920,1080",
+			"position": "0,1,0,0,0,0,27,959,1050,1920,1080",
 			"replace":
 			{
 				"height": 62.0

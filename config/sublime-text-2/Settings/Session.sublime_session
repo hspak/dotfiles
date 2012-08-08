@@ -210,59 +210,59 @@
 			"buffers":
 			[
 				{
+					"file": "/home/hsp/Dropbox/code/C/celi/celi_new.c",
+					"settings":
+					{
+						"buffer_size": 1276,
+						"line_ending": "Unix"
+					}
+				},
+				{
 					"file": "/home/hsp/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
 					"settings":
 					{
-						"buffer_size": 385,
+						"buffer_size": 424,
 						"line_ending": "Unix"
 					}
 				},
 				{
-					"file": "/home/hsp/Dropbox/code/C/ptd/ptd.c",
+					"file": "/home/hsp/Dropbox/code/C/celi/celi.c",
 					"settings":
 					{
-						"buffer_size": 3457,
+						"buffer_size": 11053,
 						"line_ending": "Unix"
-					}
-				},
-				{
-					"file": "/home/hsp/Dropbox/code/C/Mine/fileop.h",
-					"settings":
-					{
-						"buffer_size": 77,
-						"line_ending": "Unix"
-					}
-				},
-				{
-					"file": "/home/hsp/Dropbox/code/C/Mine/fileop.c",
-					"settings":
-					{
-						"buffer_size": 75,
-						"line_ending": "Unix"
-					}
-				},
-				{
-					"file": "/media/unorganized/The Big Book of Words You Should Know- Over 3,000 Words Every Person Should be Able to Use[Team Nanban]tmrg/README.txt",
-					"settings":
-					{
-						"buffer_size": 1138,
-						"line_ending": "Windows"
 					}
 				}
 			],
 			"build_system": "",
 			"command_palette":
 			{
-				"height": 52.0,
+				"height": 152.0,
 				"selected_items":
 				[
 					[
-						"pack remove ",
+						"user",
+						"Preferences: Settings - User"
+					],
+					[
+						"pac re",
 						"Package Control: Remove Package"
 					],
 					[
-						"user",
-						"Preferences: Settings - User"
+						":w",
+						":w - Save"
+					],
+					[
+						"side",
+						"View: Toggle Side Bar"
+					],
+					[
+						"defaul",
+						"Preferences: Settings - Default"
+					],
+					[
+						"pack remove ",
+						"Package Control: Remove Package"
 					],
 					[
 						"pac in",
@@ -271,10 +271,6 @@
 					[
 						"pack in",
 						"Package Control: Install Package"
-					],
-					[
-						":w",
-						":w - Save"
 					],
 					[
 						"user ",
@@ -303,9 +299,12 @@
 			"file_history":
 			[
 				"/home/hsp/Dropbox/code/C/ptd/ptd.c",
+				"/home/hsp/dotfiles/README.md",
+				"/media/unorganized/The Big Book of Words You Should Know- Over 3,000 Words Every Person Should be Able to Use[Team Nanban]tmrg/README.txt",
+				"/home/hsp/Dropbox/code/C/Mine/fileop.h",
+				"/home/hsp/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
 				"/home/hsp/Dropbox/code/C/Mine/fileop.c",
 				"/home/hsp/.config/sublime-text-2/Packages/Default/Preferences.sublime-settings",
-				"/home/hsp/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
 				"/home/hsp/.config/sublime-text-2/Packages/User/Distraction Free.sublime-settings",
 				"/home/hsp/.config/sublime-text-2/Packages/User/JSON.sublime-settings",
 				"/home/hsp/.config/sublime-text-2/Packages/C++/C++.sublime-settings",
@@ -344,6 +343,8 @@
 				"case_sensitive": false,
 				"find_history":
 				[
+					"dir",
+					"word",
 					"4",
 					"save",
 					"        { \"key\": \"following_text\", \"operator\": \"regex_contains\", \"operand\": \"^[)\\\"\\\\]]\", \"match_all\": true },\n        { \"key\": \"auto_complete_visible\", \"operator\": \"equal\", \"operand\": false }\n    ]   \n}\n",
@@ -356,6 +357,7 @@
 				"regex": false,
 				"replace_history":
 				[
+					"dir_path\ndir_path"
 				],
 				"reverse": false,
 				"show_context": true,
@@ -366,83 +368,23 @@
 			"groups":
 			[
 				{
-					"selected": 1,
+					"selected": 0,
 					"sheets":
 					[
 						{
 							"buffer": 0,
-							"file": "/home/hsp/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
+							"file": "/home/hsp/Dropbox/code/C/celi/celi_new.c",
 							"settings":
 							{
-								"buffer_size": 385,
+								"buffer_size": 1276,
 								"regions":
 								{
 								},
 								"selection":
 								[
 									[
-										195,
-										195
-									]
-								],
-								"settings":
-								{
-									"syntax": "Packages/JavaScript/JSON.tmLanguage",
-									"translate_tabs_to_spaces": false
-								},
-								"translation.x": 0.0,
-								"translation.y": 0.0,
-								"zoom_level": 1.0
-							},
-							"type": "text"
-						},
-						{
-							"buffer": 1,
-							"file": "/home/hsp/Dropbox/code/C/ptd/ptd.c",
-							"settings":
-							{
-								"buffer_size": 3457,
-								"regions":
-								{
-								},
-								"selection":
-								[
-									[
-										1546,
-										1546
-									]
-								],
-								"settings":
-								{
-									"syntax": "Packages/C++/C.tmLanguage",
-									"translate_tabs_to_spaces": false
-								},
-								"translation.x": 0.0,
-								"translation.y": 784.0,
-								"zoom_level": 1.0
-							},
-							"type": "text"
-						}
-					]
-				},
-				{
-					"selected": 1,
-					"sheets":
-					[
-						{
-							"buffer": 2,
-							"file": "/home/hsp/Dropbox/code/C/Mine/fileop.h",
-							"settings":
-							{
-								"buffer_size": 77,
-								"regions":
-								{
-								},
-								"selection":
-								[
-									[
-										37,
-										37
+										575,
+										575
 									]
 								],
 								"settings":
@@ -456,55 +398,61 @@
 							"type": "text"
 						},
 						{
-							"buffer": 3,
-							"file": "/home/hsp/Dropbox/code/C/Mine/fileop.c",
+							"buffer": 1,
+							"file": "/home/hsp/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
 							"settings":
 							{
-								"buffer_size": 75,
+								"buffer_size": 424,
 								"regions":
 								{
 								},
 								"selection":
 								[
 									[
-										73,
-										73
+										422,
+										422
 									]
 								],
 								"settings":
 								{
-									"syntax": "Packages/C++/C.tmLanguage",
-									"word_wrap": true,
-									"wrap_width": 80
+									"syntax": "Packages/JavaScript/JSON.tmLanguage",
+									"translate_tabs_to_spaces": false
 								},
 								"translation.x": 0.0,
 								"translation.y": 0.0,
 								"zoom_level": 1.0
 							},
 							"type": "text"
-						},
+						}
+					]
+				},
+				{
+					"selected": 0,
+					"sheets":
+					[
 						{
-							"buffer": 4,
-							"file": "/media/unorganized/The Big Book of Words You Should Know- Over 3,000 Words Every Person Should be Able to Use[Team Nanban]tmrg/README.txt",
+							"buffer": 2,
+							"file": "/home/hsp/Dropbox/code/C/celi/celi.c",
 							"settings":
 							{
-								"buffer_size": 1138,
+								"buffer_size": 11053,
 								"regions":
 								{
 								},
 								"selection":
 								[
 									[
-										0,
-										0
+										2312,
+										2312
 									]
 								],
 								"settings":
 								{
-									"syntax": "Packages/Text/Plain text.tmLanguage"
+									"syntax": "Packages/C++/C.tmLanguage",
+									"translate_tabs_to_spaces": false
 								},
 								"translation.x": 0.0,
-								"translation.y": 0.0,
+								"translation.y": 1022.0,
 								"zoom_level": 1.0
 							},
 							"type": "text"
@@ -550,10 +498,10 @@
 				]
 			},
 			"menu_visible": true,
-			"position": "0,1,0,0,0,0,27,799,868,1600,900",
+			"position": "0,1,0,0,0,800,27,1599,870,1600,900",
 			"replace":
 			{
-				"height": 0.0
+				"height": 62.0
 			},
 			"save_all_on_build": true,
 			"select_file":
@@ -579,7 +527,7 @@
 			"show_minimap": true,
 			"show_open_files": true,
 			"show_tabs": true,
-			"side_bar_visible": true,
+			"side_bar_visible": false,
 			"side_bar_width": 180.0,
 			"status_bar_visible": true,
 			"window_id": 1,

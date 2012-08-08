@@ -12,6 +12,7 @@
 * Bash
 * Zsh
 * Conky
+* Sonata
 * Urxvt (.Xresouces)
 * Key bindings (.Xmodmap)
 * Gdm (.xprofile)

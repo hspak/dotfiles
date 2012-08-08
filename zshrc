@@ -38,6 +38,13 @@ bindkey -v
 PROMPT="%B┌ %{$fg[blue]%}%n%b%{$reset_color%}@%B%{$fg[blue]%}%m%b %{$reset_color%}%B[%~]
 └╼ $%b %{$reset_color%}"
 
+case $TERM in
+    xterm*|rxvt*|screen*|gnome*)
+         precmd() { print -Pn "\e]0;%m:%~\a" }
+         preexec () { print -Pn "\e]0;$1\a" }
+        ;;
+esac
+
 # Not sure if proper place, but it works for now
 export TERM=gnome-256color
 export EDITOR=vim

@@ -34,6 +34,8 @@ alias xmap='xmodmap ~/.Xmodmap'
 alias dtella='sudo systemctl stop iptables.service && python2 ~/dtella/dtella.py'
 alias pa='pacaur'
 
+alias cdcode='cd ~/Dropbox/code/C'
+
 # -- Pacman
 alias p='pacman-color'
 alias sp='sudo pacman-color' 
