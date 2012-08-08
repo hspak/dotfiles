@@ -1,9 +1,9 @@
 #
-# .bash_aliases: sourced by .bashrc
+# .zalias: sourced by .bashrc and .zshrc
 #
 
 # -- Admin tasks
-alias ls='ls -lh --color=auto'
+alias ls='ls -lh --color'
 alias df='df -h'
 alias du='du -h'
 alias su='su -'
@@ -14,7 +14,7 @@ alias sdown='sudo rmmod e1000e && sudo rmmod ehci_hcd && sudo systemctl poweroff
 alias reboot='sudo rmmod e1000e && sudo rmmod ehci_hcd && sudo systemctl reboot'
 
 # -- 1 line Commands
-alias extern_ip='curl -# checkmyip.com ' #| grep Your | cut -c 76-89'
+alias extern_ip='curl -# checkmyip.com '
 alias sprunge='curl -F "sprunge=<-" http://sprunge.us'
 alias scrompbox='scrot -s '"'"'%Y%m%d.png'"'"' -e '"'"'ompload $f && mv $f ~/bridge/image/screeny/'"'"''
 alias scromp='scrot '"'"'%Y%m%d.png'"'"' -e '"'"'ompload $f && mv $f ~/bridge/image/screeny/'"'"''
@@ -26,19 +26,13 @@ alias mpd_start='sudo systemctl start mpd.service'
 
 # -- Type less
 alias v='vim'
+alias sv='sudo vim'
 alias ncm='ncmpcpp'
 alias snet='sudo netcfg'
 alias xresources='xrdb -merge ~/.Xresources'
-alias dwmconf='vim ~/.abs/dwm/config.h'
-alias mkdwm='cd ~/.abs/dwm && makepkg -efi'
-alias umhome='sudo umount //offcampus.ics.purdue.edu/hpak' 
-alias sage='sudo ssh sage.ics.purdue.edu -lhpak'
-alias startx='nohup startx > .xlog & vlock'
 alias xmap='xmodmap ~/.Xmodmap' 
 alias dtella='sudo systemctl stop iptables.service && python2 ~/dtella/dtella.py'
 alias pa='pacaur'
-
-alias school='cd ~/bridge/school/'
 
 # -- Pacman
 alias p='pacman-color'
@@ -52,16 +46,14 @@ alias pss='sudo pacman-color -Ss'
 alias pqs='pacman-color -Qs'
 alias pu='sudo pacman-color -U'
 alias pqe='pacman-color -Qe'
+alias pqe='pacman-color -Qe'
 alias pcnt='pacman -Q | wc -l'
 
 # -- Github shortcuts
 alias giti='git init'
-alias gitall='git add .'
+alias gita='git add .'
 alias gitc='git commit -m'
 alias gitpom='git push -u origin master'
-
-# -- Not used (maybe later)
-# alias dropbox-sync='sudo rsync -Par /home/hsp/shared/school /home/hsp/Dropbox'
-# alias sv='sudo vim'
+alias gitstat='git status'
 
 # vim: set syn=sh :
