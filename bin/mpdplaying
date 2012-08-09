@@ -1,8 +1,0 @@
-#!/bin/sh
-# 
-# mpdplaying: pipes current playing song to dzen2
-#
-. ~/bin/dzen2_header
-
-SONG=$(ncmpcpp --now-playing)
-(echo "Playing: ${SONG}"; sleep 2) | dzen2 -fn ${DZEN_FONT} -bg ${DZEN_BG} -fg '#00af5f' -w ${DZEN_LENGTH} -ta l -x ${DZEN_OFFSET} &
