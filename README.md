@@ -11,8 +11,10 @@
 * VIM
 * Bash
 * Zsh
+* Tmux
 * Conky
 * Sonata
+* Ncmpcpp
 * Urxvt (.Xresouces)
 * Key bindings (.Xmodmap)
 * Gdm (.xprofile)

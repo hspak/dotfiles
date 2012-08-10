@@ -1,8 +1,9 @@
 source ~/.zalias
 
 # Turn autocomplete on
-autoload -U compinit
-autoload -U colors && colors
+autoload -U compinit 
+autoload -U colors && colors 
+autoload -Uz vcs_info
 compinit
 
 HISTFILE=~/.zhistory
@@ -30,17 +31,28 @@ setopt completealiases
 
 # Enable vi mode
 bindkey -v
-
-PROMPT="%B┌ %{$fg[blue]%}%n%b%{$reset_color%}@%B%{$fg[blue]%}%m%b %{$reset_color%}%B[%~]
-└╼ $%b %{$reset_color%}"
-
+ 
 # Enable setting terminal titles
 case $TERM in
-    xterm*|rxvt*|screen*|gnome*)
-         precmd() { print -Pn "\e]0;%m:%~\a" }
-         preexec () { print -Pn "\e]0;$1\a" }
-        ;;
+	xterm*|rxvt*|screen*|gnome*)
+		 precmd() { 
+			 print -Pn "\e]0;%m:%~\a" 
+			 vcs_info 
+		 }
+		 preexec () { print -Pn "\e]0;$1\a" }
+		;;
 esac
+                                 
+# Enable git in prompt
+zstyle ':vcs_info:*' enable git   
+zstyle ':vcs_info:*' check-for-changes true
+zstyle ':vcs_info:git*' formats "%F{blue}%s%F{white}:%F{green}%b%F{white} %m%u%c% "
+zstyle ':vcs_info:*' stagedstr '%F{red}S%F{white}'
+zstyle ':vcs_info:*' unstagedstr '%F{red}U%F{white}'
+setopt prompt_subst
+
+PROMPT='%B┌ %{$fg[blue]%}%n%b%{$reset_color%}@%B%{$fg[blue]%}%m%b %{$reset_color%}%B[%~] ${vcs_info_msg_0_}
+└╼ $%b %{$reset_color%}'
 
 # Environmental
 export TERM=gnome-256color
