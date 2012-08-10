@@ -1,0 +1,8 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =6
+let g:netrw_dirhist_1='/home/hsp/.config'
+let g:netrw_dirhist_2='/etc/systemd/system/multi-user.target.wants'
+let g:netrw_dirhist_3='/etc/tmpfiles.d'
+let g:netrw_dirhist_4='/home/hsp/dotfiles'
+let g:netrw_dirhist_5='/home/hsp/dotfiles/config'
+let g:netrw_dirhist_6='/home/hsp/dotfiles/.git'

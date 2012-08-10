@@ -9,24 +9,20 @@ HISTFILE=~/.zhistory
 HISTSIZE=10000
 SAVEHIST=10000
 
-setopt NO_LIST_BEEP
-setopt HIST_VERIFY
-setopt SHARE_HISTORY # share history between sessions ???
-setopt CORRECT
-setopt COMPLETE_IN_WORD
-setopt MENU_COMPLETE
+setopt CORRECT					# Spelling
+setopt COMPLETE_IN_WORD			# No cursor movement on complete?
 
-# No ^s
-setopt NO_FLOW_CONTROL
-setopt NO_BEEP
+setopt NO_FLOW_CONTROL			# No ^s
+setopt NO_BEEP					# No beep!
 
 # Globbing
-setopt NO_CASE_GLOB
-setopt NUMERIC_GLOB_SORT
-setopt EXTENDED_GLOB
+setopt NO_CASE_GLOB				# Case insensitivity
+setopt NUMERIC_GLOB_SORT		# Sort numerically if numbers
+setopt EXTENDED_GLOB			# Adds # ~ ^ to glob
+setopt GLOB_COMPLETE
 
-setopt APPEND_HISTORY # adds history
-setopt HIST_IGNORE_ALL_DUPS  # don't record dupes in history
+setopt APPEND_HISTORY			# Same history for all sessions
+setopt HIST_IGNORE_ALL_DUPS		# No dupes in history
 setopt HIST_REDUCE_BLANKS
 
 # Enable alias autocomplete
@@ -38,6 +34,7 @@ bindkey -v
 PROMPT="%B┌ %{$fg[blue]%}%n%b%{$reset_color%}@%B%{$fg[blue]%}%m%b %{$reset_color%}%B[%~]
 └╼ $%b %{$reset_color%}"
 
+# Enable setting terminal titles
 case $TERM in
     xterm*|rxvt*|screen*|gnome*)
          precmd() { print -Pn "\e]0;%m:%~\a" }
@@ -45,6 +42,6 @@ case $TERM in
         ;;
 esac
 
-# Not sure if proper place, but it works for now
+# Environmental
 export TERM=gnome-256color
 export EDITOR=vim

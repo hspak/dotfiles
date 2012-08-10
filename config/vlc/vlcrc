@@ -2481,7 +2481,7 @@ qt-privacy-ask=0
 #mkv-use-chapter-codec=1
 
 # Preload MKV files in the same directory (boolean)
-#mkv-preload-local-dir=1
+mkv-preload-local-dir=0
 
 # Seek based on percent not time (boolean)
 #mkv-seek-percent=0
@@ -2859,7 +2859,7 @@ qt-privacy-ask=0
 [freetype] # Freetype2 font renderer
 
 # Font (string)
-freetype-font=Sans Serif
+freetype-font=DejaVu Sans
 
 # Font size in pixels (integer)
 #freetype-fontsize=0
@@ -3410,7 +3410,7 @@ freetype-outline-thickness=2
 #audio=1
 
 # Default audio volume (integer)
-volume=250
+#volume=256
 
 # Audio output volume step (integer)
 #volume-step=32

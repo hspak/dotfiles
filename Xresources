@@ -3,18 +3,10 @@ URxvt*perl-ext-common:	default,url-select
 URxvt*keysym.M-u:       perl:url-select:select_next
 URxvt*urlLauncher:      /usr/bin/google-chrome
 URxvt*underlineURLs:    true
-<<<<<<< HEAD
-
-URxvt*matcher.button:	1
-URxvt*font:		        xft:anonymous pro:pixelsize=13
-
-URxvt.urgentOnBell:		True
 
 URxvt*transparent:		false
 URxvt*matcher.button:	1
 URxvt*font:		        xft:anaymous pro:pixelsize=13
-
-URxvt.urgentOnBell:		True
 
 URxvt.inputMethod:		ibus
 URxvt.preeditType:		OnTheSpot,None

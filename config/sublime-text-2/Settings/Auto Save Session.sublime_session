@@ -210,21 +210,29 @@
 			"buffers":
 			[
 				{
-					"contents": "/* Copyright (c) 2011-2012 Hong Shick Pak\n*\n* celi.c\n*\n* Permission is hereby granted, free of charge, to any person\n* obtaining a copy of this software and associated documentation\n* files (the \"Software\"), to deal in the Software without\n* restriction, including without limitation the rights to use,\n* copy, modify, merge, publish, distribute, sublicense, and/or sell\n* copies of the Software, and to permit persons to whom the\n* Software is furnished to do so, subject to the following\n* conditions:\n*\n* The above copyright notice and this permission notice shall be\n* included in all copies or substantial portions of the Software.\n*\n* THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND,\n* EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES\n* OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND\n* NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT\n* HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,\n* WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING\n* FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR HTE USE OR\n* OTHER DEALINGS IN THE SOFTWARE.\n*/\n\n#include <stdio.h>\n#include <stdlib.h>\n#include <unistd.h>\n#include <string.h>\n\n// void print_version()\n// {\n// 	printf(\"celi %s\\n\", CELI_VERSION);\n// }\n\nvoid print_help(char *prog_name)\n{\n	printf(\"Usage: celi <file> [action option oriention]\\n\\n\"\n\n	       \"    Actions\\n\"\n	       \"      -s --sort           Sort by option\\n\"\n	       \"      -c --calc           Calculate by option\\n\"\n	       \"      -r#-#               Replace 1st number by 2nd (no options)\\n\"\n	       \"    Option\\n\"\n	       \"      inc                 Sort by increasing\\n\"\n	       \"      dec                 Sort by decreasing\\n\\n\"\n\n	       \"      avg                 Calculate average of numbers\\n\"\n	       \"      sum                 Calculate sum of numbers\\n\"\n	       \"    Oriention\\n\"\n	       \"      row                 Apply the action by row\\n\"\n	       \"      col                 Apply the action by column\\n\"\n	       \"      both                Apply the action to both\\n\\n\"\n\n	       \"    General\\n\"\n	       \"      -h  --help\\n\"\n	       \"      -v  --version\\n\\n\");\n}\n\nvoid read_command(int argc, int *argv[])\n{\n	opterr = 0;\n	while (1) {\n		static struct option long_options[] =\n		{\n			{\"sort\", required_argument, 0, 's'},\n			{\"calc\", required_argument, 0, 'c'},\n			{\"help\", no_argument,	    0, 'h'},\n			{\"version\", no_argument,    0, 'v'},\n			{0, 0, 0, 0}\n		};\n\n		int option_index = 0;\n		c = getopt_long(argc, argv, \"s:c:hv\", long_options, &option_index);\n		if(c == -1) \n			break;\n\n	}\n}\n\nint main(int argc, char *argv[]) \n{\n	if (argc == 1) {\n		printf(\"No options given. Type \\\"celi --help\\\" for commands.\\n\");\n		return 1;\n\n	/* this allows the General options (-h, -v) to pass */\n	} else if (argc == 2 && strncmp(\"-\", argv[1], 1) != 0) {\n		printf(\"No action entered, echoing data...\\n\");\n		// Print\n	}\n\n	// read\n	// parse\n	// calc\n	// print\n\n	return 0;\n}\n",
+					"contents": "/* Copyright (c) 2011-2012 Hong Shick Pak\n*\n* celi->c\n*\n* Permission is hereby granted, free of charge, to any person\n* obtaining a copy of this software and associated documentation\n* files (the \"Software\"), to deal in the Software without\n* restriction, including without limitation the rights to use,\n* copy, modify, merge, publish, distribute, sublicense, and/or sell\n* copies of the Software, and to permit persons to whom the\n* Software is furnished to do so, subject to the following\n* conditions:\n*\n* The above copyright notice and this permission notice shall be\n* included in all copies or substantial portions of the Software.\n*\n* THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND,\n* EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES\n* OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND\n* NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT\n* HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,\n* WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING\n* FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR HTE USE OR\n* OTHER DEALINGS IN THE SOFTWARE.\n*/\n\n#include <stdio.h>\n#include <stdlib.h>\n#include <unistd.h>\n#include <string.h>\n#include <getopt.h>\n#include <ctype.h>\n\n#define MAX_COL_SIZE 1024\n\nenum Actions {\n	/* errors */\n	unset = 0,\n	sort_opt_err,\n	calc_opt_err,\n	parsing_err,\n	quiet,\n	echo_only,\n\n	/* actions */\n	print_help,\n	print_version, \n	sort,\n	calc,\n\n	/* options */\n	inc,\n	dec,\n	avg,\n	sum,\n\n	/* orientation */\n	def,\n	row,\n	col,\n	both\n};\n\nstruct cfg {\n	enum Actions err;\n	enum Actions act;\n	enum Actions opt;\n	enum Actions orient;\n};\n\nvoid display_version()\n{\n	// printf(\"celi %s\\n\", CELI_VERSION);\n	printf(\"celi %s\\n\", \"hi\");\n}\n\nvoid display_help()\n{\n	printf(\"Usage: celi <file> [action option oriention]\\n\\n\"\n\n	       \"    Actions\\n\"\n	       \"      -s --sort           Sort by option\\n\"\n	       \"      -c --calc           Calculate by option\\n\"\n	       // \"      -r#-#               Replace 1st number by 2nd (no options)\\n\"\n	       \"    Option\\n\"\n	       \"      inc                 Sort by increasing\\n\"\n	       \"      dec                 Sort by decreasing\\n\\n\"\n\n	       \"      avg                 Calculate average of numbers\\n\"\n	       \"      sum                 Calculate sum of numbers\\n\"\n	       \"    Oriention\\n\"\n	       \"      row                 Apply the action by row\\n\"\n	       \"      col                 Apply the action by column\\n\"\n	       \"      both                Apply the action to both\\n\\n\"\n\n	       \"    General\\n\"\n	       \"      -h  --help\\n\"\n	       \"      -v  --version\\n\\n\");\n}\n\nvoid read_command(int argc, char *argv[], struct cfg *celi)\n{\n	int opt, option_index = 0;\n\n	static struct option opts[] =\n	{\n		{\"sort\", required_argument, 0, 's'},\n		{\"calc\", required_argument, 0, 'c'},\n		{\"help\", no_argument,	    0, 'h'},\n		{\"version\", no_argument,    0, 'v'},\n		{0, 0, 0, 0}\n	};\n\n	while ((opt = getopt_long(argc, argv, \"s:c:hv\", opts, &option_index)) != -1)\n	{\n		switch (opt)\n		{\n			case 'h':\n				celi->act = print_help;\n				break;\n			case 'v':\n				celi->act = print_version;\n				break;\n			case 's':\n				printf(\"argv = %s\\n\", argv[3]);\n\n				celi->act = sort;\n				if (strncmp(\"inc\", argv[3], 3) == 0)\n					celi->opt = inc;\n				else if (strncmp(\"dec\", argv[3], 3) == 0)\n					celi->opt = dec;\n				else\n					celi->err = sort_opt_err;\n				break;\n			case 'c':\n				printf(\"argv = %s\\n\", argv[3]);\n\n				celi->act = calc;\n				if (strncmp(\"avg\", argv[3], 3) == 0)\n					celi->opt = avg;\n				else if (strncmp(\"sum\", argv[3], 3) == 0)\n					celi->opt = sum;\n				else\n					celi->err = calc_opt_err;\n				break;\n			default:\n				return;\n		}\n	}\n	if (argc == 5) {\n		if (strncmp(\"row\", argv[3], 3) == 0)\n			celi->orient = row;\n		else if (strncmp(\"col\", argv[3], 3) == 0)\n			celi->orient = col;\n	} else {\n		celi->orient = def;\n	}\n\n}\n\nvoid calc_dimensions(FILE *file, int *cc, int *rc)\n{\n	int i;\n	int dot;\n	int save;\n	int line_cc;\n	double read;\n	// int file_rc;\n	char buf[MAX_COL_SIZE];\n\n	while (fgets(buf, MAX_COL_SIZE, file) != NULL)\n	{\n		i = 0;\n		save = 0;\n		while (buf[i] != '\\0') {\n			if (isdigit(buf[i])) {\n				save++;\n				dot = 0;\n			} else if (buf[i] == '.') {\n				dot = 1;\n			} else\n			i++;\n		}\n\n		/* finding highest number count in columns */\n		if (line_cc > *cc)\n			*cc = line_cc;\n\n		if ((strlen(buf) - 1) > 0)\n			(*rc)++;\n	}\n\n	rewind(file);\n\n	/* zero-index */\n	(*rc)--;\n	(*cc)--;\n}\n\ndouble** create_matrix2D(const int cc, const int rc)\n{\n	double **matrix;\n	int i;\n\n	matrix = malloc(cc * sizeof(*matrix));\n	if (matrix) {\n		for (i = 0; i <= cc; i++) {\n			matrix[i] = malloc(rc * sizeof(*matrix[i]));\n			if (!matrix[i]) {\n				printf(\"Could not allocate memory\\n\");\n				return 0;\n			}\n\n		}\n	} else {\n		printf(\"Could not allocate memory\\n\");\n		return 0;\n	}\n	\n	return matrix;\n}\n\nvoid parse_file(FILE *file, double **matrix, const int cc, const int rc,\n                struct cfg *celi)\n{\n	double read;\n	int cur_col = 0;\n	int cur_row = 0;\n\n	while (fscanf(file, \"%lf\", &read) == 1) {\n		if (cur_row > rc) {\n			printf(\"Error during parsing file\\n\");\n			celi->err = parsing_err;\n			return;	\n		}\n\n		matrix[cur_col][cur_row] = read;\n		printf(\"matrix[%d][%d] = %lf\\n\", cur_col, cur_row, \n		       matrix[cur_col][cur_row]);\n		if (cur_col == cc) {\n			cur_col = 0;\n			cur_row++;\n		} else {\n			cur_col++;\n		}\n	}\n}\n\nvoid display_result(struct cfg *celi)\n{\n	//Fucntion pointers\n}\n\nint main(int argc, char *argv[]) \n{\n	/* struct that keeps track of all actions */\n	struct cfg *celi = malloc(sizeof(struct cfg));\n	if (!celi) {\n		printf(\"Could not allocate memory\\n\");\n		return 1;\n	}\n\n	/* initialize struct */\n	celi->act = unset;\n	celi->opt = unset;\n	celi->orient = unset;\n	celi->err = unset;\n\n	if (argc == 1) {\n		printf(\"No options given. Type \\\"celi --help\\\" for commands.\\n\");\n		return 1;\n	} else if (argc > 5) {\n		printf(\"Too many options! Type \\\"celi --help\\\" for proper usage.\\n\");\n		return 1;\n	} else if (argc == 2 && strncmp(\"-\", argv[1], 1) != 0) {\n		/* this allows the General options (-h, -v) to pass */\n		printf(\"No action entered, echoing data...\\n\\n\");\n		// celi->err = echo_only;\n	}\n\n	int rc = 0;\n	int cc = 0;\n	FILE *file = NULL;\n	double **matrix = NULL;\n	char *filename = argv[1];\n\n	read_command(argc, argv, celi);\n\n	if (celi->err == unset) {\n		file = fopen(filename, \"r+\");\n		if (!file) {\n			printf(\"Could not read the file\\n\");\n			return 1;\n		}\n\n		calc_dimensions(file, &cc, &rc);\n		matrix = create_matrix2D(cc, rc);\n		if (!matrix) \n			celi->err = quiet;\n\n		parse_file(file, matrix, cc, rc, celi);\n		// action\n\n	}\n\n	printf(\"main:\\nrc = %d\\ncc = %d\\n\", rc, cc);\n	int j, k;\n	for(j = 0; j <= rc; j++) {\n		for(k = 0; k <= cc; k++) {\n			printf(\"matrix[%d][%d] = %lf\\n\", k, j, matrix[k][j]);\n		}\n	}\n\n	if (celi->err != quiet)\n		display_result(celi);\n\n	fclose(file);\n	free(celi);\n\n	int i;\n	for(i = 0; i < cc; i++) {\n		free(matrix[i]);	\n	}\n	free(matrix);\n	return 0;\n}\n",
 					"file": "/home/hsp/Dropbox/code/C/celi/celi.c",
-					"file_size": 2943,
-					"file_write_time": 1344405689000000,
+					"file_size": 6834,
+					"file_write_time": 1344482535000000,
 					"settings":
 					{
-						"buffer_size": 2947,
+						"buffer_size": 6852,
 						"line_ending": "Unix"
 					}
 				},
 				{
-					"file": "/home/hsp/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
+					"file": "/home/hsp/Dropbox/code/C/2darray/2darray.c",
 					"settings":
 					{
-						"buffer_size": 424,
+						"buffer_size": 981,
+						"line_ending": "Unix"
+					}
+				},
+				{
+					"file": "/home/hsp/Dropbox/code/C/2darray/array.c",
+					"settings":
+					{
+						"buffer_size": 370,
 						"line_ending": "Unix"
 					}
 				},
@@ -240,9 +248,13 @@
 			"build_system": "",
 			"command_palette":
 			{
-				"height": 152.0,
+				"height": 232.0,
 				"selected_items":
 				[
+					[
+						":w",
+						":w - Save"
+					],
 					[
 						"user",
 						"Preferences: Settings - User"
@@ -250,10 +262,6 @@
 					[
 						"pac re",
 						"Package Control: Remove Package"
-					],
-					[
-						":w",
-						":w - Save"
 					],
 					[
 						"side",
@@ -301,12 +309,12 @@
 			},
 			"file_history":
 			[
+				"/home/hsp/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
 				"/home/hsp/Dropbox/code/C/celi/celi_new.c",
 				"/home/hsp/Dropbox/code/C/ptd/ptd.c",
 				"/home/hsp/dotfiles/README.md",
 				"/media/unorganized/The Big Book of Words You Should Know- Over 3,000 Words Every Person Should be Able to Use[Team Nanban]tmrg/README.txt",
 				"/home/hsp/Dropbox/code/C/Mine/fileop.h",
-				"/home/hsp/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
 				"/home/hsp/Dropbox/code/C/Mine/fileop.c",
 				"/home/hsp/.config/sublime-text-2/Packages/Default/Preferences.sublime-settings",
 				"/home/hsp/.config/sublime-text-2/Packages/User/Distraction Free.sublime-settings",
@@ -333,7 +341,7 @@
 			],
 			"find":
 			{
-				"height": 0.0
+				"height": 34.0
 			},
 			"find_in_files":
 			{
@@ -347,6 +355,23 @@
 				"case_sensitive": false,
 				"find_history":
 				[
+					"line_rc",
+					"line_cc",
+					"reset",
+					"parseOptions",
+					"malloc",
+					"strlen(buf)",
+					" &",
+					"int **matrix",
+					"sadasd",
+					"celi.",
+					"->",
+					"inc",
+					"cfg.opt_name",
+					";\n",
+					"	\n",
+					"enum",
+					"actions",
 					">\n",
 					"dir",
 					"word",
@@ -362,6 +387,12 @@
 				"regex": false,
 				"replace_history":
 				[
+					"file_rc",
+					"line_rc",
+					"line_cc",
+					"double **matrix",
+					"celi->",
+					" = ",
 					"dir_path\ndir_path"
 				],
 				"reverse": false,
@@ -373,7 +404,7 @@
 			"groups":
 			[
 				{
-					"selected": 1,
+					"selected": 0,
 					"sheets":
 					[
 						{
@@ -381,15 +412,15 @@
 							"file": "/home/hsp/Dropbox/code/C/celi/celi.c",
 							"settings":
 							{
-								"buffer_size": 2947,
+								"buffer_size": 6852,
 								"regions":
 								{
 								},
 								"selection":
 								[
 									[
-										2566,
-										2566
+										4121,
+										4121
 									]
 								],
 								"settings":
@@ -398,34 +429,7 @@
 									"translate_tabs_to_spaces": false
 								},
 								"translation.x": 0.0,
-								"translation.y": 350.0,
-								"zoom_level": 1.0
-							},
-							"type": "text"
-						},
-						{
-							"buffer": 1,
-							"file": "/home/hsp/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
-							"settings":
-							{
-								"buffer_size": 424,
-								"regions":
-								{
-								},
-								"selection":
-								[
-									[
-										255,
-										255
-									]
-								],
-								"settings":
-								{
-									"syntax": "Packages/JavaScript/JSON.tmLanguage",
-									"translate_tabs_to_spaces": false
-								},
-								"translation.x": 0.0,
-								"translation.y": 0.0,
+								"translation.y": 2067.0,
 								"zoom_level": 1.0
 							},
 							"type": "text"
@@ -433,11 +437,65 @@
 					]
 				},
 				{
-					"selected": 0,
+					"selected": 2,
 					"sheets":
 					[
 						{
+							"buffer": 1,
+							"file": "/home/hsp/Dropbox/code/C/2darray/2darray.c",
+							"settings":
+							{
+								"buffer_size": 981,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										792,
+										792
+									]
+								],
+								"settings":
+								{
+									"syntax": "Packages/C++/C.tmLanguage",
+									"translate_tabs_to_spaces": false
+								},
+								"translation.x": 0.0,
+								"translation.y": 0.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						},
+						{
 							"buffer": 2,
+							"file": "/home/hsp/Dropbox/code/C/2darray/array.c",
+							"settings":
+							{
+								"buffer_size": 370,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										278,
+										278
+									]
+								],
+								"settings":
+								{
+									"syntax": "Packages/C++/C.tmLanguage",
+									"translate_tabs_to_spaces": false
+								},
+								"translation.x": 0.0,
+								"translation.y": 0.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						},
+						{
+							"buffer": 3,
 							"file": "/home/hsp/Dropbox/code/C/celi/celi_old.c",
 							"settings":
 							{
@@ -448,8 +506,8 @@
 								"selection":
 								[
 									[
-										3278,
-										3278
+										5927,
+										5927
 									]
 								],
 								"settings":
@@ -458,7 +516,7 @@
 									"translate_tabs_to_spaces": false
 								},
 								"translation.x": 0.0,
-								"translation.y": 1404.0,
+								"translation.y": 5364.0,
 								"zoom_level": 1.0
 							},
 							"type": "text"
@@ -504,7 +562,7 @@
 				]
 			},
 			"menu_visible": true,
-			"position": "0,1,0,0,0,0,27,959,1050,1920,1080",
+			"position": "0,1,0,0,0,0,-3,960,1050,1920,1080",
 			"replace":
 			{
 				"height": 62.0

@@ -29,3 +29,11 @@ Run:
 ```
 
 It symlinks all files and cp's all directories.
+
+Run before you push:
+
+```sh
+./prior.sh
+```
+
+It updates the non-symlink file/directories

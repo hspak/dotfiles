@@ -1,5 +1,23 @@
 [user]
 	name = Hong Shick Pak
 	email = hongshick.pak@gmail.com
+
 [credential]
 	helper = cache --timeout=3600
+
+[color]
+	branch = auto
+	diff = auto
+	interactive = auto
+	status = auto
+	grep = yes
+
+[merge]
+	tool = vimdiff
+	log = true	
+
+[help]
+	autocorrect = 1
+
+[log]
+	decorate = full

@@ -1,2 +1,6 @@
 history
 __*
+netrwhist
+*.dat
+*.log
+log
