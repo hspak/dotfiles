@@ -42,9 +42,9 @@ key_page_down = 'd'
 #
 #key_volume_down = 260 '-'
 #
-#key_prev_column = 260
+key_prev_column = 260 'h'
 #
-#key_next_column = 261
+key_next_column = 261 'l'
 #
 #key_toggle_space_mode = 't'
 #
@@ -110,7 +110,7 @@ key_page_down = 'd'
 #
 #key_set_crossfade = 'X'
 #
-#key_update_db = 'u'
+key_update_db = 'w'
 #
 #key_sort_playlist = 22
 #

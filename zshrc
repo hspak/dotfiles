@@ -56,4 +56,5 @@ PROMPT='%B┌ %{$fg[blue]%}%n%b%{$reset_color%}@%B%{$fg[blue]%}%m%b %{$reset_col
 
 # Environmental
 export TERM=gnome-256color
+[ -n "$TMUX" ] && export TERM=screen-256color
 export EDITOR=vim

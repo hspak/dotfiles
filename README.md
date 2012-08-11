@@ -6,7 +6,6 @@
 * Cower
 * Ranger
 * Sublime Text 2
-* Transmission-cli
 * VLC
 * VIM
 * Bash
