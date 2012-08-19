@@ -3,4 +3,5 @@ __*
 .netrwhist
 *.dat
 *.log
+*.pyc
 log

@@ -102,6 +102,7 @@ cmap w!! w !sudo tee % >/dev/null<CR>:e!<CR><CR>
 " set bg=dark
 
 colorscheme inkpot_mod
+colorscheme neverland2
 
 if has("autocmd")
     au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
@@ -113,20 +114,6 @@ autocmd FileType c        setlocal ts=8 sts=8 sw=8
 autocmd FileType make     setlocal noet
 autocmd FileType Makefile setlocal noet
 autocmd Filetype python   setlocal sw=4 ts=4 noet
-
-" Tex
-" -------------------------------------
-"set grepprg=grep\ -nH\ $*
-"let g:tex_flavor = "latex"
-"set runtimepath=~/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,~/.vim/after
-
-"Haskell
-" -------------------------------------
-" use ghc functionality for haskell files
-"au Bufenter *.hs compiler ghc
-
-"configure browser for haskell_doc.vim
-" let g:haddock_browser = "/usr/bin/google-chrome"
 
 " modeline
 " -------------------------------------

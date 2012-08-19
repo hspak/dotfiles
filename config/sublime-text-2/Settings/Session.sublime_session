@@ -210,18 +210,10 @@
 			"buffers":
 			[
 				{
-					"file": "/home/hsp/Dropbox/code/C/celi/celi_new.c",
+					"file": "/home/hsp/.config/sublime-text-2/Packages/Vintage/Default.sublime-keymap",
 					"settings":
 					{
-						"buffer_size": 1276,
-						"line_ending": "Unix"
-					}
-				},
-				{
-					"file": "/home/hsp/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
-					"settings":
-					{
-						"buffer_size": 424,
+						"buffer_size": 34362,
 						"line_ending": "Unix"
 					}
 				},
@@ -229,7 +221,39 @@
 					"file": "/home/hsp/Dropbox/code/C/celi/celi.c",
 					"settings":
 					{
-						"buffer_size": 11053,
+						"buffer_size": 9098,
+						"line_ending": "Unix"
+					}
+				},
+				{
+					"file": "/media/school/ENGR132/final project/GUI Final/GUI3.m",
+					"settings":
+					{
+						"buffer_size": 11160,
+						"line_ending": "Unix"
+					}
+				},
+				{
+					"file": "/home/hsp/Dropbox/code/C/2darray/2darray.c",
+					"settings":
+					{
+						"buffer_size": 981,
+						"line_ending": "Unix"
+					}
+				},
+				{
+					"file": "/home/hsp/Dropbox/code/C/2darray/array.c",
+					"settings":
+					{
+						"buffer_size": 370,
+						"line_ending": "Unix"
+					}
+				},
+				{
+					"file": "/home/hsp/Dropbox/code/C/celi/celi_old.c",
+					"settings":
+					{
+						"buffer_size": 11035,
 						"line_ending": "Unix"
 					}
 				}
@@ -237,9 +261,33 @@
 			"build_system": "",
 			"command_palette":
 			{
-				"height": 152.0,
+				"height": 392.0,
 				"selected_items":
 				[
+					[
+						":w",
+						":w - Save"
+					],
+					[
+						"align ",
+						"Preferences: Alignment File Settings – Syntax Specific – User"
+					],
+					[
+						"align",
+						"Preferences: Alignment File Settings – User"
+					],
+					[
+						"pref",
+						"Preferences: Settings - User"
+					],
+					[
+						":W",
+						":w - Save"
+					],
+					[
+						"pack re",
+						"Package Control: Remove Package"
+					],
 					[
 						"user",
 						"Preferences: Settings - User"
@@ -247,10 +295,6 @@
 					[
 						"pac re",
 						"Package Control: Remove Package"
-					],
-					[
-						":w",
-						":w - Save"
 					],
 					[
 						"side",
@@ -298,11 +342,25 @@
 			},
 			"file_history":
 			[
+				"/home/hsp/Dropbox/code/C/celi/celi.c",
+				"/home/hsp/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
+				"/home/hsp/.config/sublime-text-2/Packages/Default/Default (Linux).sublime-keymap",
+				"/home/hsp/.config/sublime-text-2/Packages/Vintage/Default (Linux).sublime-keymap",
+				"/home/hsp/.config/sublime-text-2/Packages/Vintage/Default.sublime-keymap",
+				"/home/hsp/.config/sublime-text-2/Packages/User/Package Control.sublime-settings",
+				"/home/hsp/.config/sublime-text-2/Packages/User/Default (Windows).sublime-keymap",
+				"/home/hsp/.config/sublime-text-2/Packages/User/Default (OSX).sublime-keymap",
+				"/home/hsp/.config/sublime-text-2/Packages/User/Default (Linux).sublime-keymap",
+				"/home/hsp/.config/sublime-text-2/Packages/User/C.sublime-settings",
+				"/home/hsp/.config/sublime-text-2/Packages/User/Base File.sublime-settings",
+				"/home/hsp/.config/sublime-text-2/Packages/Alignment/Default (Linux).sublime-keymap",
+				"/home/hsp/.config/sublime-text-2/Packages/Terminal/Base File.sublime-settings",
+				"/home/hsp/Dropbox/code/C/celi/celi_old.c",
+				"/home/hsp/Dropbox/code/C/celi/celi_new.c",
 				"/home/hsp/Dropbox/code/C/ptd/ptd.c",
 				"/home/hsp/dotfiles/README.md",
 				"/media/unorganized/The Big Book of Words You Should Know- Over 3,000 Words Every Person Should be Able to Use[Team Nanban]tmrg/README.txt",
 				"/home/hsp/Dropbox/code/C/Mine/fileop.h",
-				"/home/hsp/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
 				"/home/hsp/Dropbox/code/C/Mine/fileop.c",
 				"/home/hsp/.config/sublime-text-2/Packages/Default/Preferences.sublime-settings",
 				"/home/hsp/.config/sublime-text-2/Packages/User/Distraction Free.sublime-settings",
@@ -311,7 +369,6 @@
 				"/home/hsp/Dropbox/code/C/enumfail/test.c",
 				"/home/hsp/.config/sublime-text-2/Packages/C++/C.sublime-settings",
 				"/home/hsp/Dropbox/code/C/junk/fscanf.c",
-				"/home/hsp/Dropbox/code/C/celi/celi.c",
 				"/home/hsp/Dropbox/code/C/pointer/test.c",
 				"/home/hsp/Dropbox/code/C++/multi cin.cpp",
 				"/home/hsp/Dropbox/code/C/Headers/confutil.c",
@@ -319,7 +376,6 @@
 				"/home/hsp/.config/sublime-text-2/Packages/C++/Indentation Rules.tmPreferences",
 				"/home/hsp/Dropbox/code/C/test.c",
 				"/home/hsp/.config/sublime-text-2/Packages/Vintage/Preferences.sublime-settings",
-				"/home/hsp/.config/sublime-text-2/Packages/User/Default (Linux).sublime-keymap",
 				"/home/hsp/.vim/colors/molokai.vim",
 				"/media/Linux Wifi  A guide to tuning your wifi for adverse conditions..mhtml",
 				"/home/hsp/Desktop/Home.desktop",
@@ -329,7 +385,7 @@
 			],
 			"find":
 			{
-				"height": 0.0
+				"height": 34.0
 			},
 			"find_in_files":
 			{
@@ -343,6 +399,29 @@
 				"case_sensitive": false,
 				"find_history":
 				[
+					"	\n",
+					"celi->err",
+					"max_col",
+					"prev_is_num",
+					"prev_no_num",
+					"line_rc",
+					"line_cc",
+					"reset",
+					"parseOptions",
+					"malloc",
+					"strlen(buf)",
+					" &",
+					"int **matrix",
+					"sadasd",
+					"celi.",
+					"->",
+					"inc",
+					"cfg.opt_name",
+					";\n",
+					"	\n",
+					"enum",
+					"actions",
+					">\n",
 					"dir",
 					"word",
 					"4",
@@ -357,6 +436,17 @@
 				"regex": false,
 				"replace_history":
 				[
+					"celi->no_act",
+					"prev_not_num",
+					"prev_not_num\nprev_is_num",
+					"prev_is_num\nprev_is_num",
+					"\nprev_is_num",
+					"file_rc",
+					"line_rc",
+					"line_cc",
+					"double **matrix",
+					"celi->",
+					" = ",
 					"dir_path\ndir_path"
 				],
 				"reverse": false,
@@ -368,49 +458,23 @@
 			"groups":
 			[
 				{
-					"selected": 0,
+					"selected": 2,
 					"sheets":
 					[
 						{
 							"buffer": 0,
-							"file": "/home/hsp/Dropbox/code/C/celi/celi_new.c",
+							"file": "/home/hsp/.config/sublime-text-2/Packages/Vintage/Default.sublime-keymap",
 							"settings":
 							{
-								"buffer_size": 1276,
+								"buffer_size": 34362,
 								"regions":
 								{
 								},
 								"selection":
 								[
 									[
-										575,
-										575
-									]
-								],
-								"settings":
-								{
-									"syntax": "Packages/C++/C.tmLanguage"
-								},
-								"translation.x": 0.0,
-								"translation.y": 0.0,
-								"zoom_level": 1.0
-							},
-							"type": "text"
-						},
-						{
-							"buffer": 1,
-							"file": "/home/hsp/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
-							"settings":
-							{
-								"buffer_size": 424,
-								"regions":
-								{
-								},
-								"selection":
-								[
-									[
-										422,
-										422
+										9233,
+										9233
 									]
 								],
 								"settings":
@@ -419,31 +483,25 @@
 									"translate_tabs_to_spaces": false
 								},
 								"translation.x": 0.0,
-								"translation.y": 0.0,
+								"translation.y": 4229.0,
 								"zoom_level": 1.0
 							},
 							"type": "text"
-						}
-					]
-				},
-				{
-					"selected": 0,
-					"sheets":
-					[
+						},
 						{
-							"buffer": 2,
+							"buffer": 1,
 							"file": "/home/hsp/Dropbox/code/C/celi/celi.c",
 							"settings":
 							{
-								"buffer_size": 11053,
+								"buffer_size": 9098,
 								"regions":
 								{
 								},
 								"selection":
 								[
 									[
-										2312,
-										2312
+										5766,
+										5766
 									]
 								],
 								"settings":
@@ -452,7 +510,116 @@
 									"translate_tabs_to_spaces": false
 								},
 								"translation.x": 0.0,
-								"translation.y": 1022.0,
+								"translation.y": 2879.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						},
+						{
+							"buffer": 2,
+							"file": "/media/school/ENGR132/final project/GUI Final/GUI3.m",
+							"settings":
+							{
+								"buffer_size": 11160,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										0,
+										0
+									]
+								],
+								"settings":
+								{
+									"syntax": "Packages/Matlab/Matlab.tmLanguage",
+									"tab_size": 4,
+									"translate_tabs_to_spaces": true
+								},
+								"translation.x": 0.0,
+								"translation.y": 2898.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						},
+						{
+							"buffer": 3,
+							"file": "/home/hsp/Dropbox/code/C/2darray/2darray.c",
+							"settings":
+							{
+								"buffer_size": 981,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										114,
+										114
+									]
+								],
+								"settings":
+								{
+									"syntax": "Packages/C++/C.tmLanguage",
+									"translate_tabs_to_spaces": false
+								},
+								"translation.x": 0.0,
+								"translation.y": 84.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						},
+						{
+							"buffer": 4,
+							"file": "/home/hsp/Dropbox/code/C/2darray/array.c",
+							"settings":
+							{
+								"buffer_size": 370,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										270,
+										270
+									]
+								],
+								"settings":
+								{
+									"syntax": "Packages/C++/C.tmLanguage",
+									"translate_tabs_to_spaces": false
+								},
+								"translation.x": 0.0,
+								"translation.y": 0.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						},
+						{
+							"buffer": 5,
+							"file": "/home/hsp/Dropbox/code/C/celi/celi_old.c",
+							"settings":
+							{
+								"buffer_size": 11035,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										0,
+										0
+									]
+								],
+								"settings":
+								{
+									"syntax": "Packages/C++/C.tmLanguage",
+									"translate_tabs_to_spaces": false
+								},
+								"translation.x": 0.0,
+								"translation.y": 343.0,
 								"zoom_level": 1.0
 							},
 							"type": "text"
@@ -477,18 +644,11 @@
 						0,
 						1,
 						1
-					],
-					[
-						1,
-						0,
-						2,
-						1
 					]
 				],
 				"cols":
 				[
 					0.0,
-					0.5,
 					1.0
 				],
 				"rows":
@@ -498,7 +658,11 @@
 				]
 			},
 			"menu_visible": true,
-			"position": "0,1,0,0,0,800,27,1599,870,1600,900",
+			"output.exec":
+			{
+				"height": 94.0
+			},
+			"position": "0,0,0,0,0,0,27,799,870,1600,900",
 			"replace":
 			{
 				"height": 62.0

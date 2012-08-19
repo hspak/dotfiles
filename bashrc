@@ -21,7 +21,7 @@ ulimit -S -c 0
 #PS1='[\u@\h \W]\$ '
 #PS1='\e[1;37m┌ \e[1;94m\u\e[0;37m@\e[1;94m\h\e[1;37m \e[1;37m[\w]\n\e[1;37m└╼ \$\e[0m '
 PS1='\e[1;37m┌ \e[1;94m\u\e[0;37m@\e[1;94m\h\e[1;37m \e[1;37m[\w]\n\[\e[1;37m\]└╼ \$\[\e[0m\] '
-PS1="\[\\e[G\]$PS1"
+# PS1="\[\\e[G\]$PS1"
 #─  
 # -- Set vi bindings
 set -o vi

@@ -1,4 +1,3 @@
 xmodmap /home/hsp/.Xmodmap
-transmission-daemon
 
 sleep 10 && dropboxd &

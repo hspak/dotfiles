@@ -13,7 +13,6 @@ if [ "${HDMI}" != "" ]; then
     xrandr --output HDMI1 --mode 1920x1080 --pos 0x0
 	xrandr --output LVDS1 --off
 	xrandr --output VGA1 --off
-	xset -dpms
     # xrandr --output HDMI1 --mode 1920x1080 --pos 0x0 --output LVDS1 --mode 1600x900 --pos 1920x0
 elif [ "${VGA}" != "" ]; then
     xrandr --output VGA1 --mode 1920x1080 --pos 0x0 --output LVDS1 --off
@@ -21,9 +20,3 @@ elif [ "${VGA}" != "" ]; then
 else
     xrandr --auto
 fi
-
-pkill dzen2
-pkill conky
-dzonky &
-cd /home/hsp/bridge/image/wallpaper/
-feh --bg-scale arch-mos.png &

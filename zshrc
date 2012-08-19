@@ -42,6 +42,10 @@ case $TERM in
 		 preexec () { print -Pn "\e]0;$1\a" }
 		;;
 esac
+
+# Allow backspace past insert position in vi-mode
+zle -A .backward-kill-word vi-backward-kill-word
+zle -A .backward-delete-char vi-backward-delete-char
                                  
 # Enable git in prompt
 zstyle ':vcs_info:*' enable git   
