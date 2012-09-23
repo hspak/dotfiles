@@ -5,5 +5,5 @@
 
 read -p 'Enter Youtube URL: ' url
 
-cd /home/hsp/bridge/videos/
+cd /media/videos/
 youtube-dl -l $url

@@ -102,7 +102,7 @@ cmap w!! w !sudo tee % >/dev/null<CR>:e!<CR><CR>
 " set bg=dark
 
 colorscheme inkpot_mod
-colorscheme neverland2
+" colorscheme neverland2
 
 if has("autocmd")
     au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif

@@ -10,8 +10,8 @@ alias su='su -'
 alias ..='cd ..'
 alias ....='cd ../..'
 alias grep='grep --color'
-alias sdown='sudo rmmod e1000e && sudo rmmod ehci_hcd && sudo systemctl poweroff'
-alias reboot='sudo rmmod e1000e && sudo rmmod ehci_hcd && sudo systemctl reboot'
+alias sdown='sudo rmmod e1000e && sudo systemctl poweroff'
+alias reboot='sudo rmmod e1000e && sudo systemctl reboot'
 
 # -- 1 line Commands
 alias extern_ip='curl -# checkmyip.com '
@@ -19,7 +19,7 @@ alias sprunge='curl -F "sprunge=<-" http://sprunge.us'
 alias scrompbox='scrot -s '"'"'%Y%m%d.png'"'"' -e '"'"'ompload $f && mv $f ~/bridge/image/screeny/'"'"''
 alias scromp='scrot '"'"'%Y%m%d.png'"'"' -e '"'"'ompload $f && mv $f ~/bridge/image/screeny/'"'"''
 alias aurvote='aurvote --configure && aurvote -v $(pacman -Qqm) && rm /home/hsp/.config/aurvote'
-alias lap_mon_on='xrandr --output LVDS1 --mode 1600x900 --pos 1920x0 --output HDMI1 --primary'
+alias lap_mon_on='xrandr --output LVDS1 --mode 1600x900 --left-of HDMI1 --output HDMI1 --primary'
 alias google-chrome='google-chrome --disk-cache-dir=/tmp'
 
 alias mpd_start='sudo systemctl start mpd.service'
@@ -57,5 +57,7 @@ alias gita='git add .'
 alias gitc='git commit -m'
 alias gitpom='git push -u origin master'
 alias gitstat='git status'
+
+alias ece264='cd ~/Dropbox/code/ece264/'
 
 # vim: set syn=sh :

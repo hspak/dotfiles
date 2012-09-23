@@ -31,6 +31,11 @@ setopt completealiases
 
 # Enable vi mode
 bindkey -v
+
+# External Config
+if [[ -r ~/.dircolors ]] && type -p dircolors >/dev/null; then
+	  eval $(dircolors -b "$HOME/.dircolors")
+fi
  
 # Enable setting terminal titles
 case $TERM in
@@ -59,6 +64,6 @@ PROMPT='%B┌ %{$fg[blue]%}%n%b%{$reset_color%}@%B%{$fg[blue]%}%m%b %{$reset_col
 └╼ $%b %{$reset_color%}'
 
 # Environmental
-export TERM=gnome-256color
+ # export TERM=gnome-256color
 [ -n "$TMUX" ] && export TERM=screen-256color
 export EDITOR=vim
