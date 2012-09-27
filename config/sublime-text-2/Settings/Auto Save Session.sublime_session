@@ -1,8 +1,12 @@
 {
 	"folder_history":
 	[
+		"/home/hsp/Dropbox/code/ece264/ipa1_2",
+		"/home/hsp/Dropbox/code/C/simpfand",
+		"/home/hsp/Dropbox/code/ece264/ex4",
+		"/home/hsp/Dropbox/code/ece264/ip1_1"
 	],
-	"last_window_id": 5,
+	"last_window_id": 8,
 	"settings":
 	{
 		"new_window_height": 0.0,
@@ -17,16 +21,60 @@
 			"build_system": "",
 			"command_palette":
 			{
-				"height": 52.0,
+				"height": 232.0,
 				"selected_items":
 				[
 					[
-						"pack remove ",
+						":w",
+						":w - Save"
+					],
+					[
+						"pref",
+						"Preferences: Settings - User"
+					],
+					[
+						"align",
+						"Preferences: Alignment Key Bindings – Default"
+					],
+					[
+						"user ",
+						"Preferences: Settings - User"
+					],
+					[
+						"pre",
+						"Preferences: Settings - Default"
+					],
+					[
+						"align ",
+						"Preferences: Alignment File Settings – Syntax Specific – User"
+					],
+					[
+						":W",
+						":w - Save"
+					],
+					[
+						"pack re",
 						"Package Control: Remove Package"
 					],
 					[
 						"user",
 						"Preferences: Settings - User"
+					],
+					[
+						"pac re",
+						"Package Control: Remove Package"
+					],
+					[
+						"side",
+						"View: Toggle Side Bar"
+					],
+					[
+						"defaul",
+						"Preferences: Settings - Default"
+					],
+					[
+						"pack remove ",
+						"Package Control: Remove Package"
 					],
 					[
 						"pac in",
@@ -37,19 +85,11 @@
 						"Package Control: Install Package"
 					],
 					[
-						":w",
-						":w - Save"
-					],
-					[
-						"user ",
-						"Preferences: Key Bindings - User"
-					],
-					[
 						"Package Control: install",
 						"Package Control: Install Package"
 					]
 				],
-				"width": 593.0
+				"width": 484.0
 			},
 			"console":
 			{
@@ -66,16 +106,86 @@
 			},
 			"file_history":
 			[
-				"/home/hsp/Dropbox/code/C/Mine/fileop.c",
-				"/home/hsp/.config/sublime-text-2/Packages/Default/Preferences.sublime-settings",
+				"/home/hsp/Dropbox/code/C/simpfand/README",
 				"/home/hsp/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
+				"/home/hsp/Downloads/mbpfan/mbpfan.c",
+				"/home/hsp/.config/sublime-text-2/Packages/Alignment/Default (Linux).sublime-keymap",
+				"/home/hsp/Dropbox/code/C/simpfand/Makefile",
+				"/home/hsp/Dropbox/code/C/tpfand/tpfand.c",
+				"/home/hsp/Dropbox/code/ece264/array5.c",
+				"/home/hsp/Dropbox/code/ece264/array3.c",
+				"/home/hsp/Dropbox/code/ece264/ipa1_2/utility.c",
+				"/home/hsp/Dropbox/code/C/celi/celi.c",
+				"/home/hsp/Dropbox/code/ece264/ipa1_2/utility.h",
+				"/media/unorganized/Windows.7.Activator.v1.2-OaH/w7actv12.nfo",
+				"/media/unorganized/Windows 7 Loader eXtreme Edition v3.503/DiBYA9999.nfo",
+				"/media/unorganized/Windows 7 Loader 1.6.9 by Daz/Keys.ini",
+				"/media/unorganized/ALL WORKING ACTIVATORS/thank you.txt",
+				"/media/unorganized/Windows 7 Loader eXtreme Edition v3.503/Info.txt",
+				"/media/unorganized/Info.txt",
+				"/media/unorganized/Information.txt",
+				"/media/unorganized/Keys.ini",
+				"/home/hsp/Dropbox/code/ece264/ex4/ex4.c",
+				"/home/hsp/Dropbox/code/ece264/ex4/ass/binarysearch.c",
+				"/home/hsp/Dropbox/code/ece264/ex4/binarysearch.c",
+				"/home/hsp/Downloads/test.c",
+				"/home/hsp/Dropbox/code/ece264/ex4/utility.h",
+				"/home/hsp/Dropbox/code/ece264/ex4/Makefile",
+				"/home/hsp/Dropbox/code/ece264/ex4/bleh.c",
+				"/home/hsp/Dropbox/code/ece264/ex3/print.c",
+				"/home/hsp/Dropbox/code/ece264/ex3/ex3.c",
+				"/home/hsp/Dropbox/code/ece264/blah/ex3.c",
+				"/home/hsp/Downloads/swap2.c",
+				"/media/shit/New Text Document.txt",
+				"/media/shit/Companies Applied.txt",
+				"/home/hsp/Dropbox/code/ece264/ip1_1/README",
+				"/home/hsp/Dropbox/code/ece264/ip1_1/mazefunction.h",
+				"/home/hsp/Dropbox/code/ece264/ip1_1/Makefile",
+				"/home/hsp/.config/sublime-text-2/Packages/Default/Preferences.sublime-settings",
+				"/home/hsp/Dropbox/code/ece264/ip1_1/ipa1_1.c",
+				"/home/hsp/Dropbox/code/ece264/ip1_1/mazefunction.c",
+				"/home/hsp/Dropbox/code/ece264/ip1/mazefunction.c",
+				"/home/hsp/Dropbox/code/ece264/ip1/ipa1_1.c",
+				"/home/hsp/Dropbox/code/ece264/ip1/README",
+				"/home/hsp/Dropbox/code/ece264/ip1/Makefile",
+				"/home/hsp/Dropbox/code/ece264/ip1/mazefunction.h",
+				"/home/hsp/Dropbox/code/ece264/ex2/Makefile",
+				"/home/hsp/Dropbox/code/ece264/ex2/utility.h",
+				"/media/unorganized/Microsoft Office 2010 Professional Plus x64 Extracted Ready to Install Fully Activated/readme (3).txt",
+				"/media/unorganized/Microsoft Office 2010 Professional Plus x64 Extracted Ready to Install Fully Activated/readme (2).txt",
+				"/home/hsp/Dropbox/code/ece264/ex2/ex2.c",
+				"/home/hsp/Dropbox/code/ece264/ex2/utility.c",
+				"/home/hsp/Dropbox/code/ece264/ex2/README",
+				"/media/unorganized/Microsoft Office 2010 Professional Plus x64 Extracted Ready to Install Fully Activated/ReadMe.txt",
+				"/home/hsp/Dropbox/code/C/celi/celi_old.c",
+				"/home/hsp/Dropbox/code/C/2darray/array.c",
+				"/home/hsp/Dropbox/code/C/2darray/2darray.c",
+				"/home/hsp/.config/sublime-text-2/Packages/Vintage/Default.sublime-keymap",
+				"/home/hsp/Dropbox/code/ece264/ex1/ex1.c",
+				"/media/school/ENGR132/final project/GUI Final/GUI3.m",
+				"/media/unorganized/Windows.7.ULTIMATE.x86.x64.Fully.Activated.August 2010-CHR/chr.nfo",
+				"/media/unorganized/chr.nfo",
+				"/home/hsp/.config/sublime-text-2/Packages/Default/Default (Linux).sublime-keymap",
+				"/home/hsp/.config/sublime-text-2/Packages/Vintage/Default (Linux).sublime-keymap",
+				"/home/hsp/.config/sublime-text-2/Packages/User/Package Control.sublime-settings",
+				"/home/hsp/.config/sublime-text-2/Packages/User/Default (Windows).sublime-keymap",
+				"/home/hsp/.config/sublime-text-2/Packages/User/Default (OSX).sublime-keymap",
+				"/home/hsp/.config/sublime-text-2/Packages/User/Default (Linux).sublime-keymap",
+				"/home/hsp/.config/sublime-text-2/Packages/User/C.sublime-settings",
+				"/home/hsp/.config/sublime-text-2/Packages/User/Base File.sublime-settings",
+				"/home/hsp/.config/sublime-text-2/Packages/Terminal/Base File.sublime-settings",
+				"/home/hsp/Dropbox/code/C/celi/celi_new.c",
+				"/home/hsp/Dropbox/code/C/ptd/ptd.c",
+				"/home/hsp/dotfiles/README.md",
+				"/media/unorganized/The Big Book of Words You Should Know- Over 3,000 Words Every Person Should be Able to Use[Team Nanban]tmrg/README.txt",
+				"/home/hsp/Dropbox/code/C/Mine/fileop.h",
+				"/home/hsp/Dropbox/code/C/Mine/fileop.c",
 				"/home/hsp/.config/sublime-text-2/Packages/User/Distraction Free.sublime-settings",
 				"/home/hsp/.config/sublime-text-2/Packages/User/JSON.sublime-settings",
 				"/home/hsp/.config/sublime-text-2/Packages/C++/C++.sublime-settings",
 				"/home/hsp/Dropbox/code/C/enumfail/test.c",
 				"/home/hsp/.config/sublime-text-2/Packages/C++/C.sublime-settings",
 				"/home/hsp/Dropbox/code/C/junk/fscanf.c",
-				"/home/hsp/Dropbox/code/C/celi/celi.c",
 				"/home/hsp/Dropbox/code/C/pointer/test.c",
 				"/home/hsp/Dropbox/code/C++/multi cin.cpp",
 				"/home/hsp/Dropbox/code/C/Headers/confutil.c",
@@ -83,7 +193,6 @@
 				"/home/hsp/.config/sublime-text-2/Packages/C++/Indentation Rules.tmPreferences",
 				"/home/hsp/Dropbox/code/C/test.c",
 				"/home/hsp/.config/sublime-text-2/Packages/Vintage/Preferences.sublime-settings",
-				"/home/hsp/.config/sublime-text-2/Packages/User/Default (Linux).sublime-keymap",
 				"/home/hsp/.vim/colors/molokai.vim",
 				"/media/Linux Wifi  A guide to tuning your wifi for adverse conditions..mhtml",
 				"/home/hsp/Desktop/Home.desktop",
@@ -93,7 +202,7 @@
 			],
 			"find":
 			{
-				"height": 0.0
+				"height": 34.0
 			},
 			"find_in_files":
 			{
@@ -104,9 +213,63 @@
 			},
 			"find_state":
 			{
-				"case_sensitive": false,
+				"case_sensitive": true,
 				"find_history":
 				[
+					"val",
+					"cfg.",
+					"config",
+					"h",
+					"config_exist",
+					"INC_DEC",
+					"temp",
+					"ceil",
+					"new_temp",
+					"count_col",
+					"count_row",
+					"**",
+					"rc",
+					"read_char",
+					"col_count",
+					"fscanf",
+					"-1",
+					"sort error",
+					"    ",
+					"tab",
+					"row",
+					"max_count",
+					"col",
+					"rc",
+					"so",
+					"printf",
+					"matrix",
+					"cur",
+					"300",
+					"	\n",
+					"celi->err",
+					"max_col",
+					"prev_is_num",
+					"prev_no_num",
+					"line_rc",
+					"line_cc",
+					"reset",
+					"parseOptions",
+					"malloc",
+					"strlen(buf)",
+					" &",
+					"int **matrix",
+					"sadasd",
+					"celi.",
+					"->",
+					"inc",
+					"cfg.opt_name",
+					";\n",
+					"	\n",
+					"enum",
+					"actions",
+					">\n",
+					"dir",
+					"word",
 					"4",
 					"save",
 					"        { \"key\": \"following_text\", \"operator\": \"regex_contains\", \"operand\": \"^[)\\\"\\\\]]\", \"match_all\": true },\n        { \"key\": \"auto_complete_visible\", \"operator\": \"equal\", \"operand\": false }\n    ]   \n}\n",
@@ -114,11 +277,39 @@
 					"    "
 				],
 				"highlight": true,
-				"in_selection": false,
+				"in_selection": true,
 				"preserve_case": false,
 				"regex": false,
 				"replace_history":
 				[
+					"read_val",
+					"cfg->",
+					"config_path_exists",
+					"DEC",
+					"new_temp",
+					"temp",
+					"col_count",
+					"row_count",
+					"*",
+					"read_ch",
+					"row_count",
+					"count_row",
+					"max",
+					"count_col",
+					"read_char",
+					"sol",
+					"celi->no_act",
+					"prev_not_num",
+					"prev_not_num\nprev_is_num",
+					"prev_is_num\nprev_is_num",
+					"\nprev_is_num",
+					"file_rc",
+					"line_rc",
+					"line_cc",
+					"double **matrix",
+					"celi->",
+					" = ",
+					"dir_path\ndir_path"
 				],
 				"reverse": false,
 				"show_context": true,
@@ -143,18 +334,11 @@
 						0,
 						1,
 						1
-					],
-					[
-						1,
-						0,
-						2,
-						1
 					]
 				],
 				"cols":
 				[
 					0.0,
-					0.5,
 					1.0
 				],
 				"rows":
@@ -164,9 +348,13 @@
 				]
 			},
 			"menu_visible": true,
+			"output.exec":
+			{
+				"height": 94.0
+			},
 			"replace":
 			{
-				"height": 0.0
+				"height": 62.0
 			},
 			"save_all_on_build": true,
 			"select_file":
@@ -210,42 +398,58 @@
 			"buffers":
 			[
 				{
-					"file": "/home/hsp/.config/sublime-text-2/Packages/Vintage/Default.sublime-keymap",
+					"file": "/home/hsp/Dropbox/code/C/simpfand/LICENSE",
 					"settings":
 					{
-						"buffer_size": 34362,
+						"buffer_size": 577,
 						"line_ending": "Unix"
 					}
 				},
 				{
-					"file": "/home/hsp/Dropbox/code/C/celi/celi.c",
+					"file": "/home/hsp/Dropbox/code/C/simpfand/parse.h",
 					"settings":
 					{
-						"buffer_size": 9098,
+						"buffer_size": 1255,
 						"line_ending": "Unix"
 					}
 				},
 				{
-					"file": "/home/hsp/Dropbox/code/C/2darray/2darray.c",
+					"file": "/home/hsp/Dropbox/code/C/simpfand/parse.c",
 					"settings":
 					{
-						"buffer_size": 981,
+						"buffer_size": 2945,
 						"line_ending": "Unix"
 					}
 				},
 				{
-					"file": "/home/hsp/Dropbox/code/C/2darray/array.c",
+					"file": "/home/hsp/Dropbox/code/C/simpfand/simpfand.conf",
 					"settings":
 					{
-						"buffer_size": 370,
+						"buffer_size": 1377,
 						"line_ending": "Unix"
 					}
 				},
 				{
-					"file": "/home/hsp/Dropbox/code/C/celi/celi_old.c",
+					"file": "/home/hsp/Dropbox/code/C/simpfand/Makefile",
 					"settings":
 					{
-						"buffer_size": 11035,
+						"buffer_size": 472,
+						"line_ending": "Unix"
+					}
+				},
+				{
+					"file": "/home/hsp/Dropbox/code/C/simpfand/simpfand.c",
+					"settings":
+					{
+						"buffer_size": 2961,
+						"line_ending": "Unix"
+					}
+				},
+				{
+					"file": "/home/hsp/Dropbox/code/C/simpfand/README.md",
+					"settings":
+					{
+						"buffer_size": 428,
 						"line_ending": "Unix"
 					}
 				}
@@ -253,7 +457,7 @@
 			"build_system": "",
 			"command_palette":
 			{
-				"height": 392.0,
+				"height": 232.0,
 				"selected_items":
 				[
 					[
@@ -261,16 +465,24 @@
 						":w - Save"
 					],
 					[
-						"align ",
-						"Preferences: Alignment File Settings – Syntax Specific – User"
+						"pref",
+						"Preferences: Settings - User"
 					],
 					[
 						"align",
-						"Preferences: Alignment File Settings – User"
+						"Preferences: Alignment Key Bindings – Default"
 					],
 					[
-						"pref",
+						"user ",
 						"Preferences: Settings - User"
+					],
+					[
+						"pre",
+						"Preferences: Settings - Default"
+					],
+					[
+						"align ",
+						"Preferences: Alignment File Settings – Syntax Specific – User"
 					],
 					[
 						":W",
@@ -309,15 +521,11 @@
 						"Package Control: Install Package"
 					],
 					[
-						"user ",
-						"Preferences: Key Bindings - User"
-					],
-					[
 						"Package Control: install",
 						"Package Control: Install Package"
 					]
 				],
-				"width": 593.0
+				"width": 484.0
 			},
 			"console":
 			{
@@ -334,27 +542,80 @@
 			},
 			"file_history":
 			[
-				"/home/hsp/Dropbox/code/C/celi/celi.c",
+				"/home/hsp/Dropbox/code/C/simpfand/README",
 				"/home/hsp/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
+				"/home/hsp/Downloads/mbpfan/mbpfan.c",
+				"/home/hsp/.config/sublime-text-2/Packages/Alignment/Default (Linux).sublime-keymap",
+				"/home/hsp/Dropbox/code/C/simpfand/Makefile",
+				"/home/hsp/Dropbox/code/C/tpfand/tpfand.c",
+				"/home/hsp/Dropbox/code/ece264/array5.c",
+				"/home/hsp/Dropbox/code/ece264/array3.c",
+				"/home/hsp/Dropbox/code/ece264/ipa1_2/utility.c",
+				"/home/hsp/Dropbox/code/C/celi/celi.c",
+				"/home/hsp/Dropbox/code/ece264/ipa1_2/utility.h",
+				"/media/unorganized/Windows.7.Activator.v1.2-OaH/w7actv12.nfo",
+				"/media/unorganized/Windows 7 Loader eXtreme Edition v3.503/DiBYA9999.nfo",
+				"/media/unorganized/Windows 7 Loader 1.6.9 by Daz/Keys.ini",
+				"/media/unorganized/ALL WORKING ACTIVATORS/thank you.txt",
+				"/media/unorganized/Windows 7 Loader eXtreme Edition v3.503/Info.txt",
+				"/media/unorganized/Info.txt",
+				"/media/unorganized/Information.txt",
+				"/media/unorganized/Keys.ini",
+				"/home/hsp/Dropbox/code/ece264/ex4/ex4.c",
+				"/home/hsp/Dropbox/code/ece264/ex4/ass/binarysearch.c",
+				"/home/hsp/Dropbox/code/ece264/ex4/binarysearch.c",
+				"/home/hsp/Downloads/test.c",
+				"/home/hsp/Dropbox/code/ece264/ex4/utility.h",
+				"/home/hsp/Dropbox/code/ece264/ex4/Makefile",
+				"/home/hsp/Dropbox/code/ece264/ex4/bleh.c",
+				"/home/hsp/Dropbox/code/ece264/ex3/print.c",
+				"/home/hsp/Dropbox/code/ece264/ex3/ex3.c",
+				"/home/hsp/Dropbox/code/ece264/blah/ex3.c",
+				"/home/hsp/Downloads/swap2.c",
+				"/media/shit/New Text Document.txt",
+				"/media/shit/Companies Applied.txt",
+				"/home/hsp/Dropbox/code/ece264/ip1_1/README",
+				"/home/hsp/Dropbox/code/ece264/ip1_1/mazefunction.h",
+				"/home/hsp/Dropbox/code/ece264/ip1_1/Makefile",
+				"/home/hsp/.config/sublime-text-2/Packages/Default/Preferences.sublime-settings",
+				"/home/hsp/Dropbox/code/ece264/ip1_1/ipa1_1.c",
+				"/home/hsp/Dropbox/code/ece264/ip1_1/mazefunction.c",
+				"/home/hsp/Dropbox/code/ece264/ip1/mazefunction.c",
+				"/home/hsp/Dropbox/code/ece264/ip1/ipa1_1.c",
+				"/home/hsp/Dropbox/code/ece264/ip1/README",
+				"/home/hsp/Dropbox/code/ece264/ip1/Makefile",
+				"/home/hsp/Dropbox/code/ece264/ip1/mazefunction.h",
+				"/home/hsp/Dropbox/code/ece264/ex2/Makefile",
+				"/home/hsp/Dropbox/code/ece264/ex2/utility.h",
+				"/media/unorganized/Microsoft Office 2010 Professional Plus x64 Extracted Ready to Install Fully Activated/readme (3).txt",
+				"/media/unorganized/Microsoft Office 2010 Professional Plus x64 Extracted Ready to Install Fully Activated/readme (2).txt",
+				"/home/hsp/Dropbox/code/ece264/ex2/ex2.c",
+				"/home/hsp/Dropbox/code/ece264/ex2/utility.c",
+				"/home/hsp/Dropbox/code/ece264/ex2/README",
+				"/media/unorganized/Microsoft Office 2010 Professional Plus x64 Extracted Ready to Install Fully Activated/ReadMe.txt",
+				"/home/hsp/Dropbox/code/C/celi/celi_old.c",
+				"/home/hsp/Dropbox/code/C/2darray/array.c",
+				"/home/hsp/Dropbox/code/C/2darray/2darray.c",
+				"/home/hsp/.config/sublime-text-2/Packages/Vintage/Default.sublime-keymap",
+				"/home/hsp/Dropbox/code/ece264/ex1/ex1.c",
+				"/media/school/ENGR132/final project/GUI Final/GUI3.m",
+				"/media/unorganized/Windows.7.ULTIMATE.x86.x64.Fully.Activated.August 2010-CHR/chr.nfo",
+				"/media/unorganized/chr.nfo",
 				"/home/hsp/.config/sublime-text-2/Packages/Default/Default (Linux).sublime-keymap",
 				"/home/hsp/.config/sublime-text-2/Packages/Vintage/Default (Linux).sublime-keymap",
-				"/home/hsp/.config/sublime-text-2/Packages/Vintage/Default.sublime-keymap",
 				"/home/hsp/.config/sublime-text-2/Packages/User/Package Control.sublime-settings",
 				"/home/hsp/.config/sublime-text-2/Packages/User/Default (Windows).sublime-keymap",
 				"/home/hsp/.config/sublime-text-2/Packages/User/Default (OSX).sublime-keymap",
 				"/home/hsp/.config/sublime-text-2/Packages/User/Default (Linux).sublime-keymap",
 				"/home/hsp/.config/sublime-text-2/Packages/User/C.sublime-settings",
 				"/home/hsp/.config/sublime-text-2/Packages/User/Base File.sublime-settings",
-				"/home/hsp/.config/sublime-text-2/Packages/Alignment/Default (Linux).sublime-keymap",
 				"/home/hsp/.config/sublime-text-2/Packages/Terminal/Base File.sublime-settings",
-				"/home/hsp/Dropbox/code/C/celi/celi_old.c",
 				"/home/hsp/Dropbox/code/C/celi/celi_new.c",
 				"/home/hsp/Dropbox/code/C/ptd/ptd.c",
 				"/home/hsp/dotfiles/README.md",
 				"/media/unorganized/The Big Book of Words You Should Know- Over 3,000 Words Every Person Should be Able to Use[Team Nanban]tmrg/README.txt",
 				"/home/hsp/Dropbox/code/C/Mine/fileop.h",
 				"/home/hsp/Dropbox/code/C/Mine/fileop.c",
-				"/home/hsp/.config/sublime-text-2/Packages/Default/Preferences.sublime-settings",
 				"/home/hsp/.config/sublime-text-2/Packages/User/Distraction Free.sublime-settings",
 				"/home/hsp/.config/sublime-text-2/Packages/User/JSON.sublime-settings",
 				"/home/hsp/.config/sublime-text-2/Packages/C++/C++.sublime-settings",
@@ -388,9 +649,38 @@
 			},
 			"find_state":
 			{
-				"case_sensitive": false,
+				"case_sensitive": true,
 				"find_history":
 				[
+					"val",
+					"cfg.",
+					"config",
+					"h",
+					"config_exist",
+					"INC_DEC",
+					"temp",
+					"ceil",
+					"new_temp",
+					"count_col",
+					"count_row",
+					"**",
+					"rc",
+					"read_char",
+					"col_count",
+					"fscanf",
+					"-1",
+					"sort error",
+					"    ",
+					"tab",
+					"row",
+					"max_count",
+					"col",
+					"rc",
+					"so",
+					"printf",
+					"matrix",
+					"cur",
+					"300",
 					"	\n",
 					"celi->err",
 					"max_col",
@@ -423,11 +713,27 @@
 					"    "
 				],
 				"highlight": true,
-				"in_selection": false,
+				"in_selection": true,
 				"preserve_case": false,
 				"regex": false,
 				"replace_history":
 				[
+					"read_val",
+					"cfg->",
+					"config_path_exists",
+					"DEC",
+					"new_temp",
+					"temp",
+					"col_count",
+					"row_count",
+					"*",
+					"read_ch",
+					"row_count",
+					"count_row",
+					"max",
+					"count_col",
+					"read_char",
+					"sol",
 					"celi->no_act",
 					"prev_not_num",
 					"prev_not_num\nprev_is_num",
@@ -450,77 +756,75 @@
 			"groups":
 			[
 				{
-					"selected": 1,
+					"selected": 5,
 					"sheets":
 					[
 						{
 							"buffer": 0,
-							"file": "/home/hsp/.config/sublime-text-2/Packages/Vintage/Default.sublime-keymap",
+							"file": "/home/hsp/Dropbox/code/C/simpfand/LICENSE",
 							"settings":
 							{
-								"buffer_size": 34362,
+								"buffer_size": 577,
 								"regions":
 								{
 								},
 								"selection":
 								[
 									[
-										9235,
-										9235
+										577,
+										577
 									]
 								],
 								"settings":
 								{
-									"syntax": "Packages/JavaScript/JSON.tmLanguage",
-									"translate_tabs_to_spaces": false
+									"syntax": "Packages/C++/C.tmLanguage"
 								},
 								"translation.x": 0.0,
-								"translation.y": 4229.0,
+								"translation.y": 0.0,
 								"zoom_level": 1.0
 							},
 							"type": "text"
 						},
 						{
 							"buffer": 1,
-							"file": "/home/hsp/Dropbox/code/C/celi/celi.c",
+							"file": "/home/hsp/Dropbox/code/C/simpfand/parse.h",
 							"settings":
 							{
-								"buffer_size": 9098,
+								"buffer_size": 1255,
 								"regions":
 								{
 								},
 								"selection":
 								[
 									[
-										5766,
-										5766
+										13,
+										13
 									]
 								],
 								"settings":
 								{
-									"syntax": "Packages/C++/C.tmLanguage",
-									"translate_tabs_to_spaces": false
+									"syntax": "Packages/C++/C.tmLanguage"
 								},
 								"translation.x": 0.0,
-								"translation.y": 2879.0,
+								"translation.y": 0.0,
 								"zoom_level": 1.0
 							},
 							"type": "text"
 						},
 						{
 							"buffer": 2,
-							"file": "/home/hsp/Dropbox/code/C/2darray/2darray.c",
+							"file": "/home/hsp/Dropbox/code/C/simpfand/parse.c",
 							"settings":
 							{
-								"buffer_size": 981,
+								"buffer_size": 2945,
 								"regions":
 								{
 								},
 								"selection":
 								[
 									[
-										116,
-										116
+										1001,
+										1001
 									]
 								],
 								"settings":
@@ -529,25 +833,88 @@
 									"translate_tabs_to_spaces": false
 								},
 								"translation.x": 0.0,
-								"translation.y": 84.0,
+								"translation.y": 966.0,
 								"zoom_level": 1.0
 							},
 							"type": "text"
 						},
 						{
 							"buffer": 3,
-							"file": "/home/hsp/Dropbox/code/C/2darray/array.c",
+							"file": "/home/hsp/Dropbox/code/C/simpfand/simpfand.conf",
 							"settings":
 							{
-								"buffer_size": 370,
+								"buffer_size": 1377,
 								"regions":
 								{
 								},
 								"selection":
 								[
 									[
-										272,
-										272
+										503,
+										503
+									]
+								],
+								"settings":
+								{
+									"syntax": "Packages/ShellScript/Shell-Unix-Generic.tmLanguage"
+								},
+								"translation.x": 0.0,
+								"translation.y": 0.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						},
+						{
+							"buffer": 4,
+							"file": "/home/hsp/Dropbox/code/C/simpfand/Makefile",
+							"settings":
+							{
+								"buffer_size": 472,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										0,
+										0
+									]
+								],
+								"settings":
+								{
+									"syntax": "Packages/Makefile/Makefile.tmLanguage"
+								},
+								"translation.x": 0.0,
+								"translation.y": 0.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						},
+						{
+							"buffer": 5,
+							"file": "/home/hsp/Dropbox/code/C/simpfand/simpfand.c",
+							"settings":
+							{
+								"buffer_size": 2961,
+								"regions":
+								{
+									"bookmark_i":
+									{
+										"flags": 144,
+										"regions":
+										[
+											[
+												138,
+												138
+											]
+										]
+									}
+								},
+								"selection":
+								[
+									[
+										138,
+										138
 									]
 								],
 								"settings":
@@ -562,28 +929,27 @@
 							"type": "text"
 						},
 						{
-							"buffer": 4,
-							"file": "/home/hsp/Dropbox/code/C/celi/celi_old.c",
+							"buffer": 6,
+							"file": "/home/hsp/Dropbox/code/C/simpfand/README.md",
 							"settings":
 							{
-								"buffer_size": 11035,
+								"buffer_size": 428,
 								"regions":
 								{
 								},
 								"selection":
 								[
 									[
-										0,
-										0
+										425,
+										425
 									]
 								],
 								"settings":
 								{
-									"syntax": "Packages/C++/C.tmLanguage",
-									"translate_tabs_to_spaces": false
+									"syntax": "Packages/Markdown/Markdown.tmLanguage"
 								},
 								"translation.x": 0.0,
-								"translation.y": 343.0,
+								"translation.y": 0.0,
 								"zoom_level": 1.0
 							},
 							"type": "text"
@@ -626,7 +992,7 @@
 			{
 				"height": 94.0
 			},
-			"position": "0,0,0,0,0,960,27,1919,1050,1920,1080",
+			"position": "0,0,0,0,0,0,16,796,880,1600,900",
 			"replace":
 			{
 				"height": 62.0
@@ -655,17 +1021,19 @@
 			"show_minimap": true,
 			"show_open_files": true,
 			"show_tabs": true,
-			"side_bar_visible": false,
+			"side_bar_visible": true,
 			"side_bar_width": 180.0,
 			"status_bar_visible": true,
-			"window_id": 1,
-			"workspace_name": ""
+			"window_id": 7,
+			"workspace_name": "/home/hsp/Dropbox/code/sub-projects/simpfand.sublime-project"
 		}
 	],
 	"workspaces":
 	{
 		"recent_workspaces":
 		[
+			"/home/hsp/Dropbox/code/sub-projects/simpfand.sublime-project",
+			"/home/hsp/Dropbox/code/sub-projects/ip1.sublime-project"
 		]
 	}
 }

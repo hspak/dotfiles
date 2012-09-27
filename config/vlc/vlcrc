@@ -3410,7 +3410,7 @@ freetype-outline-thickness=2
 #audio=1
 
 # Default audio volume (integer)
-volume=353
+volume=263
 
 # Audio output volume step (integer)
 #volume-step=32

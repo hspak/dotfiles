@@ -59,5 +59,10 @@ alias gitpom='git push -u origin master'
 alias gitstat='git status'
 
 alias ece264='cd ~/Dropbox/code/ece264/'
+alias PKGBUILDs='cd ~/Dropbox/code/PKGBUILDs/'
+alias cdceli='cd ~/Dropbox/code/C/celi/'
+alias cdsimpfand='cd ~/Dropbox/code/C/simpfand/'
+
+alias sysdaemonrel='sudo systemctl --system daemon-reload'
 
 # vim: set syn=sh :

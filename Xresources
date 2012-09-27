@@ -1,8 +1,8 @@
 ! - Urxvt Settings ------------------------------
-URxvt*perl-ext:			default,url-select
-URxvt*keysym.M-u:       perl:url-select:select_next
-URxvt*urlLauncher:      /usr/bin/google-chrome
-URxvt*underlineURLs:    true
+URxvt*perl-ext:					default,url-select
+URxvt*keysym.M-u:				perl:url-select:select_next
+URxvt*url-select.launcher:      /usr/bin/google-chrome
+URxvt*url-select.underline:		true
 
 URxvt*transparent:		false
 URxvt*matcher.button:	1
@@ -25,8 +25,9 @@ URxvt*saveLines:	512
 URxvt*scrollBar:	false
 URxvt*internalBorder: 0
 
-URxvt*iso14755:     false
-URxvt*iso14755_52:  false
+! URxvt*iso14755:     false
+! URxvt*iso14755_52:  false
+URxvt*iso10646:		true
 
 ! - Terminal Colors -----------------------------
 

@@ -1,15 +1,30 @@
+# Set terminal options
 xrdb -merge ~/.Xresources
 
+# Add extra font pths
 xset +fp /usr/share/fonts/local
 xset fp rehash
 
+# Custom keyboard layout
 xmodmap /home/hsp/.Xmodmap
 
+# Fix dual monitor settings
 mymonitor
+
+# Wait 15 seconds for connection
 delay_dropbox & 
 
-feh --bg-tile /media/image/arch_wood.png
+# Set Wallpaper
+feh --bg-center /media/image/arch_wood.png
 
+# Ibus for Korean input
+ibus-daemon -x -d
+
+# Notification daemon
 dunst &
 
-exec ck-launch-session i3
+# Urxvt daemon
+urxvtd -q -o -f
+
+# Run window manager
+exec i3

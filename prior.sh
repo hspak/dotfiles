@@ -1,6 +1,6 @@
 #!/bin/bash
 
-folders=('cower' 'ranger' 'sonata' 'sublime-text-2' 'vlc' 'i3' 'lilyterm')
+folders=('cower' 'ranger' 'sonata' 'sublime-text-2' 'vlc' 'i3' 'lilyterm' 'dunst')
 
 for i in "${folders[@]}"
 do

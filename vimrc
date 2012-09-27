@@ -99,10 +99,10 @@ au FileType * setl fo-=cro
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 cmap w!! w !sudo tee % >/dev/null<CR>:e!<CR><CR>
 
-" set bg=dark
+set bg=dark
 
-colorscheme inkpot_mod
-" colorscheme neverland2
+" colorscheme inkpot_mod
+colorscheme neverland2
 
 if has("autocmd")
     au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif

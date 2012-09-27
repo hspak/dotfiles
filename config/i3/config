@@ -18,7 +18,7 @@ font -*-fixed-medium-r-*-*-12-*-*-*-*-*-iso10646-*
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Shift+Return exec lilyterm
+bindsym $mod+Shift+Return exec urxvtc
 
 # kill focused window
 bindsym $mod+Shift+Q kill
@@ -110,7 +110,9 @@ bindsym $mod+Shift+E exit
 
 # custom bindings
 bindsym $mod+O		exec google-chrome --disk-cache-dir=/tmp
-bindsym $mod+D		exec urxvt -name "scratchpad"
+bindsym $mod+I		exec thunar
+bindsym $mod+U		exec subl
+bindsym $mod+D		exec urxvtc -name "scratchpad"
 
 # volume control
 bindsym XF86_AudioRaiseVolume	exec /home/hsp/.bin/alsavol increase Master 5
@@ -200,4 +202,4 @@ bar {
   font -*-fixed-medium-r-*-*-12-*-*-*-*-*-iso10646-*
 }
 
-exec lilyterm
+exec urxvtc
