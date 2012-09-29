@@ -22,8 +22,6 @@ alias aurvote='aurvote --configure && aurvote -v $(pacman -Qqm) && rm /home/hsp/
 alias lap_mon_on='xrandr --output LVDS1 --mode 1600x900 --left-of HDMI1 --output HDMI1 --primary'
 alias google-chrome='google-chrome --disk-cache-dir=/tmp'
 
-alias mpd_start='sudo systemctl start mpd.service'
-
 # -- Type less
 alias v='vim'
 alias sv='sudo vim'

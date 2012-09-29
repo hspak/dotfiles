@@ -14,9 +14,6 @@ mymonitor
 # Wait 15 seconds for connection
 delay_dropbox & 
 
-# Set Wallpaper
-feh --bg-center /media/image/arch_wood.png
-
 # Ibus for Korean input
 ibus-daemon -x -d
 

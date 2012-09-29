@@ -18,3 +18,6 @@ elif [ "${VGA}" != "" ]; then
 else
     xrandr --auto
 fi
+
+# Set Wallpaper
+feh --bg-center /media/image/arch_wood.png &
