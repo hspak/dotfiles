@@ -112,7 +112,7 @@ bindsym $mod+Shift+E exit
 bindsym $mod+O		exec google-chrome --disk-cache-dir=/tmp
 bindsym $mod+I		exec thunar
 bindsym $mod+U		exec subl
-bindsym $mod+D		exec urxvtc -name "scratchpad"
+bindsym $mod+D		exec urxvtc -name "urxvt_scratchpad"
 
 # volume control
 bindsym XF86_AudioRaiseVolume	exec /home/hsp/.bin/alsavol increase Master 5
@@ -126,8 +126,6 @@ bindsym $mod+F2					exec mpc toggle
 bindsym $mod+F3					exec mpc next
 bindsym $mod+F4					exec mpc stop
 
-# bindsym $mod+Shift+I          exec xcalib -invert -alter
-
 #
 # Windowing Rules
 #
@@ -139,11 +137,10 @@ assign [class="Google-chrome"]   → 2
 # assign [instance="htop"]    → 3
 
 # for_window [class="Pinentry"] floating enable
-for_window [class="Gxmessage"]		floating enable
-for_window [class="feh"]			floating enable
-for_window [instance="scratchpad"]	floating enable
-for_window [title="scratchpad"]		floating enable
-for_window [instance="thunar"]		floating enable
+for_window [class="Gxmessage"]				floating enable
+for_window [class="feh"]					floating enable
+for_window [instance="urxvtc_scratchpad"]	floating enable
+for_window [instance="thunar"]				floating enable
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -153,17 +150,17 @@ mode "resize" {
   # when pressing left, the window is resized so that it has
   # more space on its left
 
-  bindsym l resize shrink left 5 px or 5 ppt
+  bindsym l resize grow   right 5 px or 5 ppt
   bindsym h resize grow   left 5 px or 5 ppt
 
-  bindsym k resize shrink down 5 px or 5 ppt
+  bindsym k resize grow	  up 5 px or 5 ppt
   bindsym j resize grow   down 5 px or 5 ppt
 
-  # bindsym l resize shrink up 5 px or 5 ppt
-  # bindsym Shift+L resize grow   up 5 px or 5 ppt
+  bindsym Shift+L resize shrink left 5 px or 5 ppt
+  bindsym Shift+H resize shrink right 5 px or 5 ppt
 
-  # bindsymhsemicolon resize shrink right 5 px or 5 ppt
-  # bindsym Shift+colon resize grow   right 5 px or 5 ppt
+  bindsym Shift+K resize shrink down 5 px or 5 ppt
+  bindsym Shift+J resize shrink up 5 px or 5 ppt
 
   # back to normal: Enter or Escape
   bindsym Return mode "default"

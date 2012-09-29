@@ -47,7 +47,6 @@ alias pss='sudo pacman-color -Ss'
 alias pqs='pacman-color -Qs'
 alias pu='sudo pacman-color -U'
 alias pqe='pacman-color -Qe'
-alias pqe='pacman-color -Qe'
 alias pcnt='pacman -Q | wc -l'
 
 # -- Github shortcuts
@@ -55,9 +54,9 @@ alias giti='git init'
 alias gita='git add .'
 alias gitc='git commit -m'
 alias gitpom='git push -u origin master'
-alias gitstat='git status'
 
-alias push_dotfiles='cd /home/hsp/dotfiles && ./prior.sh && git add . && gitc "periodic update" && git push origin master'
+alias dotfiles_push='cd /home/hsp/dotfiles && ./prior.sh && git add . && gitc "periodic update" && git push origin master'
+alias dotfiles_setup='cd /home/hsp/dotfiles && ./setup.sh'
 
 # -- Directory
 alias ece264='cd ~/Dropbox/code/ece264/'

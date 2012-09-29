@@ -398,34 +398,13 @@
 			"buffers":
 			[
 				{
-					"file": "/home/hsp/Dropbox/code/C/simpfand/LICENSE",
+					"contents": "#include <math.h>\n#include <stdio.h>\n#include <stdlib.h>\n#include <sys/stat.h>\n#include <fcntl.h>\n#include \"parse.h\"\n#include \"options.h>\"\n\n#define CMD_MAX	35\n\n/* Returns average CPU temp in degrees (ceiling) */\nunsigned short get_temp()\n{\n	FILE *file;\n	unsigned short temp; \n	unsigned int t0, t1;\n\n	file=fopen(\"/sys/devices/platform/coretemp.0/temp2_input\", \"r\");\n	fscanf(file, \"%u\", &t0);\n	fclose(file);\n\n	file=fopen(\"/sys/devices/platform/coretemp.0/temp3_input\", \"r\");\n	fscanf(file, \"%u\", &t1);\n	fclose(file);\n\n	temp = (unsigned short)(ceil((float)(t0 + t1) / 2000.));\n	return temp;\n}\n\nvoid get_level(char* cmd, unsigned short old_temp, unsigned short new_temp, \n               struct config *cfg)\n{\n	unsigned short temp_diff = new_temp - old_temp;\n\n	if (temp_diff <= cfg->dec_thres)\n		if (new_temp > cfg->dec_max_temp)\n			sprintf(cmd, \"echo level %d > /proc/acpi/ibm/fan\", cfg->dec_max_lvl);\n		else if (new_temp > cfg->dec_high_temp)\n			sprintf(cmd, \"echo level %d > /proc/acpi/ibm/fan\", cfg->dec_high_lvl);\n		else if (new_temp > cfg->dec_low_temp)\n			sprintf(cmd, \"echo level %d > /proc/acpi/ibm/fan\", cfg->dec_low_lvl);\n		else\n			sprintf(cmd, \"echo level %d > /proc/acpi/ibm/fan\", cfg->base_lvl);\n	else\n		if (new_temp <= cfg->inc_low_temp)\n			sprintf(cmd, \"echo level %d > /proc/acpi/ibm/fan\", cfg->base_lvl);\n		else if (new_temp <= cfg->inc_high_temp)\n			sprintf(cmd, \"echo level %d > /proc/acpi/ibm/fan\", cfg->inc_low_lvl);\n		else if (new_temp <= cfg->inc_max_temp)\n			sprintf(cmd, \"echo level %d > /proc/acpi/ibm/fan\", cfg->inc_high_lvl);\n		else\n			sprintf(cmd, \"echo level %d > /proc/acpi/ibm/fan\", cfg->inc_max_lvl);\n}\n\nvoid set_defaults(struct config *cfg)\n{\n	cfg->inc_low_temp  = INC_LOW_TEMP;\n	cfg->inc_high_temp = INC_HIGH_TEMP;\n	cfg->inc_max_temp  = INC_MAX_TEMP;\n	\n	cfg->inc_low_lvl   = INC_LOW_LEVEL;\n	cfg->inc_high_lvl  = INC_HIGH_LEVEL;\n	cfg->inc_max_lvl   = INC_MAX_LEVEL;\n	\n	cfg->dec_low_lvl   = DEC_LOW_LEVEL;\n	cfg->dec_high_lvl  = DEC_HIGH_LEVEL;\n	cfg->dec_max_lvl   = DEC_MAX_LEVEL;\n	\n	cfg->dec_low_temp  = DEC_LOW_TEMP;\n	cfg->dec_high_temp = DEC_HIGH_TEMP;\n	cfg->dec_max_temp  = DEC_MAX_TEMP;\n	\n	cfg->poll_int      = POLL_INTERVAL;\n	cfg->dec_thres     = DEC_THRESH;\n	cfg->base_lvl      = BASE_LEVEL;\n}\n\nvoid print_help(void)\n{\n\n}\n\nvoid print_version(void)\n{\n	pinrtf\n}\n\nint main(int argc, char const *argv[])\n{\n	unsigned short old_temp, new_temp;\n	char cmd[CMD_MAX];\n	struct config cfg; \n	int action;\n\n	if (argc < 2) {\n		fprintf(stderr, \"error: requires argument (-h for help)\");\n		return 1;\n	} \n\n	if ((action = read_command(argc, argv)) != 0) {\n		if (action == OPT_HELP) {\n			print_help();\n		} else if (action == OPT_VERSION) {\n			print_version();\n		} else if (action == OPT_START) {\n			set_defaults(&cfg);\n			parse_config(&cfg);\n\n			new_temp = get_temp();\n			if (new_temp == 0) {\n				fprintf(stderr, \"error: cannot properly read temperature!\"\n				        	\"Fan set to auto. Exiting.\\n\");\n				system(\"echo level auto > /proc/acpi/ibm/fan\");\n				return 1;\n			}\n\n			while (1) {\n				old_temp = new_temp;\n				new_temp = get_temp();\n				get_level(cmd, old_temp, new_temp, &cfg);\n				system(cmd);\n			 	sleep(cfg.poll_int);\n			 }\n		}\n	} else {\n		fprintf(stderr, \"error: could not properly read command\\n\");\n		return 1;\n	}\n\n	printf(\"simpfand: quitting\\n\");\n	return 0;\n}\n",
+					"file": "/home/hsp/Dropbox/code/C/simpfand/simpfand.c",
+					"file_size": 3282,
+					"file_write_time": 1348940627000000,
 					"settings":
 					{
-						"buffer_size": 577,
-						"line_ending": "Unix"
-					}
-				},
-				{
-					"file": "/home/hsp/Dropbox/code/C/simpfand/parse.h",
-					"settings":
-					{
-						"buffer_size": 1255,
-						"line_ending": "Unix"
-					}
-				},
-				{
-					"file": "/home/hsp/Dropbox/code/C/simpfand/parse.c",
-					"settings":
-					{
-						"buffer_size": 2888,
-						"line_ending": "Unix"
-					}
-				},
-				{
-					"file": "/home/hsp/Dropbox/code/C/simpfand/simpfand.conf",
-					"settings":
-					{
-						"buffer_size": 1377,
+						"buffer_size": 3289,
 						"line_ending": "Unix"
 					}
 				},
@@ -433,23 +412,7 @@
 					"file": "/home/hsp/Dropbox/code/C/simpfand/Makefile",
 					"settings":
 					{
-						"buffer_size": 472,
-						"line_ending": "Unix"
-					}
-				},
-				{
-					"file": "/home/hsp/Dropbox/code/C/simpfand/simpfand.c",
-					"settings":
-					{
-						"buffer_size": 2854,
-						"line_ending": "Unix"
-					}
-				},
-				{
-					"file": "/home/hsp/Dropbox/code/C/simpfand/README.md",
-					"settings":
-					{
-						"buffer_size": 458,
+						"buffer_size": 541,
 						"line_ending": "Unix"
 					}
 				},
@@ -457,7 +420,7 @@
 					"file": "/home/hsp/Dropbox/code/C/simpfand/options.c",
 					"settings":
 					{
-						"buffer_size": 383,
+						"buffer_size": 500,
 						"line_ending": "Unix"
 					}
 				},
@@ -465,23 +428,7 @@
 					"file": "/home/hsp/Dropbox/code/C/simpfand/options.h",
 					"settings":
 					{
-						"buffer_size": 43,
-						"line_ending": "Unix"
-					}
-				},
-				{
-					"file": "/home/hsp/.config/sublime-text-2/Packages/User/Default (Linux).sublime-keymap",
-					"settings":
-					{
-						"buffer_size": 507,
-						"line_ending": "Unix"
-					}
-				},
-				{
-					"file": "/home/hsp/Dropbox/code/C/celi/celi.c",
-					"settings":
-					{
-						"buffer_size": 10052,
+						"buffer_size": 169,
 						"line_ending": "Unix"
 					}
 				}
@@ -489,16 +436,16 @@
 			"build_system": "",
 			"command_palette":
 			{
-				"height": 72.0,
+				"height": 232.0,
 				"selected_items":
 				[
 					[
-						"pre key user",
-						"Preferences: Key Bindings - User"
-					],
-					[
 						":w",
 						":w - Save"
+					],
+					[
+						"pre key user",
+						"Preferences: Key Bindings - User"
 					],
 					[
 						"pref",
@@ -578,17 +525,22 @@
 			},
 			"file_history":
 			[
+				"/home/hsp/Dropbox/code/C/simpfand/simpfand.conf",
+				"/home/hsp/Dropbox/code/C/celi/celi.c",
+				"/home/hsp/Dropbox/code/C/simpfand/README.md",
+				"/home/hsp/Dropbox/code/C/simpfand/Makefile",
 				"/home/hsp/Dropbox/code/C/simpfand/parse.c",
+				"/home/hsp/Dropbox/code/C/simpfand/parse.h",
+				"/home/hsp/Dropbox/code/C/simpfand/LICENSE",
+				"/home/hsp/.config/sublime-text-2/Packages/User/Default (Linux).sublime-keymap",
 				"/home/hsp/Dropbox/code/C/simpfand/README",
 				"/home/hsp/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
 				"/home/hsp/Downloads/mbpfan/mbpfan.c",
 				"/home/hsp/.config/sublime-text-2/Packages/Alignment/Default (Linux).sublime-keymap",
-				"/home/hsp/Dropbox/code/C/simpfand/Makefile",
 				"/home/hsp/Dropbox/code/C/tpfand/tpfand.c",
 				"/home/hsp/Dropbox/code/ece264/array5.c",
 				"/home/hsp/Dropbox/code/ece264/array3.c",
 				"/home/hsp/Dropbox/code/ece264/ipa1_2/utility.c",
-				"/home/hsp/Dropbox/code/C/celi/celi.c",
 				"/home/hsp/Dropbox/code/ece264/ipa1_2/utility.h",
 				"/media/unorganized/Windows.7.Activator.v1.2-OaH/w7actv12.nfo",
 				"/media/unorganized/Windows 7 Loader eXtreme Edition v3.503/DiBYA9999.nfo",
@@ -643,7 +595,6 @@
 				"/home/hsp/.config/sublime-text-2/Packages/User/Package Control.sublime-settings",
 				"/home/hsp/.config/sublime-text-2/Packages/User/Default (Windows).sublime-keymap",
 				"/home/hsp/.config/sublime-text-2/Packages/User/Default (OSX).sublime-keymap",
-				"/home/hsp/.config/sublime-text-2/Packages/User/Default (Linux).sublime-keymap",
 				"/home/hsp/.config/sublime-text-2/Packages/User/C.sublime-settings",
 				"/home/hsp/.config/sublime-text-2/Packages/User/Base File.sublime-settings",
 				"/home/hsp/.config/sublime-text-2/Packages/Terminal/Base File.sublime-settings",
@@ -793,75 +744,34 @@
 			"groups":
 			[
 				{
-					"selected": 6,
+					"selected": 0,
 					"sheets":
 					[
 						{
 							"buffer": 0,
-							"file": "/home/hsp/Dropbox/code/C/simpfand/LICENSE",
+							"file": "/home/hsp/Dropbox/code/C/simpfand/simpfand.c",
 							"settings":
 							{
-								"buffer_size": 577,
+								"buffer_size": 3289,
 								"regions":
 								{
+									"bookmark_i":
+									{
+										"flags": 144,
+										"regions":
+										[
+											[
+												160,
+												160
+											]
+										]
+									}
 								},
 								"selection":
 								[
 									[
-										577,
-										577
-									]
-								],
-								"settings":
-								{
-									"syntax": "Packages/C++/C.tmLanguage"
-								},
-								"translation.x": 0.0,
-								"translation.y": 0.0,
-								"zoom_level": 1.0
-							},
-							"type": "text"
-						},
-						{
-							"buffer": 1,
-							"file": "/home/hsp/Dropbox/code/C/simpfand/parse.h",
-							"settings":
-							{
-								"buffer_size": 1255,
-								"regions":
-								{
-								},
-								"selection":
-								[
-									[
-										828,
-										828
-									]
-								],
-								"settings":
-								{
-									"syntax": "Packages/C++/C.tmLanguage"
-								},
-								"translation.x": 0.0,
-								"translation.y": 0.0,
-								"zoom_level": 1.0
-							},
-							"type": "text"
-						},
-						{
-							"buffer": 2,
-							"file": "/home/hsp/Dropbox/code/C/simpfand/parse.c",
-							"settings":
-							{
-								"buffer_size": 2888,
-								"regions":
-								{
-								},
-								"selection":
-								[
-									[
-										0,
-										0
+										2292,
+										2292
 									]
 								],
 								"settings":
@@ -870,51 +780,25 @@
 									"translate_tabs_to_spaces": false
 								},
 								"translation.x": 0.0,
-								"translation.y": 714.0,
+								"translation.y": 924.0,
 								"zoom_level": 1.0
 							},
 							"type": "text"
 						},
 						{
-							"buffer": 3,
-							"file": "/home/hsp/Dropbox/code/C/simpfand/simpfand.conf",
-							"settings":
-							{
-								"buffer_size": 1377,
-								"regions":
-								{
-								},
-								"selection":
-								[
-									[
-										1337,
-										1337
-									]
-								],
-								"settings":
-								{
-									"syntax": "Packages/ShellScript/Shell-Unix-Generic.tmLanguage"
-								},
-								"translation.x": 0.0,
-								"translation.y": 0.0,
-								"zoom_level": 1.0
-							},
-							"type": "text"
-						},
-						{
-							"buffer": 4,
+							"buffer": 1,
 							"file": "/home/hsp/Dropbox/code/C/simpfand/Makefile",
 							"settings":
 							{
-								"buffer_size": 472,
+								"buffer_size": 541,
 								"regions":
 								{
 								},
 								"selection":
 								[
 									[
-										0,
-										0
+										119,
+										119
 									]
 								],
 								"settings":
@@ -926,91 +810,27 @@
 								"zoom_level": 1.0
 							},
 							"type": "text"
-						},
-						{
-							"buffer": 5,
-							"file": "/home/hsp/Dropbox/code/C/simpfand/simpfand.c",
-							"settings":
-							{
-								"buffer_size": 2854,
-								"regions":
-								{
-									"bookmark_i":
-									{
-										"flags": 144,
-										"regions":
-										[
-											[
-												138,
-												138
-											]
-										]
-									}
-								},
-								"selection":
-								[
-									[
-										138,
-										138
-									]
-								],
-								"settings":
-								{
-									"syntax": "Packages/C++/C.tmLanguage",
-									"translate_tabs_to_spaces": false
-								},
-								"translation.x": 0.0,
-								"translation.y": 0.0,
-								"zoom_level": 1.0
-							},
-							"type": "text"
-						},
-						{
-							"buffer": 6,
-							"file": "/home/hsp/Dropbox/code/C/simpfand/README.md",
-							"settings":
-							{
-								"buffer_size": 458,
-								"regions":
-								{
-								},
-								"selection":
-								[
-									[
-										289,
-										289
-									]
-								],
-								"settings":
-								{
-									"syntax": "Packages/Markdown/Markdown.tmLanguage"
-								},
-								"translation.x": 0.0,
-								"translation.y": 0.0,
-								"zoom_level": 1.0
-							},
-							"type": "text"
 						}
 					]
 				},
 				{
-					"selected": 2,
+					"selected": 1,
 					"sheets":
 					[
 						{
-							"buffer": 7,
+							"buffer": 2,
 							"file": "/home/hsp/Dropbox/code/C/simpfand/options.c",
 							"settings":
 							{
-								"buffer_size": 383,
+								"buffer_size": 500,
 								"regions":
 								{
 								},
 								"selection":
 								[
 									[
-										281,
-										281
+										22,
+										22
 									]
 								],
 								"settings":
@@ -1025,19 +845,19 @@
 							"type": "text"
 						},
 						{
-							"buffer": 8,
+							"buffer": 3,
 							"file": "/home/hsp/Dropbox/code/C/simpfand/options.h",
 							"settings":
 							{
-								"buffer_size": 43,
+								"buffer_size": 169,
 								"regions":
 								{
 								},
 								"selection":
 								[
 									[
-										23,
-										23
+										162,
+										162
 									]
 								],
 								"settings":
@@ -1047,60 +867,6 @@
 								},
 								"translation.x": 0.0,
 								"translation.y": 0.0,
-								"zoom_level": 1.0
-							},
-							"type": "text"
-						},
-						{
-							"buffer": 9,
-							"file": "/home/hsp/.config/sublime-text-2/Packages/User/Default (Linux).sublime-keymap",
-							"settings":
-							{
-								"buffer_size": 507,
-								"regions":
-								{
-								},
-								"selection":
-								[
-									[
-										269,
-										269
-									]
-								],
-								"settings":
-								{
-									"syntax": "Packages/JavaScript/JSON.tmLanguage",
-									"tab_size": 2
-								},
-								"translation.x": 0.0,
-								"translation.y": 0.0,
-								"zoom_level": 1.0
-							},
-							"type": "text"
-						},
-						{
-							"buffer": 10,
-							"file": "/home/hsp/Dropbox/code/C/celi/celi.c",
-							"settings":
-							{
-								"buffer_size": 10052,
-								"regions":
-								{
-								},
-								"selection":
-								[
-									[
-										3081,
-										3081
-									]
-								],
-								"settings":
-								{
-									"syntax": "Packages/C++/C.tmLanguage",
-									"translate_tabs_to_spaces": false
-								},
-								"translation.x": 0.0,
-								"translation.y": 1476.0,
 								"zoom_level": 1.0
 							},
 							"type": "text"
@@ -1150,7 +916,7 @@
 			{
 				"height": 94.0
 			},
-			"position": "0,0,0,0,0,0,16,1916,1060,1920,1080",
+			"position": "0,0,0,0,0,0,16,956,1060,1920,1080",
 			"replace":
 			{
 				"height": 62.0
