@@ -31,10 +31,9 @@ alias ncm='ncmpcpp'
 alias snet='sudo netcfg'
 alias xresources='xrdb -merge ~/.Xresources'
 alias xmap='xmodmap ~/.Xmodmap' 
-alias dtella='sudo systemctl stop iptables.service && python2 ~/dtella/dtella.py'
+alias dtella='python2 ~/dtella/dtella.py'
 alias pa='pacaur'
 
-alias cdcode='cd ~/Dropbox/code/C'
 
 # -- Pacman
 alias p='pacman-color'
@@ -58,11 +57,15 @@ alias gitc='git commit -m'
 alias gitpom='git push -u origin master'
 alias gitstat='git status'
 
+alias push_dotfiles='cd /home/hsp/dotfiles && ./prior.sh && git add . && gitc "periodic update" && git push origin master'
+
+# -- Directory
 alias ece264='cd ~/Dropbox/code/ece264/'
 alias PKGBUILDs='cd ~/Dropbox/code/PKGBUILDs/'
 alias cdceli='cd ~/Dropbox/code/C/celi/'
 alias cdsimpfand='cd ~/Dropbox/code/C/simpfand/'
+alias cdcode='cd ~/Dropbox/code/C'
 
-alias sysdaemonrel='sudo systemctl --system daemon-reload'
+alias ssdaemonrel='sudo systemctl --system daemon-reload'
 
 # vim: set syn=sh :

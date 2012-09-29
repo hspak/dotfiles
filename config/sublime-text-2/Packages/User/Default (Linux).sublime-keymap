@@ -1,1 +1,16 @@
-[]
+[
+  { "keys": ["escape"], "command": "exit_insert_mode",
+      "context":
+      [
+          { "key": "setting.command_mode", "operand": false },
+          { "key": "setting.is_widget", "operand": false },
+          { "key": "setting.vintage_ctrl_keys" }
+      ]
+  },
+  
+	{ "keys": ["ctrl+pagedown"], "command": "next_view_in_stack" },
+	{ "keys": ["ctrl+pageup"], "command": "prev_view_in_stack" },
+	{ "keys": ["ctrl+tab"], "command": "next_view" },
+	{ "keys": ["ctrl+shift+tab"], "command": "prev_view" }
+
+]

@@ -99,7 +99,7 @@ bindsym $mod+Shift+percent		move workspace 5
 # bindsym $mod+Shift+ampersand	move workspace 7
 # bindsym $mod+Shift+asterisk		move workspace 8
 # bindsym $mod+Shift+parenleft	move workspace 9
-bindsym $mod+Shift+parenright	move workspace 10
+#bindsym $mod+Shift+parenright	move workspace 10
 
 # reload the configuration file
 bindsym $mod+Shift+C reload
@@ -125,12 +125,6 @@ bindsym $mod+F1					exec mpc prev
 bindsym $mod+F2					exec mpc toggle
 bindsym $mod+F3					exec mpc next
 bindsym $mod+F4					exec mpc stop
-
-workspace 1 term
-workspace 2 web
-workspace 3 code
-workspace 4 vbox
-workspace 5 misc
 
 # bindsym $mod+Shift+I          exec xcalib -invert -alter
 

@@ -417,7 +417,7 @@
 					"file": "/home/hsp/Dropbox/code/C/simpfand/parse.c",
 					"settings":
 					{
-						"buffer_size": 2945,
+						"buffer_size": 2888,
 						"line_ending": "Unix"
 					}
 				},
@@ -441,7 +441,7 @@
 					"file": "/home/hsp/Dropbox/code/C/simpfand/simpfand.c",
 					"settings":
 					{
-						"buffer_size": 2961,
+						"buffer_size": 2854,
 						"line_ending": "Unix"
 					}
 				},
@@ -449,7 +449,39 @@
 					"file": "/home/hsp/Dropbox/code/C/simpfand/README.md",
 					"settings":
 					{
-						"buffer_size": 428,
+						"buffer_size": 458,
+						"line_ending": "Unix"
+					}
+				},
+				{
+					"file": "/home/hsp/Dropbox/code/C/simpfand/options.c",
+					"settings":
+					{
+						"buffer_size": 383,
+						"line_ending": "Unix"
+					}
+				},
+				{
+					"file": "/home/hsp/Dropbox/code/C/simpfand/options.h",
+					"settings":
+					{
+						"buffer_size": 43,
+						"line_ending": "Unix"
+					}
+				},
+				{
+					"file": "/home/hsp/.config/sublime-text-2/Packages/User/Default (Linux).sublime-keymap",
+					"settings":
+					{
+						"buffer_size": 507,
+						"line_ending": "Unix"
+					}
+				},
+				{
+					"file": "/home/hsp/Dropbox/code/C/celi/celi.c",
+					"settings":
+					{
+						"buffer_size": 10052,
 						"line_ending": "Unix"
 					}
 				}
@@ -457,9 +489,13 @@
 			"build_system": "",
 			"command_palette":
 			{
-				"height": 232.0,
+				"height": 72.0,
 				"selected_items":
 				[
+					[
+						"pre key user",
+						"Preferences: Key Bindings - User"
+					],
 					[
 						":w",
 						":w - Save"
@@ -525,7 +561,7 @@
 						"Package Control: Install Package"
 					]
 				],
-				"width": 484.0
+				"width": 593.0
 			},
 			"console":
 			{
@@ -542,6 +578,7 @@
 			},
 			"file_history":
 			[
+				"/home/hsp/Dropbox/code/C/simpfand/parse.c",
 				"/home/hsp/Dropbox/code/C/simpfand/README",
 				"/home/hsp/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
 				"/home/hsp/Downloads/mbpfan/mbpfan.c",
@@ -756,7 +793,7 @@
 			"groups":
 			[
 				{
-					"selected": 5,
+					"selected": 6,
 					"sheets":
 					[
 						{
@@ -797,8 +834,8 @@
 								"selection":
 								[
 									[
-										13,
-										13
+										828,
+										828
 									]
 								],
 								"settings":
@@ -816,15 +853,15 @@
 							"file": "/home/hsp/Dropbox/code/C/simpfand/parse.c",
 							"settings":
 							{
-								"buffer_size": 2945,
+								"buffer_size": 2888,
 								"regions":
 								{
 								},
 								"selection":
 								[
 									[
-										1001,
-										1001
+										0,
+										0
 									]
 								],
 								"settings":
@@ -833,7 +870,7 @@
 									"translate_tabs_to_spaces": false
 								},
 								"translation.x": 0.0,
-								"translation.y": 966.0,
+								"translation.y": 714.0,
 								"zoom_level": 1.0
 							},
 							"type": "text"
@@ -850,8 +887,8 @@
 								"selection":
 								[
 									[
-										503,
-										503
+										1337,
+										1337
 									]
 								],
 								"settings":
@@ -895,7 +932,7 @@
 							"file": "/home/hsp/Dropbox/code/C/simpfand/simpfand.c",
 							"settings":
 							{
-								"buffer_size": 2961,
+								"buffer_size": 2854,
 								"regions":
 								{
 									"bookmark_i":
@@ -933,15 +970,15 @@
 							"file": "/home/hsp/Dropbox/code/C/simpfand/README.md",
 							"settings":
 							{
-								"buffer_size": 428,
+								"buffer_size": 458,
 								"regions":
 								{
 								},
 								"selection":
 								[
 									[
-										425,
-										425
+										289,
+										289
 									]
 								],
 								"settings":
@@ -950,6 +987,120 @@
 								},
 								"translation.x": 0.0,
 								"translation.y": 0.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						}
+					]
+				},
+				{
+					"selected": 2,
+					"sheets":
+					[
+						{
+							"buffer": 7,
+							"file": "/home/hsp/Dropbox/code/C/simpfand/options.c",
+							"settings":
+							{
+								"buffer_size": 383,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										281,
+										281
+									]
+								],
+								"settings":
+								{
+									"syntax": "Packages/C++/C.tmLanguage",
+									"translate_tabs_to_spaces": false
+								},
+								"translation.x": 0.0,
+								"translation.y": 0.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						},
+						{
+							"buffer": 8,
+							"file": "/home/hsp/Dropbox/code/C/simpfand/options.h",
+							"settings":
+							{
+								"buffer_size": 43,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										23,
+										23
+									]
+								],
+								"settings":
+								{
+									"auto_name": "",
+									"syntax": "Packages/C++/C.tmLanguage"
+								},
+								"translation.x": 0.0,
+								"translation.y": 0.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						},
+						{
+							"buffer": 9,
+							"file": "/home/hsp/.config/sublime-text-2/Packages/User/Default (Linux).sublime-keymap",
+							"settings":
+							{
+								"buffer_size": 507,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										269,
+										269
+									]
+								],
+								"settings":
+								{
+									"syntax": "Packages/JavaScript/JSON.tmLanguage",
+									"tab_size": 2
+								},
+								"translation.x": 0.0,
+								"translation.y": 0.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						},
+						{
+							"buffer": 10,
+							"file": "/home/hsp/Dropbox/code/C/celi/celi.c",
+							"settings":
+							{
+								"buffer_size": 10052,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										3081,
+										3081
+									]
+								],
+								"settings":
+								{
+									"syntax": "Packages/C++/C.tmLanguage",
+									"translate_tabs_to_spaces": false
+								},
+								"translation.x": 0.0,
+								"translation.y": 1476.0,
 								"zoom_level": 1.0
 							},
 							"type": "text"
@@ -974,11 +1125,18 @@
 						0,
 						1,
 						1
+					],
+					[
+						1,
+						0,
+						2,
+						1
 					]
 				],
 				"cols":
 				[
 					0.0,
+					0.5,
 					1.0
 				],
 				"rows":
@@ -992,7 +1150,7 @@
 			{
 				"height": 94.0
 			},
-			"position": "0,0,0,0,0,0,16,796,880,1600,900",
+			"position": "0,0,0,0,0,0,16,1916,1060,1920,1080",
 			"replace":
 			{
 				"height": 62.0

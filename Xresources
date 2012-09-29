@@ -25,9 +25,8 @@ URxvt*saveLines:	512
 URxvt*scrollBar:	false
 URxvt*internalBorder: 0
 
-! URxvt*iso14755:     false
-! URxvt*iso14755_52:  false
-URxvt*iso10646:		true
+URxvt*iso14755:     false
+URxvt*iso14755_52:  false
 
 ! - Terminal Colors -----------------------------
 

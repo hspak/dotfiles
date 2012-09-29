@@ -1,4 +1,5 @@
 source ~/.zalias
+source ~/.zfunctions
 
 # Turn autocomplete on
 autoload -U compinit 
@@ -11,14 +12,14 @@ HISTSIZE=10000
 SAVEHIST=10000
 
 setopt CORRECT					# Spelling
-setopt COMPLETE_IN_WORD			# No cursor movement on complete?
+# setopt COMPLETE_IN_WORD			# No cursor movement on complete?
 
 setopt NO_FLOW_CONTROL			# No ^s
 setopt NO_BEEP					# No beep!
 
 # Globbing
-setopt NO_CASE_GLOB				# Case insensitivity
-setopt NUMERIC_GLOB_SORT		# Sort numerically if numbers
+# setopt NO_CASE_GLOB				# Case insensitivity
+# setopt NUMERIC_GLOB_SORT		# Sort numerically if numbers
 setopt EXTENDED_GLOB			# Adds # ~ ^ to glob
 setopt GLOB_COMPLETE
 
@@ -28,6 +29,9 @@ setopt HIST_REDUCE_BLANKS
 
 # Enable alias autocomplete
 setopt completealiases
+
+zstyle ':completion:*' use-cache on
+zstyle ':completion:*' cache-path ~/.cache/zsh
 
 # Enable vi mode
 bindkey -v
