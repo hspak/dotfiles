@@ -8,6 +8,7 @@ URxvt*transparent:		false
 URxvt*matcher.button:	1
 URxvt*font:		        xft:anonymous pro:pixelsize=13
 
+! ibus settings
 URxvt.inputMethod:		ibus
 URxvt.preeditType:		OnTheSpot,None
 
@@ -23,8 +24,8 @@ Xft.hintstyle: hintslight
 
 URxvt*saveLines:	512
 URxvt*scrollBar:	false
-! URxvt*internalBorder: 0
 
+! Disable function international mode
 URxvt*iso14755:     false
 URxvt*iso14755_52:  false
 

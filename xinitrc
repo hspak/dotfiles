@@ -15,7 +15,10 @@ mymonitor
 delay_dropbox & 
 
 # Ibus for Korean input
-ibus-daemon -x -d
+ibus-daemon -x -d & 
+
+# Disable touchpad when typing
+syndaemon -K -d &
 
 # Notification daemon
 dunst &

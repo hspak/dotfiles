@@ -105,8 +105,8 @@ type -t $action >/dev/null || exit 1
 vol=$(aixer get Master | awk -F'[]%[]' '/%/ {if ($7 == "off") { print "MM" } else { print $2 }}' | head -n 1)
 
 disp_volume=$("$action" "$channel" "$delta")
-#notify-send "Vol " \
-#	$(vol)
-#    -t 1000 \
-#    -h string:synchronous:volume
+# notify-send "Vol " \
+	# $(vol)
+   # -t 1000 \
+   # -h string:synchronous:volume
 

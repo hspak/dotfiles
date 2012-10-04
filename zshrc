@@ -1,5 +1,6 @@
 source ~/.zalias
 source ~/.zfunctions
+source /usr/share/zsh/plugins/zsh-syntax-highlight/zsh-syntax-highlighting.zsh
 
 # Turn autocomplete on
 autoload -U compinit 
@@ -30,8 +31,9 @@ setopt HIST_REDUCE_BLANKS
 # Enable alias autocomplete
 setopt completealiases
 
+# Enable caching
 zstyle ':completion:*' use-cache on
-zstyle ':completion:*' cache-path ~/.cache/zsh
+zstyle ':completion:*' cache-path /tmp
 
 # Enable vi mode
 bindkey -v
@@ -68,6 +70,5 @@ PROMPT='%B┌ %{$fg[blue]%}%n%b%{$reset_color%}@%B%{$fg[blue]%}%m%b %{$reset_col
 └╼ $%b %{$reset_color%}'
 
 # Environmental
- # export TERM=gnome-256color
 [ -n "$TMUX" ] && export TERM=screen-256color
 export EDITOR=vim
