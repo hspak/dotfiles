@@ -1,0 +1,7 @@
+#!/bin/bash
+
+new_mail=$(ls ~/Mail/GMail/archive/new | grep HSP-ARCH | wc -l)
+
+notify-send "Mail" " ${new_mail} new mail" \
+	-i "notification-message-email" \
+	-t 1000

@@ -15,16 +15,16 @@ mymonitor
 delay_dropbox & 
 
 # Ibus for Korean input
-ibus-daemon -x -d & 
+ibus-daemon -x -d
 
 # Disable touchpad when typing
-syndaemon -K -d &
+syndaemon -K -d
 
-# Notification daemon
-dunst &
+# Music
+mpd
 
 # Urxvt daemon
-urxvtd -q -o -f
+# urxvtd -q -o -f
 
 # Run window manager
 exec i3

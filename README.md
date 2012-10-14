@@ -2,18 +2,14 @@
 
 ## Setup for Following
 
-* Awesome WM
-* Cower
-* Ranger
-* Sublime Text 2
-* VLC
-* VIM
+* Sublime Text 2*
+* Vim
 * Bash
 * Zsh
 * Tmux
-* Conky
-* Sonata
 * Ncmpcpp
+* Notify-osd
+* GTK2.0 Settings
 * Urxvt (.Xresouces)
 * Key bindings (.Xmodmap)
 * Gdm (.xprofile)

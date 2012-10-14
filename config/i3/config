@@ -18,7 +18,7 @@ font -*-fixed-medium-r-*-*-12-*-*-*-*-*-iso10646-*
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Shift+Return exec urxvtc
+bindsym $mod+Shift+Return exec termite
 
 # kill focused window
 bindsym $mod+Shift+Q kill
@@ -109,15 +109,15 @@ bindsym $mod+Shift+R restart
 bindsym $mod+Shift+E exit
 
 # custom bindings
-bindsym $mod+O		exec google-chrome --disk-cache-dir=/tmp
+bindsym $mod+O		exec google-chrome --disk-cache-dir=/tmp --ignore-gpu-blacklist
 bindsym $mod+I		exec thunar
 bindsym $mod+U		exec subl
-bindsym $mod+D		exec urxvtc -name "urxvt_scratchpad"
+bindsym $mod+D		exec urxvt -name "scratchpad"
 
 # volume control
 bindsym XF86_AudioRaiseVolume	exec /home/hsp/.bin/alsavol increase Master 5
 bindsym XF86_AudioLowerVolume	exec /home/hsp/.bin/alsavol decrease Master 5
-bindsym XF86_AudioMute			exec /home/hsp/.bin/alsavol toggle Master
+bindsym XF86_AudioMute			exec ponymix toggle Master
 bindsym XF86Launch1				exec /home/hsp/.bin/mymonitor
 
 # MPD control                           
@@ -132,14 +132,8 @@ bindsym $mod+F4					exec mpc stop
 
 assign [class="Google-chrome"]   → 2
 
-# assign [instance="tmux"]    → 1
-# assign [instance="ncmpcpp"] → 3
-# assign [instance="htop"]    → 3
-
-# for_window [class="Pinentry"] floating enable
-for_window [class="Gxmessage"]				floating enable
 for_window [class="feh"]					floating enable
-for_window [instance="urxvtc_scratchpad"]	floating enable
+for_window [instance="scratchpad"]			floating enable
 for_window [instance="thunar"]				floating enable
 
 # resize window (you can also use the mouse for that)
@@ -193,4 +187,4 @@ bar {
   font -*-fixed-medium-r-*-*-12-*-*-*-*-*-iso10646-*
 }
 
-exec urxvtc
+exec termite

@@ -16,7 +16,7 @@ set wildmenu
 set wildmode=list:longest,full
 set scrolloff=5
 set shortmess=atI
-set laststatus=2
+set laststatus=2		" always show a status line
 set clipboard+=unnamed  " yank and copy to X clipboard
 set backspace=2         " full backspacing capabilities
 set history=100         " 100 lines of command line history
@@ -25,9 +25,9 @@ set showmode            " show mode at bottom of screen
 set ww=<,>,[,]          " whichwrap -- left/right keys can traverse up/down
 set cmdheight=1         " set the command height
 set showmatch           " show matching brackets (),{},[]
-set number
-set hidden
-set shell=/bin/bash
+set number				" show number line
+set hidden				" allow unsaved buffers to go in background
+set shell=/bin/zsh		" set shell
 
 "  wrap like other editors
 " -------------------------------------
@@ -72,6 +72,7 @@ endif
 
 " plug-in settings
 " -------------------------------------
+filetype on
 filetype plugin on
 filetype indent on
 set ofu=syntaxcomplete#Complete

@@ -18,7 +18,7 @@ alias extern_ip='curl -# checkmyip.com '
 alias sprunge='curl -F "sprunge=<-" http://sprunge.us'
 alias scrompbox='scrot -s '"'"'%Y%m%d.png'"'"' -e '"'"'ompload $f && mv $f ~/bridge/image/screeny/'"'"''
 alias scromp='scrot '"'"'%Y%m%d.png'"'"' -e '"'"'ompload $f && mv $f ~/bridge/image/screeny/'"'"''
-alias aurvote='aurvote --configure && aurvote -v $(pacman -Qqm) && rm /home/hsp/.config/aurvote'
+alias aurvote='aurvote -v $(pacman -Qqm)'
 alias lap_mon_on='xrandr --output LVDS1 --mode 1600x900 --left-of HDMI1 --output HDMI1 --primary'
 alias google-chrome='google-chrome --disk-cache-dir=/tmp --ignore-gpu-blacklist'
 

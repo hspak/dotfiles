@@ -1,10 +1,12 @@
 #!/bin/bash
 
-folders=('cower' 'ranger' 'sonata' 'sublime-text-2' 'vlc' 'i3' 'lilyterm' 'dunst')
+folders=('termite.cfg' 'i3')
+
+cd ~/dotfiles/config
+rm -rf *
+cd ~/.config
 
 for i in "${folders[@]}"
 do
-	cd ~/.config
-	rm -r *
-	cp -r $i ~/dotfiles/config/
+	cp -r $i ~/dotfiles/config
 done

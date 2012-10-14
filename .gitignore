@@ -5,3 +5,8 @@ __*
 *.log
 *.pyc
 log
+cache
+cache*
+temp
+temp*
+Packages
