@@ -32,9 +32,9 @@ mute() {
   local channel=$1 curvol=
 
   [[ $channel ]] || return 1
-  curvol="$(getvol "$channel")"
+  # curvol="$(getvol "$channel")"
+  curvol="$(ponymix mute)"
   printf '%s\n' "$curvol" > "$volfile"
-  ponymix mute
 
   printf '%s' 0
 }
@@ -42,8 +42,7 @@ mute() {
 unmute() {
   local channel=$1 newvol=
 
-  read -r newvol < "$volfile"
-  ponymix unmute
+  newvol=$(ponymix unmute)
   rm -f "$volfile"
 
   printf '%s' "$newvol"
