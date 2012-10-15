@@ -1,4 +1,8 @@
 #!/bin/bash
+#
+# alsavol: taken from falconindy
+#
+# edited to use ponymix to mute
 
 if [[ -d /run/user/$USER ]]; then
   volfile=/run/user/$USER/volume
@@ -30,7 +34,7 @@ mute() {
   [[ $channel ]] || return 1
   curvol="$(getvol "$channel")"
   printf '%s\n' "$curvol" > "$volfile"
-  setvol "$channel" 0
+  ponymix mute
 
   printf '%s' 0
 }
@@ -39,7 +43,7 @@ unmute() {
   local channel=$1 newvol=
 
   read -r newvol < "$volfile"
-  setvol "$channel" "$newvol"
+  ponymix unmute
   rm -f "$volfile"
 
   printf '%s' "$newvol"

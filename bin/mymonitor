@@ -21,3 +21,7 @@ fi
 
 # Set Wallpaper
 feh --bg-center /media/image/arch_wood.png &
+
+# Fix notification position
+NOTI_PID=$(pgrep notify-osd)
+[[ -n "$NOTI_PID" ]] && kill "$NOTI_PID"
