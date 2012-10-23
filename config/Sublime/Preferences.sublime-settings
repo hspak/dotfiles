@@ -1,6 +1,7 @@
 // Settings in here override those in "Default/Preferences.sublime-settings", and
 // are overridden in turn by file type specific settings.
 {
+	"font_face": "Droid Sans Mono Slashed",
 	"font_face": "Anonymous Pro",
 	"font_size": 10,
 	"Margin": 2,
@@ -9,6 +10,7 @@
     "highlight_modified_tabs": true,
     "bold_folder_labels": true,
     "indent_to_bracket": true,
+    "detect_indentation": false,
 
 	"ignored_packages": [""]
 }

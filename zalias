@@ -10,8 +10,8 @@ alias su='su -'
 alias ..='cd ..'
 alias ....='cd ../..'
 alias grep='grep --color'
-alias sdown='sudo rmmod e1000e && sudo systemctl poweroff'
-alias reboot='sudo rmmod e1000e && sudo systemctl reboot'
+# alias sdown='sudo rmmod e1000e && sudo systemctl poweroff'
+# alias reboot='sudo rmmod e1000e && sudo systemctl reboot'
 
 # -- 1 line Commands
 alias extern_ip='curl -# checkmyip.com '

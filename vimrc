@@ -2,7 +2,7 @@ set nocompatible        " use Vim defaults
 
 " General Options
 " -------------------------------------
-set t_Co=256
+set t_Co=256			" enable 256 colors
 set mouse=a             " make sure mouse is used in all cases.
 set autoread
 set backspace=indent,eol,start
@@ -31,19 +31,19 @@ set shell=/bin/zsh		" set shell
 
 "  wrap like other editors
 " -------------------------------------
-set wrap                " word wrap
-set lbr                 " line break
-set display=lastline    " don't display @ with long paragraphs
+" set wrap                " word wrap
+" set lbr                 " line break
+" set display=lastline    " don't display @ with long paragraphs
 
 " backup settings
 " -------------------------------------
 set backup              " keep a backup file
 set backupdir=/tmp      " backup dir
-set directory=/tmp      " swap file directory
+set directory=~/.vim/swap " swap file directory
 
 " tabs and indenting
 " -------------------------------------
-" set expandtab           " insert spaces instead of tab chars
+set expandtab
 set tabstop=4           " a n-space tab width
 set shiftwidth=4        " allows the use of < and > for VISUAL indenting
 set softtabstop=4       " counts n spaces when DELETE or BCKSPCE is used
@@ -72,6 +72,8 @@ endif
 
 " plug-in settings
 " -------------------------------------
+call pathogen#infect()
+
 filetype on
 filetype plugin on
 filetype indent on
@@ -84,7 +86,11 @@ set ofu=syntaxcomplete#Complete
 :noremap    <Down> gj
 :noremap!   <Down> <C-O>gj
 
-nnoremap <silent> <F8> :TlistToggle<CR>
+let maplocalleader = ","
+let mapleader = ","
+
+"nnoremap <silent> leader :TlistToggle<CR>
+map <LocalLeader>l :Tlist<CR>
 
 :noremap	<C-w> <C-w><C-w>
 
@@ -100,32 +106,17 @@ au FileType * setl fo-=cro
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 cmap w!! w !sudo tee % >/dev/null<CR>:e!<CR><CR>
 
-set bg=dark
-
-" colorscheme inkpot_mod
 colorscheme neverland2
 
 if has("autocmd")
     au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 endif
 
-autocmd Filetype ruby     setlocal ts=2 sts=2 sw=2
-autocmd FileType html     setlocal ts=2 sts=2 sw=2
-autocmd FileType c        setlocal ts=8 sts=8 sw=8
-autocmd FileType make     setlocal noet
-autocmd FileType Makefile setlocal noet
-autocmd Filetype python   setlocal sw=4 ts=4 noet
-
-" modeline
-" -------------------------------------
-" Append modeline after last line in buffer.
-" Use substitute() instead of printf() to handle '%%s' modeline in LaTeX
-" files.
-function! AppendModeline()
-  let l:modeline = printf(" vim: set ts=%d sw=%d tw=%d :",
-        \ &tabstop, &shiftwidth, &textwidth)
-  let l:modeline = substitute(&commentstring, "%s", l:modeline, "")
-  call append(line("$"), l:modeline)
-endfunction
-
-nnoremap <silent> <Leader>ml :call AppendModeline()<CR>
+autocmd Filetype ruby		setlocal ts=2 sts=2 sw=2
+autocmd Filetype sh			setlocal ts=2 sts=2 sw=2
+autocmd FileType html		setlocal ts=2 sts=2 sw=2
+autocmd FileType c			setlocal ts=8 sts=8 sw=8
+autocmd FileType make		setlocal noet
+autocmd FileType Makefile	setlocal noet
+autocmd Filetype python		setlocal sw=4 ts=4 noet
+autocmd FileType js			setlocal ts=4 sw=4 noet

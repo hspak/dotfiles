@@ -1,7 +1,16 @@
 #!/bin/bash
 
-new_mail=$(ls ~/Mail/GMail/archive/new | grep HSP-ARCH | wc -l)
+all_thres=10
+inbox_thres=1
 
-notify-send "Mail" " ${new_mail} new mail" \
-	-i "notification-message-email" \
-	-t 1000
+while true; do
+  all=$(ls ~/Mail/GMail/archive/new | grep HSP-ARCH | wc -l)
+  inbox=$(ls ~/Mail/GMail/INBOX/new | grep HSP-ARCH | wc -l) 
+
+  if [ $all -gt $all_thres -o $inbox -gt $inbox_thres ];  then
+      notify-send "Mail" " ${inbox} (${all}) new mail" \
+        -i "notification-message-email" \
+        -t 1000
+  fi
+  sleep 5m
+done

@@ -2,6 +2,7 @@
 
 folders=('termite.cfg' 'i3')
 
+# -- folder operations
 cd ~/dotfiles/config
 rm -rf *
 cd ~/.config
@@ -12,4 +13,4 @@ do
 done
 
 # Sublime Text 2 gets special treatment
-cp -r sublime-text-2/Packages/User ~/dotfiles/config/Sublime
+cp -r sublime-text-2/Packages/User ~/dotfiles/config/Sublime 

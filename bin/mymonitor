@@ -20,7 +20,7 @@ else
 fi
 
 # Set Wallpaper
-feh --bg-center /media/image/arch_wood.png &
+feh --bg-scale /media/image/arch_wood2_black.png &
 
 # Fix notification position
 NOTI_PID=$(pgrep notify-osd)

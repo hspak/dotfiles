@@ -1,12 +1,8 @@
-source ~/.zalias
-source ~/.zfunctions
-source /usr/share/zsh/plugins/zsh-syntax-highlight/zsh-syntax-highlighting.zsh
 
 # Turn autocomplete on
-autoload -U compinit 
 autoload -U colors && colors 
+autoload -U compinit && compinit
 autoload -Uz vcs_info
-compinit
 
 HISTFILE=~/.zhistory
 HISTSIZE=10000
@@ -39,9 +35,12 @@ zstyle ':completion:*' cache-path /tmp
 bindkey -v
 
 # External Config
-if [[ -r ~/.dircolors ]] && type -p dircolors >/dev/null; then
-	  eval $(dircolors -b "$HOME/.dircolors")
-fi
+# if [[ -r ~/.dircolors ]] && type -p dircolors >/dev/null; then
+	  # eval $(dircolors -b "$HOME/.dircolors")
+# fi
+. ~/.zalias
+. ~/.zfunctions
+. /usr/share/zsh/plugins/zsh-syntax-highlight/zsh-syntax-highlighting.zsh
  
 # Enable setting terminal titles
 case $TERM in

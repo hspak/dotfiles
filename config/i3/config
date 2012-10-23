@@ -25,13 +25,13 @@
 # Bindings
 #
 	# start a terminal
-	bindsym $mod+Shift+Return		exec termite
+	bindsym $mod+Shift+Return		exec --no-startup-id termite
 
 	# kill focused window
 	bindsym $mod+Shift+Q			kill
 
 	# start dmenu (a program launcher)
-	bindsym $mod+p					exec dmenu_run
+	bindsym $mod+p					exec --no-startup-id dmenu_run
 
 	# change focus
 	bindsym $mod+H					focus left
@@ -114,10 +114,10 @@
 	bindsym $mod+Shift+E			exit
 
 	# custom bindings
-	bindsym $mod+O					exec google-chrome --disk-cache-dir=/tmp --ignore-gpu-blacklist
-	bindsym $mod+I					exec thunar
-	bindsym $mod+U					exec subl
-	bindsym $mod+D					exec urxvt -name "scratchpad"
+	bindsym $mod+O					exec --no-startup-id google-chrome --disk-cache-dir=/tmp --ignore-gpu-blacklist
+	bindsym $mod+I					exec --no-startup-id thunar
+	bindsym $mod+U					exec --no-startup-id subl
+	bindsym $mod+D					exec --no-startup-id termite --name="scratchpad" --geometry=600x400
 
 	# volume control
 	bindsym XF86_AudioRaiseVolume	exec /home/hsp/.bin/alsavol increase Master 5
@@ -139,11 +139,12 @@
 # Windowing Rules
 #
 	# Assign workspaces
-	assign [class="Google-chrome"]   → 2
+	assign [class="Google-chrome"]      → 2
 
 	# Assign floats
+	for_window [instance="scratchpad"]  floating enable
+	for_window [class="Gxmessage"]		floating enable
 	for_window [class="feh"]			floating enable
-	for_window [instance="scratchpad"]	floating enable
 	for_window [instance="thunar"]		floating enable
 
 	# resize window (you can also use the mouse for that)

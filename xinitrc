@@ -5,11 +5,9 @@ xrdb -merge ~/.Xresources
 xset +fp /usr/share/fonts/local
 xset fp rehash
 
-# Custom keyboard layout
-xmodmap /home/hsp/.Xmodmap
 
 # Fix dual monitor settings
-mymonitor
+mymonitor &
 
 # Wait 15 seconds for connection
 delay_dropbox & 
@@ -18,13 +16,18 @@ delay_dropbox &
 ibus-daemon -x -d
 
 # Disable touchpad when typing
-syndaemon -K -d
+syndaemon -K -d -i 1
+
+xbindkeys
 
 # Music
 mpd
 
-# Urxvt daemon
-# urxvtd -q -o -f
+# Custom keyboard layout
+delay_xmodmap &
+
+# Mail notify every 5 minutes
+mailcheck &
 
 # Run window manager
 exec i3

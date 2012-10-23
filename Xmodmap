@@ -1,7 +1,6 @@
 remove Lock = Caps_Lock
 remove Control = Control_L
 keysym Caps_Lock = Control_L
-add Lock = Caps_Lock
 add Control = Control_L
 
 remove Shift = Shift_R
