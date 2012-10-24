@@ -4,6 +4,8 @@ __*
 *.dat
 *.log
 *.pyc
+*.swp
+*.swap
 log
 cache
 cache*

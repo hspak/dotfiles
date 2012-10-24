@@ -2,18 +2,18 @@
 xrdb -merge ~/.Xresources
 
 # Add extra font pths
-xset +fp /usr/share/fonts/local
-xset fp rehash
+#xset +fp /usr/share/fonts/local
+#xset fp rehash
 
 
 # Fix dual monitor settings
 mymonitor &
 
 # Wait 15 seconds for connection
-delay_dropbox & 
+#delay_dropbox & 
 
 # Ibus for Korean input
-ibus-daemon -x -d
+#ibus-daemon -drx
 
 # Disable touchpad when typing
 syndaemon -K -d -i 1

@@ -12,5 +12,5 @@ while true; do
         -i "notification-message-email" \
         -t 1000
   fi
-  sleep 5m
+  sleep 10m
 done

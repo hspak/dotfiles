@@ -31,9 +31,9 @@ set shell=/bin/zsh		" set shell
 
 "  wrap like other editors
 " -------------------------------------
-" set wrap                " word wrap
-" set lbr                 " line break
-" set display=lastline    " don't display @ with long paragraphs
+ set wrap                " word wrap
+ set lbr                 " line break
+ set display=lastline    " don't display @ with long paragraphs
 
 " backup settings
 " -------------------------------------
@@ -43,13 +43,13 @@ set directory=~/.vim/swap " swap file directory
 
 " tabs and indenting
 " -------------------------------------
-set expandtab
-set tabstop=4           " a n-space tab width
-set shiftwidth=4        " allows the use of < and > for VISUAL indenting
-set softtabstop=4       " counts n spaces when DELETE or BCKSPCE is used
+set expandtab           " replace tabs with spaces
+set tabstop=2           " a n-space tab width
+set shiftwidth=2        " allows the use of < and > for VISUAL indenting
+"set softtabstop=4       " counts n spaces when DELETE or BCKSPCE is used
 set autoindent          " auto indents next new line
 set smarttab
-set hlsearch
+set hlsearch            " highlight search results
 
 " searching
 " -------------------------------------
@@ -60,6 +60,13 @@ set smartcase           " upper-case sensitive search
 " syntax highlighting
 " -------------------------------------
 syntax on               " enable syntax highlighting
+
+" tmux doesn't like neverland :(
+if &term !=# "screen-256color"
+  colorscheme neverland2
+else
+  colorscheme inkpot_mod
+endif
 
 " Code Folding
 "---------------------------------
@@ -72,51 +79,57 @@ endif
 
 " plug-in settings
 " -------------------------------------
-call pathogen#infect()
+call pathogen#runtime_append_all_bundles()
 
 filetype on
 filetype plugin on
 filetype indent on
 set ofu=syntaxcomplete#Complete
 
-" scroll one screen line regardless of editor line length
+" custom keybindings
 " -------------------------------------
-:noremap    <Up> gk
-:noremap!   <Up> <C-O>gk
-:noremap    <Down> gj
-:noremap!   <Down> <C-O>gj
-
 let maplocalleader = ","
 let mapleader = ","
 
-"nnoremap <silent> leader :TlistToggle<CR>
-map <LocalLeader>l :Tlist<CR>
+map Q <Nop>
 
-:noremap	<C-w> <C-w><C-w>
+map <silent><F12> :set hlsearch! hlsearch?<CR>
+map <F5> :!make<CR>
+map <silent> <LocalLeader>l :TlistToggle<CR>
+map + <C-w><
+map _ <C-w>> 
 
-:noremap    k gk
-:noremap    j gj
+noremap k gk
+noremap j gj
+noremap <silent> V :vsplit<CR> :wincmd l<CR>
+noremap <silent> H :split<CR> :wincmd j<CR>
 
-" change the mapleader from \ to ,
-let mapleader=","
+nnoremap Q <C-W>q
+nnoremap B :buffers<CR>:buffer<Space>
+nnoremap T :TlistAddFiles<Space>
+nnoremap <silent> <C-k> :wincmd k<CR>
+nnoremap <silent> <C-l> <C-W>w
+nnoremap <silent> <C-h> :wincmd h<CR>
+nnoremap <silent> <C-j> :wincmd j<CR>
 
-au FileType * setl fo-=cro 
-"set cc=80
-
-autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 cmap w!! w !sudo tee % >/dev/null<CR>:e!<CR><CR>
 
-colorscheme neverland2
+" not sure what these do
+" -------------------------------------
+au FileType * setl fo-=cro 
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 if has("autocmd")
-    au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
+  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 endif
 
-autocmd Filetype ruby		setlocal ts=2 sts=2 sw=2
-autocmd Filetype sh			setlocal ts=2 sts=2 sw=2
-autocmd FileType html		setlocal ts=2 sts=2 sw=2
-autocmd FileType c			setlocal ts=8 sts=8 sw=8
-autocmd FileType make		setlocal noet
-autocmd FileType Makefile	setlocal noet
-autocmd Filetype python		setlocal sw=4 ts=4 noet
-autocmd FileType js			setlocal ts=4 sw=4 noet
+" file type specific settings
+" -------------------------------------
+autocmd FileType c			  setlocal ts=8 sts=8 sw=8
+autocmd FileType make		  setlocal noet
+autocmd Filetype python		setlocal sw=4 ts=4
+autocmd FileType js			  setlocal ts=4 sw=4 noet
+
+" plugin settings
+" -------------------------------------
+"let Tlist_Compact_Format = 1

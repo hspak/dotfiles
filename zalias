@@ -10,8 +10,8 @@ alias su='su -'
 alias ..='cd ..'
 alias ....='cd ../..'
 alias grep='grep --color'
-# alias sdown='sudo rmmod e1000e && sudo systemctl poweroff'
-# alias reboot='sudo rmmod e1000e && sudo systemctl reboot'
+ alias sdown='sudo rmmod e1000e && sudo systemctl poweroff'
+ alias reboot='sudo rmmod e1000e && sudo systemctl reboot'
 
 # -- 1 line Commands
 alias extern_ip='curl -# checkmyip.com '
@@ -58,11 +58,11 @@ alias dotfiles_push='cd /home/hsp/dotfiles && ./prior.sh && git add . && gitc "p
 alias dotfiles_setup='cd /home/hsp/dotfiles && ./setup.sh'
 
 # -- Directory
-alias ece264='cd ~/Dropbox/code/ece264/'
-alias PKGBUILDs='cd ~/Dropbox/code/PKGBUILDs/'
-alias cdceli='cd ~/Dropbox/code/C/celi/'
-alias cdsimpfand='cd ~/Dropbox/code/C/simpfand/'
-alias cdcode='cd ~/Dropbox/code/C'
+alias ece264='cd ~/code/ece264/'
+alias PKGBUILDs='cd ~/code/PKGBUILDs/'
+alias cdceli='cd ~/code/C/celi/'
+alias cdsimpfand='cd ~/code/C/simpfand/'
+alias cdcode='cd ~/code/C'
 
 alias ssdaemonrel='sudo systemctl --system daemon-reload'
 

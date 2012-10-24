@@ -10,8 +10,9 @@
 * Ncmpcpp
 * Notify-osd
 * GTK2.0 Settings
-* Urxvt (.Xresouces)
-* Key bindings (.Xmodmap)
+* Termite
+* Xresouces
+* Key bindings (.Xmodmap) (.xbindkeyrc)
 * Gdm (.xprofile)
 * Manual Bootup (.xinitrc)
 * Personal git
