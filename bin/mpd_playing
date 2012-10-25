@@ -2,4 +2,4 @@
 
 notify-send "MPD" "$(mpc | sed -n '1p')" \
 	-i "notification-audio-play" \
-	-t 2000
+	-t 3000

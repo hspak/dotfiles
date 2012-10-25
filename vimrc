@@ -92,12 +92,16 @@ let maplocalleader = ","
 let mapleader = ","
 
 map Q <Nop>
+map q: <Nop>
 
 map <silent><F12> :set hlsearch! hlsearch?<CR>
 map <F5> :!make<CR>
 map <silent> <LocalLeader>l :TlistToggle<CR>
 map + <C-w><
 map _ <C-w>> 
+
+map <silent> <LocalLeader>m :bnext<cr>
+map <silent> <LocalLeader>v :bprev<cr>
 
 noremap k gk
 noremap j gj
@@ -107,6 +111,7 @@ noremap <silent> H :split<CR> :wincmd j<CR>
 nnoremap Q <C-W>q
 nnoremap B :buffers<CR>:buffer<Space>
 nnoremap T :TlistAddFiles<Space>
+
 nnoremap <silent> <C-k> :wincmd k<CR>
 nnoremap <silent> <C-l> <C-W>w
 nnoremap <silent> <C-h> :wincmd h<CR>
@@ -126,6 +131,7 @@ endif
 " file type specific settings
 " -------------------------------------
 autocmd FileType c			  setlocal ts=8 sts=8 sw=8
+autocmd FileType h			  setlocal ts=8 sts=8 sw=8
 autocmd FileType make		  setlocal noet
 autocmd Filetype python		setlocal sw=4 ts=4
 autocmd FileType js			  setlocal ts=4 sw=4 noet
@@ -133,3 +139,4 @@ autocmd FileType js			  setlocal ts=4 sw=4 noet
 " plugin settings
 " -------------------------------------
 "let Tlist_Compact_Format = 1
+let NERDSpaceDelims = 1

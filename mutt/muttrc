@@ -133,5 +133,5 @@ macro index Z   "<shell-escape>/usr/bin/offlineimap -q -o<enter>" "sync IMAP"
 macro attach E <save-entry><kill-line>/home/hsp/Downloads/<enter>
 
 # HTML mail
-#alternative_order text/plain text/html
+alternative_order text/plain text/html
 
