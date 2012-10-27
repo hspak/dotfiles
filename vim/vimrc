@@ -5,6 +5,7 @@ set nocompatible        " use Vim defaults
 set t_Co=256			      " enable 256 colors
 set mouse=a             " make sure mouse is used in all cases.
 set autoread
+set autowrite
 set backspace=indent,eol,start
 set shortmess+=I        " disable the welcome screen
 set complete+=k         " enable dictionary completion
@@ -19,7 +20,7 @@ set shortmess=atI
 set laststatus=2		    " always show a status line
 set clipboard+=unnamed  " yank and copy to X clipboard
 set backspace=2         " full backspacing capabilities
-set history=100         " 100 lines of command line history
+set history=50          " 50 lines of command line history
 set ruler               " ruler display in status line
 set showmode            " show mode at bottom of screen
 set ww=<,>,[,]          " whichwrap -- left/right keys can traverse up/down
@@ -31,9 +32,8 @@ set shell=/bin/zsh      " set shell
 
 "  wrap like other editors
 " -------------------------------------
- set wrap                " word wrap
- set lbr                 " line break
- set display=lastline    " don't display @ with long paragraphs
+set wrap                " word wrap
+set lbr                 " line break
 
 " backup settings
 " -------------------------------------
@@ -48,10 +48,10 @@ set tabstop=2           " a n-space tab width
 set shiftwidth=2        " allows the use of < and > for VISUAL indenting
 set autoindent          " auto indents next new line
 set smarttab
-set hlsearch            " highlight search results
 
 " searching
 " -------------------------------------
+set hlsearch            " highlight search results
 set incsearch           " increment search
 set ignorecase          " case-insensitive search
 set smartcase           " upper-case sensitive search
@@ -111,6 +111,9 @@ noremap - <C-w>-
 noremap k gk
 noremap j gj
 
+nnoremap <C-e> 3<C-e>
+nnoremap <C-y> 3<C-y>
+
 " quick split
 noremap <silent> V :vsplit<CR> :wincmd l<CR>
 noremap <silent> H :split<CR> :wincmd j<CR>
@@ -127,22 +130,16 @@ nnoremap <silent> <C-j> :wincmd j<CR>
 
 cmap w!! w !sudo tee % >/dev/null<CR>:e!<CR><CR>
 
-" not sure what these do
+" auto commands
 " -------------------------------------
-au FileType * setl fo-=cro 
-autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
-
-if has("autocmd")
-  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
-endif
+" auto delete trailing whitespace
+" autocmd BufWritePre * :%s/\s\+$//e
+au BufWritePost * if getline(1) =~ "^#!" | silent :!chmod +x <afile>
 
 " file type specific settings
-" -------------------------------------
-autocmd FileType c			  setlocal ts=8 sw=8
-autocmd FileType h			  setlocal ts=8 sw=8
-autocmd FileType make		  setlocal noet
-autocmd Filetype python		setlocal sw=4 ts=4
-autocmd FileType js			  setlocal ts=4 sw=4 noet
+autocmd FileType c,h			setlocal ts=8 sw=8
+autocmd FileType make		  set noet
+autocmd Filetype python		set sw=4 ts=4
 
 " plugin settings
 " -------------------------------------
