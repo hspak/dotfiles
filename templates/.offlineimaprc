@@ -1,0 +1,41 @@
+[general]
+ui = ttyui
+accounts = GMail
+
+[Account GMail]
+localrepository = Gmail-Local
+remoterepository = Gmail-Remote
+status_backend = sqlite
+
+[Repository Gmail-Local]
+type = Maildir
+localfolders = ~/Mail/GMail
+
+nametrans = lambda folder: re.sub('spam', '[Gmail].Spam',
+                           re.sub('drafts', '[Gmail].Drafts',
+                           re.sub('sent', '[Gmail].Sent Mail',
+                           re.sub('flagged', '[Gmail].Starred',
+                           re.sub('trash', '[Gmail].Trash',
+                           re.sub('important', '[Gmail].Important',
+                           re.sub('arch', 'Arch',
+                           re.sub('hpakage', 'hpakage',
+                           re.sub('archive', '[Gmail].All Mail', folder)))))))))
+
+[Repository Gmail-Remote]
+type = Gmail 
+remoteuser = USER
+remotepass = PASS
+realdelete = no
+
+nametrans = lambda folder: re.sub('.*Spam$', 'spam', 
+                           re.sub('.*Drafts$', 'drafts', 
+                           re.sub('.*Sent Mail$', 'sent', 
+                           re.sub('.*Starred$', 'flagged', 
+                           re.sub('.*Trash$', 'trash', 
+                           re.sub('.*Important$', 'important', 
+                           re.sub('.*Arch$', 'arch', 
+                           re.sub('.*hpakage$', 'hpakage', 
+                           re.sub('.*All Mail$', 'archive', folder)))))))))
+
+ssl = yes
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt
