@@ -1,4 +1,6 @@
 #!/bin/bash
+#
+# took from vodik
 
 dotfiles=$PWD
 
