@@ -91,7 +91,6 @@ zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:git*' formats "%F{blue}%s%F{white}:%F{green}%b%F{white} %m%u%c% "
 zstyle ':vcs_info:*' stagedstr '%F{red}S%F{white}'
 zstyle ':vcs_info:*' unstagedstr '%F{red}U%F{white}'
-setopt prompt_subst
 
 PROMPT='%B┌ %F{blue}%n%b@%B%F{blue}%m%b %B[%~] ${vcs_info_msg_0_}
 └╼ $%b%f '

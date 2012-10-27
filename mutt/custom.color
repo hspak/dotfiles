@@ -62,7 +62,7 @@ color quoted7 green default
 
 # Defaults
 color signature brightmagenta default
-color indicator black white
+color indicator brightblack white
 color attachment black green
 color error red default
 color message white default

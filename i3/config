@@ -28,52 +28,52 @@
 	bindsym $mod+Shift+Return		exec --no-startup-id termite
 
 	# kill focused window
-	bindsym $mod+Shift+Q			kill
+	bindsym $mod+Shift+Q			  kill
 
 	# start dmenu (a program launcher)
-	bindsym $mod+p					exec --no-startup-id dmenu_run
+	bindsym $mod+p					    exec --no-startup-id dmenu_run
 
 	# change focus
-	bindsym $mod+H					focus left
-	bindsym $mod+J					focus down
-	bindsym $mod+K					focus up
-	bindsym $mod+L					focus right
+	bindsym $mod+H					    focus left
+	bindsym $mod+J					    focus down
+	bindsym $mod+K					    focus up
+	bindsym $mod+L					    focus right
 
 	# alternatively, you can use the cursor keys:
-	bindsym $mod+Left				focus left
-	bindsym $mod+Down				focus down
-	bindsym $mod+Up					focus up
-	bindsym $mod+Right				focus right
+	bindsym $mod+Left				    focus left
+	bindsym $mod+Down				    focus down
+	bindsym $mod+Up					    focus up
+	bindsym $mod+Right				  focus right
 
 	# move focused window
-	bindsym $mod+Shift+H			move left
-	bindsym $mod+Shift+J			move down
-	bindsym $mod+Shift+K			move up
-	bindsym $mod+Shift+L			move right
+	bindsym $mod+Shift+H			  move left
+	bindsym $mod+Shift+J			  move down
+	bindsym $mod+Shift+K			  move up
+	bindsym $mod+Shift+L			  move right
 
 	# alternatively, you can use the cursor keys:
 	bindsym $mod+Shift+Left			move left
 	bindsym $mod+Shift+Down			move down
-	bindsym $mod+Shift+Up			move up
+	bindsym $mod+Shift+Up			  move up
 	bindsym $mod+Shift+Right		move right
 
 	# split in horizontal/vertical orientation
-	bindsym $mod+g					split h
-	bindsym $mod+v					split v
+	bindsym $mod+g					    split h
+	bindsym $mod+v					    split v
 
 	# enter fullscreen mode for the focused container
-	bindsym $mod+f					fullscreen
+	bindsym $mod+f					    fullscreen
 
 	# change container layout (stacked, tabbed, default)
-	bindsym $mod+s					layout stacking
-	bindsym $mod+w					layout tabbed
-	bindsym $mod+e					layout default
+	bindsym $mod+s					    layout stacking
+	bindsym $mod+w					    layout tabbed
+	bindsym $mod+e					    layout default
 
 	# toggle tiling / floating
 	bindsym $mod+Shift+space		floating toggle
 
 	# change focus between tiling / floating windows
-	bindsym $mod+space				focus mode_toggle
+	bindsym $mod+space				  focus mode_toggle
 
 	# focus the parent/child container
 	# bindsym $mod+a					focus parent
@@ -93,16 +93,16 @@
 	bindsym $mod+Tab				workspace back_and_forth
 
 	# move focused container to workspace
-	bindsym $mod+Shift+exclam		move workspace 1
-	bindsym $mod+Shift+at			move workspace 2
-	bindsym $mod+Shift+numbersign	move workspace 3
-	bindsym $mod+Shift+dollar		move workspace 4
-	bindsym $mod+Shift+percent		move workspace 5
+	bindsym $mod+Shift+exclam		    move workspace 1
+	bindsym $mod+Shift+at			      move workspace 2
+	bindsym $mod+Shift+numbersign	  move workspace 3
+	bindsym $mod+Shift+dollar		    move workspace 4
+	bindsym $mod+Shift+percent		  move workspace 5
 	bindsym $mod+Shift+asciicircum	move workspace 6
-	bindsym $mod+Shift+ampersand	move workspace 7
-	bindsym $mod+Shift+asterisk		move workspace 8
-	bindsym $mod+Shift+parenleft	move workspace 9
-	bindsym $mod+Shift+parenright	move workspace 10
+	bindsym $mod+Shift+ampersand	  move workspace 7
+	bindsym $mod+Shift+asterisk		  move workspace 8
+	bindsym $mod+Shift+parenleft	  move workspace 9
+	bindsym $mod+Shift+parenright	  move workspace 10
 
 	# reload the configuration file
 	bindsym $mod+Shift+C			reload
@@ -114,26 +114,26 @@
 	bindsym $mod+Shift+E			exit
 
 	# custom bindings
-	bindsym $mod+O					exec --no-startup-id google-chrome --disk-cache-dir=/tmp --ignore-gpu-blacklist
-	bindsym $mod+I					exec --no-startup-id thunar
-	bindsym $mod+U					exec --no-startup-id subl
-	bindsym $mod+D					exec --no-startup-id termite --name="scratchpad" --geometry=600x400
+	bindsym $mod+O					      exec --no-startup-id google-chrome --disk-cache-dir=/tmp --ignore-gpu-blacklist
+	bindsym $mod+I					      exec --no-startup-id thunar
+	# bindsym $mod+U					      exec --no-startup-id subl
+	bindsym $mod+D					      exec --no-startup-id termite --name="scratchpad" --geometry=600x400
 
 	# volume control
-	bindsym XF86_AudioRaiseVolume	exec /home/hsp/.bin/alsavol increase Master 5
-	bindsym XF86_AudioLowerVolume	exec /home/hsp/.bin/alsavol decrease Master 5
-	bindsym XF86_AudioMute			exec /home/hsp/.bin/alsavol toggle Master
-	bindsym XF86Launch1				exec /home/hsp/.bin/mymonitor
+	bindsym XF86_AudioRaiseVolume	exec /home/hsp/bin/alsavol increase Master 5
+	bindsym XF86_AudioLowerVolume	exec /home/hsp/bin/alsavol decrease Master 5
+	bindsym XF86_AudioMute			  exec /home/hsp/bin/alsavol toggle Master
+	bindsym XF86Launch1				    exec /home/hsp/bin/mymonitor
 
 	# MPD control                           
-	bindsym $mod+F1					exec mpc prev
-	bindsym $mod+F2					exec mpc toggle
-	bindsym $mod+F3					exec mpc next
-	bindsym $mod+F4					exec mpc stop
+	bindsym $mod+F1					      exec mpc prev
+	bindsym $mod+F2					      exec mpc toggle
+	bindsym $mod+F3					      exec mpc next
+	bindsym $mod+F4					      exec mpc stop
 
 	# Notifications
-	bindsym $mod+F5					exec /home/hsp/.bin/mpd_playing
-	bindsym $mod+F9					exec /home/hsp/.bin/mailcheck
+	bindsym $mod+F5					      exec /home/hsp/bin/mpd_playing
+	bindsym $mod+F9					      exec /home/hsp/bin/mailcheck
 
 #
 # Windowing Rules
@@ -143,18 +143,19 @@
 
 	# Assign floats
 	for_window [instance="scratchpad"]  floating enable
-	for_window [class="Gxmessage"]		floating enable
-	for_window [class="feh"]			floating enable
-	for_window [instance="thunar"]		floating enable
+	for_window [class="Gxmessage"]		  floating enable
+	for_window [class="Spotify"]		    floating enable
+	for_window [class="feh"]			      floating enable
+	for_window [instance="thunar"]		  floating enable
 
 	# resize window (you can also use the mouse for that)
 	mode "resize" {
 
 	  # Driection to grow
-	  bindsym l			resize grow   right 5 px or 5 ppt
-	  bindsym h			resize grow   left 5 px or 5 ppt
-	  bindsym k			resize grow	  up 5 px or 5 ppt
-	  bindsym j			resize grow   down 5 px or 5 ppt
+	  bindsym l			  resize grow   right 5 px or 5 ppt
+	  bindsym h			  resize grow   left 5 px or 5 ppt
+	  bindsym k			  resize grow	  up 5 px or 5 ppt
+	  bindsym j			  resize grow   down 5 px or 5 ppt
 
 	  # Shift direction to shrink
 	  bindsym Shift+L	resize shrink left 5 px or 5 ppt
@@ -198,4 +199,4 @@
 #
 # Execute
 #
-	exec termite
+	exec termite -e tmux
