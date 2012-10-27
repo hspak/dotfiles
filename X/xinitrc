@@ -1,11 +1,6 @@
 # Set terminal options
 xrdb -merge ~/.Xresources
 
-# Add extra font pths
-#xset +fp /usr/share/fonts/local
-#xset fp rehash
-
-
 # Fix dual monitor settings
 mymonitor &
 
@@ -25,9 +20,6 @@ mpd
 
 # Custom keyboard layout
 delay_xmodmap &
-
-# Mail notify every 5 minutes
-mailcheck &
 
 # Run window manager
 exec i3

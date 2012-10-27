@@ -1,3 +1,0 @@
-xmodmap /home/hsp/.Xmodmap
-
-sleep 10 && dropboxd &

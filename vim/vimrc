@@ -2,7 +2,7 @@ set nocompatible        " use Vim defaults
 
 " General Options
 " -------------------------------------
-set t_Co=256			" enable 256 colors
+set t_Co=256			      " enable 256 colors
 set mouse=a             " make sure mouse is used in all cases.
 set autoread
 set backspace=indent,eol,start
@@ -16,7 +16,7 @@ set wildmenu
 set wildmode=list:longest,full
 set scrolloff=5
 set shortmess=atI
-set laststatus=2		" always show a status line
+set laststatus=2		    " always show a status line
 set clipboard+=unnamed  " yank and copy to X clipboard
 set backspace=2         " full backspacing capabilities
 set history=100         " 100 lines of command line history
@@ -25,9 +25,9 @@ set showmode            " show mode at bottom of screen
 set ww=<,>,[,]          " whichwrap -- left/right keys can traverse up/down
 set cmdheight=1         " set the command height
 set showmatch           " show matching brackets (),{},[]
-set number				" show number line
-set hidden				" allow unsaved buffers to go in background
-set shell=/bin/zsh		" set shell
+set number				      " show number line
+set hidden				      " allow unsaved buffers to go in background
+set shell=/bin/zsh      " set shell
 
 "  wrap like other editors
 " -------------------------------------
@@ -46,7 +46,6 @@ set directory=~/.vim/swap " swap file directory
 set expandtab           " replace tabs with spaces
 set tabstop=2           " a n-space tab width
 set shiftwidth=2        " allows the use of < and > for VISUAL indenting
-"set softtabstop=4       " counts n spaces when DELETE or BCKSPCE is used
 set autoindent          " auto indents next new line
 set smarttab
 set hlsearch            " highlight search results
@@ -61,7 +60,6 @@ set smartcase           " upper-case sensitive search
 " -------------------------------------
 syntax on               " enable syntax highlighting
 
-" tmux doesn't like neverland :(
 if &term !=# "screen-256color"
   colorscheme neverland2
 else
@@ -95,16 +93,25 @@ map Q <Nop>
 map q: <Nop>
 
 map <silent><F12> :set hlsearch! hlsearch?<CR>
-map <F5> :!make<CR>
 map <silent> <LocalLeader>l :TlistToggle<CR>
-map + <C-w><
-map _ <C-w>> 
-
 map <silent> <LocalLeader>m :bnext<cr>
 map <silent> <LocalLeader>v :bprev<cr>
 
+" building
+nnoremap <F5> :!make<CR>
+nnoremap <S-F6> :!./"%"<CR>
+
+" resizing
+noremap + <C-w><
+noremap _ <C-w>> 
+noremap = <C-w>+
+noremap - <C-w>-
+
+" normal movement for wrapped lines
 noremap k gk
 noremap j gj
+
+" quick split
 noremap <silent> V :vsplit<CR> :wincmd l<CR>
 noremap <silent> H :split<CR> :wincmd j<CR>
 
@@ -112,6 +119,7 @@ nnoremap Q <C-W>q
 nnoremap B :buffers<CR>:buffer<Space>
 nnoremap T :TlistAddFiles<Space>
 
+" window movement
 nnoremap <silent> <C-k> :wincmd k<CR>
 nnoremap <silent> <C-l> <C-W>w
 nnoremap <silent> <C-h> :wincmd h<CR>
@@ -130,13 +138,13 @@ endif
 
 " file type specific settings
 " -------------------------------------
-autocmd FileType c			  setlocal ts=8 sts=8 sw=8
-autocmd FileType h			  setlocal ts=8 sts=8 sw=8
+autocmd FileType c			  setlocal ts=8 sw=8
+autocmd FileType h			  setlocal ts=8 sw=8
 autocmd FileType make		  setlocal noet
 autocmd Filetype python		setlocal sw=4 ts=4
 autocmd FileType js			  setlocal ts=4 sw=4 noet
 
 " plugin settings
 " -------------------------------------
-"let Tlist_Compact_Format = 1
+let Tlist_WinWidth = 23
 let NERDSpaceDelims = 1

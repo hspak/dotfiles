@@ -1,0 +1,86 @@
+#!/bin/bash
+
+dotfiles=$PWD
+
+die() {
+  echo >&2 "$1" && exit 1
+}
+
+link() {
+  [[ -z $2 ]] && target=".${1##*/}" \
+              || target="${2:-$target}"
+
+  [[ -e "$target" && ! -h "$target" ]] && die "$0: $target exists in filesystem"
+  [[ -d "$target"                   ]] && rm "$target"
+
+  ln -fs "$dotfiles/$1" "$target"
+}
+
+# Deploy scriptlets {{{
+dotfiles_bin()        { link bin bin;                                 } 
+dotfiles_git()        { link git/gitconfig;                           } 
+dotfiles_gtk()        { link gtk/gtkrc-2.0;                           } 
+dotfiles_mutt()       { link mutt;                                    } 
+dotfiles_ncmpcpp()    { link ncmpcpp;                                 } 
+dotfiles_notify_osd() { link notify-osd;                              } 
+dotfiles_termite()    { link termite/termite.cfg .config/termite.cfg; } 
+dotfiles_tmux()       { link tmux/tmux.conf;                          } 
+
+dotfiles_X() {
+  link X/Xmodmap
+  link X/Xresources
+  link X/xbindkeysrc
+  link X/xinitrc
+  link X/xserverrc
+}
+
+dotfiles_i3() {
+  link i3 .config/i3 
+}
+
+dotfiles_shell() {
+  link shell/dircolors
+  link shell/zalias
+  link shell/zfunctions
+  link shell/zprofile
+  link shell/zshrc
+}
+
+dotfiles_vim() {
+  link vim
+  link vim/vimrc
+}
+
+# }}}
+
+usage() {
+  cat << HERE
+Automated deploy function for dotfile syncronization.
+
+SUPPORTED:
+HERE
+
+  for fn in $(compgen -A function dotfiles_); do
+    echo "  ${fn#dotfiles_}"
+  done
+  exit ${1:-0}
+}
+
+deploy() {
+  while (( $# )); do
+    cd && dotfiles_${1#dotfiles_}
+    if [[ $? == 127 ]]; then
+      echo  >&2 "Error: don't know how to deploy \"$1\""
+      usage >&2 1
+    fi
+    shift
+  done
+}
+
+if (( $# == 0 )); then
+  deploy $(compgen -A function dotfiles_)
+elif [[ "$1" == "--help" ]]; then
+  usage 0
+else
+  deploy $*
+fi

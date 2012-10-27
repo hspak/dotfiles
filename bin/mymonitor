@@ -16,7 +16,7 @@ else
 fi
 
 # Set Wallpaper
-feh --bg-scale /media/image/arch_pacman.jpg &
+feh --bg-scale /mnt/image/arch_pacman.jpg &
 
 # Fix notification position
 NOTI_PID=$(pgrep notify-osd)

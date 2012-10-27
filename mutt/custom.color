@@ -1,8 +1,5 @@
-## Theme kindly inspired from                                                                                                                                             
-## http://nongeekshandbook.blogspot.ie/2009/03/mutt-color-configuration.html                                                                                              
-
-## Colours for items in the index                                                                                                                                         
-color index brightcyan default ~N
+# Index
+color index brightmagenta default ~N
 color index brightred default ~O
 color index brightyellow default ~F
 color index default green ~T
@@ -12,18 +9,16 @@ mono index bold ~F
 mono index bold ~T
 mono index bold ~D
 
-## Highlights inside the body of a message.                                                                                                                               
-
-## URLs                                                                                                                                                                    
+# Highlights inside the body of a message
 color body brightgreen black "(http|ftp|news|telnet|finger)://[^ \"\t\r\n]*"
 color body brightgreen black "mailto:[-a-z_0-9.]+@[-a-z_0-9.]+"
 mono body bold "(http|ftp|news|telnet|finger)://[^ \"\t\r\n]*"
 mono body bold "mailto:[-a-z_0-9.]+@[-a-z_0-9.]+"
 
-## Email addresses.                                                                                                                                                       
+# Email address
 color body brightgreen default "[-a-z_0-9.%$]+@[-a-z_0-9.]+\\.[-a-z][-a-z]+"
 
-## Header                                                                                                                                                                 
+# Header
 color header green default "^from:"
 color header green default "^to:"
 color header green default "^cc:"
@@ -55,7 +50,7 @@ color header yellow default "^X-Spam-Status:"
 color header yellow default "^X-SpamProbe:"
 color header red default "^X-SpamProbe: SPAM"
 
-## Coloring quoted text - coloring the first 7 levels:                                                                                                                    
+# Quote Levels
 color quoted cyan default
 color quoted1 yellow default
 color quoted2 red default
@@ -65,10 +60,9 @@ color quoted5 yellow default
 color quoted6 red default
 color quoted7 green default
 
-## Default color definitions                                                                                                                                              
-#color hdrdefault white green                                                                                                                                             
+# Defaults
 color signature brightmagenta default
-color indicator brightblue white
+color indicator black white
 color attachment black green
 color error red default
 color message white default
@@ -78,10 +72,14 @@ color tree brightblue default
 color normal white default
 color tilde green default
 color bold brightyellow default
-#color underline magenta default                                                                                                                                            
+color underline magenta default
 color markers brightcyan default
 
-## Colour definitions when on a mono screen                                                                                                                               
-mono bold bold
-mono underline underline
-mono indicator reverse
+# Diff
+color body yellow default "^diff \-.*"
+color body yellow default "^index [a-f0-9].*"
+color body yellow default "^\-\-\- .*"
+color body yellow default "^[\+]{3} .*"
+color body green default "^[\+][^\+]+.*"
+color body red  default "^\-[^\-]+.*"
+color body brightblue default "^@@ .*"

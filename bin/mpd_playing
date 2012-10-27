@@ -1,5 +1,5 @@
 #!/bin/bash
 
-notify-send "MPD" "$(mpc | sed -n '1p')" \
+notify-send "Now Playing:" "$(mpc | sed -n '1p')" \
 	-i "notification-audio-play" \
 	-t 3000
