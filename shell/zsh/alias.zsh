@@ -10,11 +10,10 @@ alias su='su -'
 alias ..='cd ..'
 alias ....='cd ../..'
 alias grep='grep --color'
- alias sdown='sudo rmmod e1000e && sudo systemctl poweroff'
- alias reboot='sudo rmmod e1000e && sudo systemctl reboot'
+alias sdown='sudo rmmod e1000e && sudo systemctl poweroff'
+alias reboot='sudo rmmod e1000e && sudo systemctl reboot'
 
 # -- 1 line Commands
-alias extern_ip='curl -# checkmyip.com '
 alias sprunge='curl -F "sprunge=<-" http://sprunge.us'
 alias scrompbox='scrot -s '"'"'%Y%m%d.png'"'"' -e '"'"'ompload $f && mv $f ~/bridge/image/screeny/'"'"''
 alias scromp='scrot '"'"'%Y%m%d.png'"'"' -e '"'"'ompload $f && mv $f ~/bridge/image/screeny/'"'"''
@@ -33,7 +32,6 @@ alias dtella='python2 ~/dtella/dtella.py'
 alias pa='pacaur'
 alias mpdstart='sudo systemctl start mpd.service'
 alias clear_pkg_dir='sudo rm -rf pkg src && sudo rm -f *.gz'
-# syslinux-install_update -iam
 
 # -- Pacman
 alias p='pacman-color'

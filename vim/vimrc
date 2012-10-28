@@ -99,20 +99,19 @@ map <silent> <LocalLeader>v :bprev<cr>
 
 " building
 nnoremap <F5> :!make<CR>
+nnoremap <S-F5> :make %<<CR>
 nnoremap <S-F6> :!./"%"<CR>
 
-" resizing
-noremap + <C-w><
-noremap _ <C-w>> 
-noremap = <C-w>+
-noremap - <C-w>-
+" map space to create/open/close fold
+nnoremap <silent> <Space> @=(foldlevel('.')?'za':'l')<CR>
+vnoremap <Space> zf
+
+nnoremap <C-e> 3<C-e>
+nnoremap <C-y> 3<C-y>
 
 " normal movement for wrapped lines
 noremap k gk
 noremap j gj
-
-nnoremap <C-e> 3<C-e>
-nnoremap <C-y> 3<C-y>
 
 " quick split
 noremap <silent> V :vsplit<CR> :wincmd l<CR>
@@ -121,6 +120,12 @@ noremap <silent> H :split<CR> :wincmd j<CR>
 nnoremap Q <C-W>q
 nnoremap B :buffers<CR>:buffer<Space>
 nnoremap T :TlistAddFiles<Space>
+
+" resizing
+noremap + <C-w><
+noremap _ <C-w>> 
+noremap = <C-w>+
+noremap - <C-w>-
 
 " window movement
 nnoremap <silent> <C-k> :wincmd k<CR>
@@ -136,10 +141,13 @@ cmap w!! w !sudo tee % >/dev/null<CR>:e!<CR><CR>
 " autocmd BufWritePre * :%s/\s\+$//e
 au BufWritePost * if getline(1) =~ "^#!" | silent :!chmod +x <afile>
 
+" save last position
+au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif "
+
 " file type specific settings
-autocmd FileType c,h			setlocal ts=8 sw=8
-autocmd FileType make		  set noet
-autocmd Filetype python		set sw=4 ts=4
+au FileType c,h			setlocal ts=8 sw=8
+au FileType make		  set noet
+au Filetype python		set sw=4 ts=4
 
 " plugin settings
 " -------------------------------------

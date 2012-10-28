@@ -67,9 +67,6 @@ case $TERM in
     ;;
 esac
 
-# Allow backspace past insert position in vi-mode
-zle -A .backward-kill-word vi-backward-kill-word
-zle -A .backward-delete-char vi-backward-delete-char
 
 # completion style
 zstyle ':completion:*' use-cache on
@@ -101,3 +98,7 @@ for snippets ($HOME/zsh/*.zsh(N))
   source $snippets
 
 source /usr/share/zsh/plugins/zsh-syntax-highlight/zsh-syntax-highlighting.zsh
+
+# Allow backspace past insert position in vi-mode
+zle -A .backward-kill-word vi-backward-kill-word
+zle -A .backward-delete-char vi-backward-delete-char
