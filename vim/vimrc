@@ -61,7 +61,7 @@ set smartcase           " upper-case sensitive search
 syntax on               " enable syntax highlighting
 
 if &term !=# "screen-256color"
-  colorscheme neverland2
+  colorscheme neverland2_mod
 else
   colorscheme inkpot_mod
 endif

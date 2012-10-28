@@ -52,6 +52,8 @@ TERM xterm-256color
 TERM xterm-88color
 TERM xterm-color
 TERM xterm-debian
+TERM vte-256color
+TERM xterm-termite
 
 # defaults
 NORMAL 00

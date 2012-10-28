@@ -56,13 +56,6 @@ setopt short_loops
 # Enable vi mode
 bindkey -v
 
-# External Config
-. ~/.zalias
-. ~/.zfunctions
-if [[ -r ~/.dircolors ]] && type -p dircolors >/dev/null; then
-    eval $(dircolors -b "$HOME/.dircolors")
-fi
- 
 # Enable setting terminal titles
 case $TERM in
   xterm*|rxvt*|screen*|gnome*)
@@ -98,3 +91,13 @@ PROMPT='%B┌ %F{blue}%n%b@%B%F{blue}%m%b %B[%~] ${vcs_info_msg_0_}
 # Environmental
 [ -n "$TMUX" ] && export TERM=screen-256color
 export EDITOR=vim
+
+# External Config
+if [[ -r ~/.dircolors ]] && type -p dircolors >/dev/null; then
+    eval $(dircolors -b "$HOME/.dircolors")
+fi
+
+for snippets ($HOME/zsh/*.zsh(N)) 
+  source $snippets
+
+source /usr/share/zsh/plugins/zsh-syntax-highlight/zsh-syntax-highlighting.zsh

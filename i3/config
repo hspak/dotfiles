@@ -12,191 +12,195 @@
 #
 # General
 #
-	# set modkey
-	set $mod Mod4
+  # set modkey
+  set $mod Mod4
 
-	# font for window titles. ISO 10646 = Unicode
-	font -*-fixed-medium-r-*-*-12-*-*-*-*-*-iso10646-*
+  # font for window titles. ISO 10646 = Unicode
+  font -*-fixed-medium-r-*-*-12-*-*-*-*-*-iso10646-*
 
-	# Use Mouse+$mod to drag floating windows to their wanted position
-	floating_modifier $mod
+  # Use Mouse+$mod to drag floating windows to their wanted position
+  floating_modifier $mod
 
 #
 # Bindings
 #
-	# start a terminal
-	bindsym $mod+Shift+Return		exec --no-startup-id termite
+  # start a terminal
+  bindsym $mod+Shift+Return   exec --no-startup-id termite
 
-	# kill focused window
-	bindsym $mod+Shift+Q			  kill
+  # kill focused window
+  bindsym $mod+Shift+Q        kill
 
-	# start dmenu (a program launcher)
-	bindsym $mod+p					    exec --no-startup-id dmenu_run
+  # start dmenu (a program launcher)
+  bindsym $mod+p              exec --no-startup-id dmenu_run
 
-	# change focus
-	bindsym $mod+H					    focus left
-	bindsym $mod+J					    focus down
-	bindsym $mod+K					    focus up
-	bindsym $mod+L					    focus right
+  # change focus
+  bindsym $mod+H              focus left
+  bindsym $mod+J              focus down
+  bindsym $mod+K              focus up
+  bindsym $mod+L              focus right
 
-	# alternatively, you can use the cursor keys:
-	bindsym $mod+Left				    focus left
-	bindsym $mod+Down				    focus down
-	bindsym $mod+Up					    focus up
-	bindsym $mod+Right				  focus right
+  # alternatively, you can use the cursor keys:
+  bindsym $mod+Left           focus left
+  bindsym $mod+Down           focus down
+  bindsym $mod+Up             focus up
+  bindsym $mod+Right          focus right
 
-	# move focused window
-	bindsym $mod+Shift+H			  move left
-	bindsym $mod+Shift+J			  move down
-	bindsym $mod+Shift+K			  move up
-	bindsym $mod+Shift+L			  move right
+  # move focused window
+  bindsym $mod+Shift+H        move left
+  bindsym $mod+Shift+J        move down
+  bindsym $mod+Shift+K        move up
+  bindsym $mod+Shift+L        move right
 
-	# alternatively, you can use the cursor keys:
-	bindsym $mod+Shift+Left			move left
-	bindsym $mod+Shift+Down			move down
-	bindsym $mod+Shift+Up			  move up
-	bindsym $mod+Shift+Right		move right
+  # alternatively, you can use the cursor keys:
+  bindsym $mod+Shift+Left     move left
+  bindsym $mod+Shift+Down     move down
+  bindsym $mod+Shift+Up       move up
+  bindsym $mod+Shift+Right    move right
 
-	# split in horizontal/vertical orientation
-	bindsym $mod+g					    split h
-	bindsym $mod+v					    split v
+  # split in horizontal/vertical orientation
+  bindsym $mod+g              split h
+  bindsym $mod+v              split v
 
-	# enter fullscreen mode for the focused container
-	bindsym $mod+f					    fullscreen
+  # enter fullscreen mode for the focused container
+  bindsym $mod+f              fullscreen
 
-	# change container layout (stacked, tabbed, default)
-	bindsym $mod+s					    layout stacking
-	bindsym $mod+w					    layout tabbed
-	bindsym $mod+e					    layout default
+  # change container layout (stacked, tabbed, default)
+  bindsym $mod+s              layout stacking
+  bindsym $mod+w              layout tabbed
+  bindsym $mod+e              layout default
 
-	# toggle tiling / floating
-	bindsym $mod+Shift+space		floating toggle
+  # toggle tiling / floating
+  bindsym $mod+Shift+space    floating toggle
 
-	# change focus between tiling / floating windows
-	bindsym $mod+space				  focus mode_toggle
+  # change focus between tiling / floating windows
+  bindsym $mod+space          focus mode_toggle
 
-	# focus the parent/child container
-	# bindsym $mod+a					focus parent
-	# bindsym $mod+d					focus child
+  # focus the parent/child container
+  # bindsym $mod+a          focus parent
+  # bindsym $mod+d          focus child
 
-	# switch to workspace
-	bindsym $mod+1					workspace 1
-	bindsym $mod+2					workspace 2
-	bindsym $mod+3					workspace 3
-	bindsym $mod+4					workspace 4
-	bindsym $mod+5					workspace 5
-	bindsym $mod+6					workspace 6
-	bindsym $mod+7					workspace 7
-	bindsym $mod+8					workspace 8
-	bindsym $mod+9					workspace 9
-	bindsym $mod+0					workspace 10
-	bindsym $mod+Tab				workspace back_and_forth
+  # switch to workspace
+  bindsym $mod+1          workspace 1
+  bindsym $mod+2          workspace 2
+  bindsym $mod+3          workspace 3
+  bindsym $mod+4          workspace 4
+  bindsym $mod+5          workspace 5
+  bindsym $mod+6          workspace 6
+  bindsym $mod+7          workspace 7
+  bindsym $mod+8          workspace 8
+  bindsym $mod+9          workspace 9
+  bindsym $mod+0          workspace 10
+  bindsym $mod+Tab        workspace back_and_forth
 
-	# move focused container to workspace
-	bindsym $mod+Shift+exclam		    move workspace 1
-	bindsym $mod+Shift+at			      move workspace 2
-	bindsym $mod+Shift+numbersign	  move workspace 3
-	bindsym $mod+Shift+dollar		    move workspace 4
-	bindsym $mod+Shift+percent		  move workspace 5
-	bindsym $mod+Shift+asciicircum	move workspace 6
-	bindsym $mod+Shift+ampersand	  move workspace 7
-	bindsym $mod+Shift+asterisk		  move workspace 8
-	bindsym $mod+Shift+parenleft	  move workspace 9
-	bindsym $mod+Shift+parenright	  move workspace 10
+  # move focused container to workspace
+  bindsym $mod+Shift+exclam       move workspace 1
+  bindsym $mod+Shift+at           move workspace 2
+  bindsym $mod+Shift+numbersign   move workspace 3
+  bindsym $mod+Shift+dollar       move workspace 4
+  bindsym $mod+Shift+percent      move workspace 5
+  bindsym $mod+Shift+asciicircum  move workspace 6
+  bindsym $mod+Shift+ampersand    move workspace 7
+  bindsym $mod+Shift+asterisk     move workspace 8
+  bindsym $mod+Shift+parenleft    move workspace 9
+  bindsym $mod+Shift+parenright   move workspace 10
 
-	# reload the configuration file
-	bindsym $mod+Shift+C			reload
-	
-	# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-	bindsym $mod+Shift+R			restart
+  # reload the configuration file
+  bindsym $mod+Shift+C      reload
+  
+  # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+  bindsym $mod+Shift+R      restart
 
-	# exit i3 (logs you out of your X session)
-	bindsym $mod+Shift+E			exit
+  # exit i3 (logs you out of your X session)
+  bindsym $mod+Shift+E      exit
 
-	# custom bindings
-	bindsym $mod+O					      exec --no-startup-id google-chrome --disk-cache-dir=/tmp --ignore-gpu-blacklist
-	bindsym $mod+I					      exec --no-startup-id thunar
-	# bindsym $mod+U					      exec --no-startup-id subl
-	bindsym $mod+D					      exec --no-startup-id termite --name="scratchpad" --geometry=600x400
+  # scratchpad
+  bindsym $mod+Shift+minus  move scratchpad
+  bindsym $mod+minus        scratchpad show
 
-	# volume control
-	bindsym XF86_AudioRaiseVolume	exec /home/hsp/bin/alsavol increase Master 5
-	bindsym XF86_AudioLowerVolume	exec /home/hsp/bin/alsavol decrease Master 5
-	bindsym XF86_AudioMute			  exec /home/hsp/bin/alsavol toggle Master
-	bindsym XF86Launch1				    exec /home/hsp/bin/mymonitor
+  # custom bindings
+  bindsym $mod+O                exec --no-startup-id google-chrome --disk-cache-dir=/tmp --ignore-gpu-blacklist
+  bindsym $mod+I                exec --no-startup-id thunar
+  # bindsym $mod+U                exec --no-startup-id subl
+  bindsym $mod+D                exec --no-startup-id termite --name="scratchpad" --geometry=600x400
 
-	# MPD control                           
-	bindsym $mod+F1					      exec mpc prev
-	bindsym $mod+F2					      exec mpc toggle
-	bindsym $mod+F3					      exec mpc next
-	bindsym $mod+F4					      exec mpc stop
+  # volume control
+  bindsym XF86_AudioRaiseVolume exec /home/hsp/bin/alsavol increase Master 5
+  bindsym XF86_AudioLowerVolume exec /home/hsp/bin/alsavol decrease Master 5
+  bindsym XF86_AudioMute        exec /home/hsp/bin/alsavol toggle Master
+  bindsym XF86Launch1           exec /home/hsp/bin/mymonitor
 
-	# Notifications
-	bindsym $mod+F5					      exec /home/hsp/bin/mpd_playing
-	bindsym $mod+F9					      exec /home/hsp/bin/mailcheck
+  # MPD control                           
+  bindsym $mod+F1               exec mpc prev
+  bindsym $mod+F2               exec mpc toggle
+  bindsym $mod+F3               exec mpc next
+  bindsym $mod+F4               exec mpc stop
+
+  # Notifications
+  bindsym $mod+F5               exec /home/hsp/bin/mpd_playing
+  bindsym $mod+F9               exec /home/hsp/bin/mailcheck
 
 #
 # Windowing Rules
 #
-	# Assign workspaces
-	assign [class="Google-chrome"]      → 2
+  # Assign workspaces
+  assign [class="Google-chrome"]      → 2
 
-	# Assign floats
-	for_window [instance="scratchpad"]  floating enable
-	for_window [class="Gxmessage"]		  floating enable
-	for_window [class="Spotify"]		    floating enable
-	for_window [class="feh"]			      floating enable
-	for_window [instance="thunar"]		  floating enable
+  # Assign floats
+  for_window [instance="scratchpad"]  floating enable
+  for_window [class="Gxmessage"]      floating enable
+  for_window [class="Spotify"]        move to scratchpad
+  for_window [class="feh"]            floating enable
+  for_window [instance="thunar"]      floating enable
 
-	# resize window (you can also use the mouse for that)
-	mode "resize" {
+  # resize window (you can also use the mouse for that)
+  mode "resize" {
 
-	  # Driection to grow
-	  bindsym l			  resize grow   right 5 px or 5 ppt
-	  bindsym h			  resize grow   left 5 px or 5 ppt
-	  bindsym k			  resize grow	  up 5 px or 5 ppt
-	  bindsym j			  resize grow   down 5 px or 5 ppt
+    # Driection to grow
+    bindsym l       resize grow   right 5 px or 5 ppt
+    bindsym h       resize grow   left 5 px or 5 ppt
+    bindsym k       resize grow   up 5 px or 5 ppt
+    bindsym j       resize grow   down 5 px or 5 ppt
 
-	  # Shift direction to shrink
-	  bindsym Shift+L	resize shrink left 5 px or 5 ppt
-	  bindsym Shift+H	resize shrink right 5 px or 5 ppt
-	  bindsym ShiftK	resize shrink down 5 px or 5 ppt
-	  bindsym Shift+J	resize shrink up 5 px or 5 ppt
+    # Shift direction to shrink
+    bindsym Shift+L resize shrink left 5 px or 5 ppt
+    bindsym Shift+H resize shrink right 5 px or 5 ppt
+    bindsym ShiftK  resize shrink down 5 px or 5 ppt
+    bindsym Shift+J resize shrink up 5 px or 5 ppt
 
-	  # Exit resize mode
-	  bindsym Return mode "default"
-	  bindsym Escape mode "default"
-	}
+    # Exit resize mode
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+  }
 
-	# Enter resize mode
-	bindsym $mod+r mode "resize"
+  # Enter resize mode
+  bindsym $mod+r mode "resize"
 
-	# class                 border  backgr. text    indicator
-	client.focused          #4e82aa #0c73c2 #ffffff #2e9ef4
-	client.focused_inactive #333333 #5f676a #ffffff #484e50
-	client.unfocused        #333333 #222222 #888888 #292d2e
-	client.urgent           #2f343a #900000 #ffffff #900000
+  # class                 border  backgr. text    indicator
+  client.focused          #4e82aa #0c73c2 #ffffff #2e9ef4
+  client.focused_inactive #333333 #5f676a #ffffff #484e50
+  client.unfocused        #333333 #222222 #888888 #292d2e
+  client.urgent           #2f343a #900000 #ffffff #900000
 
 #
 # i3bar / i3status
 #
-	bar {
-	  status_command i3status --config ~/.config/i3/i3status.conf
+  bar {
+    status_command i3status --config ~/.config/i3/i3status.conf
 
-	  colors {
-		background #000000
-		statusline #ffffff
+    colors {
+    background #090909
+    statusline #ffffff
 
-		focused_workspace  #ffffff #0c73c2
-		active_workspace   #ffffff #333333
-		inactive_workspace #888888 #222222
-		urgent_workspace   #ffffff #900000
-	  }
+    focused_workspace  #ffffff #0c73c2
+    active_workspace   #ffffff #333333
+    inactive_workspace #888888 #222222
+    urgent_workspace   #ffffff #900000
+    }
 
-	  font -*-fixed-medium-r-*-*-12-*-*-*-*-*-iso10646-*
-	}
+    font -*-fixed-medium-r-*-*-12-*-*-*-*-*-iso10646-*
+  }
 
 #
 # Execute
 #
-	exec termite -e tmux
+  exec termite -e tmux
