@@ -67,8 +67,8 @@ color attachment black green
 color error red default
 color message white default
 color search brightwhite magenta
-color status brightyellow blue
-color tree brightblue default
+color status brightyellow cyan
+color tree brightcyan default
 color normal white default
 color tilde green default
 color bold brightyellow default
