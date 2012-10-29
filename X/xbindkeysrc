@@ -6,11 +6,14 @@
 #keystate_capslock = enable
 #keystate_scrolllock= enable
 
-"/home/hsp/.bin/backlight_level"
+"/home/hsp/bin/backlight_level"
     m:0x0 + c:232
     XF86MonBrightnessDown
 
-"/home/hsp/.bin/backlight_level"
+"/home/hsp/bin/backlight_level"
     m:0x0 + c:233
     XF86MonBrightnessUp
 
+"/home/hsp/bin/mymonitor"
+    m:0x0 + c:156
+    XF86Launch1

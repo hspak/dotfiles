@@ -127,7 +127,6 @@
   bindsym XF86_AudioRaiseVolume exec /home/hsp/bin/alsavol increase Master 5
   bindsym XF86_AudioLowerVolume exec /home/hsp/bin/alsavol decrease Master 5
   bindsym XF86_AudioMute        exec /home/hsp/bin/alsavol toggle Master
-  bindsym XF86Launch1           exec /home/hsp/bin/mymonitor
 
   # MPD control                           
   bindsym $mod+F1               exec mpc prev

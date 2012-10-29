@@ -49,6 +49,10 @@ dotfiles_vim() {
   link vim
   link vim/vimrc
 }
+
+dotfiles_weechat() {
+  link weechat/weechat.conf .weechat/weechat.conf
+}
 # }}}
 
 usage() {
