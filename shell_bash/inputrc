@@ -1,0 +1,15 @@
+$include /etc/inputrc
+
+set editing-mode vi
+$if mode=vi
+  set echo-control-characters Off
+  set expand-tilde Off
+  set match-hidden-files On
+  set bell-style Off
+
+  "\e[5~": history-search-backward
+  "\e[6~": history-search-forward
+$endif
+
+"\C-e\C-w": unix-filename-rubout
+"\C-x\C-r": re-read-init-file
