@@ -145,10 +145,11 @@
   assign [class="Google-chrome"]      → 2
 
   # Assign floats
-  for_window [instance="scratchpad"]  floating enable
-  for_window [class="Gxmessage"]      floating enable
   for_window [class="Spotify"]        move to scratchpad
+  for_window [class="Gxmessage"]      floating enable
   for_window [class="feh"]            floating enable
+  for_window [class="Sonata"]         floating enable
+  for_window [instance="scratchpad"]  floating enable
   for_window [instance="thunar"]      floating enable
 
   # resize window (you can also use the mouse for that)
@@ -203,3 +204,4 @@
 # Execute
 #
   exec termite -e tmux
+  exec --no-startup-id xautolock -detectsleep -time 10 -locker "i3lock && xset dpms force off" -killtime 15 -killer "systemctl suspend"

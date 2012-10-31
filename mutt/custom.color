@@ -19,7 +19,7 @@ mono body bold "mailto:[-a-z_0-9.]+@[-a-z_0-9.]+"
 color body brightgreen default "[-a-z_0-9.%$]+@[-a-z_0-9.]+\\.[-a-z][-a-z]+"
 
 # Header
-color header green default "^from:"
+color header red default "^from:"
 color header green default "^to:"
 color header green default "^cc:"
 color header green default "^date:"
@@ -63,7 +63,7 @@ color quoted7 green default
 # Defaults
 color signature brightmagenta default
 color indicator brightblack white
-color attachment black green
+color attachment brightblue default
 color error red default
 color message white default
 color search brightwhite magenta

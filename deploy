@@ -38,11 +38,12 @@ dotfiles_X() {
   link X/xserverrc
 }
 
-dotfiles_shell() {
-  link shell/dircolors
-  link shell/zsh zsh
-  link shell/zprofile
-  link shell/zshrc
+dotfiles_zsh() {
+  link shell_zsh/zsh
+  link shell_zsh/zprofile
+  link shell_zsh/zshrc
+
+  link shell_bash/dircolors
 }
 
 dotfiles_vim() {
@@ -53,6 +54,14 @@ dotfiles_vim() {
 dotfiles_weechat() {
   link weechat/weechat.conf .weechat/weechat.conf
 }
+
+dotfiles_bash() {
+  link shell_bash/bash
+  link shell_bash/bashrc
+  link shell_bash/bash_profile
+  link shell_bash/inputrc
+  link shell_bash/dircolors
+}                       
 # }}}
 
 usage() {

@@ -26,7 +26,7 @@ unset mark_old                        # read/new is good enough for me
 set beep_new                          # bell on new mails
 set pipe_decode                       # strip headers and eval mimes when piping
 set thorough_search                   # strip headers and eval mimes before searching
-set sleep_time		  = 0				        # less wait for folder switch
+set sleep_time      = 0               # less wait for folder switch
 
 # index options
 set sort              = threads                     # like gmail 
@@ -92,10 +92,10 @@ bind index i            noop
 bind index h            noop
 
 # bindings
-bind index l			      display-message
-bind pager h			      exit
-bind pager d			      half-down
-bind pager u			      half-up
+bind index l            display-message
+bind pager,attach h     exit
+bind pager d            half-down
+bind pager u            half-up
 
 bind pager i            exit
 bind pager /            search
@@ -113,15 +113,17 @@ bind index K            previous-unread
 bind index J            next-unread
 bind index,pager R      group-reply
 
+bind attach l           view-attach
+
 # macros
-macro index \Cr "<tag-prefix><clear-flag>N"				      "mark tagged messages as read"
-macro index B   "<limit>"					                      "search message bodies"
-macro index gi   "<change-folder>!<enter>"				      "go to Inbox"
-macro index ga   "<change-folder>=GMail/arch<enter>"	  "go to arch"
-macro index gh   "<change-folder>=GMail/hpakage<enter>"	"go to hpakage"
-macro index gs   "<change-folder>=GMail/sent<enter>"	  "go to sent"
-macro index gt   "<change-folder>=GMail/trash<enter>"	  "go to trash"
-macro index gp   "<change-folder>=GMail/spam<enter>"	  "go to spam"
+macro index \Cr "<tag-prefix><clear-flag>N"             "mark tagged messages as read"
+macro index B   "<limit>"                               "search message bodies"
+macro index gi   "<change-folder>!<enter>"              "go to Inbox"
+macro index ga   "<change-folder>=GMail/arch<enter>"    "go to arch"
+macro index gh   "<change-folder>=GMail/hpakage<enter>" "go to hpakage"
+macro index gs   "<change-folder>=GMail/sent<enter>"    "go to sent"
+macro index gt   "<change-folder>=GMail/trash<enter>"   "go to trash"
+macro index gp   "<change-folder>=GMail/spam<enter>"    "go to spam"
 
 # save a decoded copy in /home/hsp
 macro index P   "<pipe-message>cat > /home/hsp/"    "save message as"
