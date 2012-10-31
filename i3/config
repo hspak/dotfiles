@@ -118,10 +118,11 @@
   bindsym $mod+minus        scratchpad show
 
   # custom bindings
-  bindsym $mod+O                exec --no-startup-id google-chrome --disk-cache-dir=/tmp --ignore-gpu-blacklist
+  bindsym $mod+O                exec --no-startup-id google-chrome --ignore-gpu-blacklist
   bindsym $mod+I                exec --no-startup-id thunar
   # bindsym $mod+U                exec --no-startup-id subl
   bindsym $mod+D                exec --no-startup-id termite --name="scratchpad" --geometry=600x400
+  # bindsym $mod+D                exec --no-startup-id urxvtc --name="scratchpad" --geometry=600x400
 
   # volume control
   bindsym XF86_AudioRaiseVolume exec /home/hsp/bin/alsavol increase Master 5
