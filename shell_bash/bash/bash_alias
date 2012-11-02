@@ -2,7 +2,6 @@
 alias ls='ls -lh --color'
 alias df='df -h'
 alias du='du -h'
-alias su='su -'
 alias ..='cd ..'
 alias ....='cd ../..'
 alias grep='grep --color'

@@ -205,4 +205,4 @@
 # Execute
 #
   exec termite -e tmux
-  exec --no-startup-id xautolock -detectsleep -time 10 -locker "i3lock && xset dpms force off" -killtime 15 -killer "systemctl suspend"
+  exec --no-startup-id xautolock -detectsleep -time 15 -locker "systemctl suspend && i3lock"

@@ -13,6 +13,7 @@ mymonitor &
 # Disable touchpad when typing
 syndaemon -K -d -i 1
 
+# Key bindings
 xbindkeys
 
 # Music
@@ -20,6 +21,9 @@ mpd
 
 # Custom keyboard layout
 delay_xmodmap &
+
+# Mounting aid
+udiskie &
 
 # Run window manager
 exec i3

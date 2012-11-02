@@ -90,7 +90,7 @@ PROMPT='%B┌ %F{blue}%n%b@%B%F{blue}%m%b %B[%~] ${vcs_info_msg_0_}
 └╼ $%b%f '
 
 # Environmental
-[ -n "$TMUX" ] && export TERM=screen-256color
+[[ -n "$TMUX" ]] && export TERM=screen-256color
 export EDITOR=vim
 
 # External Config
@@ -98,7 +98,7 @@ if [[ -r ~/.dircolors ]] && type -p dircolors >/dev/null; then
     eval $(dircolors -b "$HOME/.dircolors")
 fi
 
-for snippets ($HOME/zsh/*.zsh(N)) 
+for snippets ($HOME/.zsh/*.zsh(N))
   source $snippets
 
 source /usr/share/zsh/plugins/zsh-syntax-highlight/zsh-syntax-highlighting.zsh

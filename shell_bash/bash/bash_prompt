@@ -2,8 +2,8 @@
 
 bash_prompt() {
   case $TERM in
-    @(xterm|rxvt)*)
-      local TITLEBAR='\[\e]0;\u:${NEW_PWD}\007\]' ;;
+    @(xterm|rxvt|screen)*)
+      local TITLEBAR='\[\e]0;\u: ${PWD}\007\]' ;;
   esac
 
   local NONE='\[\e[0m\]'    # unsets color to term's fg color
@@ -25,7 +25,7 @@ bash_prompt() {
   [[ $SSH_TTY ]] && local HC=$C || local HC=$W
 
   # space goes inside the printf so its not there when there's no git branch
-  PS1="$TITLEBAR $EMK┌┤$HC\h$EMK->$UC\u$RET_VALUE\$(__git_ps1 ' \[\e[0;32m\]%s\[\e[0m\]') $EMB\w$EMK$UC\n $EMK└➤$NONE "
+  PS1="$TITLEBAR $EMK┌┤$HC\u$EMK@$UC\h$RET_VALUE\$(__git_ps1 ' \[\e[0;32m\]%s\[\e[0m\]') $EMB\w$EMK$UC\n $EMK└➤$NONE "
   export PS4='+$BASH_SOURCE[$LINENO]: '
 }
 

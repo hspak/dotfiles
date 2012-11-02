@@ -21,9 +21,22 @@ export HISTFILESIZE=2000
 
 set -o notify           # notify of completed background jobs immediately
 ulimit -S -c 0          # disable core dumps
-stty -ctlecho           # turn off control character echoing
 
 # --- External configs ---
+source_bash_completion() {
+  local f
+  [[ $BASH_COMPLETION ]] && return 0
+  for f in /{etc,usr/share/bash-completion}/bash_completion; do
+    if [[ -r $f ]]; then
+      . "$f"
+      return 0;
+    fi
+  done
+}
+
+source_bash_completion
+unset -f source_bash_completion
+
 [[ -f /usr/share/git/git-prompt.sh ]] && . /usr/share/git/git-prompt.sh
 
 for config in $HOME/.bash/bash_*; do
