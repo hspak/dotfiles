@@ -11,7 +11,6 @@ unset PERSONAL_PATH
 unset GEM_PATH
 unset MATLAB_PATH
 
-# more for less
 export LESS=-R # use -X to avoid sending terminal initialization
 export LESS_TERMCAP_mb=$'\e[01;31m'
 export LESS_TERMCAP_md=$'\e[01;31m'
@@ -47,11 +46,11 @@ source_bash_completion() {
 source_bash_completion
 unset -f source_bash_completion
 
-[[ -f /usr/share/git/git-prompt.sh ]] && . /usr/share/git/git-prompt.sh
-
 for config in $HOME/.bash/*; do
   [[ -r $config ]] && . $config
 done
+
+[[ -f /usr/share/git/git-prompt.sh ]] && . /usr/share/git/git-prompt.sh
 
 if [[ -r ~/.dircolors ]] && type -p dircolors >/dev/null; then
   eval $(dircolors -b "$HOME/.dircolors")

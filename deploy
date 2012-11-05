@@ -43,8 +43,10 @@ dotfiles_zsh() {
   link shell_zsh/zshrc
 
   link shell/dircolors
-  link shell/alias .zsh_alias.zsh
-  link shell/functions .zsh_functions.zsh
+
+  [[ -d zsh ]] || mkdir $HOME/.zsh
+  link shell/alias .zsh/alias.zsh
+  link shell/functions .zsh/functions.zsh
 }
 
 dotfiles_vim() {
@@ -62,9 +64,11 @@ dotfiles_bash() {
   link shell_bash/inputrc
 
   link shell/dircolors
-  link shell/alias .bash_alias
-  link shell/functions .bash_functions
-  link shell_bash/bash/prompt .bash_prompt
+
+  [[ -d .bash ]] || mkdir $HOME/.bash
+  link shell/alias .bash/alias
+  link shell/functions .bash/functions
+  link shell_bash/bash/prompt .bash/prompt
 }                       
 # }}}
 
