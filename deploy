@@ -39,11 +39,12 @@ dotfiles_X() {
 }
 
 dotfiles_zsh() {
-  link shell_zsh/zsh
   link shell_zsh/zprofile
   link shell_zsh/zshrc
 
-  link shell_bash/dircolors
+  link shell/dircolors
+  link shell/alias .zsh_alias.zsh
+  link shell/functions .zsh_functions.zsh
 }
 
 dotfiles_vim() {
@@ -56,11 +57,14 @@ dotfiles_weechat() {
 }
 
 dotfiles_bash() {
-  link shell_bash/bash
   link shell_bash/bashrc
   link shell_bash/bash_profile
   link shell_bash/inputrc
-  link shell_bash/dircolors
+
+  link shell/dircolors
+  link shell/alias .bash_alias
+  link shell/functions .bash_functions
+  link shell_bash/bash/prompt .bash_prompt
 }                       
 # }}}
 

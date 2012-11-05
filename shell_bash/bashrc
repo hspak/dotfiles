@@ -1,7 +1,15 @@
 # Check for interactive
 [[ $- = *i* ]] || return ]]
 
-shopt -s cdspell dirspell extglob histverify no_empty_cmd_completion checkwinsize
+# set path
+PERSONAL_PATH="/home/hsp/bin"
+GEM_PATH="/home/hsp/.gem/ruby/1.9.1/bin"
+MATLAB_PATH="/usr/local/MATLAB/R2011a/bin"
+
+export PATH=$PERSONAL_PATH:$GEM_PATH:$MATLAB_PATH:$PATH
+unset PERSONAL_PATH
+unset GEM_PATH
+unset MATLAB_PATH
 
 # more for less
 export LESS=-R # use -X to avoid sending terminal initialization
@@ -19,6 +27,8 @@ export HISTCONTROL="ignoreboth:erasedups"
 export HISTSIZE=1000
 export HISTFILESIZE=2000
 
+# settings
+shopt -s cdspell dirspell extglob histverify no_empty_cmd_completion checkwinsize
 set -o notify           # notify of completed background jobs immediately
 ulimit -S -c 0          # disable core dumps
 
@@ -39,7 +49,7 @@ unset -f source_bash_completion
 
 [[ -f /usr/share/git/git-prompt.sh ]] && . /usr/share/git/git-prompt.sh
 
-for config in $HOME/.bash/bash_*; do
+for config in $HOME/.bash/*; do
   [[ -r $config ]] && . $config
 done
 

@@ -3,13 +3,7 @@
 fpath=($HOME/.zsh/completion $fpath )
 
 # Turn autocomplete on
-autoload -U colors && colors 
-autoload -U compinit && compinit
-autoload -Uz vcs_info
-
-# smart urls
-autoload -U url-quote-magic
-zle -N self-insert url-quote-magic
+autoload -U compinit edit-command-line colors vcs_info zmv url-quote-magic
 
 # history
 HISTFILE=~/.zhistory
@@ -86,8 +80,8 @@ zstyle ':vcs_info:git*' formats "%F{blue}%s%F{white}:%F{green}%b%F{white} %m%u%c
 zstyle ':vcs_info:*' stagedstr '%F{red}S%F{white}'
 zstyle ':vcs_info:*' unstagedstr '%F{red}U%F{white}'
 
-PROMPT='%B┌ %F{blue}%n%b@%B%F{blue}%m%b %B[%~] ${vcs_info_msg_0_}
-└╼ $%b%f '
+PROMPT="%B┌ %F{blue}%n%b@%B%F{blue}%m%b %B[%~] ${vcs_info_msg_0_} 
+└╼ $%b%f "
 
 # Environmental
 [[ -n "$TMUX" ]] && export TERM=screen-256color

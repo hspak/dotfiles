@@ -6,7 +6,6 @@
 alias ls='ls -lh --color'
 alias df='df -h'
 alias du='du -h'
-alias su='su -'
 alias ..='cd ..'
 alias ....='cd ../..'
 alias grep='grep --color'
@@ -19,7 +18,7 @@ alias scrompbox='scrot -s '"'"'%Y%m%d.png'"'"' -e '"'"'ompload $f && mv $f ~/bri
 alias scromp='scrot '"'"'%Y%m%d.png'"'"' -e '"'"'ompload $f && mv $f ~/bridge/image/screeny/'"'"''
 alias aurvote='aurvote -v $(pacman -Qqm)'
 alias lap_mon_on='xrandr --output LVDS1 --mode 1600x900 --left-of HDMI1 --output HDMI1 --primary'
-alias google-chrome='google-chrome --disk-cache-dir=/tmp --ignore-gpu-blacklist'
+alias google-chrome='google-chrome --ignore-gpu-blacklist'
 
 # -- Type less
 alias v='vim'
@@ -32,6 +31,8 @@ alias dtella='python2 ~/dtella/dtella.py'
 alias pa='pacaur'
 alias mpdstart='sudo systemctl start mpd.service'
 alias clear_pkg_dir='sudo rm -rf pkg src && sudo rm -f *.gz'
+
+alias wireless_scan='sudo ip link set wlan0 up && sudo iwlist wlan scan | less'
 
 # -- Pacman
 alias p='pacman-color'
@@ -51,10 +52,6 @@ alias pcnt='pacman -Q | wc -l'
 alias giti='git init'
 alias gita='git add .'
 alias gitc='git commit -m'
-alias gitpom='git push -u origin master'
-
-alias dotfiles_push='cd /home/hsp/dotfiles && ./prior.sh && git add . && gitc "periodic update" && git push origin master'
-alias dotfiles_setup='cd /home/hsp/dotfiles && ./setup.sh'
 
 # -- Directory
 alias ece264='cd ~/code/ece264/'

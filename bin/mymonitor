@@ -19,4 +19,5 @@ fi
 feh --bg-center $HOME/media/image/arch_pacman.jpg &
 
 # Fix notification position
-[[ -n "$(pgrep notify-osd)" ]] && kill "$NOTI_PID"
+$NOTI_PID = $(pgrep notify-osd)
+[[ -n "$(NOTI_PID)" ]] && kill "$NOTI_PID"
