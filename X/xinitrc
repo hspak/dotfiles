@@ -1,20 +1,17 @@
 # Set terminal options
-xrdb -merge ~/.Xresources
-
-# Fix dual monitor settings
-mymonitor &
+xrdb -merge ~/.Xresources &
 
 # Wait 15 seconds for connection
-#delay_dropbox & 
+# delay_dropbox & 
 
 # Ibus for Korean input
-#ibus-daemon -drx
+# ibus-daemon -drx
 
 # Disable touchpad when typing
 syndaemon -K -d -i 1
 
 # Key bindings
-xbindkeys
+xbindkeys &
 
 # Music
 mpd
@@ -24,6 +21,9 @@ delay_xmodmap &
 
 # Mounting aid
 udiskie &
+
+# Fix dual monitor settings
+mymonitor &
 
 # Run window manager
 exec i3

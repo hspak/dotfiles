@@ -16,7 +16,7 @@
   set $mod Mod4
 
   # font for window titles. ISO 10646 = Unicode
-  font -*-fixed-medium-r-*-*-12-*-*-*-*-*-iso10646-*
+  font xft:Dejavu Sans 8
 
   # Use Mouse+$mod to drag floating windows to their wanted position
   floating_modifier $mod
@@ -198,11 +198,11 @@
     urgent_workspace   #ffffff #900000
     }
 
-    font -*-fixed-medium-r-*-*-12-*-*-*-*-*-iso10646-*
+    font xft:Dejavu Sans 8
   }
 
 #
 # Execute
 #
-  exec termite -e tmux
   exec --no-startup-id xautolock -detectsleep -time 15 -locker "systemctl suspend && i3lock"
+  exec termite -e tmux

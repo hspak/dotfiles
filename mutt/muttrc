@@ -76,7 +76,7 @@ unignore from: to: cc: date: subject:    # show only these
 hdr_order from: to: cc: date: subject:   # and in this order
 
 # boxes
-mailboxes +GMail/INBOX +GMail/arch +GMail/hpakage +GMail/sent
+mailboxes +GMail/INBOX +GMail/hpakage
 
 # always sourced
 source $alias_file                      # required for functionality
@@ -135,5 +135,5 @@ macro index Z   "<shell-escape>/usr/bin/offlineimap -q -o<enter>" "sync IMAP"
 macro attach E <save-entry><kill-line>/home/hsp/Downloads/<enter>
 
 # HTML mail
-alternative_order text/plain text/html
+# alternative_order text/plain text/html
 

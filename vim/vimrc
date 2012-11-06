@@ -39,7 +39,7 @@ set lbr                 " line break
 " -------------------------------------
 set backup              " keep a backup file
 set backupdir=/tmp      " backup dir
-set directory=~/.vim/swap " swap file directory
+" set directory=~/.vim/swap " swap file directory
 
 " tabs and indenting
 " -------------------------------------
