@@ -4,12 +4,6 @@
 #
 # edited to use ponymix to mute
 
-if [[ -d /run/user/$USER ]]; then
-  volfile=/run/user/$USER/volume
-else
-  volfile=$HOME/.volume
-fi
-
 getvol() {
   local channel=$1
 
@@ -25,7 +19,7 @@ setvol() {
 }
 
 is_muted() {
-  [[ -f $volfile ]]
+  ponymix is-muted
 }
 
 mute() {
@@ -34,7 +28,6 @@ mute() {
   [[ $channel ]] || return 1
   # curvol="$(getvol "$channel")"
   curvol="$(ponymix mute)"
-  printf '%s\n' "$curvol" > "$volfile"
 
   printf '%s' 0
 }
@@ -43,9 +36,6 @@ unmute() {
   local channel=$1 newvol=
 
   newvol=$(ponymix unmute)
-  rm -f "$volfile"
-
-  printf '%s' "$newvol"
 }
 
 get_icon () {
@@ -68,7 +58,7 @@ toggle() {
   local channel=$1 savedvol= newvol=
 
   [[ $channel ]] || return 1
-  if is_muted; then
+  if $(ponymix is-muted); then
     unmute "$channel"
   else
     mute "$channel"

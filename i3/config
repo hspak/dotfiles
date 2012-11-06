@@ -106,7 +106,7 @@
 
   # reload the configuration file
   bindsym $mod+Shift+C      reload
-  
+
   # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
   bindsym $mod+Shift+R      restart
 
@@ -129,7 +129,7 @@
   bindsym XF86_AudioLowerVolume exec /home/hsp/bin/alsavol decrease Master 5
   bindsym XF86_AudioMute        exec /home/hsp/bin/alsavol toggle Master
 
-  # MPD control                           
+  # MPD control
   bindsym $mod+F1               exec mpc prev
   bindsym $mod+F2               exec mpc toggle
   bindsym $mod+F3               exec mpc next
@@ -150,6 +150,7 @@
   for_window [class="Gxmessage"]      floating enable
   for_window [class="feh"]            floating enable
   for_window [class="Sonata"]         floating enable
+  for_window [instance="Steam"]       floating enable border none
   for_window [instance="scratchpad"]  floating enable
   for_window [instance="thunar"]      floating enable
 

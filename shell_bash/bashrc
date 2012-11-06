@@ -55,3 +55,6 @@ done
 if [[ -r ~/.dircolors ]] && type -p dircolors >/dev/null; then
   eval $(dircolors -b "$HOME/.dircolors")
 fi
+
+export EDITOR=vim
+export BROWSER=google-chrome

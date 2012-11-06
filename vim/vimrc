@@ -108,7 +108,6 @@ vnoremap <Space> zf
 
 nnoremap <C-e> 3<C-e>
 nnoremap <C-y> 3<C-y>
-nnoremap ; :
 
 " normal movement for wrapped lines
 noremap k gk

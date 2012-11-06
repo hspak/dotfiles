@@ -35,7 +35,6 @@ dotfiles_X() {
   link X/Xresources
   link X/xbindkeysrc
   link X/xinitrc
-  link X/xserverrc
 }
 
 dotfiles_zsh() {
