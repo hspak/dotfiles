@@ -123,7 +123,7 @@ nnoremap T :TlistAddFiles<Space>
 
 " resizing
 noremap + <C-w><
-noremap _ <C-w>> 
+noremap _ <C-w>>
 noremap = <C-w>+
 noremap - <C-w>-
 
@@ -153,3 +153,6 @@ au Filetype python		set sw=4 ts=4
 " -------------------------------------
 let Tlist_WinWidth = 23
 let NERDSpaceDelims = 1
+
+set background=dark
+colorscheme solarized

@@ -178,8 +178,13 @@
   bindsym $mod+r mode "resize"
 
   # class                 border  backgr. text    indicator
-  client.focused          #4e82aa #0c73c2 #ffffff #2e9ef4
-  client.focused_inactive #333333 #5f676a #ffffff #484e50
+  # client.focused          #4e82aa #0c73c2 #ffffff #2e9ef4
+  # client.focused_inactive #333333 #5f676a #ffffff #484e50
+  # client.unfocused        #333333 #222222 #888888 #292d2e
+  # client.urgent           #2f343a #900000 #ffffff #900000
+
+  client.focused          #073642 #268bd2 #fdf6e3 #2e9ef4
+  client.focused_inactive #073642 #839496 #ffffff #484e50
   client.unfocused        #333333 #222222 #888888 #292d2e
   client.urgent           #2f343a #900000 #ffffff #900000
 
@@ -190,7 +195,7 @@
     status_command i3status --config ~/.config/i3/i3status.conf
 
     colors {
-    background #090909
+    background #111111
     statusline #ffffff
 
     focused_workspace  #ffffff #0c73c2
