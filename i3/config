@@ -143,9 +143,10 @@
 # Windowing Rules
 #
   # Assign workspaces
-  assign [class="Google-chrome"]      → 2
+  # assign [class="Google-chrome"]      → 2
 
   # Assign floats
+  for_window [class="Google-chrome"]  border none
   for_window [class="Spotify"]        move to scratchpad
   for_window [class="Gxmessage"]      floating enable
   for_window [class="feh"]            floating enable
@@ -183,8 +184,8 @@
   # client.unfocused        #333333 #222222 #888888 #292d2e
   # client.urgent           #2f343a #900000 #ffffff #900000
 
-  client.focused          #073642 #268bd2 #fdf6e3 #2e9ef4
-  client.focused_inactive #073642 #839496 #ffffff #484e50
+  client.focused          #000000 #002b36 #fdf6e3 #32555e
+  client.focused_inactive #073642 #333333 #ffffff #484e50
   client.unfocused        #333333 #222222 #888888 #292d2e
   client.urgent           #2f343a #900000 #ffffff #900000
 

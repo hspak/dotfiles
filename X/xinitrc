@@ -20,7 +20,7 @@ mpd
 /home/hsp/bin/delay_xmodmap &
 
 # Fix dual monitor settings
-home/hsp/bin/mymonitor &
+/home/hsp/bin/mymonitor &
 
 # Run window manager
 exec i3
