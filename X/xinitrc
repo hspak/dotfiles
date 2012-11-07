@@ -2,7 +2,7 @@
 xrdb -merge ~/.Xresources &
 
 # Wait 15 seconds for connection
-# delay_dropbox & 
+# delay_dropbox &
 
 # Ibus for Korean input
 # ibus-daemon -drx
@@ -17,13 +17,10 @@ xbindkeys &
 mpd
 
 # Custom keyboard layout
-delay_xmodmap &
-
-# Mounting aid
-udiskie &
+/home/hsp/bin/delay_xmodmap &
 
 # Fix dual monitor settings
-mymonitor &
+home/hsp/bin/mymonitor &
 
 # Run window manager
 exec i3
