@@ -20,15 +20,15 @@ link() {
 }
 
 # Deploy scriptlets {{{
-dotfiles_bin()        { link bin bin;                                 } 
-dotfiles_git()        { link git/gitconfig;                           } 
-dotfiles_gtk()        { link gtk/gtkrc-2.0;                           } 
-dotfiles_i3()         { link i3 .config/i3;                           } 
-dotfiles_mutt()       { link mutt;                                    } 
-dotfiles_ncmpcpp()    { link ncmpcpp;                                 } 
-dotfiles_notify_osd() { link notify-osd;                              } 
-dotfiles_termite()    { link termite/termite.cfg .config/termite.cfg; } 
-dotfiles_tmux()       { link tmux/tmux.conf;                          } 
+dotfiles_bin()        { link bin bin;                                 }
+dotfiles_git()        { link git/gitconfig;                           }
+dotfiles_gtk()        { link gtk/gtkrc-2.0;                           }
+dotfiles_i3()         { link i3 .config/i3;                           }
+dotfiles_mutt()       { link mutt;                                    }
+dotfiles_ncmpcpp()    { link ncmpcpp;                                 }
+dotfiles_notify_osd() { link notify-osd;                              }
+dotfiles_termite()    { link termite/termite.cfg .config/termite.cfg; }
+dotfiles_tmux()       { link tmux/tmux.conf;                          }
 
 dotfiles_X() {
   link X/Xmodmap
@@ -68,7 +68,7 @@ dotfiles_bash() {
   link shell/alias .bash/alias
   link shell/functions .bash/functions
   link shell_bash/bash/prompt .bash/prompt
-}                       
+}
 # }}}
 
 usage() {

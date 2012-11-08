@@ -184,7 +184,7 @@
   # client.unfocused        #333333 #222222 #888888 #292d2e
   # client.urgent           #2f343a #900000 #ffffff #900000
 
-  client.focused          #000000 #002b36 #fdf6e3 #32555e
+  client.focused          #222222 #073642 #fdf6e3 #32555e
   client.focused_inactive #073642 #333333 #ffffff #484e50
   client.unfocused        #333333 #222222 #888888 #292d2e
   client.urgent           #2f343a #900000 #ffffff #900000
@@ -196,12 +196,12 @@
     status_command i3status --config ~/.config/i3/i3status.conf
 
     colors {
-    background #111111
-    statusline #ffffff
+    background #002b36
+    statusline #8da0a7
 
-    focused_workspace  #ffffff #0c73c2
-    active_workspace   #ffffff #333333
-    inactive_workspace #888888 #222222
+    focused_workspace  #d3d3d3 #073642
+    active_workspace   #d3d3d3 #5f676a
+    inactive_workspace #888888 #333333
     urgent_workspace   #ffffff #900000
     }
 

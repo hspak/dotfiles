@@ -486,7 +486,7 @@ active_column_color = "magenta"
 #
 #visualizer_color = "yellow"
 #
-#window_border_color = "green"
+window_border_color = "blue"
 #
 #active_window_border = "red"
 #

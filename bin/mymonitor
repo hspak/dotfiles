@@ -16,7 +16,7 @@ else
 fi
 
 # Set Wallpaper
-feh --bg-center $HOME/media/image/arch_pacman.jpg &
+feh --bg-center $HOME/media/image/arch_stripe.png &
 
 # Fix notification position
 NOTI_PID=$(pgrep notify-osd)
