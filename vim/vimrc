@@ -2,7 +2,7 @@ set nocompatible        " use Vim defaults
 
 " General Options
 " -------------------------------------
-set t_Co=256			      " enable 256 colors
+set t_Co=256            " enable 256 colors
 set mouse=a             " make sure mouse is used in all cases.
 set autoread
 set autowrite
@@ -17,7 +17,7 @@ set wildmenu
 set wildmode=list:longest,full
 set scrolloff=5
 set shortmess=atI
-set laststatus=2		    " always show a status line
+set laststatus=2        " always show a status line
 set clipboard+=unnamed  " yank and copy to X clipboard
 set backspace=2         " full backspacing capabilities
 set history=50          " 50 lines of command line history
@@ -26,8 +26,8 @@ set showmode            " show mode at bottom of screen
 set ww=<,>,[,]          " whichwrap -- left/right keys can traverse up/down
 set cmdheight=1         " set the command height
 set showmatch           " show matching brackets (),{},[]
-set number				      " show number line
-set hidden				      " allow unsaved buffers to go in background
+set number              " show number line
+set hidden              " allow unsaved buffers to go in background
 set shell=/bin/zsh      " set shell
 
 "  wrap like other editors
@@ -56,16 +56,6 @@ set incsearch           " increment search
 set ignorecase          " case-insensitive search
 set smartcase           " upper-case sensitive search
 
-" syntax highlighting
-" -------------------------------------
-syntax on               " enable syntax highlighting
-
-if &term !=# "screen-256color"
-  colorscheme neverland2_mod
-else
-  colorscheme inkpot_mod
-endif
-
 " Code Folding
 "---------------------------------
 if has ('folding')
@@ -84,6 +74,21 @@ filetype plugin on
 filetype indent on
 set ofu=syntaxcomplete#Complete
 
+" syntax highlighting
+" -------------------------------------
+syntax on               " enable syntax highlighting
+
+" if &term !=# "screen-256color"
+  " colorscheme neverland2_mod
+" else
+  " colorscheme inkpot_mod
+" endif
+
+syntax enable
+set background=dark
+colorscheme solarized
+
+
 " custom keybindings
 " -------------------------------------
 let maplocalleader = ","
@@ -92,8 +97,10 @@ let mapleader = ","
 map Q <Nop>
 map q: <Nop>
 
+map <F2> :wall<CR>
+
 map <silent><F12> :set hlsearch! hlsearch?<CR>
-map <silent> <LocalLeader>l :TlistToggle<CR>
+map <silent> <LocalLeader>l :NERDTreeToggle<CR>
 map <silent> <LocalLeader>m :bnext<cr>
 map <silent> <LocalLeader>v :bprev<cr>
 
@@ -137,22 +144,21 @@ cmap w!! w !sudo tee % >/dev/null<CR>:e!<CR><CR>
 
 " auto commands
 " -------------------------------------
-" auto delete trailing whitespace
-" autocmd BufWritePre * :%s/\s\+$//e
+
+" allow
 au BufWritePost * if getline(1) =~ "^#!" | silent :!chmod +x <afile>
 
 " save last position
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif "
 
 " file type specific settings
-au FileType c,h			setlocal ts=8 sw=8
-au FileType make		  set noet
-au Filetype python		set sw=4 ts=4
+au FileType c         setlocal ts=8 sw=8
+au FileType cpp       setlocal ts=4 sw=4
+au FileType make      setlocal noet
+au Filetype python    setlocal sw=4 ts=4
 
+let &titleold=getcwd()
 " plugin settings
 " -------------------------------------
 let Tlist_WinWidth = 23
 let NERDSpaceDelims = 1
-
-set background=dark
-colorscheme solarized
