@@ -41,7 +41,7 @@ dotfiles_zsh() {
   link shell_zsh/zprofile
   link shell_zsh/zshrc
 
-  link shell/dircolors_solarized .dircolors
+  link shell/dircolors
 
   [[ -d zsh ]] || mkdir $HOME/.zsh
   link shell/alias .zsh/alias.zsh
@@ -62,7 +62,7 @@ dotfiles_bash() {
   link shell_bash/bash_profile
   link shell_bash/inputrc
 
-  link shell/dircolors_solarized .dircolors
+  link shell/dircolors
 
   [[ -d .bash ]] || mkdir $HOME/.bash
   link shell/alias .bash/alias

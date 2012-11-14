@@ -28,6 +28,8 @@ set pipe_decode                       # strip headers and eval mimes when piping
 set thorough_search                   # strip headers and eval mimes before searching
 set sleep_time      = 0               # less wait for folder switch
 
+set quit=ask-no
+
 # index options
 set sort              = threads                     # like gmail
 set sort_aux          = reverse-last-date-received  # like gmail

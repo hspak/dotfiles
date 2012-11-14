@@ -11,6 +11,7 @@ unset PERSONAL_PATH
 unset GEM_PATH
 unset MATLAB_PATH
 
+# less is moar
 export LESS=-R # use -X to avoid sending terminal initialization
 export LESS_TERMCAP_mb=$'\e[01;31m'
 export LESS_TERMCAP_md=$'\e[01;31m'

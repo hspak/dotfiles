@@ -77,17 +77,13 @@ set ofu=syntaxcomplete#Complete
 " syntax highlighting
 " -------------------------------------
 syntax on               " enable syntax highlighting
-
-" if &term !=# "screen-256color"
-  " colorscheme neverland2_mod
-" else
-  " colorscheme inkpot_mod
-" endif
-
 syntax enable
-set background=dark
-colorscheme solarized
 
+if &term !=# "screen-256color"
+  colorscheme neverland2_mod
+else
+  colorscheme inkpot_mod
+endif
 
 " custom keybindings
 " -------------------------------------
@@ -96,10 +92,10 @@ let mapleader = ","
 
 map Q <Nop>
 map q: <Nop>
+map <F11> <Nop>
 
 map <F2> :wall<CR>
-
-map <silent><F12> :set hlsearch! hlsearch?<CR>
+map <silent> <F12> :set hlsearch! hlsearch?<CR>
 map <silent> <LocalLeader>l :NERDTreeToggle<CR>
 map <silent> <LocalLeader>m :bnext<cr>
 map <silent> <LocalLeader>v :bprev<cr>
@@ -108,6 +104,9 @@ map <silent> <LocalLeader>v :bprev<cr>
 nnoremap <F5> :!make<CR>
 nnoremap <S-F5> :make %<<CR>
 nnoremap <S-F6> :!./"%"<CR>
+
+" whitespace
+nnoremap <F11> :ToggleBadWhitespace<CR>
 
 " map space to create/open/close fold
 nnoremap <silent> <Space> @=(foldlevel('.')?'za':'l')<CR>

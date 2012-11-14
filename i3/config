@@ -179,15 +179,15 @@
   bindsym $mod+r mode "resize"
 
   # class                 border  backgr. text    indicator
-  # client.focused          #4e82aa #0c73c2 #ffffff #2e9ef4
-  # client.focused_inactive #333333 #5f676a #ffffff #484e50
-  # client.unfocused        #333333 #222222 #888888 #292d2e
-  # client.urgent           #2f343a #900000 #ffffff #900000
-
-  client.focused          #222222 #073642 #fdf6e3 #32555e
-  client.focused_inactive #073642 #333333 #ffffff #484e50
+  client.focused          #4e82aa #0b65aa #ffffff #2e9ef4
+  client.focused_inactive #333333 #5f676a #ffffff #484e50
   client.unfocused        #333333 #222222 #888888 #292d2e
   client.urgent           #2f343a #900000 #ffffff #900000
+
+  # client.focused          #222222 #073642 #fdf6e3 #32555e
+  # client.focused_inactive #073642 #333333 #ffffff #484e50
+  # client.unfocused        #333333 #222222 #888888 #292d2e
+  # client.urgent           #2f343a #900000 #ffffff #900000
 
 #
 # i3bar / i3status
@@ -196,10 +196,10 @@
     status_command i3status --config ~/.config/i3/i3status.conf
 
     colors {
-    background #002b36
+    background #131313
     statusline #8da0a7
 
-    focused_workspace  #d3d3d3 #073642
+    focused_workspace  #d3d3d3 #0b65aa
     active_workspace   #d3d3d3 #5f676a
     inactive_workspace #888888 #333333
     urgent_workspace   #ffffff #900000
@@ -211,5 +211,5 @@
 #
 # Execute
 #
-  exec --no-startup-id xautolock -detectsleep -time 15 -locker "systemctl suspend && i3lock"
+  exec --no-startup-id xautolock -detectsleep -time 15 -locker "systemctl suspend"
   exec termite -e tmux
