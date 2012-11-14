@@ -80,8 +80,8 @@ mailboxes +GMail/INBOX +GMail/hpakage
 
 # always sourced
 source $alias_file                      # required for functionality
-# source /home/hsp/.mutt/custom.color     # colors
-source /home/hsp/.mutt/mutt-colors-solarized-dark-16.muttrc     # colors
+source /home/hsp/.mutt/custom.color     # colors
+# source /home/hsp/.mutt/mutt-colors-solarized-dark-16.muttrc     # colors
 source /home/hsp/.mutt/gmail.muttrc     # source gmail as default
 
 # account specific sources
