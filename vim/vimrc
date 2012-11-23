@@ -106,6 +106,7 @@ nnoremap <S-F5> :make %<<CR>
 nnoremap <S-F6> :!./"%"<CR>
 
 " whitespace
+nnoremap <F10> :EraseBadWhitespace<CR>
 nnoremap <F11> :ToggleBadWhitespace<CR>
 
 " map space to create/open/close fold
@@ -124,6 +125,7 @@ noremap <silent> V :vsplit<CR> :wincmd l<CR>
 noremap <silent> H :split<CR> :wincmd j<CR>
 
 nnoremap Q <C-W>q
+nnoremap W :wq<CR>
 nnoremap B :buffers<CR>:buffer<Space>
 nnoremap T :TlistAddFiles<Space>
 
