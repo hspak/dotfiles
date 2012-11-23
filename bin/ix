@@ -17,7 +17,7 @@ import netrc, os, sys
 
 def auth():
     ''' netrc: machine ix.io login USERNAME password TOKEN '''
-    try: 
+    try:
         creds = netrc.netrc().authenticators('ix.io')
     except:
         return []

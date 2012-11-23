@@ -57,9 +57,9 @@ bindkey -v
 # Enable setting terminal titles
 case $TERM in
   xterm*|rxvt*|screen*|gnome*)
-     precmd() { 
+     precmd() {
        print -Pn "\e]0;%m:%~\a" 
-       vcs_info 
+       vcs_info
      }
      preexec () { print -Pn "\e]0;$1\a" }
     ;;
@@ -72,16 +72,16 @@ zstyle ':completion:*' cache-path /tmp
 zstyle ':completion:*' menu select
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*' ignore-parents parent pwd
-                                
+
 # Enable git in prompt
-zstyle ':vcs_info:*' enable git   
+zstyle ':vcs_info:*' enable git
 zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:git*' formats "%F{blue}%s%F{white}:%F{green}%b%F{white} %m%u%c% "
 zstyle ':vcs_info:*' stagedstr '%F{red}S%F{white}'
 zstyle ':vcs_info:*' unstagedstr '%F{red}U%F{white}'
 
-PROMPT="%B┌ %F{blue}%n%b@%B%F{blue}%m%b %B[%~] ${vcs_info_msg_0_} 
-└╼ $%b%f "
+PROMPT="%B%F{cyan} ┌┤%b%F{white}%n%F{cyan}@%F{white}%m%b %B%F{blue}%~ ${vcs_info_msg_0_}
+ %F{cyan}└╼%b%f "
 
 # Environmental
 [[ -n "$TMUX" ]] && export TERM=screen-256color
@@ -94,8 +94,6 @@ fi
 
 for snippets ($HOME/.zsh/*.zsh(N))
   source $snippets
-
-source /usr/share/zsh/plugins/zsh-syntax-highlight/zsh-syntax-highlighting.zsh
 
 # Allow backspace past insert position in vi-mode
 zle -A .backward-kill-word vi-backward-kill-word
