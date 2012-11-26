@@ -1,0 +1,45 @@
+#!/bin/bash
+
+vol_increm=5
+
+toggle() {
+  ponymix toggle
+}
+
+increase() {
+  $(ponymix is-muted) && ponymix unmute
+  ponymix increase $vol_increm
+}
+
+decrease() {
+  $(ponymix is-muted) && ponymix unmute
+  ponymix decrease $vol_increm
+}
+
+get_icon() {
+  local icon_name disp_vol=$(ponymix get-volume)
+
+  if $(ponymix is-muted); then
+    icon_name="muted"
+  elif (( disp_vol > 67 )); then
+    icon_name="high"
+  elif (( disp_vol > 33 )); then
+    icon_name="medium"
+  elif (( disp_vol > 0 )); then
+    icon_name="low"
+  fi
+
+  printf "notification-audio-volume-%s" "$icon_name"
+}
+
+ponymix >/dev/null || exit 1
+action=$1
+type -t $action >/dev/null || exit 1
+$action
+
+notify-send " " \
+  -i $(get_icon) \
+  -t 1000 \
+  -h int:value:$(ponymix get-volume) \
+  -h string:synchronous:volume
+
