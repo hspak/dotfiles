@@ -19,19 +19,18 @@ URxvt.scrollTtyKeypress: true
 URxvt.saveLines:  512
 URxvt.scrollBar: false
 
+Xft.antialias: 1
+Xft.rgba: rgb
+Xft.autohint: 1
+Xft.hinting: 1
+Xft.hintstyle: hintfull
+
 ! ibus settings
 URxvt.inputMethod: ibus
 URxvt.preeditType: OnTheSpot,None
 
 URxvt.shading: 25
 URxvt.depth: 32
-
-Xft.dpi: 96
-Xft.antialias: 1
-Xft.rgba: rgb
-Xft.autohint: 1
-Xft.hinting: 1
-Xft.hintstyle: hintmedium
 
 ! - Terminal Colors -----------------------------
 

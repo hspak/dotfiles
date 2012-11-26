@@ -127,7 +127,7 @@ noremap <silent> H :split<CR> :wincmd j<CR>
 nnoremap Q <C-W>q
 nnoremap W :wq<CR>
 nnoremap B :buffers<CR>:buffer<Space>
-nnoremap T :TlistAddFiles<Space>
+" nnoremap T :TlistAddFiles<Space>
 
 " resizing
 noremap + <C-w><
@@ -163,3 +163,4 @@ let &titleold=getcwd()
 " -------------------------------------
 let Tlist_WinWidth = 23
 let NERDSpaceDelims = 1
+let NERDUsePlaceHolders = 0

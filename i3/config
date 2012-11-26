@@ -120,14 +120,12 @@
   # custom bindings
   bindsym $mod+O                exec --no-startup-id google-chrome --ignore-gpu-blacklist
   bindsym $mod+I                exec --no-startup-id thunar
-  # bindsym $mod+U                exec --no-startup-id subl
   bindsym $mod+D                exec --no-startup-id termite --name="scratchpad" --geometry=600x400
-  # bindsym $mod+D                exec --no-startup-id urxvtc --name="scratchpad" --geometry=600x400
 
   # volume control
-  bindsym XF86_AudioRaiseVolume exec /home/hsp/bin/alsavol increase Master 5
-  bindsym XF86_AudioLowerVolume exec /home/hsp/bin/alsavol decrease Master 5
-  bindsym XF86_AudioMute        exec /home/hsp/bin/alsavol toggle Master
+  bindsym XF86_AudioRaiseVolume exec /home/hsp/bin/ponyvol increase
+  bindsym XF86_AudioLowerVolume exec /home/hsp/bin/ponyvol decrease
+  bindsym XF86_AudioMute        exec /home/hsp/bin/ponyvol toggle
 
   # MPD control
   bindsym $mod+F1               exec mpc prev
@@ -147,6 +145,7 @@
 
   # Assign floats
   for_window [class="Google-chrome"]  border none
+  for_window [class="Firefox"]        border none
   for_window [class="Spotify"]        move to scratchpad
   for_window [class="Gxmessage"]      floating enable
   for_window [class="feh"]            floating enable
@@ -154,10 +153,11 @@
   for_window [instance="Steam"]       floating enable border none
   for_window [instance="scratchpad"]  floating enable
   for_window [instance="thunar"]      floating enable
+  for_window [title="Event Tester"]   floating enable
+  for_window [window_role="pop-up"]   floating enable
 
   # resize window (you can also use the mouse for that)
   mode "resize" {
-
     # Driection to grow
     bindsym l       resize grow   right 5 px or 5 ppt
     bindsym h       resize grow   left 5 px or 5 ppt
@@ -174,7 +174,6 @@
     bindsym Return mode "default"
     bindsym Escape mode "default"
   }
-
   # Enter resize mode
   bindsym $mod+r mode "resize"
 

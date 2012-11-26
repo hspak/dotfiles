@@ -7,13 +7,25 @@
 #keystate_scrolllock= enable
 
 "/home/hsp/bin/backlight_level"
-    m:0x0 + c:232
-    XF86MonBrightnessDown
+  m:0x0 + c:232
+  XF86MonBrightnessDown
 
 "/home/hsp/bin/backlight_level"
-    m:0x0 + c:233
-    XF86MonBrightnessUp
+  m:0x0 + c:233
+  XF86MonBrightnessUp
 
 "/home/hsp/bin/mymonitor"
-    m:0x0 + c:156
-    XF86Launch1
+  m:0x0 + c:156
+  XF86Launch1
+
+# "home/hsp/bin/ponyvol increase"
+  # m:0x0 + c:123
+  # XF86AudioRaiseVolume
+
+# "home/hsp/bin/ponyvol decrease"
+  # m:0x0 + c:122
+  # XF86AudioLowerVolume
+
+# "home/hsp/bin/ponyvol toggle"
+  # m:0x0 + c:121
+  # XF86AudioMute

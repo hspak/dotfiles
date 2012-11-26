@@ -91,7 +91,7 @@ folder-hook GMail/* source /home/hsp/.mutt/gmail.muttrc
 
 # these just give me headaches
 bind index,pager \#     noop
-bind index i            noop
+# bind index i            noop
 bind index h            noop
 
 # bindings
