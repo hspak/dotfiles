@@ -17,7 +17,7 @@ xbindkeys &
 mpd
 
 # Custom keyboard layout
-/home/hsp/bin/delay_xmodmap &
+xmodmap /home/hsp/.Xmodmap
 
 # Fix dual monitor settings
 # /home/hsp/bin/mymonitor &

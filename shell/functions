@@ -3,11 +3,6 @@
 #
 #
 
-set_essid ()
-{
-  iwconfig wlan0 essid "$1"
-}
-
 # ex - archive extractor
 # usage: ex <file>
 ex ()

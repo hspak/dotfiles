@@ -51,14 +51,19 @@ color header yellow default "^X-SpamProbe:"
 color header red default "^X-SpamProbe: SPAM"
 
 # Quote Levels
+# color quoted cyan default
 color quoted cyan default
-color quoted1 yellow default
-color quoted2 red default
-color quoted3 green default
-color quoted4 cyan default
-color quoted5 yellow default
-color quoted6 red default
-color quoted7 green default
+color quoted1 magenta default
+# color quoted2 green default
+# color quoted4 cyan default
+color quoted2 yellow default
+# color quoted6 red default
+# color quoted7 green default
+# color   quoted      color243        default
+# color   quoted1     color211        default
+# color   quoted2     color222        default
+# color   quoted3     color214        default
+# color   quoted4     color154        default
 
 # Defaults
 color signature brightmagenta default

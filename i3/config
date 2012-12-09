@@ -145,12 +145,14 @@
 
   # Assign floats
   for_window [class="Google-chrome"]  border none
+  for_window [class="mplayer2"]  border none
   for_window [class="Firefox"]        border none
   for_window [class="Spotify"]        move to scratchpad
   for_window [class="Gxmessage"]      floating enable
   for_window [class="feh"]            floating enable
   for_window [class="Sonata"]         floating enable
   for_window [instance="Steam"]       floating enable border none
+  for_window [class="Steam"]       floating enable border none
   for_window [instance="scratchpad"]  floating enable
   for_window [instance="thunar"]      floating enable
   for_window [title="Event Tester"]   floating enable
