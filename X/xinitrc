@@ -20,8 +20,8 @@ mpd
 xmodmap /home/hsp/.Xmodmap
 
 # Fix dual monitor settings
-# /home/hsp/bin/mymonitor &
-feh --bg-center /home/hsp/media/image/arch_stripe.png &
+/home/hsp/bin/mymonitor &
+#feh --bg-center /home/hsp/media/image/arch_stripe.png &
 
 # Run window manager
 exec i3
