@@ -35,6 +35,7 @@ dotfiles_X() {
   link X/Xresources
   link X/xbindkeysrc
   link X/xinitrc
+  link X/user-dirs.dirs .config/user-dirs.dirs
 }
 
 dotfiles_zsh() {

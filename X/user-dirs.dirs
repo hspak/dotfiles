@@ -1,0 +1,8 @@
+XDG_DESKTOP_DIR="/home/hsp/"
+XDG_DOWNLOAD_DIR="/home/hsp/downloads"
+XDG_TEMPLATES_DIR="/home/hsp/"
+XDG_PUBLICSHARE_DIR="/home/hsp/shared/"
+XDG_DOCUMENTS_DIR="/home/hsp/docs"
+XDG_MUSIC_DIR="/home/hsp/media/music"
+XDG_PICTURES_DIR="/home/hsp/media/image"
+XDG_VIDEOS_DIR="/home/hsp/media/video"
