@@ -1,0 +1,95 @@
+#!/bin/bash
+#
+# Imgur uploader. Based on a script originally written by:
+#   Bart Nagel <bart@tremby.net>
+#
+
+shopt -s extglob
+
+# API Key provided by Alan@imgur.com
+declare -r apikey='key=b3625162d3418ac51a9ee805b1840452'
+declare -r uploadurl='http://imgur.com/api/upload.xml'
+
+# function to output usage instructions
+usage() {
+  cat >&2 <<EOF
+Usage: ${0##*/} <filename>
+
+Upload an image to imgur and output its new URL to stdout. Its delete page is
+output to stderr. If xsel or xclip is available, the URL is put on the X
+selection for easy pasting.
+EOF
+}
+
+error() {
+	local fmt=$1; shift
+	printf "==> ERROR: $fmt\n" "$@" >&2
+}
+
+upload() {
+	# upload the image
+	if ! response=$(curl -s -H "Expect: " -F "$apikey" -F "image=@$1" "$uploadurl"); then
+		error "Failed to upload image"
+		return 1
+	fi
+
+	awk -v DISPLAY="$DISPLAY" -v cliptool="$cliptool" '
+	/error_msg/ {
+		sub(/.*<error_msg>/, "")
+		sub(/<\/error_msg>.*/, "")
+		printf "==> ERROR: from imgur.com: %s\n", $0
+		exit 1
+	}
+
+	/original_image/{
+		line = $0
+		sub(/.*<original_image>/, "", line)
+		sub(/<\/original_image>.*/, "", line)
+		url = line
+	}
+
+	/delete_page/{
+		line = $0
+		sub(/.*<delete_page>/, "", line)
+		sub(/<\/delete_page>.*/, "", line)
+		deletepage = line
+	}
+
+	END {
+		print "url:", url
+		print "delete page:", deletepage
+
+		if (DISPLAY && cliptool) {
+			print "$url" | cliptool
+		}
+	}' <<< "$response"
+}
+
+# check arguments
+if [[ $1 = @(-h|--help) ]]; then
+	usage
+	exit 0
+fi
+
+if [[ -z $1 ]]; then
+	usage
+	exit 1
+fi
+
+# check curl is available
+if ! type -p curl >/dev/null; then
+	error "Failed to locate the curl binary" >&2
+	exit 1
+fi
+
+for cliptool in xclip xsel; do
+	type -p "$cliptool" >/dev/null && break
+	unset cliptool
+done
+
+if [[ ! -f $1 ]]; then
+  error 'File "%s" not found' "$1"
+  exit 1
+fi
+
+upload "$1"
