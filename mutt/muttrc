@@ -124,7 +124,7 @@ macro index B   "<limit>"                               "search message bodies"
 macro index gi   "<change-folder>!<enter>"              "go to Inbox"
 macro index ga   "<change-folder>=Gmail/arch<enter>"    "go to arch"
 macro index gh   "<change-folder>=Gmail/hpakage<enter>" "go to hpakage"
-macro index gs   "<change-folder>=Gmail/sent<enter>"    "go to sent"
+macro index gs   "<change-folder>=Gmail/sent_mail<enter>"    "go to sent"
 macro index gt   "<change-folder>=Gmail/trash<enter>"   "go to trash"
 macro index gp   "<change-folder>=Gmail/spam<enter>"    "go to spam"
 
