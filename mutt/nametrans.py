@@ -16,14 +16,12 @@ r_mapping = { val: key for key, val in mapping.items() }
 
 def nt_remote(folder):
     try:
-        print("remote " + folder)
         return mapping[folder]
     except:
         return re.sub(' ', '_', folder).lower()
 
 def nt_local(folder):
     try:
-        print("local " + folder)
         return r_mapping[folder]
     except:
         return re.sub('_', ' ', folder).capitalize()
