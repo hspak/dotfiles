@@ -16,10 +16,12 @@
   set $mod Mod4
 
   # font for window titles. ISO 10646 = Unicode
-  font xft:Dejavu Sans 8
+  font pango:Dejavu Sans 8
 
   # Use Mouse+$mod to drag floating windows to their wanted position
   floating_modifier $mod
+
+  new_window 1pixel
 
 #
 # Bindings
@@ -142,17 +144,18 @@
 #
   # Assign workspaces
   # assign [class="Google-chrome"]      → 2
+  assign [instance="Steam"]      → 5
 
   # Assign floats
   for_window [class="Google-chrome"]  border none
-  for_window [class="mplayer2"]  border none
+  for_window [class="mplayer2"]       border none
   for_window [class="Firefox"]        border none
   for_window [class="Spotify"]        move to scratchpad
   for_window [class="Gxmessage"]      floating enable
   for_window [class="feh"]            floating enable
   for_window [class="Sonata"]         floating enable
   for_window [instance="Steam"]       floating enable border none
-  for_window [class="Steam"]       floating enable border none
+  for_window [class="Steam"]          floating enable border none
   for_window [instance="scratchpad"]  floating enable
   for_window [instance="thunar"]      floating enable
   for_window [title="Event Tester"]   floating enable
@@ -162,15 +165,15 @@
   mode "resize" {
     # Driection to grow
     bindsym l       resize grow   right 5 px or 5 ppt
-    bindsym h       resize grow   left 5 px or 5 ppt
-    bindsym k       resize grow   up 5 px or 5 ppt
-    bindsym j       resize grow   down 5 px or 5 ppt
+    bindsym h       resize grow   left  5 px or 5 ppt
+    bindsym k       resize grow   up    5 px or 5 ppt
+    bindsym j       resize grow   down  5 px or 5 ppt
 
     # Shift direction to shrink
-    bindsym Shift+L resize shrink left 5 px or 5 ppt
+    bindsym Shift+L resize shrink left  5 px or 5 ppt
     bindsym Shift+H resize shrink right 5 px or 5 ppt
-    bindsym ShiftK  resize shrink down 5 px or 5 ppt
-    bindsym Shift+J resize shrink up 5 px or 5 ppt
+    bindsym ShiftK  resize shrink down  5 px or 5 ppt
+    bindsym Shift+J resize shrink up    5 px or 5 ppt
 
     # Exit resize mode
     bindsym Return mode "default"
@@ -205,8 +208,6 @@
     inactive_workspace #888888 #333333
     urgent_workspace   #ffffff #900000
     }
-
-    font xft:Dejavu Sans 8
   }
 
 #
