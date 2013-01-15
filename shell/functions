@@ -44,10 +44,8 @@ code () {
     done
   fi
 
-  if [[ $# -eq 2 && $(ls $2 2> /dev/null) ]]; then
+  if [[ $# -eq 2 && $(ls $2 > /dev/null) ]]; then
     cd $2
-  else
-    echo no $1 project named \"$2\"
   fi
 }
 
