@@ -1,0 +1,18 @@
+[submodule "vim/bundle/nerdcommenter"]
+	path = vim/bundle/nerdcommenter
+	url = git://github.com/scrooloose/nerdcommenter.git
+[submodule "vim/bundle/nerdtree"]
+	path = vim/bundle/nerdtree
+	url = git://github.com/scrooloose/nerdtree.git
+[submodule "vim/bundle/vim-autoclose"]
+	path = vim/bundle/vim-autoclose
+	url = git://github.com/Townk/vim-autoclose.git
+[submodule "vim/bundle/vim-bad-whitespace"]
+	path = vim/bundle/vim-bad-whitespace
+	url = git://github.com/bitc/vim-bad-whitespace.git
+[submodule "vim/bundle/vim-surround"]
+	path = vim/bundle/vim-surround
+	url = git://github.com/tpope/vim-surround.git
+[submodule "vim/bundle/syntastic"]
+	path = vim/bundle/syntastic
+	url = git://github.com/scrooloose/syntastic.git
