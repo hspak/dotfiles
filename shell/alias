@@ -18,7 +18,7 @@ alias scrompbox='scrot -s '"'"'%Y%m%d.png'"'"' -e '"'"'ompload $f && mv $f ~/bri
 alias scromp='scrot '"'"'%Y%m%d.png'"'"' -e '"'"'ompload $f && mv $f ~/bridge/image/screeny/'"'"''
 alias aurvote='aurvote -v $(pacman -Qqm)'
 alias lap_mon_on='xrandr --output LVDS1 --mode 1600x900 --left-of HDMI1 --output HDMI1 --primary'
-alias google-chrome='google-chrome --ignore-gpu-blacklist'
+alias chromium='chromium --ignore-gpu-blacklist'
 
 # -- Type less
 alias v='vim'

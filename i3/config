@@ -123,7 +123,8 @@
   bindsym $mod+b            [instance="ranger"] scratchpad show
 
   # custom bindings
-  bindsym $mod+O                exec --no-startup-id google-chrome --ignore-gpu-blacklist
+  # bindsym $mod+O                exec --no-startup-id google-chrome --ignore-gpu-blacklist
+  bindsym $mod+O                exec --no-startup-id chromium --ignore-gpu-blacklist
   bindsym $mod+I                exec --no-startup-id thunar
   bindsym $mod+D                exec --no-startup-id termite --name="scratchpad" --geometry=798x438+0+800
   bindsym $mod+U                exec --no-startup-id termite --name="ncmpcpp" -e "ncmpcpp" --geometry=798x438+800-21
@@ -153,6 +154,7 @@
 
   # Assign floats
   for_window [class="Google-chrome"]  border none
+  for_window [class="Chromium"]       border none
   for_window [class="mplayer2"]       border none
   for_window [class="Firefox"]        border none
   for_window [class="Spotify"]        move to scratchpad
@@ -222,13 +224,14 @@
 #
   exec --no-startup-id xautolock -detectsleep -time 15 -locker "systemctl suspend"
   exec --no-startup-id termite -e tmux
+  exec termite
 
-  exec --no-startup-id thunar
+  exec thunar
   exec --no-startup-id i3-msg [instance="thunar"] move scratchpad
 
-  exec --no-startup-id termite --name="scratchpad" -e "ncmpcpp" --geometry=798x440+800-21
+  exec termite --name="ncmpcpp" -e "ncmpcpp" --geometry=798x440+800-21
   exec --no-startup-id i3-msg move scratchpad
 
-  exec --no-startup-id termite --name="scratchpad" -e "ranger" --geometry=798x440+0-21
+  exec termite --name="ranger" -e "ranger" --geometry=798x440+0-21
   exec --no-startup-id i3-msg move scratchpad
 

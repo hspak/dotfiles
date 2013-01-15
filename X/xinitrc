@@ -2,7 +2,7 @@
 xrdb -merge ~/.Xresources &
 
 # Wait 15 seconds for connection
-# delay_dropbox &
+delay_dropbox &
 
 # Ibus for Korean input
 # ibus-daemon -drx

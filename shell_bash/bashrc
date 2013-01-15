@@ -57,4 +57,4 @@ if [[ -r ~/.dircolors ]] && type -p dircolors >/dev/null; then
 fi
 
 export EDITOR=vim
-export BROWSER=google-chrome
+export BROWSER=chromium

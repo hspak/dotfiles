@@ -135,7 +135,7 @@ macro index P   "<pipe-message>cat > /home/hsp/"    "save message as"
 macro index Z   "<shell-escape>/usr/bin/offlineimap -q -o<enter>" "sync IMAP"
 
 # quick dl attachment
-macro attach E <save-entry><kill-line>/home/hsp/Downloads/<enter>
+macro attach E <save-entry><kill-line>/home/hsp/downloads/<enter>
 
 # HTML mail
 # alternative_order text/plain text/html

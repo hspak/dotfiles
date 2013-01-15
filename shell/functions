@@ -1,13 +1,13 @@
 #
-# .zfunctions - sourced by .zshrc
+# bash functions - sourced by .bashrc
 #
 #
 
 # ex - archive extractor
 # usage: ex <file>
-ex ()
+extract ()
 {
-  if [ -f $1 ] ; then
+  if [[ -f $1 ]]; then
     case $1 in
       *.tar.bz2)   tar xjf $1   ;;
       *.tar.gz)    tar xzf $1   ;;
@@ -27,3 +27,28 @@ ex ()
   fi
 }
 
+code () {
+  if (( $# < 1 )); then
+    echo 'usage: code <lang> [dir]'
+  fi
+
+  cd $HOME/code/$1
+  if (( $? != 0 )); then
+    echo "could not open $HOME/code/$1"
+  fi
+
+  if [[ $# -eq 1 ]]; then
+    echo list of $1 projects:
+    for dir in *; do
+      echo "  $dir"
+    done
+  fi
+
+  if [[ $# -eq 2 && $(ls $2 2> /dev/null) ]]; then
+    cd $2
+  else
+    echo no $1 project named \"$2\"
+  fi
+}
+
+# vim: set syn=sh:
