@@ -9,8 +9,6 @@ alias du='du -h'
 alias ..='cd ..'
 alias ....='cd ../..'
 alias grep='grep --color'
-alias sdown='sudo rmmod e1000e && pkill chrome && sudo systemctl poweroff'
-alias reboot='sudo rmmod e1000e && pkill chrome && sudo systemctl reboot'
 
 # -- 1 line Commands
 alias sprunge='curl -F "sprunge=<-" http://sprunge.us'
@@ -22,17 +20,14 @@ alias chromium='chromium --ignore-gpu-blacklist'
 
 # -- Type less
 alias v='vim'
-alias sv='sudo vim'
+alias sv='sudo -e'
 alias ncm='ncmpcpp'
 alias snet='sudo netcfg'
 alias xresources='xrdb -merge ~/.Xresources'
 alias xmap='xmodmap ~/.Xmodmap'
 alias dtella='python2 ~/dtella/dtella.py'
 alias pa='pacaur'
-alias mpdstart='sudo systemctl start mpd.service'
 alias clear_pkg_dir='sudo rm -rf pkg src && sudo rm -f *.gz'
-
-alias wireless_scan='sudo ip link set wlan0 up && sudo iwlist wlan scan | less'
 
 # -- Pacman
 alias p='pacman-color'
@@ -47,19 +42,5 @@ alias pqs='pacman-color -Qs'
 alias pu='sudo pacman-color -U'
 alias pqe='pacman-color -Qe'
 alias pcnt='pacman -Q | wc -l'
-
-# -- Github shortcuts
-alias giti='git init'
-alias gita='git add .'
-alias gitc='git commit -m'
-
-# -- Directory
-alias ece264='cd ~/code/ece264/'
-alias PKGBUILDs='cd ~/code/PKGBUILDs/'
-alias cdceli='cd ~/code/C/celi/'
-alias cdsimpfand='cd ~/code/C/simpfand/'
-alias cdcode='cd ~/code/C'
-
-alias ssdaemonrel='sudo systemctl --system daemon-reload'
 
 # vim: set syn=sh :

@@ -35,6 +35,7 @@ code () {
   cd $HOME/code/$1
   if (( $? != 0 )); then
     echo "could not open $HOME/code/$1"
+    exit 1
   fi
 
   if [[ $# -eq 1 ]]; then
@@ -44,8 +45,11 @@ code () {
     done
   fi
 
-  if [[ $# -eq 2 && $(ls $2 > /dev/null) ]]; then
-    cd $2
+  if [[ $# -eq 2 && -d $2 ]]; then
+    cd $HOME/code/$1/$2
+  else
+    echo "could not open $Home/code/$1/$2"
+    exit 1
   fi
 }
 

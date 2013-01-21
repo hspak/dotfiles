@@ -118,6 +118,7 @@
   # scratchpad
   bindsym $mod+Shift+minus  move scratchpad
   bindsym $mod+minus        [instance="scratchpad"] scratchpad show
+  bindsym $mod+plus         scratchpad show
   bindsym $mod+m            [instance="thunar"] scratchpad show
   bindsym $mod+n            [instance="ncmpcpp"] scratchpad show
   bindsym $mod+b            [instance="ranger"] scratchpad show
@@ -225,13 +226,5 @@
   exec --no-startup-id xautolock -detectsleep -time 15 -locker "systemctl suspend"
   exec --no-startup-id termite -e tmux
   exec termite
-
   exec thunar
-  exec --no-startup-id i3-msg [instance="thunar"] move scratchpad
-
   exec termite --name="ncmpcpp" -e "ncmpcpp" --geometry=798x440+800-21
-  exec --no-startup-id i3-msg move scratchpad
-
-  exec termite --name="ranger" -e "ranger" --geometry=798x440+0-21
-  exec --no-startup-id i3-msg move scratchpad
-

@@ -8,7 +8,10 @@ delay_dropbox &
 # ibus-daemon -drx
 
 # Disable touchpad when typing
-syndaemon -K -d -i 1
+# syndaemon -K -d -i 1
+
+# Java workaround
+wmname LG3D &
 
 # Key bindings
 xbindkeys &
@@ -20,8 +23,8 @@ mpd
 xmodmap /home/hsp/.Xmodmap
 
 # Fix dual monitor settings
-/home/hsp/bin/mymonitor &
-#feh --bg-center /home/hsp/media/image/arch_stripe.png &
+# /home/hsp/bin/mymonitor &
+feh --bg-center /home/hsp/media/image/arch_stripe.png &
 
 # Run window manager
 exec i3

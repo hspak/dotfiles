@@ -11,5 +11,6 @@ cache
 cache*
 temp
 temp*
+mutt/alias
 Packages
 matlab
