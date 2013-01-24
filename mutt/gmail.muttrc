@@ -12,6 +12,10 @@ macro index D \
     "<save-message>+Gmail/trash<enter>" \
     "move message to the trash"
 
+macro pager D \
+    "<save-message>+Gmail/trash<enter>" \
+    "move message to the trash"
+
 macro index S \
     "<save-message>+Gmail/spam<enter>"  \
         "mark message as spam"

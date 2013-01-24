@@ -1,6 +1,6 @@
-export GTK_IM_MODULE=ibus
-export XMODIFIERS=@im=ibus
-export QT_IM_MODULE=ibus
+# export GTK_IM_MODULE=ibus
+# export XMODIFIERS=@im=ibus
+# export QT_IM_MODULE=ibus
 
 #/usr/lib/systemd/systemd --user
 vt=$(fgconsole 2>/dev/null)
