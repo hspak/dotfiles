@@ -26,8 +26,8 @@ Xft.hinting: 1
 Xft.hintstyle: hintfull
 
 ! ibus settings
-URxvt.inputMethod: ibus
-URxvt.preeditType: OnTheSpot,None
+! URxvt.inputMethod: ibus
+! URxvt.preeditType: OnTheSpot,None
 
 URxvt.shading: 25
 URxvt.depth: 32

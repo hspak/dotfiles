@@ -2,7 +2,7 @@
 xrdb -merge ~/.Xresources &
 
 # Wait 15 seconds for connection
-delay_dropbox &
+# delay_dropbox &
 
 # Ibus for Korean input
 # ibus-daemon -drx
@@ -11,6 +11,7 @@ delay_dropbox &
 # syndaemon -K -d -i 1
 
 # Java workaround
+export AWT_TOOLKIT=XToolkit
 wmname LG3D &
 
 # Key bindings
@@ -28,3 +29,4 @@ feh --bg-scale /home/hsp/media/image/1920x1080\ django_and_pony.png &
 
 # Run window manager
 exec i3
+# exec openbox

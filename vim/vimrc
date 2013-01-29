@@ -142,16 +142,16 @@ nnoremap <silent> <C-h> :wincmd h<CR>
 nnoremap <silent> <C-j> :wincmd j<CR>
 
 " tab navigation
-nnoremap <A-F1> 1gt
-nnoremap <A-F2> 2gt
-nnoremap <A-F3> 3gt
-nnoremap <A-F4> 4gt
-nnoremap <A-F5> 5gt
-nnoremap <A-F6> 6gt
-nnoremap <A-F7> 7gt
-nnoremap <A-F8> 8gt
-nnoremap <A-F9> 9gt
-nnoremap <A-F0> 10gt
+noremap <LocalLeader>1 1gt
+noremap <LocalLeader>2 2gt
+noremap <LocalLeader>3 3gt
+noremap <LocalLeader>4 4gt
+noremap <LocalLeader>5 5gt
+noremap <LocalLeader>6 6gt
+noremap <LocalLeader>7 7gt
+noremap <LocalLeader>8 8gt
+noremap <LocalLeader>9 9gt
+noremap <LocalLeader>10 10gt
 
 cmap w!! w !sudo tee % >/dev/null<CR>:e!<CR><CR>
 
@@ -176,3 +176,7 @@ let &titleold=getcwd()
 let Tlist_WinWidth = 23
 let NERDSpaceDelims = 1
 let NERDUsePlaceHolders = 0
+let NERDTreeQuitOnOpen = 1
+let NERDChristmasTree = 1
+" let NERDTreeWinSize = 13
+
