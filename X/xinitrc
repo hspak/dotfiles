@@ -1,6 +1,9 @@
 # Set terminal options
 xrdb -merge ~/.Xresources &
 
+xset +fp /usr/share/fonts/local
+xset fp rehash
+
 # Wait 15 seconds for connection
 # delay_dropbox &
 

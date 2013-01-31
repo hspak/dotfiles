@@ -2,9 +2,8 @@
 # export XMODIFIERS=@im=ibus
 # export QT_IM_MODULE=ibus
 
-#/usr/lib/systemd/systemd --user
-vt=$(fgconsole 2>/dev/null)
-(( vt == 1 )) && exec startx -- vt$vt &> ~/.xlog
-unset vt
+# vt=$(fgconsole 2>/dev/null)
+# (( vt == 1 )) && exec startx -- vt$vt &> ~/.xlog
+# unset vt
 
 [[ -f ~/.bashrc ]] && . ~/.bashrc

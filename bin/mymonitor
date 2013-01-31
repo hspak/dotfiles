@@ -17,8 +17,10 @@ fi
 
 # Set Wallpaper
 # feh --bg-center $HOME/media/image/arch_stripe.png &
-feh --bg-fill $HOME/media/image/arch_stripe.png &
+feh --bg-scale $HOME/media/image/1920x1080\ django_and_pony.png &
 
 # Fix notification position
 NOTI_PID=$(pgrep notify-osd)
 [[ -n "$NOTI_PID" ]] && kill "$NOTI_PID"
+
+exit 0

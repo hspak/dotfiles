@@ -9,6 +9,8 @@ alias du='du -h'
 alias ..='cd ..'
 alias ....='cd ../..'
 alias grep='grep --color'
+alias reboot='systemctl reboot'
+alias shutdown='systemctl poweroff'
 
 # -- 1 line Commands
 alias sprunge='curl -F "sprunge=<-" http://sprunge.us'
