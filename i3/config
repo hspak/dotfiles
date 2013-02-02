@@ -16,7 +16,7 @@
   set $mod Mod4
 
   # font for window titles. ISO 10646 = Unicode
-  font pango:Dejavu Sans 8
+  font pango:Helvetica 8
 
   # Use Mouse+$mod to drag floating windows to their wanted position
   floating_modifier $mod
@@ -177,7 +177,7 @@
   # Java bullshit
   for_window [instance="sun-awt-X11-XFramePeer"]  floating enable border none
   for_window [instance="sun-awt-X11-XDialogPeer"] floating enable border none
-  for_window [title="Java"]                       floating enable border none
+  # for_window [title="Java"]                       floating enable border none
 
   # resize window (you can also use the mouse for that)
   mode "resize" {

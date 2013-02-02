@@ -5,8 +5,9 @@
 PERSONAL_PATH="/home/hsp/bin"
 GEM_PATH="/home/hsp/.gem/ruby/1.9.1/bin"
 MATLAB_PATH="/usr/local/MATLAB/R2011a/bin"
+ECLIPSE_PATH="/opt/java/bin"
 
-export PATH=$PERSONAL_PATH:$GEM_PATH:$MATLAB_PATH:$PATH
+export PATH=$PERSONAL_PATH:$GEM_PATH:$MATLAB_PATH:$ECLIPSE_PATH:$PATH
 unset PERSONAL_PATH
 unset GEM_PATH
 unset MATLAB_PATH
