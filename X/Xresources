@@ -7,7 +7,7 @@ URxvt*url-select.underline: true
 URxvt.transparent:          false
 URxvt.internalborder:       0
 URxvt.matcher.button:       1
-URxvt.font:                 xft:inconsolata:pixelsize=13
+URxvt.font:                 xft:consolas:pixelsize=13
 
 URxvt.cutchars: "()*,<>[]{}|'"
 URxvt.visualBell: false
@@ -37,8 +37,8 @@ URxvt.depth: 32
 ! Stolen scheme from Rasi for ArchLinux forums 
 ! Edited foreground/background
 
-*background:              #121212
-*foreground:              #c9c9c9
+! *background:              #121212
+! *foreground:              #c9c9c9
 
 ! !black
 ! *color0:                  #1B1D1E
@@ -65,26 +65,66 @@ URxvt.depth: 32
 ! *color7:                  #CCCCC6
 ! *color15:                 #F8F8F2
 
-URxvt*color0: #131621
-URxvt*color8: #262b40
+! URxvt*color0: #131621
+! URxvt*color8: #262b40
 
-URxvt*color1: #c2465f
-URxvt*color9: #ed3764
+! URxvt*color1: #c2465f
+! URxvt*color9: #ed3764
 
-URxvt*color2: #4cad64
-URxvt*color10:  #25db4f
+! URxvt*color2: #4cad64
+! URxvt*color10:  #25db4f
 
-URxvt*color3: #b8904c
-URxvt*color11:  #db9f40
+! URxvt*color3: #b8904c
+! URxvt*color11:  #db9f40
 
-URxvt*color4: #5085a8
-URxvt*color12:  #41a0db
+! URxvt*color4: #5085a8
+! URxvt*color12:  #41a0db
 
-URxvt*color5: #c24697
-URxvt*color13:  #ff52c5
+! URxvt*color5: #c24697
+! URxvt*color13:  #ff52c5
 
-URxvt*color6: #4ea7ad
-URxvt*color14:  #2ac9d1
+! URxvt*color6: #4ea7ad
+! URxvt*color14:  #2ac9d1
 
-URxvt*color7: #797e8f
-URxvt*color15:  #bbbec9
+! URxvt*color7: #797e8f
+! URxvt*color15:  #bbbec9
+!
+*foreground:   #c5c8c6
+*background:   #1d1f21
+*cursorColor:  #aeafad
+*color0:       #000000
+*color1:       #912226
+*color2:       #778900
+*color3:       #ae7b00
+*color4:       #1d2594
+*color5:       #682a9b
+*color6:       #2b6651
+*color7:       #929593
+*color8:       #666666
+*color9:       #cc6666
+*color10:      #b5bd68
+*color11:      #f0c674
+*color12:      #81a2be
+*color13:      #b294bb
+*color14:      #8abeb7
+*color15:      #ecebec
+
+*foreground:   #eaeaea
+*background:   #000000
+*cursorColor:  #aeafad
+*color0:       #000000
+*color1:       #912226
+*color2:       #778900
+*color3:       #ae7b00
+*color4:       #1d2594
+*color5:       #682a9b
+*color6:       #2b6651
+*color7:       #929593
+*color8:       #666666
+*color9:       #cc6666
+*color10:      #b5bd68
+*color11:      #f0c674
+*color12:      #81a2be
+*color13:      #b294bb
+*color14:      #8abeb7
+*color15:      #ecebec

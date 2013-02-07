@@ -65,6 +65,7 @@ if has ('folding')
   set foldcolumn=0
 endif
 
+
 " plug-in settings
 " -------------------------------------
 call pathogen#runtime_append_all_bundles()
@@ -82,7 +83,7 @@ syntax enable
 if &term !=# "screen-256color"
   colorscheme neverland2_mod
 else
-  colorscheme inkpot_mod
+  colorscheme dante
 endif
 
 " custom keybindings
@@ -168,7 +169,7 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 au FileType c         setlocal ts=8 sw=8
 au FileType cpp       setlocal ts=4 sw=4
 au FileType make      setlocal noet
-au Filetype python    setlocal sw=4 ts=4
+au FileType python    setlocal sw=4 ts=4
 
 let &titleold=getcwd()
 " plugin settings
@@ -180,3 +181,10 @@ let NERDTreeQuitOnOpen = 1
 let NERDChristmasTree = 1
 " let NERDTreeWinSize = 13
 
+let g:ycm_global_ycm_extra_conf = '/home/hsp/.vim/bundle/YouCompleteMe/cpp/ycm/.ycm_extra_conf.py'
+
+let g:ycm_filetypes_to_completely_ignore = {
+      \ 'notes' : 1,
+      \ 'markdown' : 1,
+      \ 'text' : 1,
+      \}

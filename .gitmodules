@@ -19,3 +19,12 @@
 [submodule "vim/bundle/vim-seek"]
 	path = vim/bundle/vim-seek
 	url = git://github.com/goldfeld/vim-seek.git
+[submodule "vim/bundle/colorschemes"]
+	path = vim/bundle/colorschemes
+	url = git@github.com:flazz/vim-colorschemes.git
+[submodule "vim/bundle/youcompleteme"]
+	path = vim/bundle/youcompleteme
+	url = https://github.com/Valloric/YouCompleteMe.git
+[submodule "vim/bundle/YouCompleteMe"]
+	path = vim/bundle/YouCompleteMe
+	url = git://github.com/Valloric/YouCompleteMe.git

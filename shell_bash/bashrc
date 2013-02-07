@@ -47,6 +47,14 @@ source_bash_completion() {
 source_bash_completion
 unset -f source_bash_completion
 
+# --- Manually load /etc/profile.d/
+if [[ -d /etc/profile.d ]]; then
+  for profile in /etc/profile.d/*.sh; do
+    [[ -r "$profile" ]] && source "$profile"
+  done
+  unset profile
+fi
+
 for config in $HOME/.bash/*; do
   [[ -r $config ]] && . $config
 done
