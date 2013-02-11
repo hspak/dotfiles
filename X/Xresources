@@ -1,13 +1,13 @@
 ! - Urxvt Settings ------------------------------
 URxvt*perl-ext:             default,url-select
 URxvt*keysym.M-u:           perl:url-select:select_next
-URxvt*url-select.launcher:  /usr/bin/google-chrome --ignore-gpu-blacklist
+URxvt*url-select.launcher:  /usr/bin/chromium--ignore-gpu-blacklist
 URxvt*url-select.underline: true
 
 URxvt.transparent:          false
 URxvt.internalborder:       0
 URxvt.matcher.button:       1
-URxvt.font:                 xft:consolas:pixelsize=13
+URxvt.font:                 xft:source code pro:pixelsize=11
 
 URxvt.cutchars: "()*,<>[]{}|'"
 URxvt.visualBell: false
@@ -34,36 +34,36 @@ URxvt.depth: 32
 
 ! - Terminal Colors -----------------------------
 
-! Stolen scheme from Rasi for ArchLinux forums 
+! Stolen scheme from Rasi for ArchLinux forums
 ! Edited foreground/background
 
-! *background:              #121212
-! *foreground:              #c9c9c9
+*background:              #121212
+*foreground:              #c9c9c9
 
-! !black
-! *color0:                  #1B1D1E
-! *color8:                  #505354
-! !red
-! *color1:                  #F92672
-! *color9:                  #FF5995
-! !green
-! *color2:                  #82B414
-! *color10:                 #B6E354
-! !yellow
-! *color3:                  #FD971F
-! *color11:                 #FEED6C
-! !blue
-! *color4:                  #4E82AA
-! *color12:                 #0C73C2
-! !magenta
-! *color5:                  #8C54FE
-! *color13:                 #9E6FFE
-! !cyan
-! *color6:                  #465457
-! *color14:                 #899CA1
-! !white
-! *color7:                  #CCCCC6
-! *color15:                 #F8F8F2
+!black
+*color0:                  #1B1D1E
+*color8:                  #505354
+!red
+*color1:                  #F92672
+*color9:                  #FF5995
+!green
+*color2:                  #82B414
+*color10:                 #B6E354
+!yellow
+*color3:                  #FD971F
+*color11:                 #FEED6C
+!blue
+*color4:                  #4E82AA
+*color12:                 #0C73C2
+!magenta
+*color5:                  #8C54FE
+*color13:                 #9E6FFE
+!cyan
+*color6:                  #465457
+*color14:                 #899CA1
+!white
+*color7:                  #CCCCC6
+*color15:                 #F8F8F2
 
 ! URxvt*color0: #131621
 ! URxvt*color8: #262b40
@@ -89,42 +89,3 @@ URxvt.depth: 32
 ! URxvt*color7: #797e8f
 ! URxvt*color15:  #bbbec9
 !
-*foreground:   #c5c8c6
-*background:   #1d1f21
-*cursorColor:  #aeafad
-*color0:       #000000
-*color1:       #912226
-*color2:       #778900
-*color3:       #ae7b00
-*color4:       #1d2594
-*color5:       #682a9b
-*color6:       #2b6651
-*color7:       #929593
-*color8:       #666666
-*color9:       #cc6666
-*color10:      #b5bd68
-*color11:      #f0c674
-*color12:      #81a2be
-*color13:      #b294bb
-*color14:      #8abeb7
-*color15:      #ecebec
-
-*foreground:   #eaeaea
-*background:   #000000
-*cursorColor:  #aeafad
-*color0:       #000000
-*color1:       #912226
-*color2:       #778900
-*color3:       #ae7b00
-*color4:       #1d2594
-*color5:       #682a9b
-*color6:       #2b6651
-*color7:       #929593
-*color8:       #666666
-*color9:       #cc6666
-*color10:      #b5bd68
-*color11:      #f0c674
-*color12:      #81a2be
-*color13:      #b294bb
-*color14:      #8abeb7
-*color15:      #ecebec

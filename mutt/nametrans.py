@@ -9,6 +9,7 @@ mapping = { 'INBOX':              'INBOX'
           , '[Gmail]/Starred':    'starred'
           , '[Gmail]/Trash':      'trash'
           , 'Arch':               'arch'
+          , 'i915':               'i915'
           , 'hpakage':            'hpakage'
           }
 

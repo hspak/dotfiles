@@ -27,13 +27,14 @@
 # Bindings
 #
   # start a terminal
-  bindsym $mod+Shift+Return   exec --no-startup-id termite
+  bindsym $mod+Shift+Return   exec termite
+  # bindsym $mod+Shift+Return   exec gnome-terminal
 
   # kill focused window
   bindsym $mod+Shift+Q        kill
 
   # start dmenu (a program launcher)
-  bindsym $mod+p              exec --no-startup-id dmenu_run
+  bindsym $mod+p              exec dmenu_run
 
   # change focus
   bindsym $mod+H              focus left
@@ -126,10 +127,10 @@
   bindsym $mod+y            [class="Spotify"] scratchpad show
 
   # custom bindings
-  bindsym $mod+O                exec --no-startup-id chromium --ignore-gpu-blacklist
-  bindsym $mod+I                exec --no-startup-id nautilus
-  bindsym $mod+D                exec --no-startup-id termite --name="scratchpad" --geometry=798x438+0+800
-  bindsym $mod+U                exec --no-startup-id termite --name="ncmpcpp" -e "ncmpcpp" --geometry=798x438+800-21
+  bindsym $mod+O                exec chromium --ignore-gpu-blacklist
+  bindsym $mod+I                exec nautilus
+  bindsym $mod+D                exec termite --name="scratchpad" --geometry=798x438+0+800
+  bindsym $mod+U                exec termite --name="ncmpcpp" -e "ncmpcpp" --geometry=798x438+800-21
   # bindsym $mod+Y                exec --no-startup-id termite --name="ranger" -e "ranger" --geometry=798x438+0-21
 
   # volume control
@@ -164,6 +165,7 @@
   for_window [class="feh"]            floating enable
   for_window [class="Sonata"]         floating enable
   for_window [instance="Steam"]       floating enable border none
+  for_window [instance="skype"]       floating enable border none
   for_window [class="Steam"]          floating enable border none
   for_window [instance="scratchpad"]  floating enable
   for_window [instance="tasks_ws"]    floating enable move scratchpad
@@ -231,7 +233,7 @@
 #
 # Execute
 #
-  # exec --no-startup-id xautolock -detectsleep -time 15 -locker "systemctl suspend"
+  exec --no-startup-id xautolock -detectsleep -time 15 -locker "systemctl suspend"
   # exec --no-startup-id termite -e tmux
   # exec --no-startup-id termite
   # exec --no-startup-id tasks

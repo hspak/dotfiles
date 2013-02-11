@@ -11,6 +11,7 @@ export PATH=$PERSONAL_PATH:$GEM_PATH:$MATLAB_PATH:$ECLIPSE_PATH:$PATH
 unset PERSONAL_PATH
 unset GEM_PATH
 unset MATLAB_PATH
+unset ECLIPSE_PATH
 
 # less is moar
 export LESS=-R # use -X to avoid sending terminal initialization
@@ -47,14 +48,6 @@ source_bash_completion() {
 source_bash_completion
 unset -f source_bash_completion
 
-# --- Manually load /etc/profile.d/
-if [[ -d /etc/profile.d ]]; then
-  for profile in /etc/profile.d/*.sh; do
-    [[ -r "$profile" ]] && source "$profile"
-  done
-  unset profile
-fi
-
 for config in $HOME/.bash/*; do
   [[ -r $config ]] && . $config
 done
@@ -67,3 +60,5 @@ fi
 
 export EDITOR=vim
 export BROWSER=chromium
+export AWT_TOOLKIT=XToolkit
+wmname LG3D

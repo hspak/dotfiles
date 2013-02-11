@@ -28,3 +28,12 @@
 [submodule "vim/bundle/YouCompleteMe"]
 	path = vim/bundle/YouCompleteMe
 	url = git://github.com/Valloric/YouCompleteMe.git
+[submodule "a.vim"]
+	path = a.vim
+	url = git://github.com/vim-scripts/a.vim.git
+[submodule "vim/bundle/a.vim"]
+	path = vim/bundle/a.vim
+	url = git://github.com/vim-scripts/a.vim.git
+[submodule "vim/bundle/taglist"]
+	path = vim/bundle/taglist
+	url = git://github.com/vim-scripts/taglist.vim.git

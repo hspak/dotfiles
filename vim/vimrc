@@ -98,6 +98,7 @@ map <F11> <Nop>
 map <F2> :wall<CR>
 map <silent> <F12> :set hlsearch! hlsearch?<CR>
 map <silent> <LocalLeader>l :NERDTreeToggle<CR>
+map <silent> <LocalLeader>p :TlistToggle<CR>
 map <silent> <LocalLeader>m :bnext<cr>
 map <silent> <LocalLeader>v :bprev<cr>
 
