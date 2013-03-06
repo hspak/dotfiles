@@ -44,8 +44,8 @@ set backupdir=/tmp      " backup dir
 " tabs and indenting
 " -------------------------------------
 set expandtab           " replace tabs with spaces
-set tabstop=2           " a n-space tab width
-set shiftwidth=2        " allows the use of < and > for VISUAL indenting
+set tabstop=4           " a n-space tab width
+set shiftwidth=4        " allows the use of < and > for VISUAL indenting
 set autoindent          " auto indents next new line
 set smarttab
 
@@ -181,11 +181,3 @@ let NERDUsePlaceHolders = 0
 let NERDTreeQuitOnOpen = 1
 let NERDChristmasTree = 1
 " let NERDTreeWinSize = 13
-
-let g:ycm_global_ycm_extra_conf = '/home/hsp/.vim/bundle/YouCompleteMe/cpp/ycm/.ycm_extra_conf.py'
-
-let g:ycm_filetypes_to_completely_ignore = {
-      \ 'notes' : 1,
-      \ 'markdown' : 1,
-      \ 'text' : 1,
-      \}

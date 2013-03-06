@@ -15,7 +15,7 @@ xset fp rehash
 
 # Java workaround
 export AWT_TOOLKIT=XToolkit
-wmname LG3D &
+wmname LG3D
 
 # Key bindings
 xbindkeys &

@@ -2,6 +2,6 @@
 # export XMODIFIERS=@im=ibus
 # export QT_IM_MODULE=ibus
 
-[[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx &> /dev/null
+[[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx &> ~/.xlog
 
 [[ -f ~/.bashrc ]] && . ~/.bashrc

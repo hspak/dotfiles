@@ -170,6 +170,8 @@
   for_window [instance="scratchpad"]  floating enable
   for_window [instance="tasks_ws"]    floating enable move scratchpad
   for_window [instance="ranger"]      floating enable
+  for_window [instance="wine"]      floating enable border none
+  for_window [class="Wine"]      floating enable border none
   for_window [instance="ncmpcpp"]     floating enable
   for_window [instance="nautilus"]    floating enable border none
   for_window [title="Event Tester"]   floating enable
