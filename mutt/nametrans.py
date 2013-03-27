@@ -11,6 +11,7 @@ mapping = { 'INBOX':              'INBOX'
           , 'Arch':               'arch'
           , 'i915':               'i915'
           , 'hpakage':            'hpakage'
+          , 'systemd':            'systemd'
           }
 
 r_mapping = { val: key for key, val in mapping.items() }

@@ -27,8 +27,8 @@ mpd
 xmodmap /home/hsp/.Xmodmap
 
 # Fix dual monitor settings
-# /home/hsp/bin/mymonitor &
-feh --bg-scale /home/hsp/media/image/1920x1080\ django_and_pony.png &
+/home/hsp/bin/mymonitor &
+# feh --bg-scale /home/hsp/media/image/1920x1080\ django_and_pony.png &
 
 # Run window manager
 exec i3

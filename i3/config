@@ -34,7 +34,7 @@
   bindsym $mod+Shift+Q        kill
 
   # start dmenu (a program launcher)
-  bindsym $mod+p              exec dmenu_run
+  bindsym $mod+p              exec dmenu_run -fn "-*-termsyn-medium-*-normal-*-13-*-*-*-*-*-*-*"
 
   # change focus
   bindsym $mod+H              focus left
@@ -129,7 +129,7 @@
   # custom bindings
   bindsym $mod+O                exec chromium --ignore-gpu-blacklist
   bindsym $mod+I                exec nautilus
-  bindsym $mod+D                exec termite --name="scratchpad" --geometry=798x438+0+800
+  bindsym $mod+D                exec termite --name="scratchpad" --geometry=798x438+0-21
   bindsym $mod+U                exec termite --name="ncmpcpp" -e "ncmpcpp" --geometry=798x438+800-21
   # bindsym $mod+Y                exec --no-startup-id termite --name="ranger" -e "ranger" --geometry=798x438+0-21
 
@@ -154,6 +154,8 @@
   # Assign workspaces
   # assign [class="Google-chrome"]      → 2
   assign [instance="Steam"]      → 5
+  for_window [instance="wine"]   → 4
+  for_window [class="wine"]      → 4
 
   # Assign floats
   for_window [class="Google-chrome"]  border none
@@ -170,10 +172,11 @@
   for_window [instance="scratchpad"]  floating enable
   for_window [instance="tasks_ws"]    floating enable move scratchpad
   for_window [instance="ranger"]      floating enable
-  for_window [instance="wine"]      floating enable border none
-  for_window [class="Wine"]      floating enable border none
+  for_window [instance="wine"]        floating enable border none
+  for_window [class="Wine"]           floating enable border none
   for_window [instance="ncmpcpp"]     floating enable
   for_window [instance="nautilus"]    floating enable border none
+  for_window [instance="nm-applet"]   border none
   for_window [title="Event Tester"]   floating enable
   for_window [window_role="pop-up"]   floating enable border none
   for_window [window_role="dialog"]   floating enable border none
@@ -181,7 +184,7 @@
   # Java bullshit
   for_window [instance="sun-awt-X11-XFramePeer"]  floating enable border none
   for_window [instance="sun-awt-X11-XDialogPeer"] floating enable border none
-  # for_window [title="Java"]                       floating enable border none
+  for_window [title="Java"]                       floating enable border none
 
   # resize window (you can also use the mouse for that)
   mode "resize" {
