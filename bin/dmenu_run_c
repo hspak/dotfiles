@@ -1,0 +1,2 @@
+#!/bin/bash
+dmenu_run -fn "Helvetica 10"

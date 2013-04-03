@@ -11,7 +11,7 @@ xset fp rehash
 # ibus-daemon -drx
 
 # Disable touchpad when typing
-# syndaemon -K -d -i 1
+syndaemon -K -d -i 1
 
 # Java workaround
 export AWT_TOOLKIT=XToolkit
@@ -26,10 +26,17 @@ mpd
 # Custom keyboard layout
 xmodmap /home/hsp/.Xmodmap
 
+# ???
+pulseaudio --start &
+
 # Fix dual monitor settings
-/home/hsp/bin/mymonitor &
-# feh --bg-scale /home/hsp/media/image/1920x1080\ django_and_pony.png &
+# /home/hsp/bin/mymonitor &
+feh --bg-scale /home/hsp/media/image/1920x1080\ django_and_pony.png &
+
+# Cool stuff
+compton -bGc --use-ewmh-active-win --config /home/hsp/.compton.conf
 
 # Run window manager
 exec i3
 # exec openbox
+# exec bspwm

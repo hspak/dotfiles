@@ -83,7 +83,7 @@ syntax enable
 if &term !=# "screen-256color"
   colorscheme neverland2_mod
 else
-  colorscheme dante
+  colorscheme inkpot_mod
 endif
 
 " custom keybindings
@@ -180,4 +180,3 @@ let NERDSpaceDelims = 1
 let NERDUsePlaceHolders = 0
 let NERDTreeQuitOnOpen = 1
 let NERDChristmasTree = 1
-" let NERDTreeWinSize = 13

@@ -1,0 +1,2 @@
+DMENU='dmenu -i '
+DMENU=$DMENU'-fn "Helvetica 9" '

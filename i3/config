@@ -16,7 +16,7 @@
   set $mod Mod4
 
   # font for window titles. ISO 10646 = Unicode
-  font pango:Helvetica 8
+  font pango:Helvetica Neue LT Std 8
 
   # Use Mouse+$mod to drag floating windows to their wanted position
   floating_modifier $mod
@@ -34,7 +34,7 @@
   bindsym $mod+Shift+Q        kill
 
   # start dmenu (a program launcher)
-  bindsym $mod+p              exec dmenu_run -fn "-*-termsyn-medium-*-normal-*-13-*-*-*-*-*-*-*"
+  bindsym $mod+p              exec dmenu_run_c
 
   # change focus
   bindsym $mod+H              focus left
@@ -175,6 +175,7 @@
   for_window [instance="wine"]        floating enable border none
   for_window [class="Wine"]           floating enable border none
   for_window [instance="ncmpcpp"]     floating enable
+  for_window [instance="tk"]          floating enable
   for_window [instance="nautilus"]    floating enable border none
   for_window [instance="nm-applet"]   border none
   for_window [title="Event Tester"]   floating enable
@@ -208,8 +209,8 @@
   bindsym $mod+r mode "resize"
 
   # class                 border  backgr. text    indicator
-  client.focused          #4e82aa #0b65aa #ffffff #2e9ef4
-  client.focused_inactive #333333 #5f676a #ffffff #484e50
+  client.focused          #4e82aa #5f676a #ffffff #a1b0d6
+  client.focused_inactive #333333 #1f171a #ffffff #484e50
   client.unfocused        #333333 #222222 #888888 #292d2e
   client.urgent           #2f343a #900000 #ffffff #900000
 
@@ -223,15 +224,16 @@
 #
   bar {
     status_command i3status --config ~/.config/i3/i3status.conf
+    # position top
 
     colors {
-    background #131313
-    statusline #8da0a7
+        background #131313
+        statusline #8da0a7
 
-    focused_workspace  #d3d3d3 #0b65aa
-    active_workspace   #d3d3d3 #5f676a
-    inactive_workspace #888888 #333333
-    urgent_workspace   #ffffff #900000
+        focused_workspace  #d3d3d3 #0b65aa
+        active_workspace   #d3d3d3 #5f676a
+        inactive_workspace #888888 #333333
+        urgent_workspace   #ffffff #900000
     }
   }
 
