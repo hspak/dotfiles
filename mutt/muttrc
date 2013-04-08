@@ -61,7 +61,7 @@ set sig_dashes                           # dashes before my sig... sweet
 set edit_headers                         # show headers when composing
 set fast_reply                           # skip to compose when replying
 set sendmail_wait   = -1                 # don't wait for sending... to complete
-#set askcc                                # ask for CC:
+set askcc                                # ask for CC:
 set fcc_attach                           # save attachments with the body
 unset mime_forward                       # forward attachments as part of body
 set forward_format  = "Fwd: %s"          # format for subject when forwarding
@@ -79,6 +79,7 @@ hdr_order from: to: cc: date: subject:   # and in this order
 
 # boxes
 mailboxes +Gmail/INBOX +Gmail/hpakage
+mailboxes +Purdue/INBOX
 
 # always sourced
 source $alias_file                      # required for functionality
@@ -88,6 +89,7 @@ source /home/hsp/.mutt/gmail.muttrc     # source gmail as default
 
 # account specific sources
 folder-hook Gmail/* source /home/hsp/.mutt/gmail.muttrc
+folder-hook Purdue/* source /home/hsp/.mutt/purdue.muttrc
 
 # these just give me headaches
 bind index,pager \#     noop
@@ -122,13 +124,16 @@ bind attach l           view-attach
 macro index \Cr "<tag-prefix><clear-flag>N"                 "mark tagged messages as read"
 macro index B   "<limit>"                                   "search message bodies"
 macro index gi   "<change-folder>!<enter>"                  "go to Inbox"
-macro index ga   "<change-folder>=Gmail/arch<enter>"        "go to arch"
-macro index gd   "<change-folder>=Gmail/systemd<enter>"     "go to systemd"
-macro index g9   "<change-folder>=Gmail/i915<enter>"        "go to i915"
+macro index g1   "<change-folder>=Gmail/arch<enter>"        "go to arch"
+macro index g2   "<change-folder>=Gmail/systemd<enter>"     "go to systemd"
+macro index g3   "<change-folder>=Gmail/i915<enter>"        "go to i915"
+macro index g4   "<change-folder>=Gmail/bspwm<enter>"       "go to bspwm"
+macro index g5   "<change-folder>=Gmail/connman<enter>"     "go to connman"
 macro index gh   "<change-folder>=Gmail/hpakage<enter>"     "go to hpakage"
 macro index gs   "<change-folder>=Gmail/sent_mail<enter>"   "go to sent"
 macro index gt   "<change-folder>=Gmail/trash<enter>"       "go to trash"
-macro index gp   "<change-folder>=Gmail/spam<enter>"        "go to spam"
+macro index ga   "<change-folder>=Purdue/Sent<enter>"       "go to Purdue-sent"
+macro index gp   "<change-folder>=Purdue/INBOX<enter>"      "go to Purdue"
 
 # save a decoded copy in /home/hsp
 macro index P   "<pipe-message>cat > /home/hsp/"    "save message as"
