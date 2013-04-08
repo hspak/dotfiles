@@ -170,14 +170,14 @@ else
 endif
 
 if &t_Co > 255
-  highlight Normal          ctermfg=251     ctermbg=none    cterm=none
+  highlight Normal          ctermfg=111     ctermbg=235     cterm=none
   highlight SpecialKey      ctermfg=111     ctermbg=none    cterm=none
   highlight NonText         ctermfg=111     ctermbg=235     cterm=none
-  highlight Directory       ctermfg=180     ctermbg=none    cterm=none
-  highlight IncSearch       ctermfg=0       ctermbg=206     cterm=none
-  highlight LineNr          ctermfg=244     ctermbg=234     cterm=none
-  highlight StatusLine      ctermfg=0       ctermbg=247     cterm=none
-  highlight StatusLineNC    ctermfg=247     ctermbg=238     cterm=none
+  highlight Directory       ctermfg=111     ctermbg=none    cterm=none
+  highlight IncSearch       ctermfg=111       ctermbg=206     cterm=none
+  highlight LineNr          ctermfg=111     ctermbg=234     cterm=none
+  highlight StatusLine      ctermfg=111       ctermbg=247     cterm=none
+  highlight StatusLineNC    ctermfg=111     ctermbg=238     cterm=none
   highlight VertSplit       ctermfg=238     ctermbg=238     cterm=none
   highlight Title           ctermfg=254     ctermbg=none    cterm=none
   highlight Visual          ctermfg=254     ctermbg=240     cterm=none

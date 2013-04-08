@@ -15,7 +15,6 @@ syndaemon -K -d -i 1
 
 # Java workaround
 export AWT_TOOLKIT=XToolkit
-wmname LG3D
 
 # Key bindings
 xbindkeys &
@@ -36,7 +35,10 @@ feh --bg-scale /home/hsp/media/image/1920x1080\ django_and_pony.png &
 # Cool stuff
 compton -bGc --use-ewmh-active-win --config /home/hsp/.compton.conf
 
-# Run window manager
+# # Run window manager
 exec i3
 # exec openbox
+#
+# xsetroot -cursor_name left_ptr &
+# sxhkd &
 # exec bspwm

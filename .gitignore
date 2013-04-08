@@ -5,6 +5,7 @@ __*
 *.log
 *.pyc
 *.swp
+*.swo
 *.swap
 log
 cache

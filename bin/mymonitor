@@ -10,7 +10,7 @@ HDMI=$(xrandr | grep "HDMI1 connected")
 if [[ "$HDMI" != "" ]]; then
     xrandr --output VGA1 --off --output HDMI1 --mode 1920x1080 --pos 0x0 --output LVDS1 --off
 elif [[ "$VGA" != "" ]]; then
-    xrandr --output VGA1 --mode 1920x1080 --pos 0x0 --output LVDS1 --off
+    xrandr --output VGA1 --mode 1920x1080 --pos 0x0 --output LVDS1 --pos 1920x0 --mode 1600x900
 else
     xrandr --auto
 fi

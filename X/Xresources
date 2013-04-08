@@ -1,13 +1,13 @@
 ! - Urxvt Settings ------------------------------
 URxvt*perl-ext:             default,url-select
 URxvt*keysym.M-u:           perl:url-select:select_next
-URxvt*url-select.launcher:  /usr/bin/chromium--ignore-gpu-blacklist
+URxvt*url-select.launcher:  /usr/bin/chromium --ignore-gpu-blacklist
 URxvt*url-select.underline: true
 
 URxvt.transparent:          false
 URxvt.internalborder:       0
 URxvt.matcher.button:       1
-URxvt.font:                 xft:source code pro:pixelsize=11
+URxvt.font:                 xft:Dejavu Sans Mono:size=9
 
 URxvt.cutchars: "()*,<>[]{}|'"
 URxvt.visualBell: false

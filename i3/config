@@ -7,7 +7,7 @@
 
 # i3 config file (v4)
 #
-# Please see http://i3wm.org/docs/userguide.html for a complete reference!
+# Please see http://i3wm.org/docs/hspguide.html for a complete reference!
 
 #
 # General
@@ -16,7 +16,7 @@
   set $mod Mod4
 
   # font for window titles. ISO 10646 = Unicode
-  font pango:Helvetica Neue LT Std 8
+  font pango:Dejavu Sans 8
 
   # Use Mouse+$mod to drag floating windows to their wanted position
   floating_modifier $mod
@@ -114,7 +114,7 @@
   bindsym $mod+Shift+R      restart
 
   # exit i3 (logs you out of your X session)
-  bindsym $mod+Shift+E      exit
+  # bindsym $mod+Shift+E      exit
 
   # scratchpad
   bindsym $mod+Shift+minus  move scratchpad
@@ -124,14 +124,13 @@
   bindsym $mod+n            [instance="ncmpcpp"] scratchpad show
   bindsym $mod+b            [instance="ranger"] scratchpad show
   bindsym $mod+t            [instance="tasks_ws"] scratchpad show
-  bindsym $mod+y            [class="Spotify"] scratchpad show
+  # bindsym $mod+y            [class="Spotify"] scratchpad show
 
   # custom bindings
   bindsym $mod+O                exec chromium --ignore-gpu-blacklist
   bindsym $mod+I                exec nautilus
   bindsym $mod+D                exec termite --name="scratchpad" --geometry=798x438+0-21
   bindsym $mod+U                exec termite --name="ncmpcpp" -e "ncmpcpp" --geometry=798x438+800-21
-  # bindsym $mod+Y                exec --no-startup-id termite --name="ranger" -e "ranger" --geometry=798x438+0-21
 
   # volume control
   bindsym XF86_AudioRaiseVolume exec /home/hsp/bin/ponyvol increase
@@ -152,10 +151,9 @@
 # Windowing Rules
 #
   # Assign workspaces
-  # assign [class="Google-chrome"]      → 2
   assign [instance="Steam"]      → 5
-  for_window [instance="wine"]   → 4
-  for_window [class="wine"]      → 4
+  assign [instance="wine"]   → 4
+  assign [class="wine"]      → 4
 
   # Assign floats
   for_window [class="Google-chrome"]  border none
@@ -177,6 +175,7 @@
   for_window [instance="ncmpcpp"]     floating enable
   for_window [instance="tk"]          floating enable
   for_window [instance="nautilus"]    floating enable border none
+  for_window [instance="file_progress"]    floating enable border none
   for_window [instance="nm-applet"]   border none
   for_window [title="Event Tester"]   floating enable
   for_window [window_role="pop-up"]   floating enable border none
@@ -205,8 +204,20 @@
     bindsym Return mode "default"
     bindsym Escape mode "default"
   }
-  # Enter resize mode
+  # Enter resize bindsym $mod+r mode "resize"
   bindsym $mod+r mode "resize"
+
+  #Create Log out, Reboot, Poweroff bindings
+  mode "Exit --> (L)ogout -- (R)eboot -- (P)oweroff"{
+    bindsym $mod+r exec reboot
+    bindsym $mod+l exit
+    bindsym $mod+p exec poweroff
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+  }
+  bindsym $mod+Shift+e mode "Exit --> (L)ogout -- (R)eboot -- (P)oweroff"
 
   # class                 border  backgr. text    indicator
   client.focused          #4e82aa #5f676a #ffffff #a1b0d6
@@ -214,26 +225,21 @@
   client.unfocused        #333333 #222222 #888888 #292d2e
   client.urgent           #2f343a #900000 #ffffff #900000
 
-  # client.focused          #222222 #073642 #fdf6e3 #32555e
-  # client.focused_inactive #073642 #333333 #ffffff #484e50
-  # client.unfocused        #333333 #222222 #888888 #292d2e
-  # client.urgent           #2f343a #900000 #ffffff #900000
-
 #
 # i3bar / i3status
 #
   bar {
     status_command i3status --config ~/.config/i3/i3status.conf
-    # position top
+    position top
 
     colors {
         background #131313
         statusline #8da0a7
 
-        focused_workspace  #d3d3d3 #0b65aa
-        active_workspace   #d3d3d3 #5f676a
-        inactive_workspace #888888 #333333
-        urgent_workspace   #ffffff #900000
+        focused_workspace  #f5f5f5 #131313
+        active_workspace   #d3d3d3 #131313
+        inactive_workspace #888888 #131313
+        urgent_workspace   #ff0000 #131313
     }
   }
 
@@ -241,6 +247,3 @@
 # Execute
 #
   exec --no-startup-id xautolock -detectsleep -time 15 -locker "systemctl suspend"
-  # exec --no-startup-id termite -e tmux
-  # exec --no-startup-id termite
-  # exec --no-startup-id tasks
