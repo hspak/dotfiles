@@ -50,7 +50,7 @@ alternative_order text/plain text/enriched text/html
 set quote_regexp = "^( {0,4}[>|:#%]| {0,4}[a-z0-9]+[>|]+)+"
 
 # formats
-set date_format     = "%m/%d/%y at %I:%M%P"
+set date_format     = "%m/%d"
 set index_format    = "%3C [%Z] %D %-15.15F %s"
 set alias_format    = "%4n %t %-20a  %r"
 
@@ -81,6 +81,13 @@ hdr_order from: to: cc: date: subject:   # and in this order
 mailboxes +Gmail/INBOX +Gmail/hpakage
 mailboxes +Purdue/INBOX
 
+mailboxes +Gmail/arcelor
+mailboxes +Gmail/arch
+mailboxes +Gmail/bspwm
+mailboxes +Gmail/connman
+mailboxes +Gmail/i915
+mailboxes +Gmail/systemd
+
 # always sourced
 source $alias_file                      # required for functionality
 source /home/hsp/.mutt/custom.color     # colors
@@ -90,6 +97,8 @@ source /home/hsp/.mutt/gmail.muttrc     # source gmail as default
 # account specific sources
 folder-hook Gmail/* source /home/hsp/.mutt/gmail.muttrc
 folder-hook Purdue/* source /home/hsp/.mutt/purdue.muttrc
+
+folder-hook . "exec collapse-all"
 
 # these just give me headaches
 bind index,pager \#     noop
@@ -101,6 +110,8 @@ bind index l            display-message
 bind pager,attach h     exit
 bind pager d            half-down
 bind pager u            half-up
+
+bind index <space>      collapse-thread
 
 bind pager i            exit
 bind pager /            search
@@ -120,15 +131,29 @@ bind index,pager R      group-reply
 
 bind attach l           view-attach
 
+# sidebar
+set sidebar_visible = yes
+set sidebar_sort = yes
+set sidebar_shortpath = yes
+set sidebar_width=25
+set sidebar_delim=' '
+color sidebar_new color221 color233
+
+# Ctrl-n, Ctrl-p to select next, previous folder.
+# Ctrl-o to open selected folder.
+bind index,pager \ck sidebar-prev
+bind index,pager \cj sidebar-next
+bind index,pager \co sidebar-open
+
 # macros
 macro index \Cr "<tag-prefix><clear-flag>N"                 "mark tagged messages as read"
 macro index B   "<limit>"                                   "search message bodies"
 macro index gi   "<change-folder>!<enter>"                  "go to Inbox"
-macro index g1   "<change-folder>=Gmail/arch<enter>"        "go to arch"
-macro index g2   "<change-folder>=Gmail/systemd<enter>"     "go to systemd"
-macro index g3   "<change-folder>=Gmail/i915<enter>"        "go to i915"
-macro index g4   "<change-folder>=Gmail/bspwm<enter>"       "go to bspwm"
-macro index g5   "<change-folder>=Gmail/connman<enter>"     "go to connman"
+# macro index g1   "<change-folder>=Gmail/arch<enter>"        "go to arch"
+# macro index g2   "<change-folder>=Gmail/systemd<enter>"     "go to systemd"
+# macro index g3   "<change-folder>=Gmail/i915<enter>"        "go to i915"
+# macro index g4   "<change-folder>=Gmail/bspwm<enter>"       "go to bspwm"
+# macro index g5   "<change-folder>=Gmail/connman<enter>"     "go to connman"
 macro index gh   "<change-folder>=Gmail/hpakage<enter>"     "go to hpakage"
 macro index gs   "<change-folder>=Gmail/sent_mail<enter>"   "go to sent"
 macro index gt   "<change-folder>=Gmail/trash<enter>"       "go to trash"

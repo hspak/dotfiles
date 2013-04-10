@@ -14,6 +14,7 @@ mapping = { 'INBOX':              'INBOX'
           , 'systemd':            'systemd'
           , 'connman':            'connman'
           , 'bspwm':              'bspwm'
+          , 'arcelor':            'arcelor'
           }
 
 r_mapping = { val: key for key, val in mapping.items() }
