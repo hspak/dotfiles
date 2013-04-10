@@ -20,8 +20,9 @@ get_icon () {
   printf "notification-display-brightness-%s" "$icon_name"
 }
 
-notify-send " " \
-    -i $(get_icon $blvl) \
-    -t 1000 \
-    -h int:value:$(($blvl*7)) \
-    -h string:synchronous:backlight
+dunst_helper " " "Backlight:" $((blvl*7)) 2
+# notify-send " " \
+    # -i $(get_icon $blvl) \
+    # -t 1000 \
+    # -h int:value:$(($blvl*7)) \
+    # -h string:synchronous:backlight

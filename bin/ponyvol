@@ -37,9 +37,10 @@ action=$1
 type -t $action >/dev/null || exit 1
 $action
 
-notify-send " " \
-  -i $(get_icon) \
-  -t 1000 \
-  -h int:value:$(ponymix get-volume) \
-  -h string:synchronous:volume
+dunst_helper " "  "Volume:" "$(ponymix get-volume)" 1
+# notify-send " " \
+  # -i $(get_icon) \
+  # -t 1000 \
+  # -h int:value:$(ponymix get-volume) \
+  # -h string:synchronous:volume
 
