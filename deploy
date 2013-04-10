@@ -27,8 +27,9 @@ dotfiles_gtk()        { link gtk/gtkrc-2.0;                           }
 dotfiles_i3()         { link i3 .config/i3;                           }
 dotfiles_mutt()       { link mutt;                                    }
 dotfiles_ncmpcpp()    { link ncmpcpp;                                 }
-dotfiles_notify_osd() { link notify-osd;                              }
-dotfiles_termite()    { link termite/termite.cfg .config/termite.cfg; }
+# dotfiles_notify_osd() { link notify-osd/notify-osd;                   }
+dotfiles_termite()    { link termite/termite.cfg .config/termite/config; }
+dotfiles_dunst()      { link dunst/dunstrc .config/dunst/dunstrc; }
 dotfiles_tmux()       { link tmux/tmux.conf;                          }
 
 dotfiles_X() {
@@ -45,7 +46,7 @@ dotfiles_zsh() {
 
   link shell/dircolors
 
-  [[ -d zsh ]] || mkdir $HOME/.zsh
+  [[ -d $HOME/.zsh ]] || mkdir $HOME/.zsh
   link shell/alias .zsh/alias.zsh
   link shell/functions .zsh/functions.zsh
 }

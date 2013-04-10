@@ -7,9 +7,6 @@
 [submodule "vim/bundle/vim-autoclose"]
 	path = vim/bundle/vim-autoclose
 	url = git://github.com/Townk/vim-autoclose.git
-[submodule "vim/bundle/vim-bad-whitespace"]
-	path = vim/bundle/vim-bad-whitespace
-	url = git://github.com/bitc/vim-bad-whitespace.git
 [submodule "vim/bundle/vim-surround"]
 	path = vim/bundle/vim-surround
 	url = git://github.com/tpope/vim-surround.git
@@ -37,3 +34,6 @@
 [submodule "vim/bundle/taglist"]
 	path = vim/bundle/taglist
 	url = git://github.com/vim-scripts/taglist.vim.git
+[submodule "vim/bundle/Align"]
+	path = vim/bundle/Align
+	url = git://github.com/vim-scripts/Align.git
