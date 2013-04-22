@@ -1,0 +1,11 @@
+#!/usr/bin/bash
+
+gmail="$HOME/mail/Gmail/INBOX/new"
+purdue="$HOME/mail/Purdue/INBOX/new"
+
+g_cnt=$(find $gmail | wc -l)
+g_cnt=$(( g_cnt-1 ))
+p_cnt=$(find $purdue | wc -l)
+p_cnt=$(( p_cnt-1 ))
+
+echo "Gmail:" $g_cnt " Purdue:" $p_cnt
