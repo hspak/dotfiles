@@ -5,5 +5,5 @@
 
 read -p 'Enter Youtube URL: ' url
 
-cd /media/videos/
+cd media/videos/
 youtube-dl -l $url

@@ -4,6 +4,7 @@ PID=$(pgrep offlineimap)
 
 [[ -n "$PID" ]] && kill "$PID"
 
-offlineimap -o -u quiet &>/dev/null &
+offlineimap -o -u quiet &>/dev/null
+check_mail
 
 exit

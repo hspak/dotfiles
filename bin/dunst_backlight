@@ -1,0 +1,5 @@
+#!/bin/bash
+
+blvl=$(cat /sys/class/backlight/acpi_video0/brightness)
+dunst_notify "backlight" "Backlight:" $((blvl)) 15
+

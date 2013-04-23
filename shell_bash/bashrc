@@ -49,6 +49,11 @@ if [[ -r ~/.dircolors ]] && type -p dircolors >/dev/null; then
   eval $(dircolors -b "$HOME/.dircolors")
 fi
 
+if [[ $TERM == xterm-termite ]]; then
+  . /etc/profile.d/vte.sh
+  PROMPT_COMMAND=${PROMPT_COMMAND:+$PROMPT_COMMAND; }'__vte_ps1'
+fi
+
 export EDITOR=vim
 export BROWSER=chromium
 export AWT_TOOLKIT=XToolkit

@@ -29,6 +29,7 @@ set showmatch           " show matching brackets (),{},[]
 set number              " show number line
 set hidden              " allow unsaved buffers to go in background
 set shell=/bin/bash     " set shell
+set cc=80
 
 "  wrap like other editors
 " -------------------------------------
@@ -180,3 +181,4 @@ let NERDSpaceDelims = 1
 let NERDUsePlaceHolders = 0
 let NERDTreeQuitOnOpen = 1
 let NERDChristmasTree = 1
+

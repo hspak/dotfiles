@@ -4,9 +4,7 @@
 #
 #
 
-read -p 'Enter Youtube URL: ' url
-
-dir="/media/unorganized/"
+dir="media/unorganized/"
 
 cd $dir
-youtube-dl -l $url --extract-audio --audio-format mp3 --audio-quality 320k
+youtube-dl -l $1 --extract-audio

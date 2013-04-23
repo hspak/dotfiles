@@ -91,7 +91,7 @@ mailboxes +Gmail/systemd
 # always sourced
 source $alias_file                      # required for functionality
 source /home/hsp/.mutt/custom.color     # colors
-# source /home/hsp/.mutt/mutt-colors-solarized-dark-16.muttrc     # colors
+# source /home/hsp/.mutt/mc/d16.muttrc
 source /home/hsp/.mutt/gmail.muttrc     # source gmail as default
 
 # account specific sources
@@ -159,6 +159,7 @@ macro index gs   "<change-folder>=Gmail/sent_mail<enter>"   "go to sent"
 macro index gt   "<change-folder>=Gmail/trash<enter>"       "go to trash"
 macro index ga   "<change-folder>=Purdue/Sent<enter>"       "go to Purdue-sent"
 macro index gp   "<change-folder>=Purdue/INBOX<enter>"      "go to Purdue"
+macro index go   "<change-folder>=Purdue/Sent<enter>"   "go to sent"
 
 # save a decoded copy in /home/hsp
 macro index P   "<pipe-message>cat > /home/hsp/"    "save message as"

@@ -1,0 +1,23 @@
+#!/bin/bash
+
+vol_increm=5
+
+toggle() {
+  echo $(ponymix toggle)
+}
+
+increase() {
+  ponymix unmute &> /dev/null
+  echo $(ponymix increase $vol_increm)
+}
+
+decrease() {
+  ponymix unmute &> /dev/null
+  echo $(ponymix decrease $vol_increm)
+}
+
+ponymix >/dev/null || exit 1
+action=$1
+type -t $action >/dev/null || exit 1
+dunst_notify "volume"  "Volume:" $($action) 100
+
