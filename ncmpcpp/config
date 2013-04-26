@@ -266,7 +266,7 @@ song_columns_list_format = " (40)[]{t} (25)[]{a} (30)[]{b} (7f)[white]{l}"
 ## Attention: It doesn't support song format anymore.
 ## Use `ncmpcpp --now-playing SONG_FORMAT` instead.
 ##
-execute_on_song_change = "/home/hsp/bin/mpd_playing"
+execute_on_song_change = "/home/hsp/bin/notify_mpd"
 #
 #playlist_show_remaining_time = "no"
 #

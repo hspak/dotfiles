@@ -89,6 +89,7 @@ endif
 
 if &term ==# "linux"
     colorscheme desert
+    unset cursorline
 endif
 
 " custom keybindings

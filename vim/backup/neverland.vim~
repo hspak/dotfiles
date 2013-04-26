@@ -118,7 +118,7 @@ hi TabLineSel      guifg=#ffd700 guibg=#1c1c1c
 
 if &t_Co > 255
   " Setting normal before any other highlight group is a good idea
-   hi Normal          ctermfg=225 ctermbg=none
+   hi Normal          ctermfg=225 ctermbg=233
 
    " background might have changed to 'light', so fix it
    set background=dark

@@ -33,7 +33,7 @@ xmodmap /home/hsp/.Xmodmap
 feh --bg-scale /home/hsp/media/image/rain.jpg &
 
 # Cool stuff
-compton -bGc --use-ewmh-active-win --config /home/hsp/.compton.conf
+#compton -bGc --config /home/hsp/.compton.conf
 
 # Run window manager
 exec i3
