@@ -19,6 +19,7 @@ alias scromp='scrot '"'"'%Y%m%d.png'"'"' -e '"'"'ompload $f && mv $f ~/bridge/im
 alias aurvote='aurvote -v $(pacman -Qqm)'
 alias lap_mon_on='xrandr --output LVDS1 --mode 1600x900 --left-of HDMI1 --output HDMI1 --primary'
 alias chromium='chromium --ignore-gpu-blacklist'
+alias tmux='tmux -2'
 
 # -- Type less
 alias v='vim'
@@ -44,5 +45,14 @@ alias pqs='pacman -Qs'
 alias pu='sudo pacman -U'
 alias pqe='pacman -Qe'
 alias pcnt='pacman -Q | wc -l'
+
+alias -s png=feh
+alias -s jpg=feh
+alias -s gif=feh
+alias -s GIF=feh
+alias -s JPG=feh
+alias -s PNG=feh
+alias -s gz='tar -xzvf'
+alias -s bz2='tar -xjvf'
 
 # vim: set syn=sh :

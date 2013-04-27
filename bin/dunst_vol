@@ -19,5 +19,6 @@ decrease() {
 ponymix >/dev/null || exit 1
 action=$1
 type -t $action >/dev/null || exit 1
+#notify-send "Volume" "$($action)%"
 dunst_notify "volume"  "Volume:" $($action) 100
 

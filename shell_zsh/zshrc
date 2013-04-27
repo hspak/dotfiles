@@ -1,55 +1,83 @@
 [[ $- != *i* ]] && return ]]
+(( UID == 0 )) && isroot=true || isroot=false
 
 fpath=($HOME/.zsh/completion $fpath )
 
 # Turn autocomplete on
-autoload -U compinit edit-command-line colors vcs_info zmv url-quote-magic
+autoload -U compinit edit-command-line vcs_info zmv
+compinit
+zle -N edit-command-line
 
 # history
 HISTFILE=~/.zhistory
 HISTSIZE=1500
 SAVEHIST=1000
 
-setopt APPEND_HISTORY			# Same history for all sessions
-setopt HIST_IGNORE_ALL_DUPS		# No dupes in history
-setopt HIST_REDUCE_BLANKS
+setopt nobeep \
+    notify \
+    nobgnice \
+    correct \
+    interactivecomments \
+    printexitvalue \
+    autocd \
+    autopushd \
+    pushdtohome \
+    chaselinks \
+    histverify \
+    histappend \
+    sharehistory \
+    histreduceblanks \
+    histignorespace \
+    histignorealldups \
+    histsavenodups \
+    braceccl \
+    dotglob \
+    extendedglob \
+    numericglobsort \
+    nolisttypes \
+    promptsubst \
+    completealiases
 
-# changing directories
-setopt auto_cd
-setopt auto_pushd
-setopt cdable_vars
-setopt chase_links
-setopt pushd_ignore_dups
-setopt pushd_silent
-setopt pushd_to_home
+#setopt APPEND_HISTORY			# Same history for all sessions
+#setopt HIST_IGNORE_ALL_DUPS		# No dupes in history
+#setopt HIST_REDUCE_BLANKS
 
-# completion
-setopt always_to_end
-setopt auto_menu
-setopt auto_name_dirs
-setopt auto_param_keys
-setopt auto_param_slash
-setopt auto_remove_slash
-setopt complete_aliases
-setopt complete_in_word
-setopt list_ambiguous
-setopt list_packed
-unsetopt menu_complete
+## changing directories
+#setopt auto_cd
+#setopt auto_pushd
+#setopt cdable_vars
+#setopt chase_links
+#setopt pushd_ignore_dups
+#setopt pushd_silent
+#setopt pushd_to_home
 
-# expansion and globbing
-setopt brace_ccl
-setopt extended_glob
-setopt long_list_jobs
-setopt multios
-setopt prompt_subst
+## completion
+#setopt always_to_end
+#setopt auto_menu
+#setopt auto_name_dirs
+#setopt auto_param_keys
+#setopt auto_param_slash
+#setopt auto_remove_slash
+#setopt complete_aliases
+#setopt complete_in_word
+#setopt list_ambiguous
+#setopt list_packed
+#unsetopt menu_complete
 
-# input/output
-setopt correct
-setopt interactive_comments
-setopt rc_quotes
-setopt short_loops
-unsetopt clobber
-unsetopt flowcontrol
+## expansion and globbing
+#setopt brace_ccl
+#setopt extended_glob
+#setopt long_list_jobs
+#setopt multios
+#setopt prompt_subst
+
+## input/output
+#setopt correct
+#setopt interactive_comments
+#setopt rc_quotes
+#setopt short_loops
+#unsetopt clobber
+#unsetopt flowcontrol
 
 # Enable vi mode
 bindkey -v
@@ -65,23 +93,49 @@ case $TERM in
     ;;
 esac
 
+# completion style {{{
+# menu completion
+zstyle ':completion:*' menu select
 
-# completion style
+# colors for file completion
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+
+# complete all processes
+zstyle ':completion:*:processes' command 'ps -e'
+zstyle ':completion:*:processes-names' command 'ps -eo comm'
+
+# cache completion
 zstyle ':completion:*' use-cache on
 zstyle ':completion:*' cache-path /tmp
-zstyle ':completion:*' menu select
-zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
-zstyle ':completion:*' ignore-parents parent pwd
 
-# Enable git in prompt
+# don't complete working directory in parent
+zstyle ':completion:*' ignore-parents parent pwd
+# }}}
+
+# title (for vte, xterm and rxvt) {{{
+case "$TERM" in
+    vte*|xterm*|rxvt*)
+        update_title() { print -Pn '\e];%n (%~) - Terminal\a' } ;;
+    *)
+        update_title() {} ;;
+esac
+# }}}
+
+# prompt {{{
 zstyle ':vcs_info:*' enable git
 zstyle ':vcs_info:*' check-for-changes true
-zstyle ':vcs_info:git*' formats "%F{blue}%s%F{white}:%F{green}%b%F{white} %m%u%c% "
 zstyle ':vcs_info:*' stagedstr '%F{red}S%F{white}'
 zstyle ':vcs_info:*' unstagedstr '%F{red}U%F{white}'
+zstyle ':vcs_info:git*' formats "%F{blue}%s%F{white}:%F{green}%b%F{white} %m%u%c% "
 
-PROMPT="%B%F{cyan} ┌┤%b%F{white}%n%F{cyan}@%F{white}%m%b %B%F{blue}%~ ${vcs_info_msg_0_}
- %F{cyan}└╼%b%f "
+if $isroot; then
+    PROMPT='%B%F{magenta} ┌┤%b%F{white}%n%F{cyan}@%F{white}%m%b %B%F{blue}%~ ${vcs_info_msg_0_}
+ %F{cyan}└╼%b%f '
+else
+    PROMPT='%B%F{cyan} ┌┤%b%F{white}%n%F{cyan}@%F{white}%m%b %B%F{blue}%~ ${vcs_info_msg_0_}
+ %F{cyan}└╼%b%f '
+fi
+# }}}
 
 # Environmental
 [[ -n "$TMUX" ]] && export TERM=screen-256color
@@ -92,9 +146,26 @@ if [[ -r ~/.dircolors ]] && type -p dircolors >/dev/null; then
     eval $(dircolors -b "$HOME/.dircolors")
 fi
 
+if [[ $TERM == xterm-termite ]]; then
+  . /etc/profile.d/vte.sh
+
+  __vte_ps1
+
+  chpwd() {
+    __vte_ps1
+  }
+fi
+
+precmd() {
+  update_title
+  vcs_info
+}
+
 for snippets ($HOME/.zsh/*.zsh(N))
   source $snippets
 
 # Allow backspace past insert position in vi-mode
 zle -A .backward-kill-word vi-backward-kill-word
 zle -A .backward-delete-char vi-backward-delete-char
+
+unset isroot

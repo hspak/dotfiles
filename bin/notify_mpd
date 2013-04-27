@@ -9,4 +9,4 @@ if (( $?==0 )); then
     title="$(mpc -f "[[%album% - ]%title%]|[%file%]" current)" 
 fi
 
-notify-send "$artist" "$title" -t 2000
+notify-send "$artist" "$title"

@@ -26,18 +26,15 @@ mpd
 xmodmap /home/hsp/.Xmodmap
 
 # ???
-# pulseaudio --start &
+pulseaudio --start &
 
 # Fix dual monitor settings
 # /home/hsp/bin/mymonitor &
 feh --bg-scale /home/hsp/media/image/rain.jpg &
 
-# Cool stuff
-#compton -bGc --config /home/hsp/.compton.conf
-
 # Run window manager
 exec i3
-# exec openbox
+#exec openbox
 
 # xsetroot -cursor_name left_ptr &
 # sxhkd &

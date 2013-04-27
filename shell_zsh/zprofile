@@ -1,7 +1,26 @@
-export GTK_IM_MODULE=ibus
-export XMODIFIERS=@im=ibus
-export QT_IM_MODULE=ibus
+#export GTK_IM_MODULE=ibus
+#export XMODIFIERS=@im=ibus
+#export QT_IM_MODULE=ibus
 
-vt=$(fgconsole 2>/dev/null)
-(( vt == 1 )) && exec startx -- vt$vt &> ~/.xlog
-unset vt
+export LESS=-R # use -X to avoid sending terminal initialization
+export LESS_TERMCAP_mb=$'\e[01;34m'
+export LESS_TERMCAP_md=$'\e[01;34m'
+export LESS_TERMCAP_me=$'\e[0m'
+export LESS_TERMCAP_se=$'\e[0m'
+export LESS_TERMCAP_ue=$'\e[0m'
+export LESS_TERMCAP_us=$'\e[01;32m'
+
+# disable less history file
+export LESSHISTFILE=-
+
+# turn on font antialiasing in java
+export _JAVA_OPTIONS=-Dawt.useSystemAAFontSettings=lcd
+
+# colors
+if [[ -r ~/.dircolors ]] && type -p dircolors >/dev/null; then
+    eval $(dircolors -b ~.dircolors)
+fi
+
+if (( UID )); then
+    [[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx &> ~/.xlog
+fi

@@ -1,6 +1,6 @@
  # Shadow
 shadow = true;              # Enabled client-side shadows on windows.
-no-dock-shadow = false;      # Avoid drawing shadows on dock/panel windows.
+no-dock-shadow = false;     # Avoid drawing shadows on dock/panel windows.
 no-dnd-shadow = true;       # Don't draw shadows on DND windows.
 clear-shadow = true;        # Zero the part of the shadow's mask behind the window (experimental).
 shadow-radius = 8;          # The blur radius for shadows. (default 12)
@@ -15,24 +15,25 @@ shadow-ignore-shaped = false;
 
 # Opacity
 menu-opacity = 1.0;         # The opacity for menus. (default 1.0)
-inactive-opacity = 1.0;     # Opacity of inactive windows. (0.1 - 1.0) */
-frame-opacity = 1.0;       # Opacity of window titlebars and borders. (0.1 - 1.0)
+inactive-opacity = 0.9;     # Opacity of inactive windows. (0.1 - 1.0) */
+#active-opacity = 0.8
+frame-opacity = 0.7;       # Opacity of window titlebars and borders. (0.1 - 1.0)
 inactive-opacity-override = false;   # Inactive opacity set by 'inactive-opacity' overrides value of _NET_WM_OPACITY.
 alpha-step = 0.06
 # inactive-dim = 0.2;
 # inactive-dim-fixed = true;
-# blur-background = true;
-# blur-background-frame = true;
-blur-background-fixed = false;
+blur-background = true;
+blur-background-frame = true;
+blur-background-fixed = true;
 blur-background-exclude = [ "window_type = 'dock'", "window_type = 'desktop'" ];
 
 # Fading
-fading = false;             # Fade windows during opacity changes.
-#fade-delta = 30;          # The time between steps in a fade in milliseconds. (default 10).
-fade-in-step = 0.25;        # Opacity change between steps while fading in. (default 0.028).
-fade-out-step = 0.10;       # Opacity change between steps while fading out. (default 0.03).
-no-fading-openclose = false;   # Fade windows in/out when opening/closing.
-fade-exclude = [ ];
+fading = true;                  # Fade windows during opacity changes.
+fade-delta = 20;                # The time between steps in a fade in milliseconds. (default 10).
+fade-in-step = 0.25;            # Opacity change between steps while fading in. (default 0.028).
+fade-out-step = 0.10;           # Opacity change between steps while fading out. (default 0.03).
+no-fading-openclose = false;    # Fade windows in/out when opening/closing.
+#fade-exclude = [ ];
 
 # Other
 backend = "glx"
@@ -40,7 +41,8 @@ mark-wmwin-focused = true;  # Try to detect WM windows and mark them as active.
 mark-ovredir-focused = true;
 use-ewmh-active-win = true;
 detect-rounded-corners = true;
-efresh-rate = 0;
+detect-client-opacity = true;
+refresh-rate = 0;
 vsync = "none";
 dbe = false;
 paint-on-overlay = true;

@@ -81,14 +81,10 @@ set ofu=syntaxcomplete#Complete
 syntax on               " enable syntax highlighting
 syntax enable
 
-if &term !=# "screen-256color"
-  colorscheme neverland2_mod
-else
-  colorscheme neverland
-endif
-
 if &term ==# "linux"
     colorscheme desert
+else
+  colorscheme neverland2_mod
 endif
 
 " custom keybindings
