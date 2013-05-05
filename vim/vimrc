@@ -133,10 +133,10 @@ nnoremap B :buffers<CR>:buffer<Space>
 " nnoremap T :TlistAddFiles<Space>
 
 " resizing
-noremap + <C-w><
-noremap _ <C-w>>
-noremap = <C-w>+
-noremap - <C-w>-
+"noremap + <C-w><
+"noremap _ <C-w>>
+"noremap = <C-w>+
+"noremap - <C-w>-
 
 " window movement
 nnoremap <silent> <C-k> :wincmd k<CR>

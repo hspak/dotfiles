@@ -29,8 +29,8 @@ xmodmap /home/hsp/.Xmodmap
 pulseaudio --start &
 
 # Fix dual monitor settings
-# /home/hsp/bin/mymonitor &
-feh --bg-scale /home/hsp/media/image/rain.jpg &
+ /home/hsp/bin/mymonitor &
+#feh --bg-scale /home/hsp/media/image/rain.jpg &
 
 # Run window manager
 exec i3

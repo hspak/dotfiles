@@ -10,6 +10,8 @@ export LESS_TERMCAP_se=$'\e[0m'
 export LESS_TERMCAP_ue=$'\e[0m'
 export LESS_TERMCAP_us=$'\e[01;32m'
 
+export WINEDEBUG=-all
+
 # disable less history file
 export LESSHISTFILE=-
 
@@ -17,8 +19,8 @@ export LESSHISTFILE=-
 export _JAVA_OPTIONS=-Dawt.useSystemAAFontSettings=lcd
 
 # colors
-if [[ -r ~/.dircolors ]] && type -p dircolors >/dev/null; then
-    eval $(dircolors -b ~.dircolors)
+if [[ -f ~/.dircolors ]] && type -p dircolors >/dev/null; then
+    eval $(dircolors -b ~/.dircolors)
 fi
 
 if (( UID )); then
