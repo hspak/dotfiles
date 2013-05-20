@@ -165,6 +165,7 @@
   for_window [class="feh"              ] floating enable
   for_window [class="Sonata"           ] floating enable
   for_window [instance="Steam"         ] floating enable border none
+  for_window [instance="gcr-prompter"  ] floating enable border none
   for_window [instance="skype"         ] floating enable border none
   for_window [class="Steam"            ] floating enable border none
   for_window [instance="scratchpad"    ] floating enable
@@ -220,7 +221,7 @@
   bindsym $mod+Shift+e mode "Exit --> (L)ogout -- (R)eboot -- (P)oweroff"
 
   # class                 border  backgr. text    indicator
-  client.focused          #4e82aa #5f676a #ffffff #a1b0d6
+  client.focused          #4e82aa #0c73ca #ffffff #a1b0d6
   client.focused_inactive #333333 #1f171a #ffffff #484e50
   client.unfocused        #333333 #222222 #888888 #292d2e
   client.urgent           #2f343a #900000 #ffffff #900000
@@ -248,3 +249,5 @@
 #
   exec --no-startup-id xautolock -detectsleep -time 15 -locker "systemctl suspend"
   exec --no-startup-id wmname LG3D
+  exec --no-startup-id /home/hsp/bin/delay_compton
+  exec --no-startup-id /home/hsp/bin/mymonitor

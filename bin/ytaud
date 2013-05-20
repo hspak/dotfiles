@@ -7,4 +7,4 @@
 dir="media/unorganized/"
 
 cd $dir
-youtube-dl -l $1 --extract-audio
+youtube-dl -l "$1" --extract-audio

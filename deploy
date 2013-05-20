@@ -21,15 +21,27 @@ link() {
 
 # Deploy scriptlets {{{
 dotfiles_bin()        { link bin bin;                                 }
-dotfiles_compton()    { link compton/compton.conf;                    }
 dotfiles_git()        { link git/gitconfig;                           }
 dotfiles_gtk()        { link gtk/gtkrc-2.0;                           }
 dotfiles_i3()         { link i3 .config/i3;                           }
 dotfiles_mutt()       { link mutt;                                    }
 dotfiles_ncmpcpp()    { link ncmpcpp;                                 }
-dotfiles_termite()    { link termite/termite.cfg .config/termite/config; }
-dotfiles_dunst()      { link dunst/dunstrc .config/dunst/dunstrc; }
 dotfiles_tmux()       { link tmux/tmux.conf;                          }
+
+dotfiles_dunst() { 
+  [[ -d $HOME/.config/dunst ]] || mkdir $HOME/.config/dunst
+  link dunst/dunstrc .config/dunst/dunstrc; 
+}
+
+dotfiles_termite() { 
+  [[ -d $HOME/.config/termite ]] || mkdir $HOME/.config/termite
+  link termite/termite.cfg .config/termite/config; 
+}
+
+dotfiles_compton() { 
+  [[ -d $HOME/.config/compton ]] || mkdir $HOME/.config/compton
+  link compton/compton.conf .config/compton/config;
+}
 
 dotfiles_X() {
   link X/Xmodmap

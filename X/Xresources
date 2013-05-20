@@ -19,6 +19,12 @@ URxvt.scrollTtyKeypress: true
 URxvt.saveLines:  512
 URxvt.scrollBar: false
 
+!Xft.dpi:        96
+!Xft.antialias:  true
+!Xft.rgba:       rgb
+!Xft.hinting:    true
+!Xft.hintstyle:  hintfull
+
 ! ibus settings
 ! URxvt.inputMethod: ibus
 ! URxvt.preeditType: OnTheSpot,None
