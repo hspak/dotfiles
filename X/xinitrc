@@ -23,10 +23,10 @@ xbindkeys &
 mpd
 
 # Custom keyboard layout
-xmodmap /home/hsp/.Xmodmap
+#xmodmap /home/hsp/.Xmodmap
 
 # ???
-pulseaudio --start &
+#pulseaudio --start &
 
 # Fix dual monitor settings
  #/home/hsp/bin/mymonitor &

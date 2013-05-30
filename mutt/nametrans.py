@@ -12,7 +12,6 @@ mapping = { 'INBOX':              'INBOX'
           , 'i915':               'i915'
           , 'hpakage':            'hpakage'
           , 'systemd':            'systemd'
-          , 'connman':            'connman'
           , 'bspwm':              'bspwm'
           , 'arcelor':            'arcelor'
           }

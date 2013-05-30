@@ -84,7 +84,6 @@ mailboxes +Purdue/INBOX
 mailboxes +Gmail/arcelor
 mailboxes +Gmail/arch
 mailboxes +Gmail/bspwm
-mailboxes +Gmail/connman
 mailboxes +Gmail/i915
 mailboxes +Gmail/systemd
 
@@ -153,7 +152,6 @@ macro index gi   "<change-folder>!<enter>"                  "go to Inbox"
 # macro index g2   "<change-folder>=Gmail/systemd<enter>"     "go to systemd"
 # macro index g3   "<change-folder>=Gmail/i915<enter>"        "go to i915"
 # macro index g4   "<change-folder>=Gmail/bspwm<enter>"       "go to bspwm"
-# macro index g5   "<change-folder>=Gmail/connman<enter>"     "go to connman"
 macro index gh   "<change-folder>=Gmail/hpakage<enter>"     "go to hpakage"
 macro index gs   "<change-folder>=Gmail/sent_mail<enter>"   "go to sent"
 macro index gt   "<change-folder>=Gmail/trash<enter>"       "go to trash"

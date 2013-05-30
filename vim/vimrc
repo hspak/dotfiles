@@ -176,8 +176,8 @@ let &titleold=getcwd()
 
 " plugin settings
 " -------------------------------------
-" let NERDSpaceDelims = 1
+let NERDSpaceDelims = 1
 let NERDUsePlaceHolders = 0
 let NERDTreeQuitOnOpen = 1
 let NERDChristmasTree = 1
-
+"let NERDRemoveExtraSpaces = 1
