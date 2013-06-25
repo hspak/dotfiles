@@ -21,7 +21,7 @@ export HISTFILESIZE=2000
 
 # settings
 shopt -s expand_aliases cdspell dirspell extglob histverify no_empty_cmd_completion checkwinsize
-set -o notify          # notify of completed background jobs immediately
+set -o notify           # notify of completed background jobs immediately
 ulimit -S -c 0          # disable core dumps
 
 # --- External configs ---
@@ -47,11 +47,6 @@ done
 
 if [[ -r ~/.dircolors ]] && type -p dircolors >/dev/null; then
   eval $(dircolors -b "$HOME/.dircolors")
-fi
-
-if [[ $TERM == xterm-termite ]]; then
-  . /etc/profile.d/vte.sh
-  PROMPT_COMMAND=${PROMPT_COMMAND:+$PROMPT_COMMAND; }'__vte_ps1'
 fi
 
 export EDITOR=vim

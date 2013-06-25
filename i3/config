@@ -34,7 +34,7 @@
   bindsym $mod+Shift+Q        kill
 
   # start dmenu (a program launcher)
-  bindsym $mod+p              exec dmenu_run_c
+  bindsym $mod+p              exec dmenu_run
 
   # change focus
   bindsym $mod+H              focus left
@@ -247,7 +247,7 @@
 #
 # Execute
 #
-  exec --no-startup-id xautolock -detectsleep -time 15 -locker "systemctl suspend"
   exec --no-startup-id wmname LG3D
-  exec --no-startup-id /home/hsp/bin/delay_compton
-  exec --no-startup-id /home/hsp/bin/mymonitor
+  exec --no-startup-id compton -bGc --config ~/.config/compton/config
+  exec --no-startup-id feh --bg-scale /home/hsp/media/image/wallpaper/evening.jpg
+  exec --no-startup-id termite
