@@ -1,52 +1,15 @@
 # Set terminal options
 [[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources &
 
-# xset +fp /usr/share/fonts/local
-# xset fp rehash
-
-# Wait 15 seconds for connection
-# delay_dropbox &
-
-# Ibus for Korean input
-# ibus-daemon -drx
-
-# Disable touchpad when typing
-# syndaemon -K -d -i 1
-
-# Java workaround
-# export AWT_TOOLKIT=XToolkit
-
-# Key bindings
-xbindkeys &
-
-# Music
-mpd
-
-# Custom keyboard layout
-#xmodmap /home/hsp/.Xmodmap
+xset +fp /usr/share/fonts/local
+xset fp rehash
 
 # ???
 pulseaudio --start &
 
-# Fix dual monitor settings
- #/home/hsp/bin/mymonitor &
-#feh --bg-scale /home/hsp/media/image/rain.jpg &
-#
+xsetroot -cursor_name left_ptr &
+sxhkd &
 
-## Start a D-Bus session
-#source /etc/X11/xinit/xinitrc.d/30-dbus
-## Start GNOME Keyring
-#eval $(/usr/bin/gnome-keyring-daemon --start --components=gpg,pkcs11,secrets,ssh)
-## You probably need to do this too:
-#export SSH_AUTH_SOCK
-#export GPG_AGENT_INFO
-#export GNOME_KEYRING_CONTROL
-#export GNOME_KEYRING_PID
-
-# Run window manager
-exec i3
-#exec openbox
-
-# xsetroot -cursor_name left_ptr &
-# sxhkd &
-# exec bspwm
+[ -e "$PANEL_FIFO" ] && rm "$PANEL_FIFO"
+mkfifo "$PANEL_FIFO"
+exec bspwm -s "$PANEL_FIFO" -p W

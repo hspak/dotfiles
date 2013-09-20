@@ -52,15 +52,15 @@ dotfiles_X() {
 }
 
 dotfiles_zsh() {
-  link shell_zsh/zprofile
-  link shell_zsh/zshrc
+  link zsh/zprofile
+  link zsh/zshrc
 
-  link shell/dircolors
-  link shell/inputrc
+  link zsh/dircolors
+  link zsh/inputrc
 
   [[ -d $HOME/.zsh ]] || mkdir $HOME/.zsh
-  link shell/alias .zsh/alias.zsh
-  link shell/functions .zsh/functions.zsh
+  link zsh/alias .zsh/alias.zsh
+  link zsh/functions .zsh/functions.zsh
 }
 
 dotfiles_vim() {
@@ -70,19 +70,6 @@ dotfiles_vim() {
 
 dotfiles_weechat() {
   link weechat/weechat.conf .weechat/weechat.conf
-}
-
-dotfiles_bash() {
-  link shell_bash/bashrc
-  link shell_bash/bash_profile
-
-  link shell/dircolors
-  link shell/inputrc
-
-  [[ -d .bash ]] || mkdir $HOME/.bash
-  link shell/alias .bash/alias
-  link shell/functions .bash/functions
-  link shell_bash/bash/prompt .bash/prompt
 }
 # }}}
 

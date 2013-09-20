@@ -29,7 +29,7 @@ set showmatch           " show matching brackets (),{},[]
 set number              " show number line
 set hidden              " allow unsaved buffers to go in background
 set shell=/bin/bash     " set shell
-set cc=80               " 80 char column indicator
+"set cc=80               " 80 char column indicator
 set cursorline          " highlight current line
 
 "  wrap like other editors
@@ -84,7 +84,7 @@ syntax enable
 if &term ==# "linux"
     colorscheme desert
 else
-  colorscheme neverland2_mod
+  colorscheme euphrasia
 endif
 
 " custom keybindings

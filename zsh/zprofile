@@ -1,7 +1,13 @@
+# Ibus vars (old)
 #export GTK_IM_MODULE=ibus
 #export XMODIFIERS=@im=ibus
 #export QT_IM_MODULE=ibus
 
+# bspwm panel vars
+export PANEL_FIFO=/tmp/panel-fifo
+export PANEL_HEIGHT=18
+
+# color for less
 export LESS=-R # use -X to avoid sending terminal initialization
 export LESS_TERMCAP_mb=$'\e[01;34m'
 export LESS_TERMCAP_md=$'\e[01;34m'
@@ -11,13 +17,11 @@ export LESS_TERMCAP_ue=$'\e[0m'
 export LESS_TERMCAP_us=$'\e[01;32m'
 export PAGER=less
 
+# no wine msgs
 export WINEDEBUG=-all
 
 # disable less history file
 export LESSHISTFILE=-
-
-# turn on font antialiasing in java
-export _JAVA_OPTIONS=-Dawt.useSystemAAFontSettings=lcd
 
 # colors
 if [[ -f ~/.dircolors ]] && type -p dircolors >/dev/null; then

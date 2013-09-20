@@ -1,100 +1,46 @@
-! - Urxvt Settings ------------------------------
-URxvt*perl-ext:             default,url-select
-URxvt*keysym.M-u:           perl:url-select:select_next
-URxvt*url-select.launcher:  /usr/bin/chromium --ignore-gpu-blacklist
-URxvt*url-select.underline: true
+!! euphrasia v2 by bohoomil
 
-URxvt.transparent:          false
-URxvt.internalborder:       0
-URxvt.matcher.button:       1
-urxvt*font: xft:Source Code Pro:size=10
+! euphrasia fg/bg
+*background:  #090C19
+*foreground:  #E6E6E6
+*cursorColor:      #1AAA13
 
-URxvt.cutchars: "()*,<>[]{}|'"
-URxvt.visualBell: false
-URxvt.iso14755: false
-URxvt.iso14755_52: false
-URxvt.scrollWithBuffer: true
-URxvt.scrollTtyOutput: false
-URxvt.scrollTtyKeypress: true
-URxvt.saveLines:  512
-URxvt.scrollBar: false
+! black
+*color0:  #222946
+! dark grey
+*color8:  #8C8B89
 
-!Xft.dpi:        96
-!Xft.antialias:  true
-!Xft.rgba:       rgb
-!Xft.hinting:    true
-!Xft.hintstyle:  hintfull
+! red
+*color1:  #B32323
+! bright red
+*color9:  #DC2C2C
 
-! ibus settings
-! URxvt.inputMethod: ibus
-! URxvt.preeditType: OnTheSpot,None
+! green
+*color2:  #1AAA13
+! bright green
+*color10: #5DCE33
 
-URxvt.shading: 25
-URxvt.depth: 32
+! yellow
+*color3:  #FF9F3E
+! bright yellow
+*color11: #E6CB29
 
-! - Terminal Colors -----------------------------
-! Common
+! blue
+*color4:  #4957F3
+! bright blue
+*color12: #4D79FF
 
-#define S_yellow        #b58900
-#define S_orange        #cb4b16
-#define S_red           #dc322f
-#define S_magenta       #d33682
-#define S_violet        #6c71c4
-#define S_blue          #268bd2
-#define S_cyan          #2aa198
-#define S_green         #859900
+! magenta
+*color5:  #BF3E94
+! bright magenta
+*color13: #B641CC
 
+! cyan
+*color6:  #09A5B3
+! bright cyan
+*color14: #3CB6F3
 
-! Dark
-
-! #define S_base03        #002b36
-! #define S_base02        #073642
-! #define S_base01        #586e75
-! #define S_base00        #657b83
-! #define S_base0         #839496
-! #define S_base1         #93a1a1
-! #define S_base2         #eee8d5
-! #define S_base3         #fdf6e3
-
-
-! Light
-
-#define S_base03        #f3f6e3
-#define S_base02        #eee8d5
-#define S_base01        #93a1a1
-#define S_base00        #839496
-#define S_base0         #657b83
-#define S_base1         #586e75
-#define S_base2         #073642
-#define S_base3         #002b36
-
-
-! To only apply colors to your terminal, for example, prefix
-! the color assignment statement with its name. Example:
-!
-! URxvt*background:            S_base03
-
-*background:              S_base03
-*foreground:              S_base0
-*fading:                  40
-*fadeColor:               S_base03
-*cursorColor:             S_base1
-*pointerColorBackground:  S_base01
-*pointerColorForeground:  S_base1
-
-*color0:                  S_base02
-*color1:                  S_red
-*color2:                  S_green
-*color3:                  S_yellow
-*color4:                  S_blue
-*color5:                  S_magenta
-*color6:                  S_cyan
-*color7:                  S_base2
-*color9:                  S_orange
-*color8:                  S_base03
-*color10:                 S_base01
-*color11:                 S_base00
-*color12:                 S_base0
-*color13:                 S_violet
-*color14:                 S_base1
-*color15:                 S_base3
+! light grey
+*color7:  #AEAEAE
+! white
+*color15: #DBDDE4
