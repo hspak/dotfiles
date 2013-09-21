@@ -1,0 +1,22 @@
+#!/bin/bash
+#
+# start_bspwm: useful things for bspwm to start
+
+# bspwm panel vars
+export PANEL_FIFO=/tmp/panel-fifo
+export PANEL_HEIGHT=18
+
+# add bspwm dir to path
+PATH="$PATH:/home/hsp/.config/bspwm"
+export $PATH
+
+# cursor theme doesn't get set properly without
+xsetroot -cursor_name left_ptr &
+
+# hotkeys
+sxhkd &
+
+# panels and start
+[ -e "$PANEL_FIFO" ] && rm "$PANEL_FIFO"
+mkfifo "$PANEL_FIFO"
+bspwm -s "$PANEL_FIFO" -p W

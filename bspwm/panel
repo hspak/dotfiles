@@ -1,0 +1,17 @@
+#! /bin/bash
+
+if [ $(pgrep -cx panel) -gt 1 ] ; then
+    printf "%s\n" "The panel is already running." >&2
+    exit 1
+fi
+
+trap 'trap - TERM; kill 0' INT TERM QUIT EXIT
+
+bspc config top_padding $PANEL_HEIGHT
+bspc control --put-status
+xtitle -sf 'T%s' > "$PANEL_FIFO" &
+clock -sf 'S%a %H:%M' > "$PANEL_FIFO" &
+
+cat "$PANEL_FIFO" | panel_bar | bar &
+
+wait
