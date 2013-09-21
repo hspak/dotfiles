@@ -1,7 +1,7 @@
 [[ $- != *i* ]] && return ]]
 (( UID == 0 )) && isroot=true || isroot=false
 
-fpath=($HOME/.zsh/completion $fpath )
+#fpath=($HOME/.zsh/completion $fpath )
 
 # Turn autocomplete on
 autoload -U compinit edit-command-line vcs_info zmv

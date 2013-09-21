@@ -1,4 +1,14 @@
 set nocompatible        " use Vim defaults, screw vi
+filetype off
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" let Vundle manage Vundle
+Bundle 'gmarik/vundle'
+
+" my bundles
+Bundle 'scrooloose/nerdcommenter'
 
 " General Options
 " -------------------------------------
@@ -30,7 +40,7 @@ set number              " show number line
 set hidden              " allow unsaved buffers to go in background
 set shell=/bin/bash     " set shell
 "set cc=80               " 80 char column indicator
-set cursorline          " highlight current line
+"set cursorline          " highlight current line
 
 "  wrap like other editors
 " -------------------------------------
@@ -69,11 +79,7 @@ endif
 
 " plug-in settings
 " -------------------------------------
-call pathogen#runtime_append_all_bundles()
-
-filetype on
-filetype plugin on
-filetype indent on
+filetype plugin indent on
 set ofu=syntaxcomplete#Complete
 
 " syntax highlighting
@@ -82,7 +88,7 @@ syntax on               " enable syntax highlighting
 syntax enable
 
 if &term ==# "linux"
-    colorscheme desert
+  colorscheme desert
 else
   colorscheme euphrasia
 endif
@@ -168,6 +174,7 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 
 " file type specific settings
 au FileType c         setlocal ts=8 sw=8
+au FileType js        setlocal ts=4 sw=4
 au FileType cpp       setlocal ts=4 sw=4
 au FileType make      setlocal noet
 au FileType python    setlocal sw=4 ts=4

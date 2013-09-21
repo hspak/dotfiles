@@ -1,0 +1,30 @@
+#!/bin/bash
+
+if [[ -z "$1" ]]; then
+  echo "usage: cfg_edit <config file>"
+  exit 0
+fi
+
+[[ -z "$EDITOR" ]] && editor="$EDITOR" || editor="vim"
+
+cfg_file="$1"
+base_path=""
+if [[ -d "$XDG_CONFIG_HOME" ]]; then
+  base_path="$XDG_CONFIG_HOME"
+  echo "hi1"
+  [[ -f "$base_path/$cfg_file" ]] && $editor "$base_path/$cfg_file" && exit 0
+elif [[ -d "$HOME" ]]; then
+  echo "hi2"
+  base_path="$HOME"
+  [[ -f "$base_path/$cfg_file" ]] && $editor "$base_path/$cfg_file" && exit 0
+  
+  if [[ -d "$HOME/.config" ]]; then
+    base_path="$base_path/.config"
+    echo "hi3"
+    [[ -f "$base_path/$cfg_file" ]] && $editor "$base_path/$cfg_file" && exit 0
+  fi
+fi
+
+
+    echo $base_path $cfg_file
+exit 0

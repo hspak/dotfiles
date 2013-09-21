@@ -3,10 +3,6 @@
 #export XMODIFIERS=@im=ibus
 #export QT_IM_MODULE=ibus
 
-# bspwm panel vars
-export PANEL_FIFO=/tmp/panel-fifo
-export PANEL_HEIGHT=18
-
 # color for less
 export LESS=-R # use -X to avoid sending terminal initialization
 export LESS_TERMCAP_mb=$'\e[01;34m'
@@ -22,6 +18,10 @@ export WINEDEBUG=-all
 
 # disable less history file
 export LESSHISTFILE=-
+
+# add things to path
+PATH="$PATH:/home/hsp/bin:/home/hsp/.gem/ruby/bin"
+export PATH
 
 # colors
 if [[ -f ~/.dircolors ]] && type -p dircolors >/dev/null; then
