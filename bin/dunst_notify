@@ -22,5 +22,5 @@ except:
 notify2.init(appname)
 n = notify2.Notification(summary, body)
 n.id = int(id)
-n.timeout = 50
+n.timeout = 30
 n.show()
