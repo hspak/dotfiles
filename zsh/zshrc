@@ -130,10 +130,10 @@ zstyle ':vcs_info:git*' formats "%F{blue}%s%F{white}:%F{green}%b%F{white} %m%u%c
 
 if $isroot; then
     PROMPT='%B%F{magenta} ┌┤%b%F{white}%n%F{cyan}@%F{white}%m%b %B%F{blue}%~ ${vcs_info_msg_0_}
- %F{cyan}└╼%b%f '
+ %F{magenta}└╼%b%f '
 else
-    PROMPT='%B%F{cyan} ┌┤%b%F{white}%n%F{cyan}@%F{white}%m%b %B%F{blue}%~ ${vcs_info_msg_0_}
- %F{cyan}└╼%b%f '
+    PROMPT='%B%F{black} ┌┤%b%F{grey}%n%F{cyan}@%F{grey}%m%b %B%F{blue}%~ ${vcs_info_msg_0_}
+ %F{black}└╼%b%f '
 fi
 # }}}
 
