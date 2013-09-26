@@ -21,6 +21,7 @@ export LESSHISTFILE=-
 
 # add things to path
 PATH="$PATH:/home/hsp/bin:/home/hsp/.gem/ruby/bin"
+PATH="$PATH:/usr/local/MATLAB/MATLAB_Productiion_Server/R2013a/bin"
 export PATH
 
 # colors
