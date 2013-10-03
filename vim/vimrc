@@ -90,7 +90,7 @@ syntax enable
 if &term ==# "linux"
   colorscheme desert
 else
-  colorscheme euphrasia
+  colorscheme neverland2_mod
 endif
 
 " custom keybindings

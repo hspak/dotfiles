@@ -1,46 +1,20 @@
-!! euphrasia v2 by bohoomil
+*background:  #0F0F0F
+*foreground:  #DFDFDF
+*cursorColor: #505050
 
-! euphrasia fg/bg
-*background:  #090C19
-*foreground:  #E6E6E6
-*cursorColor:      #1AAA13
-
-! black
-*color0:  #222946
-! dark grey
-*color8:  #8C8B89
-
-! red
-*color1:  #B32323
-! bright red
-*color9:  #DC2C2C
-
-! green
-*color2:  #1AAA13
-! bright green
-*color10: #5DCE33
-
-! yellow
-*color3:  #FF9F3E
-! bright yellow
-*color11: #E6CB29
-
-! blue
-*color4:  #4957F3
-! bright blue
-*color12: #4D79FF
-
-! magenta
-*color5:  #BF3E94
-! bright magenta
-*color13: #B641CC
-
-! cyan
-*color6:  #09A5B3
-! bright cyan
-*color14: #3CB6F3
-
-! light grey
-*color7:  #AEAEAE
-! white
-*color15: #DBDDE4
+*color0:  #1B1D1E
+*color1:  #F92672
+*color2:  #82B414
+*color3:  #FD971F
+*color4:  #4E82AA
+*color5:  #8C54FE
+*color6:  #465457
+*color7:  #DFDFDF
+*color8:  #505354
+*color9:  #FF5995
+*color10:  #B6E354
+*color11:  #FEED6C
+*color12:  #0C73C2
+*color13:  #9E6FFE
+*color14:  #899CA1
+*color15:  #FFFFFF
