@@ -1,93 +1,21 @@
-!! euphrasia v2 by bohoomil
+*background:  #0F0F0F
+*foreground:  #DFDFDF
+*cursorColor: #505050
 
-! euphrasia fg/bg
-*background:  #090C19
-*foreground:  #E6E6E6
-*cursorColor:      #1AAA13
+*color0:  #1B1D1E
+*color1:  #F92672
+*color2:  #82B414
+*color3:  #FD971F
+*color4:  #4E82AA
+*color5:  #8C54FE
+*color6:  #465457
+*color7:  #DFDFDF
+*color8:  #505354
+*color9:  #FF5995
+*color10:  #B6E354
+*color11:  #FEED6C
+*color12:  #0C73C2
+*color13:  #9E6FFE
+*color14:  #899CA1
+*color15:  #FFFFFF
 
-! black
-*color0:  #222946
-! dark grey
-*color8:  #8C8B89
-
-! red
-*color1:  #B32323
-! bright red
-*color9:  #DC2C2C
-
-! green
-*color2:  #1AAA13
-! bright green
-*color10: #5DCE33
-
-! yellow
-*color3:  #FF9F3E
-! bright yellow
-*color11: #E6CB29
-
-! blue
-*color4:  #4957F3
-! bright blue
-*color12: #4D79FF
-
-! magenta
-*color5:  #BF3E94
-! bright magenta
-*color13: #B641CC
-
-! cyan
-*color6:  #09A5B3
-! bright cyan
-*color14: #3CB6F3
-
-! light grey
-*color7:  #AEAEAE
-! white
-*color15: #DBDDE4
-
-! grassland by bohoomil
- 
-URxvt*background:  #0d1926
-URxvt*foreground:  #d9e6f2
-*cursorColor: #238c0e
- 
-! black
-*color0:  #00070d
-! dark gray
-*color8:  #666666
- 
-! red
-*color1:  #a83a71
-! bright red
-*color9:  #d78bb1
- 
-! green
-*color2:  #71a83a
-! bright green
-*color10: #b1d78b
- 
-! yellow
-*color3:  #a8713a
-! bright yellow
-*color11: #d7b18b
- 
-! blue
-*color4:  #3a71a8
-! bright blue
-*color12: #8bb1d7
- 
-! magenta
-*color5:  #713aa8
-! bright magenta
-*color13: #b18bd7
- 
-! cyan
-*color6:  #3aa871
-! bright cyan
-*color14: #8bd7b1
- 
-! light gray
-*color7:  #a6a6a6
-! white
-*color15: #e6e6e6
- 
