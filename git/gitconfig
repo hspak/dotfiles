@@ -31,3 +31,5 @@
 	decorate = full
 [core]
 	editor = vim
+[push]
+	default = simple
