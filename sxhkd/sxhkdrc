@@ -38,8 +38,10 @@ XF86AudioLowerVolume
   dunst_vol decrease
 
 XF86AudioMute        
-  super + alt + Escape
-    bspc quit
+  dunst_vol toggle
+
+super + alt + Escape
+  pkill panel && bspc quit
 
 super + w
     bspc window -c
