@@ -22,5 +22,5 @@ bspc config gapless_monocle       true
 bspc config focus_follows_pointer true
 
 ~/.config/bspwm/panel &
-feh --bg-scale ~/media/image/wallpaper/water.jpg &
+feh --bg-scale ~/wallpaper/bird.jpg &
 compton -bGc --config ~/.config/compton/config &
