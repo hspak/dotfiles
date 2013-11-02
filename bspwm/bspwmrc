@@ -22,6 +22,16 @@ bspc config borderless_monocle    true
 bspc config gapless_monocle       true
 bspc config focus_follows_pointer true
 
+#$(pgrep panel) &> /dev/null
+#[[ $? -eq 0 ]] && pkill panel
 ~/.config/bspwm/panel &
 feh --bg-scale ~/wallpaper/bird.jpg &
 compton -bGc --config ~/.config/compton/config &
+
+# Restore
+if [ -e "$BSPWM_TREE" ] ; then
+    bspc restore -T "$BSPWM_TREE" -H "$BSPWM_HISTORY" -S "$BSPWM_STACK"
+    rm "$BSPWM_TREE" "$BSPWM_HISTORY" "$BSPWM_STACK"
+else
+    bspc control --adopt-orphans
+fi

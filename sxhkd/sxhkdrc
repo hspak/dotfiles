@@ -41,7 +41,10 @@ XF86AudioMute
   dunst_vol toggle
 
 super + alt + Escape
-  pkill panel && bspc quit
+  {pkill panel && bspc query -T > "$BSPWM_TREE"; \
+    bspc query -H > "$BSPWM_HISTORY"; \
+      bspc quit,\
+    bspc quit 1}
 
 super + w
     bspc window -c
