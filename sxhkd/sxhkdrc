@@ -41,7 +41,7 @@ XF86AudioMute
   dunst_vol toggle
 
 super + alt + Escape
-  pkill panel && bspc quit
+  bspc quit && pkill panel
 
 super + w
     bspc window -c

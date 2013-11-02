@@ -7,4 +7,5 @@ xset fp rehash
 # ???
 pulseaudio --start &
 
-exec ~/.config/bspwm/start_bspwm
+exec i3
+# exec ~/.config/bspwm/start_bspwm
