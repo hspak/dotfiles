@@ -3,10 +3,11 @@
 # Example panel for LemonBoy's bar-aint-recursive
 
 while read -r line ; do
+  sys_infos="$(date +"%c")"
     case $line in
         S*)
             # clock output
-            sys_infos="\\br\\f6${line#?}"
+            #sys_infos="\\br\\f6${line#?}"
             ;;
         T*)
             # xtitle output
@@ -55,5 +56,6 @@ while read -r line ; do
             done
             ;;
     esac
+
     printf "%s\n" "\\l $wm_infos \\c $title \\r $sys_infos  "
 done
