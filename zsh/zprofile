@@ -20,9 +20,11 @@ export WINEDEBUG=-all
 export LESSHISTFILE=-
 
 # add things to path
-PATH="$PATH:/home/hsp/bin:/home/hsp/.gem/ruby/bin"
-PATH="$PATH:/usr/local/MATLAB/MATLAB_Production_Server/R2013a/bin"
+PATH="$PATH:/usr/local/MATLAB/MATLAB_Production_Server/R2013a/bin:/home/hsp/bin:/home/hsp/.gem/ruby/2.0.0/bin"
 export PATH
+
+# for angular
+export CHROME_BIN=/usr/bin/chromium
 
 # colors
 if [[ -f ~/.dircolors ]] && type -p dircolors >/dev/null; then

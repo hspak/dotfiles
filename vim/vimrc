@@ -9,6 +9,7 @@ Bundle 'gmarik/vundle'
 
 " my bundles
 Bundle 'scrooloose/nerdcommenter'
+Bundle 'Lokaltog/vim-distinguished'
 
 " General Options
 " -------------------------------------

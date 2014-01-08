@@ -7,4 +7,7 @@ xset fp rehash
 # ???
 pulseaudio --start &
 
-exec ~/.config/bspwm/start_bspwm
+# swap caps and ctrl
+setxkbmap -option "ctrl:swapcaps"
+
+exec i3

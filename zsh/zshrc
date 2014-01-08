@@ -141,6 +141,7 @@ fi
 [[ -n "$TMUX" ]] && export TERM=screen-256color
 export EDITOR=vim
 export PAGER=less
+export PATH="$PATH:/usr/local/MATLAB/MATLAB_Production_Server/R2013a/bin:"
 
 # External Config
 if [[ -f ~/.dircolors ]] && type -p dircolors >/dev/null; then
