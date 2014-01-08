@@ -3,7 +3,7 @@
 #
 
 # -- Admin tasks
-alias ls='ls -lh --color --group-directories-first'
+alias ls='ls -lh --color'
 alias df='df -h'
 alias du='du -h'
 alias ..='cd ..'

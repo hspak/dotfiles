@@ -11,4 +11,3 @@ pulseaudio --start &
 setxkbmap -option "ctrl:swapcaps"
 
 exec i3
-# exec ~/.config/bspwm/start_bspwm
