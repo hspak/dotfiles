@@ -20,12 +20,7 @@ export WINEDEBUG=-all
 export LESSHISTFILE=-
 
 # add things to path
-<<<<<<< HEAD
 PATH="$PATH:/usr/local/MATLAB/MATLAB_Production_Server/R2013a/bin:/home/hsp/bin:/home/hsp/.gem/ruby/2.0.0/bin"
-=======
-PATH="$PATH:/home/hsp/bin:/home/hsp/.gem/ruby/2.0.0/bin"
-PATH="$PATH:/usr/local/MATLAB/MATLAB_Production_Server/R2013a/bin"
->>>>>>> 2ebb2ef98306084a5fc1c642c09d17a56ee4f7b5
 export PATH
 
 # for angular

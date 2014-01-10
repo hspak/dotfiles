@@ -38,47 +38,6 @@ setopt nobeep \
     promptsubst \
     completealiases
 
-#setopt APPEND_HISTORY			# Same history for all sessions
-#setopt HIST_IGNORE_ALL_DUPS		# No dupes in history
-#setopt HIST_REDUCE_BLANKS
-
-## changing directories
-#setopt auto_cd
-#setopt auto_pushd
-#setopt cdable_vars
-#setopt chase_links
-#setopt pushd_ignore_dups
-#setopt pushd_silent
-#setopt pushd_to_home
-
-## completion
-#setopt always_to_end
-#setopt auto_menu
-#setopt auto_name_dirs
-#setopt auto_param_keys
-#setopt auto_param_slash
-#setopt auto_remove_slash
-#setopt complete_aliases
-#setopt complete_in_word
-#setopt list_ambiguous
-#setopt list_packed
-#unsetopt menu_complete
-
-## expansion and globbing
-#setopt brace_ccl
-#setopt extended_glob
-#setopt long_list_jobs
-#setopt multios
-#setopt prompt_subst
-
-## input/output
-#setopt correct
-#setopt interactive_comments
-#setopt rc_quotes
-#setopt short_loops
-#unsetopt clobber
-#unsetopt flowcontrol
-
 # Enable vi mode
 bindkey -v
 
