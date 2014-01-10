@@ -29,7 +29,7 @@ dotfiles_sxhkd()      { link sxhkd .config/sxhkd;                     }
 dotfiles_mutt()       { link mutt;                                    }
 dotfiles_ncmpcpp()    { link ncmpcpp;                                 }
 dotfiles_tmux()       { link tmux/tmux.conf;                          }
-dotfiles_subl()       { link subl/Preferences.sublime-settings        }
+dotfiles_subl()       { link subl/Preferences.sublime-settings;       }
 
 dotfiles_dunst() { 
   [[ -d $HOME/.config/dunst ]] || mkdir $HOME/.config/dunst
