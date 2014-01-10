@@ -1,0 +1,29 @@
+{
+	"always_show_minimap_viewport": true,
+	"bold_folder_labels": true,
+	"caret_style": "solid",
+	"enable_telemetry": false,
+	"ensure_newline_at_eof_on_save": true,
+	"font_face": "Source Code Pro Medium",
+	"font_options":
+	[
+		"subpixel_antialias"
+	],
+	"font_size": 9,
+	"highlight_modified_tabs": true,
+	"ignored_packages":
+	[
+	],
+	"indent_guide_options":
+	[
+		"draw_normal",
+		"draw_active"
+	],
+	"margin": 0,
+	"remember_open_files": false,
+	"show_encoding": true,
+	"show_line_endings": true,
+	"vintage_ctrl_keys": true,
+	"theme": "Soda Dark.sublime-theme",
+	"trim_trailing_white_psace_on_save": true
+}
