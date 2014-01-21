@@ -27,11 +27,8 @@
 # Bindings
 #
   # start a terminal
-<<<<<<< HEAD
-  bindsym $mod+Return   exec gnome-terminal
-=======
   bindsym $mod+Return   exec termite
->>>>>>> 2ebb2ef98306084a5fc1c642c09d17a56ee4f7b5
+
   # bindsym $mod+Shift+Return   exec gnome-terminal
 
   # kill focused window
@@ -254,9 +251,5 @@
   exec --no-startup-id wmname LG3D
   exec --no-startup-id compton -bGc --config ~/.config/compton/config
   exec --no-startup-id feh --bg-scale /home/hsp/wallpaper/bird.jpg
-<<<<<<< HEAD
-  exec --no-startup-id setxkbmap -option "ctrl:swapcaps"
-  exec --no-startup-id gnome-terminal
-=======
+  #exec --no-startup-id setxkbmap -option "ctrl:swapcaps"
   exec --no-startup-id termite
->>>>>>> 2ebb2ef98306084a5fc1c642c09d17a56ee4f7b5

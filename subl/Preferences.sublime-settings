@@ -23,7 +23,7 @@
 	"remember_open_files": false,
 	"show_encoding": true,
 	"show_line_endings": true,
-	"vintage_ctrl_keys": true,
 	"theme": "Soda Dark.sublime-theme",
-	"trim_trailing_white_psace_on_save": true
+	"trim_trailing_white_psace_on_save": true,
+	"vintage_ctrl_keys": true
 }
