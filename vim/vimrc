@@ -175,7 +175,7 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 
 " file type specific settings
 au FileType c         setlocal ts=8 sw=8
-au FileType javascript setlocal ts=4 sw=4
+au FileType javascript setlocal ts=2 sw=2
 au FileType cpp       setlocal ts=4 sw=4
 au FileType make      setlocal noet
 au FileType python    setlocal sw=4 ts=4

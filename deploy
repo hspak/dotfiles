@@ -69,6 +69,8 @@ dotfiles_zsh() {
 dotfiles_vim() {
   link vim
   link vim/vimrc
+  [[ ! -d ~/.vim/backup ]] && mkdir ~/.vim/backup
+  [[ ! -d ~/.vim/swap ]] && mkdir ~/.vim/swap
 }
 
 dotfiles_weechat() {
