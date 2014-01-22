@@ -24,10 +24,10 @@ set autowrite                         " saves file on buffer switch
 set backspace=indent,eol,start        " behave like a normal backspace
 set shortmess+=I                      " disable the welcome screen
 set complete+=k                       " enable dictionary completion
-set completeopt=longest,menuone
-set showcmd
-set title
-set virtualedit=all
+set completeopt=longest,menuone       " better completion popup
+set showcmd                           " display current command
+set title                             " sets terminal title 
+set virtualedit=all                   " enable visual block edit
 set wildmenu                          " cmd line completion
 set wildmode=list:longest,full        " cmd line completion
 set scrolloff=10                      " lines between cursor and edge
@@ -44,8 +44,11 @@ set showmatch                         " show matching brackets (),{},[]
 set number                            " show number line
 set hidden                            " allow unsaved buffers to go in background
 set shell=/bin/bash                   " set shell
+set cursorline                        " highlight current line
+set visualbell                        " don't beep
+set magic                             " enables regex highlight?
 "set cc=80                            " 80 char column indicator
-set cursorline                       " highlight current line
+
 
 "  wrap like other editors
 " -------------------------------------
@@ -65,6 +68,7 @@ set tabstop=2                         " a n-space tab width
 set shiftwidth=2                      " allows the use of < and > for VISUAL indenting
 set autoindent                        " auto indents next new line
 set smarttab                          " it reads your mind?
+set shiftround                        " better tab aligning
 
 " searching
 " -------------------------------------
@@ -173,7 +177,7 @@ cmap w!! w !sudo tee % >/dev/null<CR>:e!<CR><CR>
 
 " auto commands
 " -------------------------------------
-" allow
+" turn hash bangs into executeables automatically
 au BufWritePost * if getline(1) =~ "^#!" | silent :!chmod +x <afile>
 
 " save last position

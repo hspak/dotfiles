@@ -56,7 +56,7 @@ if &t_Co > 255
 	hi Label                   ctermfg=5
 	hi LineNr                  ctermfg=8
 	hi CursorLine              ctermfg=none   ctermbg=0    cterm=none
-	hi CursorLineNr            ctermfg=15   ctermbg=33
+	hi CursorLineNr            ctermfg=15   ctermbg=0
 	hi Macro                   ctermfg=3                 cterm=none
 	hi MatchParen              ctermfg=0    ctermbg=14
 	hi ModeMsg                 ctermfg=11
@@ -69,6 +69,7 @@ if &t_Co > 255
 	hi Question                ctermfg=14
 	hi Repeat                  ctermfg=14
 	hi Search                  ctermfg=15   ctermbg=1
+  hi SignColumn                           ctermbg=0
 	hi SpecialChar             ctermfg=13
 	hi SpecialComment          ctermfg=8
 	hi Special                 ctermfg=13
@@ -99,10 +100,10 @@ if &t_Co > 255
 	hi StatusFTP               ctermfg=12   ctermbg=0    cterm=none
 
 	" spellchecking
-	hi SpellLocal              ctermfg=0    ctermbg=14   cterm=underline
-	hi SpellBad                ctermfg=15   ctermbg=1    cterm=underline
-	hi SpellCap                ctermfg=0    ctermbg=12   cterm=underline
-	hi SpellRare               ctermfg=0    ctermbg=13   cterm=underline
+	hi SpellLocal              ctermfg=0    ctermbg=14   cterm=none
+	hi SpellBad                ctermfg=15   ctermbg=1    cterm=none
+	hi SpellCap                ctermfg=0    ctermbg=12   cterm=none
+	hi SpellRare               ctermfg=0    ctermbg=13   cterm=none
 
 	" pmenu
 	hi Pmenu                   ctermfg=7    ctermbg=0
@@ -223,10 +224,10 @@ else "linux console settings
 	hi StatusFTP               ctermfg=blue    ctermbg=black   cterm=bold
 
 	" spellchecking
-	hi SpellLocal              ctermfg=black   ctermbg=cyan    cterm=bold,underline
-	hi SpellBad                ctermfg=white   ctermbg=red     cterm=bold,underline
-	hi SpellCap                ctermfg=black   ctermbg=blue    cterm=bold,underline
-	hi SpellRare               ctermfg=black   ctermbg=magenta cterm=bold,underline
+	hi SpellLocal              ctermfg=black   ctermbg=cyan    cterm=bold
+	hi SpellBad                ctermfg=white   ctermbg=red     cterm=bold
+	hi SpellCap                ctermfg=black   ctermbg=blue    cterm=bold
+	hi SpellRare               ctermfg=black   ctermbg=magenta cterm=bold
 
 	" pmenu
 	hi Pmenu                   ctermfg=white   ctermbg=black
@@ -270,127 +271,3 @@ else "linux console settings
 	hi rstLineBlock            ctermfg=cyan
 
 endif
-
-"
-" gui zone
-"
-hi Normal                  guifg=#F8F8F8 guibg=#090C19
-hi Boolean                 guifg=#F47BDA
-hi Character               guifg=#DBDDE4 guibg=#090C19 gui=none 
-hi Comment                 guifg=#8C8B89               gui=none
-hi Conditional             guifg=#3278AA
-hi Constant                guifg=#FFAA3E
-hi Cursor                  guifg=#090C19 guibg=#1AAA13
-hi Debug                   guifg=#F47BDA
-hi Define                  guifg=#FADD2D 
-hi Delimiter               guifg=#8C8B89
-hi DiffLine                guifg=#3A57D7
-hi DiffOldLine             guifg=#BE1919
-hi DiffOldFile             guifg=#BE1919
-hi DiffNewFile             guifg=#1AAA13 
-hi DiffAdded               guifg=#5DCE33
-hi DiffRemoved             guifg=#BE1919
-hi DiffChanged             guifg=#3278AA
-hi Directory               guifg=#1AAA13
-hi Error                   guifg=#DC2F32 guibg=#090C19
-hi ErrorMsg                guifg=#DC2F32 guibg=#090C19
-hi Exception               guifg=#F47BDA
-hi Float                   guifg=#4DC5DC
-hi FoldColumn              guifg=#4DC5DC guibg=#090C19
-hi Folded                  guifg=#4DC5DC guibg=#222946
-hi Function                guifg=#FFAA3E
-hi Identifier              guifg=#FADD2D
-hi IncSearch               guifg=#DBDDE4 guibg=#BE1919
-hi Keyword                 guifg=#3A57D7               gui=none
-hi Label                   guifg=#B40078
-hi LineNr                  guifg=#8C8B89 
-hi CursorLine              guifg=#DBDDE4 guibg=#222946 gui=bold
-hi CursorLineNr            guifg=#DBDDE4 guibg=#3A57D7 
-
-hi Macro                   guifg=#FFAA3E
-hi ModeMsg                 guifg=#FADD2D
-hi MoreMsg                 guifg=#4DC5DC
-hi NonText                 guifg=#8C8B89
-hi Number                  guifg=#5DCE33
-hi Operator                guifg=#E671D3
-hi PreCondit               guifg=#F47BDA
-hi PreProc                 guifg=#4DC5DC
-hi Question                guifg=#4DC5DC
-hi Repeat                  guifg=#4DC5DC
-hi Search                  guifg=#DBDDE4 guibg=#BE1919
-hi SpecialChar             guifg=#F47BDA
-hi SpecialComment          guifg=#8C8B89
-hi Special                 guifg=#F47BDA
-hi SpecialKey              guifg=#5DCE33
-hi Statement               guifg=#3A57D7               gui=none
-hi StorageClass            guifg=#3A57D7               gui=none
-hi String                  guifg=#1AAA13
-hi Structure               guifg=#5F87AF
-hi Tag                     guifg=#B40078               gui=none
-hi Title                   guifg=#AEAEAE
-hi Todo                    guifg=#5DCE33 guibg=#1A1A1A
-hi Typedef                 guifg=#3A57D7
-hi Type                    guifg=#B40078               gui=none
-hi Underlined              guifg=#AEAEAE guibg=#090C19
-hi VertSplit               guifg=#222946 guibg=#FADD2D
-hi Visual                  guifg=#DBDDE4 guibg=#8C8B89
-hi VisualNOS               guifg=#5DCE33 guibg=#8C8B89
-hi WarningMsg              guifg=#DC2F32 
-hi WildMenu                guifg=#8787D7 guibg=#222946
-hi CursorLine                            guibg=#222946 gui=none
-	
-" statusline
-hi StatusLine              guifg=#AEAEAE guibg=#222946 gui=none
-hi StatusLineNC            guifg=#222946 guibg=#AEAEAE
-hi StatusModFlag           guifg=#DC2F32 guibg=#222946 gui=bold
-hi StatusRO                guifg=#F47BDA guibg=#222946 gui=bold
-hi StatusHLP               guifg=#5DCE33 guibg=#222946 gui=bold
-hi StatusPRV               guifg=#FADD2D guibg=#222946 gui=bold
-hi StatusFTP               guifg=#507CFF guibg=#222946 gui=bold
-
-" spellchecking
-hi SpellBad                guifg=#DBDDE4 guifg=#BE1919 gui=underline
-hi SpellCap                guifg=#222946 guifg=#507CFF gui=underline
-hi SpellRare               guifg=#222946 guifg=#F47BDA gui=underline
-hi SpellLocal              guifg=#222946 guifg=#4DC5DC gui=underline
-
-" pmenu
-hi PMenu                   guifg=#AEAEAE guibg=#222956
-hi PMenuSel                guifg=#222956 guibg=#8C8B89
-
-" html
-hi htmlTag                 guifg=#507CFF
-hi htmlEndTag              guifg=#507CFF
-hi htmlTagName             guifg=#FADD2D
-
-" xml
-hi xmlTag                  guifg=#3A57D7
-hi xmlEndTag               guifg=#3A57D7
-hi xmlTageName             guifg=#FFAA3E
-
-" perl
-hi perlStatement           guifg=#F47BDA
-hi perlStatementStorage    guifg=#BE1919
-hi perlVarPlain            guifg=#258F8F
-hi perlVarPlain2           guifg=#FADD2D
-
-" mini buffer explorer
-hi MBENormal               guifg=#8C8B89
-hi MBEChanged              guifg=#BE1919
-hi MBEVisibleNormal        guifg=#B40078
-hi MBEVisibleNormalActive  guifg=#F47BDA
-hi MBEVisibleChanged       guifg=#AEAEAE
-hi MBEVisibleChangedActive guifg=#DC2F32
-
-" rst
-hi rstEmphasis             guifg=#AEAEAE               gui=underline
-hi rstLiteralBlock         guifg=#FFAA3E
-hi rstInlineLiteral        guifg=#FADD2D
-hi rstSections             guifg=#BE1919
-hi rstHyperlinkTarget      guifg=#258F8F
-hi rstStandaloneHyperlink  guifg=#5DCE33
-hi rstInterpretedTextOrHyperlinkReference guifg=#5DCE33
-hi rstCitation             guifg=#AEAEAE
-hi rstQuotedLiteralBlock   guifg=#FADD2D
-hi rstLineBlock            guifg=#258F8F
-
