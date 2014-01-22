@@ -55,8 +55,8 @@ if &t_Co > 255
 	hi Keyword                 ctermfg=4
 	hi Label                   ctermfg=5
 	hi LineNr                  ctermfg=8
-	hi CursorLine              ctermfg=15   ctermbg=0    cterm=bold
-	hi CursorLineNr            ctermfg=15   ctermbg=4
+	hi CursorLine              ctermfg=none   ctermbg=0    cterm=none
+	hi CursorLineNr            ctermfg=15   ctermbg=33
 	hi Macro                   ctermfg=3                 cterm=none
 	hi MatchParen              ctermfg=0    ctermbg=14
 	hi ModeMsg                 ctermfg=11
@@ -90,7 +90,7 @@ if &t_Co > 255
 	hi WildMenu                ctermfg=5    ctermbg=0
 
 	" statusline
-	hi StatusLine              ctermfg=7    ctermbg=0    cterm=none
+	hi StatusLine              ctermfg=7    ctermbg=232    cterm=none
 	hi StatusLineNC            ctermfg=0    ctermbg=7
 	hi StatusModFlag           ctermfg=9    ctermbg=0    cterm=none
 	hi StatusRO                ctermfg=13   ctermbg=0    cterm=none

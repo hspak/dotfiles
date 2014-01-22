@@ -7,4 +7,8 @@ xset fp rehash
 # ???
 pulseaudio --start &
 
+# nvidia performance boost?
+nvidia-settings -a GlyphCache=1
+nvidia-settings -a InitialPixmapPlacement=2
+
 exec i3

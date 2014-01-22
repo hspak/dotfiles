@@ -1,73 +1,77 @@
-set nocompatible        " use Vim defaults, screw vi
-filetype off
+set nocompatible                      " use Vim defaults, screw vi
+filetype off                          " I think I needed this up here for something
 
+" vundle stuff
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
-
-" let Vundle manage Vundle
 Bundle 'gmarik/vundle'
 
 " my bundles
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'Lokaltog/vim-distinguished'
+Bundle 'scrooloose/nerdcommenter'     
+Bundle 'scrooloose/syntastic'         
+Bundle 'scrooloose/nerdtree'          
+Bundle 'Yggdroot/indentLine'          
+Bundle 'kien/ctrlp.vim'
+Bundle 'Raimondi/delimitMate'
+Bundle 'marijnh/tern_for_vim'
 
 " General Options
 " -------------------------------------
-set t_Co=256            " enable 256 colors
-set mouse=a             " make sure mouse is used in all cases.
-set autoread
-set autowrite
-set backspace=indent,eol,start
-set shortmess+=I        " disable the welcome screen
-set complete+=k         " enable dictionary completion
+set t_Co=256                          " enable 256 colors
+set mouse=a                           " make sure mouse is used in all cases.
+set autoread                          " detect external changes
+set autowrite                         " saves file on buffer switch
+set backspace=indent,eol,start        " behave like a normal backspace
+set shortmess+=I                      " disable the welcome screen
+set complete+=k                       " enable dictionary completion
 set completeopt=longest,menuone
 set showcmd
 set title
 set virtualedit=all
-set wildmenu
-set wildmode=list:longest,full
-set scrolloff=5
-set shortmess=atI
-set laststatus=2        " always show a status line
-set clipboard+=unnamed  " yank and copy to X clipboard
-set backspace=2         " full backspacing capabilities
-set history=50          " 50 lines of command line history
-set ruler               " ruler display in status line
-set showmode            " show mode at bottom of screen
-set ww=<,>,[,]          " whichwrap -- left/right keys can traverse up/down
-set cmdheight=1         " set the command height
-set showmatch           " show matching brackets (),{},[]
-set number              " show number line
-set hidden              " allow unsaved buffers to go in background
-set shell=/bin/bash     " set shell
-"set cc=80               " 80 char column indicator
-"set cursorline          " highlight current line
+set wildmenu                          " cmd line completion
+set wildmode=list:longest,full        " cmd line completion
+set scrolloff=10                      " lines between cursor and edge
+set shortmess=atI                     " avoid annoying prompts?
+set laststatus=2                      " always show a status line
+set clipboard+=unnamed                " yank and copy to X clipboard
+set backspace=2                       " full backspacing capabilities
+set history=50                        " 50 lines of command line history
+set ruler                             " ruler display in status line
+set showmode                          " show mode at bottom of screen
+set ww=<,>,[,]                        " whichwrap -- left/right keys can traverse up/down
+set cmdheight=1                       " set the command height
+set showmatch                         " show matching brackets (),{},[]
+set number                            " show number line
+set hidden                            " allow unsaved buffers to go in background
+set shell=/bin/bash                   " set shell
+"set cc=80                            " 80 char column indicator
+set cursorline                       " highlight current line
 
 "  wrap like other editors
 " -------------------------------------
-set wrap                " word wrap
-set lbr                 " line break
+set wrap                              " word wrap
+set lbr                               " line break
 
 " backup settings
 " -------------------------------------
-set backup              " keep a backup file
-set backupdir=~/.vim/backup      " backup dir
-set directory=~/.vim/swap " swap file directory
+set backup                            " keep a backup file
+set backupdir=~/.vim/backup           " backup dir
+set directory=~/.vim/swap             " swap file directory
 
 " tabs and indenting
 " -------------------------------------
-set expandtab           " replace tabs with spaces
-set tabstop=2           " a n-space tab width
-set shiftwidth=2        " allows the use of < and > for VISUAL indenting
-set autoindent          " auto indents next new line
-set smarttab
+set expandtab                         " replace tabs with spaces
+set tabstop=2                         " a n-space tab width
+set shiftwidth=2                      " allows the use of < and > for VISUAL indenting
+set autoindent                        " auto indents next new line
+set smarttab                          " it reads your mind?
 
 " searching
 " -------------------------------------
-set hlsearch            " highlight search results
-set incsearch           " increment search
-set ignorecase          " case-insensitive search
-set smartcase           " upper-case sensitive search
+set hlsearch                          " highlight search results
+set incsearch                         " increment search
+set ignorecase                        " case-insensitive search
+set smartcase                         " upper-case sensitive search
 
 " Code Folding
 "---------------------------------
@@ -85,13 +89,14 @@ set ofu=syntaxcomplete#Complete
 
 " syntax highlighting
 " -------------------------------------
-syntax on               " enable syntax highlighting
+syntax on                             " enable syntax highlighting
 syntax enable
+set background=dark
 
 if &term ==# "linux"
   colorscheme desert
 else
-  colorscheme neverland2_mod
+  colorscheme euphrasia
 endif
 
 " custom keybindings
@@ -106,7 +111,7 @@ map <F11> <Nop>
 map <F2> :wall<CR>
 map <silent> <F12> :set hlsearch! hlsearch?<CR>
 map <silent> <LocalLeader>l :NERDTreeToggle<CR>
-map <silent> <LocalLeader>p :TlistToggle<CR>
+" map <silent> <LocalLeader>p :TlistToggle<CR>
 map <silent> <LocalLeader>m :bnext<cr>
 map <silent> <LocalLeader>v :bprev<cr>
 
@@ -116,8 +121,8 @@ nnoremap <S-F5> :make %<<CR>
 nnoremap <S-F6> :!./"%"<CR>
 
 " whitespace
-nnoremap <F10> :EraseBadWhitespace<CR>
-nnoremap <F11> :ToggleBadWhitespace<CR>
+"nnoremap <F10> :EraseBadWhitespace<CR>
+"nnoremap <F11> :ToggleBadWhitespace<CR>
 
 " map space to create/open/close fold
 nnoremap <silent> <Space> @=(foldlevel('.')?'za':'l')<CR>
@@ -163,6 +168,7 @@ noremap <LocalLeader>8 8gt
 noremap <LocalLeader>9 9gt
 noremap <LocalLeader>10 10gt
 
+" allow writing root files when forgetting to sudo
 cmap w!! w !sudo tee % >/dev/null<CR>:e!<CR><CR>
 
 " auto commands
@@ -174,11 +180,11 @@ au BufWritePost * if getline(1) =~ "^#!" | silent :!chmod +x <afile>
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif "
 
 " file type specific settings
-au FileType c         setlocal ts=8 sw=8
-au FileType javascript setlocal ts=2 sw=2
-au FileType cpp       setlocal ts=4 sw=4
-au FileType make      setlocal noet
-au FileType python    setlocal sw=4 ts=4
+au FileType c           setlocal ts=8 sw=8
+au FileType javascript  setlocal ts=2 sw=2 et
+au FileType cpp         setlocal ts=4 sw=4
+au FileType make        setlocal noet
+au FileType python      setlocal sw=4 ts=4
 
 au BufRead,BufNewFile *.md setlocal textwidth=80
 
@@ -191,3 +197,10 @@ let NERDUsePlaceHolders = 0
 let NERDTreeQuitOnOpen = 1
 let NERDChristmasTree = 1
 "let NERDRemoveExtraSpaces = 1
+"
+let g:indentLine_color_term = 234
+
+" 
+let delimitMate_expand_cr=1
+
+let g:ycm_global_ycm_extra_conf = '/home/hsp/.ycm_extra_conf.py'

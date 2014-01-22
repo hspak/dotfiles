@@ -158,18 +158,18 @@
 
   # Assign floats
   for_window [class="Google-chrome"    ] border none
-  for_window [class="Chromium"         ] border none
+  # for_window [class="Chromium"         ] border none
   for_window [class="mplayer2"         ] border none
   for_window [class="Firefox"          ] border none
   for_window [class="Spotify"          ] move to scratchpad
   # for_window [class="Gxmessage"        ] floating enable
   for_window [class="feh"              ] floating enable
-  for_window [class="Sonata"           ] floating enable
+  # for_window [class="Sonata"           ] floating enable
   for_window [instance="Steam"         ] floating enable border none
   # for_window [instance="gcr-prompter"  ] floating enable border none
   for_window [instance="skype"         ] floating enable border none
   for_window [class="Steam"            ] floating enable border none
-  # for_window [instance="scratchpad"    ] floating enable
+  for_window [instance="scratchpad"    ] floating enable
   # for_window [instance="tasks_ws"      ] floating enable move scratchpad
   for_window [instance="ranger"        ] floating enable
   for_window [instance="wine"          ] floating enable border none
@@ -177,7 +177,7 @@
   for_window [instance="ncmpcpp"       ] floating enable
   # for_window [instance="tk"            ] floating enable
   # for_window [instance="nautilus"      ] floating enable border none
-  for_window [instance="file_progress" ] floating enable border none
+  # for_window [instance="file_progress" ] floating enable border none
   for_window [instance="nm-applet"     ] border none
   # for_window [title="Event Tester"     ] floating enable
   # for_window [window_role="pop-up"     ] floating enable border none
@@ -249,6 +249,6 @@
 # Execute
 #
   exec --no-startup-id wmname LG3D
-  exec --no-startup-id compton -bGc --config ~/.config/compton/config
-  exec --no-startup-id feh --bg-scale /home/hsp/wallpaper/bird.jpg
+  #exec --no-startup-id compton -bGc --config ~/.config/compton/config
+  #exec --no-startup-id feh --bg-scale /home/hsp/wallpaper/bird.jpg
   exec --no-startup-id termite
