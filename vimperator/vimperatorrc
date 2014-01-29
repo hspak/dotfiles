@@ -1,0 +1,13 @@
+nnoremap j 10j
+nnoremap k 10k
+
+editor="termite -e vim"
+
+hi Hint font-family: Dejavu Sans;
+hi -a Hint border: 1px solid black;
+hi -a Hint padding: 1px 1px 0 1px;
+hi -a Hint color: black;
+hi -a Hint background-color: #fffcc8;
+hi -a Hint font-size: 12px;
+hi HintActive background-color: rgba(0,0,0,0) !important;
+hi HintElem background-color: rgba(0,0,0,0) !important;

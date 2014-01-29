@@ -14,6 +14,10 @@ Bundle 'Yggdroot/indentLine'
 Bundle 'kien/ctrlp.vim'
 Bundle 'Raimondi/delimitMate'
 Bundle 'marijnh/tern_for_vim'
+"Bundle 'Valloric/YouCompleteMe'
+
+" lesser bundles
+Bundle 'digitaltoad/vim-jade'
 
 " General Options
 " -------------------------------------
@@ -30,7 +34,7 @@ set title                             " sets terminal title
 set virtualedit=all                   " enable visual block edit
 set wildmenu                          " cmd line completion
 set wildmode=list:longest,full        " cmd line completion
-set scrolloff=10                      " lines between cursor and edge
+set scrolloff=5                       " lines between cursor and edge
 set shortmess=atI                     " avoid annoying prompts?
 set laststatus=2                      " always show a status line
 set clipboard+=unnamed                " yank and copy to X clipboard
@@ -47,6 +51,7 @@ set shell=/bin/bash                   " set shell
 set cursorline                        " highlight current line
 set visualbell                        " don't beep
 set magic                             " enables regex highlight?
+set lazyredraw
 "set cc=80                            " 80 char column indicator
 
 
@@ -172,6 +177,8 @@ noremap <LocalLeader>8 8gt
 noremap <LocalLeader>9 9gt
 noremap <LocalLeader>10 10gt
 
+noremap <silent> <C-S>          :update<CR>
+
 " allow writing root files when forgetting to sudo
 cmap w!! w !sudo tee % >/dev/null<CR>:e!<CR><CR>
 
@@ -203,6 +210,7 @@ let NERDChristmasTree = 1
 "let NERDRemoveExtraSpaces = 1
 "
 let g:indentLine_color_term = 234
+let g:indentLine_char = '|'
 
 " 
 let delimitMate_expand_cr=1
