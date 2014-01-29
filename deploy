@@ -29,13 +29,11 @@ dotfiles_sxhkd()      { link sxhkd .config/sxhkd;                     }
 dotfiles_mutt()       { link mutt;                                    }
 dotfiles_ncmpcpp()    { link ncmpcpp;                                 }
 dotfiles_tmux()       { link tmux/tmux.conf;                          }
+dotfiles_vimperator() { link vimperator/vimperatorrc;                 }
 dotfiles_subl() { 
   link subl/Preferences.sublime-settings .config/sublime-text-3/Packages/User/Preferences.sublime-settings;       
 }
 
-dotfiles_vimperator() {
-  link vimperatorrc
-}
 
 dotfiles_dunst() { 
   [[ -d $HOME/.config/dunst ]] || mkdir $HOME/.config/dunst

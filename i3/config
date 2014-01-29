@@ -160,7 +160,7 @@
   for_window [class="Google-chrome"    ] border none
   # for_window [class="Chromium"         ] border none
   for_window [class="mplayer2"         ] border none
-  for_window [class="Firefox"          ] border none
+  # for_window [class="Firefox"          ] border none
   for_window [class="Spotify"          ] move to scratchpad
   # for_window [class="Gxmessage"        ] floating enable
   for_window [class="feh"              ] floating enable
@@ -259,6 +259,6 @@ bindsym $mod+Shift+s mode "Sound: (-/+)"
 # Execute
 #
   exec --no-startup-id wmname LG3D
-  exec --no-startup-id compton -bGc --config ~/.config/compton/config
+  exec --no-startup-id compton 
   #exec --no-startup-id feh --bg-scale /home/hsp/wallpaper/bird.jpg
   exec --no-startup-id termite -e tmux
