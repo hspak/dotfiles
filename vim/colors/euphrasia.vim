@@ -8,6 +8,8 @@
 " This theme is supposed to be used
 " with the euphrasia .Xdefaults colour settings.
 " The GUI part is .Xdefaults independent.
+"
+" modified by: hspasta
 
 set background=dark
 hi clear
@@ -91,8 +93,8 @@ if &t_Co > 255
 	hi WildMenu                ctermfg=5    ctermbg=0
 
 	" statusline
-	hi StatusLine              ctermfg=7    ctermbg=232    cterm=none
-	hi StatusLineNC            ctermfg=0    ctermbg=7
+	hi StatusLine              ctermfg=7    ctermbg=25    cterm=none
+	hi StatusLineNC            ctermfg=233  ctermbg=215
 	hi StatusModFlag           ctermfg=9    ctermbg=0    cterm=none
 	hi StatusRO                ctermfg=13   ctermbg=0    cterm=none
 	hi StatusHLP               ctermfg=10   ctermbg=0    cterm=none

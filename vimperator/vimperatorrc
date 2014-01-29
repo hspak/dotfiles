@@ -1,5 +1,12 @@
+nnoremap h 10h
 nnoremap j 10j
 nnoremap k 10k
+nnoremap l 10l
+
+nnoremap x d
+map d <Nop>
+
+set hintchars=asdfghjkl
 
 set editor="termite -e vim"
 
@@ -11,3 +18,8 @@ hi -a Hint background-color: #fffcc8;
 hi -a Hint font-size: 10px;
 hi HintActive background-color: rgba(0,0,0,0) !important;
 hi HintElem background-color: rgba(0,0,0,0) !important;
+
+" Options
+set visualbell
+set complete=sbfh
+"set showstatuslinks=2
