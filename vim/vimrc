@@ -14,6 +14,7 @@ Bundle 'Yggdroot/indentLine'
 Bundle 'kien/ctrlp.vim'
 Bundle 'Raimondi/delimitMate'
 Bundle 'marijnh/tern_for_vim'
+Bundle 'bling/vim-airline'
 "Bundle 'Valloric/YouCompleteMe'
 
 " lesser bundles
@@ -41,7 +42,7 @@ set clipboard+=unnamed                " yank and copy to X clipboard
 set backspace=2                       " full backspacing capabilities
 set history=50                        " 50 lines of command line history
 set ruler                             " ruler display in status line
-set showmode                          " show mode at bottom of screen
+set noshowmode                        " dont show mode (airline)
 set ww=<,>,[,]                        " whichwrap -- left/right keys can traverse up/down
 set cmdheight=1                       " set the command height
 set showmatch                         " show matching brackets (),{},[]
@@ -51,7 +52,7 @@ set shell=/bin/bash                   " set shell
 set cursorline                        " highlight current line
 set visualbell                        " don't beep
 set magic                             " enables regex highlight?
-set lazyredraw
+" set lazyredraw
 "set cc=80                            " 80 char column indicator
 
 
@@ -125,7 +126,7 @@ map <silent> <LocalLeader>m :bnext<cr>
 map <silent> <LocalLeader>v :bprev<cr>
 
 " building
-nnoremap <F5> :!make<CR>
+nnoremap <F5> :w<CR> :SyntasticCheck<CR>
 nnoremap <S-F5> :make %<<CR>
 nnoremap <S-F6> :!./"%"<CR>
 
@@ -186,6 +187,7 @@ cmap w!! w !sudo tee % >/dev/null<CR>:e!<CR><CR>
 " -------------------------------------
 " turn hash bangs into executeables automatically
 au BufWritePost * if getline(1) =~ "^#!" | silent :!chmod +x <afile>
+au BufWritePost .vimrc source %
 
 " save last position
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif "
@@ -208,11 +210,34 @@ let NERDUsePlaceHolders = 0
 let NERDTreeQuitOnOpen = 1
 let NERDChristmasTree = 1
 "let NERDRemoveExtraSpaces = 1
-"
+
+" indentLine
 let g:indentLine_color_term = 234
 let g:indentLine_char = '|'
 
-" 
+" delimiteMate
 let delimitMate_expand_cr=1
 
+" ycm
 let g:ycm_global_ycm_extra_conf = '/home/hsp/.ycm_extra_conf.py'
+
+" airline
+let g:airline_powerline_fonts = 1
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+let g:airline_symbols.space = "\ua0"
+
+" Syntastic
+let g:syntastic_error_symbol = '✘'
+let g:syntastic_warning_symbol = '⚠'
+let g:syntastic_style_error_symbol = '✘'
+let g:syntastic_style_warning_symbol = '⚠'
+let g:syntastic_check_on_wq = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_auto_loc_list = 2
+let g:syntastic_always_populate_loc_list = 1
+" let syntastic_full_redraws = 0
+" let g:sytastic_mode_map = { 'mode': 'active',
+                          " \ 'active_filetypes': ['javascript', 'python'],
+                          " \ 'passive_filetypes': []}

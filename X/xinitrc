@@ -10,6 +10,9 @@ xset fp rehash
 # torrent
 transmission-daemon
 
+#
+mpd
+
 # enable gnome-keyring (enables some functionality for gnome apps)
 source /etc/X11/xinit/xinitrc.d/30-dbus
 eval $(/usr/bin/gnome-keyring-daemon --start --components=gpg,pkcs11,secrets,ssh)
