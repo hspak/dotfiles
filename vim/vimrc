@@ -15,6 +15,7 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'Raimondi/delimitMate'
 Bundle 'marijnh/tern_for_vim'
 Bundle 'bling/vim-airline'
+Bundle 'cazador481/vim-systemverilog'
 "Bundle 'Valloric/YouCompleteMe'
 
 " lesser bundles
