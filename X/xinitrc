@@ -1,8 +1,8 @@
 # Set terminal options
 [[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources &
 
-xset +fp /usr/share/fonts/local
-xset fp rehash
+#xset +fp /usr/share/fonts/local
+#xset fp rehash
 
 # ???
 /usr/bin/start-pulseaudio-x11

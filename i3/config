@@ -157,9 +157,7 @@
   assign [class="wine"     ] → 4
 
   # Assign floats
-  for_window [class="Google-chrome"    ] border none
   # for_window [class="Chromium"         ] border none
-  for_window [class="mplayer2"         ] border none
   # for_window [class="Firefox"          ] border none
   for_window [class="Spotify"          ] move to scratchpad
   # for_window [class="Gxmessage"        ] floating enable
@@ -184,9 +182,9 @@
   # for_window [window_role="dialog"     ] floating enable border none
 
   # Java bullshit
-  for_window [instance="sun-awt-X11-XFramePeer"]  floating enable border none
-  for_window [instance="sun-awt-X11-XDialogPeer"] floating enable border none
-  for_window [title="Java"]                       floating enable border none
+  # for_window [instance="sun-awt-X11-XFramePeer"]  floating enable border none
+  # for_window [instance="sun-awt-X11-XDialogPeer"] floating enable border none
+  # for_window [title="Java"]                       floating enable border none
 
   # resize window (you can also use the mouse for that)
   mode "resize" {
