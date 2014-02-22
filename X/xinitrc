@@ -22,4 +22,6 @@ export GNOME_KEYRING_CONTROL GNOME_KEYRING_PID GPG_AGENT_INFO SSH_AUTH_SOCK
 nvidia-settings -a GlyphCache=1
 nvidia-settings -a InitialPixmapPlacement=2
 
+feh --bg-scale ~/.config/i3/wallpaper.jpg &
+
 exec i3
