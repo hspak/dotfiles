@@ -2,20 +2,12 @@
 #
 # start_bspwm: useful things for bspwm to start
 
-# bspwm panel vars
-export PANEL_FIFO=/tmp/panel-fifo
-export PANEL_HEIGHT=18
-
-export BSPWM_TREE=/tmp/bspwm.tree
-export BSPWM_HISTORY=/tmp/bspwm.history
-export BSPWM_STACK=/tmp/bspwm.stack
-
 # add bspwm dir to path
 PATH="$PATH:/home/hsp/.config/bspwm"
 export $PATH
 
 while true; do
-  sxhkd -c /home/hsp/.config/bspwm/sxhkdrc &
+  sxhkd -f 100 -c /home/hsp/.config/bspwm/sxhkdrc &
   [ -e "$PANEL_FIFO" ] && rm "$PANEL_FIFO"
   mkfifo "$PANEL_FIFO"
   bspwm -s "$PANEL_FIFO" -p W || break

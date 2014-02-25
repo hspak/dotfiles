@@ -14,7 +14,7 @@ Bundle 'Yggdroot/indentLine'
 Bundle 'kien/ctrlp.vim'
 Bundle 'Raimondi/delimitMate'
 Bundle 'marijnh/tern_for_vim'
-Bundle 'bling/vim-airline'
+" Bundle 'bling/vim-airline'
 Bundle 'cazador481/vim-systemverilog'
 "Bundle 'Valloric/YouCompleteMe'
 
@@ -107,7 +107,7 @@ set background=dark
 if &term ==# "linux"
   colorscheme desert
 else
-  colorscheme euphrasia
+  colorscheme erosion
 endif
 
 " custom keybindings

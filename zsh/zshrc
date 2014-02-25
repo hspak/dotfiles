@@ -83,16 +83,25 @@ esac
 # prompt {{{
 zstyle ':vcs_info:*' enable git
 zstyle ':vcs_info:*' check-for-changes true
-zstyle ':vcs_info:*' stagedstr '%F{red}S%F{white}'
-zstyle ':vcs_info:*' unstagedstr '%F{red}U%F{white}'
-zstyle ':vcs_info:git*' formats "%F{blue}%s%F{white}:%F{green}%b%F{white} %m%u%c% "
+zstyle ':vcs_info:*' stagedstr '%F{red}s%F{white}'
+zstyle ':vcs_info:*' unstagedstr '%F{red}u%F{white}'
+zstyle ':vcs_info:git*' formats "%F{green}%s %b%F{white} %m%u%c% "
+
+zle -N zle-line-init
+zle -N zle-keymap-select
+vimode=i
+# set vimode to current editing mode
+function zle-line-init zle-keymap-select {
+    vimode="${${KEYMAP/vicmd/c}/(main|viins)/i}"
+    zle reset-prompt
+}
 
 if $isroot; then
     PROMPT='%B%F{magenta} ┌┤%b%F{white}%n%F{cyan}@%F{white}%m%b %B%F{blue}%~ ${vcs_info_msg_0_}
  %F{magenta}└╼%b%f '
 else
-    PROMPT='%B%F{black} ┌┤%b%F{grey}%n%F{cyan}@%F{grey}%m%b %B%F{blue}%~ ${vcs_info_msg_0_}
- %F{black}└╼%b%f '
+    PROMPT='(%F{blue}$vimode%b) %b%F{grey}%n%F{cyan}@%F{grey}%m%b $ '
+    RPROMPT='${vcs_info_msg_0_} %~'
 fi
 # }}}
 
