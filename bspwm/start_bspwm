@@ -14,16 +14,9 @@ export BSPWM_STACK=/tmp/bspwm.stack
 PATH="$PATH:/home/hsp/.config/bspwm"
 export $PATH
 
-# cursor theme doesn't get set properly without
-xsetroot -cursor_name left_ptr &
-
-# hotkeys
-sxhkd &
-
-# panels and start
-[ -e "$PANEL_FIFO" ] && rm "$PANEL_FIFO"
-mkfifo "$PANEL_FIFO"
-
-while true ; do
-    bspwm -s "$PANEL_FIFO" -p W || break
+while true; do
+  sxhkd -c /home/hsp/.config/bspwm/sxhkdrc &
+  [ -e "$PANEL_FIFO" ] && rm "$PANEL_FIFO"
+  mkfifo "$PANEL_FIFO"
+  bspwm -s "$PANEL_FIFO" -p W || break
 done
