@@ -26,6 +26,10 @@ export PATH
 # for angular
 export CHROME_BIN=/usr/bin/chromium
 
+# for bspwm
+PATH="$PATH:/home/hsp/.config/bspwm"
+export $PATH
+
 # bspwm panel vars
 export PANEL_FIFO=/tmp/panel-fifo
 export PANEL_HEIGHT=18
@@ -36,9 +40,10 @@ export BSPWM_STACK=/tmp/bspwm.stack
 
 # colors
 if [[ -f ~/.dircolors ]] && type -p dircolors >/dev/null; then
-    eval $(dircolors -b ~/.dircolors)
+  eval $(dircolors -b ~/.dircolors)
 fi
 
+# autostart x
 if (( UID )); then
-    [[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx &> ~/.xlog
+  [[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx &> ~/.xlog
 fi
