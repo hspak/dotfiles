@@ -26,6 +26,14 @@ export PATH
 # for angular
 export CHROME_BIN=/usr/bin/chromium
 
+# bspwm panel vars
+export PANEL_FIFO=/tmp/panel-fifo
+export PANEL_HEIGHT=18
+
+export BSPWM_TREE=/tmp/bspwm.tree
+export BSPWM_HISTORY=/tmp/bspwm.history
+export BSPWM_STACK=/tmp/bspwm.stack
+
 # colors
 if [[ -f ~/.dircolors ]] && type -p dircolors >/dev/null; then
     eval $(dircolors -b ~/.dircolors)
