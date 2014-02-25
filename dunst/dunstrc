@@ -141,17 +141,17 @@
     # IMPORTANT: colors have to be defined in quotation marks.
     # Otherwise the '#' and following  would be interpreted as a comment.
     background = "#0C73C2"
-    foreground = "#ffffff"
+    foreground = "#bea492"
     timeout = 4
 
 [urgency_normal]
-    background = "#181818"
-    foreground = "#ffffff"
+    background = "#181512"
+    foreground = "#bea492"
     timeout = 8
 
 [urgency_critical]
     background = "#F92672"
-    foreground = "#ffffff"
+    foreground = "#bea492"
     timeout = 0
 
 

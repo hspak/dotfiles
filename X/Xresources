@@ -47,7 +47,7 @@
 ! *imLocale: en_US.UTF-8
 URxvt*scrollBar: false
 URxvt*font: xft:Source Code Pro Medium:size=9,\
-            xft:Dejavu Sans Mono:size=9,\
+            xft:Dejavu Sans Mono:size=9
 URxvt*letterSpace: -1
 ! URxvt*transparent: true
 ! URxvt*shading: 10
