@@ -30,6 +30,6 @@ bspc config focused_frame_opacity 0.1
 
 # Init
 /home/hsp/.config/bspwm/panel &
-feh --bg-scale /home/hsp/media/image/wallpaper/sun34k.jpg &
+feh --bg-scale /home/hsp/media/image/wallpaper/sun3.jpg &
 compton -bGc --config /home/hsp/.config/compton/config &
 xsetroot -cursor_name left_ptr &
