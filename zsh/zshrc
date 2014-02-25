@@ -100,8 +100,8 @@ if $isroot; then
     PROMPT='%B%F{magenta} ┌┤%b%F{white}%n%F{cyan}@%F{white}%m%b %B%F{blue}%~ ${vcs_info_msg_0_}
  %F{magenta}└╼%b%f '
 else
-    PROMPT='(%F{blue}$vimode%b) %b%F{grey}%n%F{cyan}@%F{grey}%m%b $ '
-    RPROMPT='${vcs_info_msg_0_} %~'
+    PROMPT='(%F{blue}$vimode%b) %b%F{grey}%n%F{cyan}@%F{red}%m %F{grey}$ '
+    RPROMPT='${vcs_info_msg_0_} %F{red}%~'
 fi
 # }}}
 
