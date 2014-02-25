@@ -2,10 +2,6 @@
 #
 # start_bspwm: useful things for bspwm to start
 
-# add bspwm dir to path
-PATH="$PATH:/home/hsp/.config/bspwm"
-export $PATH
-
 while true; do
   sxhkd -f 100 -c /home/hsp/.config/bspwm/sxhkdrc &
   [ -e "$PANEL_FIFO" ] && rm "$PANEL_FIFO"
