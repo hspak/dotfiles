@@ -33,6 +33,9 @@ hi LineNr ctermfg=0 ctermbg=none
 hi CursorLine ctermfg=none ctermbg=none cterm=none
 hi CursorLineNr ctermfg=none ctermbg=0 
 hi CursorColumn ctermfg=none ctermbg=0
+
+hi Visual                  ctermfg=15   ctermbg=6
+hi VisualNOS               ctermfg=15   ctermbg=6    cterm=bold
  
 " Syntax checker colors
 highlight SignColumn ctermbg=none

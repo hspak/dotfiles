@@ -28,7 +28,7 @@ export CHROME_BIN=/usr/bin/chromium
 
 # for bspwm
 PATH="$PATH:/home/hsp/.config/bspwm"
-export $PATH
+export PATH
 
 # bspwm panel vars
 export PANEL_FIFO=/tmp/panel-fifo
