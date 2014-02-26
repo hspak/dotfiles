@@ -98,7 +98,7 @@ super + d
   urxvt -name scratchpad
 
 super + p
-  dmenu_run
+  dmenu_run -fn 'Segoe UI-9' -o .9 -l 20 -nf '#bea492' -nb '#181512' -sb '#605655'
 
 # make sxhkd reload its configuration files:
 super + Escape
