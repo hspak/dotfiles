@@ -34,7 +34,6 @@ dotfiles_subl() {
   link subl/Preferences.sublime-settings .config/sublime-text-3/Packages/User/Preferences.sublime-settings;       
 }
 
-
 dotfiles_dunst() { 
   [[ -d $HOME/.config/dunst ]] || mkdir $HOME/.config/dunst
   link dunst/dunstrc .config/dunst/dunstrc; 
@@ -79,6 +78,7 @@ dotfiles_vim() {
 
 dotfiles_weechat() {
   link weechat/weechat.conf .weechat/weechat.conf
+  link weechat/buffers.conf .weechat/buffers.conf
 }
 # }}}
 

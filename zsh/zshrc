@@ -43,7 +43,7 @@ bindkey -v
 
 # Enable setting terminal titles
 case $TERM in
-  xterm*|rxvt*|screen*|gnome*)
+  xterm*|*rxvt*|screen*|gnome*)
      precmd() {
        print -Pn "\e]0;%m:%~\a" 
        vcs_info
