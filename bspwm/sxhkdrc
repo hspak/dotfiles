@@ -2,8 +2,11 @@
 # bspwm hotkeys
 #
 
+# super + alt + Escape
+  # pkill -x panel; bspc quit
+
 super + alt + Escape
-  pkill -x panel; bspc quit
+  pkill -x panel; bspc query -T > "$BSPWM_TREE"; bspc query -H > "$BSPWM_HISTORY"; bspc quit
 
 super + shift + q
   bspc window -c

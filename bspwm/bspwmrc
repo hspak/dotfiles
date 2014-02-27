@@ -28,6 +28,11 @@ bspc config urgent_border_color   "#504339"
 bspc config normal_frame_opacity  0.0
 bspc config focused_frame_opacity 0.1
 
+if [ -e "$BSPWM_TREE" ] ; then
+  bspc restore -T "$BSPWM_TREE" -H "$BSPWM_HISTORY" -S "$BSPWM_STACK"
+  rm "$BSPWM_TREE" "$BSPWM_HISTORY" "$BSPWM_STACK"
+fi
+
 # Init
 /home/hsp/.config/bspwm/panel &
 feh --bg-scale /home/hsp/media/image/wallpaper/sun3.jpg &
