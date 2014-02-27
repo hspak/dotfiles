@@ -8,7 +8,7 @@ bspc rule -a scratchpad floating=on
 bspc rule -a ncmpcpp floating=on
 
 # Visual options
-bspc config top_padding 12
+bspc config top_padding 18
 
 bspc config split_ratio           0.50
 bspc config border_width          1

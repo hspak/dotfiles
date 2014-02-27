@@ -31,6 +31,7 @@ PATH="$PATH:/home/hsp/.config/bspwm"
 export PATH
 
 # bspwm panel vars
+export PANEL_HEIGHT=18
 export PANEL_FIFO=/tmp/panel-fifo
 
 export BSPWM_TREE=/tmp/bspwm.tree
