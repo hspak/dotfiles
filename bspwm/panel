@@ -21,7 +21,7 @@ clock -sf 'S%a %H:%M' > "$PANEL_FIFO" &
 
 case "$flavor" in
   bar)
-    cat "$PANEL_FIFO" | panel_bar | bar -B '#dd181512' -u 3 &
+    cat "$PANEL_FIFO" | panel_bar | bar -B '#dd181512' -f '-*-tamsynmod-medium-r-normal-*-12-*-*-*-*-60-*-*' -u 2 &
     ;;
   dzen2)
     . panel_colors

@@ -32,7 +32,6 @@ export PATH
 
 # bspwm panel vars
 export PANEL_FIFO=/tmp/panel-fifo
-export PANEL_HEIGHT=18
 
 export BSPWM_TREE=/tmp/bspwm.tree
 export BSPWM_HISTORY=/tmp/bspwm.history

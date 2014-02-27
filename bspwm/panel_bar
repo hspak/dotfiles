@@ -23,7 +23,7 @@ while read -r line ; do
         case $item in
           O*)
             # focused occupied desktop
-            wm_infos="$wm_infos %{U#FFbea492 F#FFFFFFFF}${name}%{U- F-}"
+            wm_infos="$wm_infos %{+u U#FFFFFFFF F#FFFFFFFF}${name}%{U- F-}"
             ;;
           F*)
             # focused free desktop
@@ -35,7 +35,7 @@ while read -r line ; do
             ;;
           o*)
             # occupied desktop
-            wm_infos="$wm_infos %{F#FFbea492}${name}%{F-}"
+            wm_infos="$wm_infos %{+u U#FFbea492 F#FFbea492}${name}%{F- U-}"
             ;;
           f*)
             # free desktop
@@ -48,12 +48,18 @@ while read -r line ; do
           L*)
             # layout
             layout=$(printf "%s" "${name}" | sed 's/\(.\).*/\U\1/')
-            wm_infos="$wm_infos    %{F#FF857B52}$layout%{F-}"
+            if [[ $layout -eq "T" ]]; then
+              wm_infos="$wm_infos    %{F#FF857B52}ø%{F-}"
+            elif [[ $layout -eq "M" ]]; then
+              wm_infos="$wm_infos    %{F#FF857B52}ÿ%{F-}"
+            else
+              wm_infos="$wm_infos    %{F#FF857B52}?%{F-}"
+            fi
             ;;
         esac
         shift
       done
       ;;
   esac
-  printf "%s\n" "%{l F#FFbea492}$wm_infos%{F-} %{c F#FFbea492}$title%{F-} %{r F#FFbea492}$sys_infos%{F-}  "
+  printf "%s\n" "%{l F#FFbea492}$wm_infos%{F-} %{c F#FFbea492}$title%{F-} %{r F#FFbea492}$(date)%{F-}  "
 done
