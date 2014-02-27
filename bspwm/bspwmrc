@@ -3,11 +3,9 @@
 bspc monitor -d I II III IV V VI VII VIII IX X
 
 # Rules
-bspc rule -a Gimp -d ^8 --follow --floating
-bspc rule -a Chromium -d ^2
-bspc rule -a mpv --floating
-bspc rule -a scratchpad --floating
-bspc rule -a ncmpcpp --floating
+bspc rule -a mpv floating=on
+bspc rule -a scratchpad floating=on
+bspc rule -a ncmpcpp floating=on
 
 # Visual options
 bspc config top_padding 14
