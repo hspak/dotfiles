@@ -90,6 +90,27 @@ super + !button{1-3}
 super + @button{1-3}
   bspc pointer -u
 
+super + F1
+  mpc prev
+super + F2
+  mpc toggle
+super + F3
+  mpc next
+super + F4
+  mpc stop
+
+XF86AudioRaiseVolume
+  dunst_vol increase
+XF86AudioLowerVolume
+  dunst_vol decrease
+XF86AudioMute
+  dunst_vol toggle
+
+XF86MonBrightnessUp
+  dunst_backlight
+XF86MonBrightnessDown
+  dunst_backlight
+
 #
 # wm independent hotkeys
 #
