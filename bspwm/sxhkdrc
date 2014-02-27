@@ -29,13 +29,16 @@ super + {grave,Tab}
 super + apostrophe
   bspc window -s last
 
-super + {o,i}
-  bspc control --record-history off; \
-  bspc window {older,newer} -f; \
-  bspc control --record-history on
+# super + {o,i}
+  # bspc control --record-history off; \
+  # bspc window {older,newer} -f; \
+  # bspc control --record-history on
 
 super + y
   bspc window -w last.manual
+
+super + {u,i}
+  bspc window -f {next.floating,prev.tiled}
 
 # Move window into presel position
 super + shift {a,s,d,f}
