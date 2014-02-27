@@ -6,11 +6,11 @@ while read -r line ; do
   case $line in
     S*)
       # clock output
-      sys_infos="\\br\\f7${line#?}"
+      sys_infos="${line#?}"
       ;;
     T*)
       # xtitle output
-      title="\\br\\f4${line#?}"
+      title="${line#?}"
       ;;
     W*)
       # bspwm internal state
@@ -23,37 +23,37 @@ while read -r line ; do
         case $item in
           O*)
             # focused occupied desktop
-            wm_infos="$wm_infos \\u3\\br\\fr${name}\\ur"
+            wm_infos="$wm_infos %{U#FFbea492 F#FFFFFFFF}${name}%{U- F-}"
             ;;
           F*)
             # focused free desktop
-            wm_infos="$wm_infos \\u4\\br\\f7${name}\\ur"
+            wm_infos="$wm_infos %{F#FFFFFFFF}${name}%{F-}"
             ;;
           U*)
             # focused urgent desktop
-            wm_infos="$wm_infos \\u9\\br\\fr${name}\\ur"
+            wm_infos="$wm_infos %{F#FFFFFFFF}${name}%{F-}"
             ;;
           o*)
             # occupied desktop
-            wm_infos="$wm_infos \\br\\fr${name}"
+            wm_infos="$wm_infos %{F#FFbea492}${name}%{F-}"
             ;;
           f*)
             # free desktop
-            wm_infos="$wm_infos \\br\\f7${name}"
+            wm_infos="$wm_infos %{F#FF605655}${name}%{F-}"
             ;;
           u*)
             # urgent desktop
-            wm_infos="$wm_infos \\b1\\fr${name}"
+            wm_infos="$wm_infos %{F#FF8c644c}${name}%{F-}"
             ;;
           L*)
             # layout
             layout=$(printf "%s" "${name}" | sed 's/\(.\).*/\U\1/')
-            wm_infos="$wm_infos    \\br\\f2$layout"
+            wm_infos="$wm_infos    %{F#FF857B52}$layout%{F-}"
             ;;
         esac
         shift
       done
       ;;
   esac
-  printf "%s\n" "\\l $wm_infos \\c $title \\r $sys_infos  "
+  printf "%s\n" "%{l F#FFbea492}$wm_infos%{F-} %{c F#FFbea492}$title%{F-} %{r F#FFbea492}$sys_infos%{F-}  "
 done

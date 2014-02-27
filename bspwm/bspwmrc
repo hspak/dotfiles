@@ -32,7 +32,7 @@ if [ -e "$BSPWM_TREE" ] ; then
 fi
 
 # Init
-/home/hsp/.config/bspwm/panel &
+compton -bGc --config /home/hsp/.config/compton/config
 feh --bg-scale /home/hsp/media/image/wallpaper/sun3.jpg &
-compton -bGc --config /home/hsp/.config/compton/config &
 xsetroot -cursor_name left_ptr &
+/home/hsp/.config/bspwm/panel &
