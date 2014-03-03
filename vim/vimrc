@@ -43,7 +43,7 @@ set clipboard+=unnamed                " yank and copy to X clipboard
 set backspace=2                       " full backspacing capabilities
 set history=50                        " 50 lines of command line history
 set ruler                             " ruler display in status line
-set noshowmode                        " dont show mode (airline)
+" set noshowmode                        " dont show mode (airline)
 set ww=<,>,[,]                        " whichwrap -- left/right keys can traverse up/down
 set cmdheight=1                       " set the command height
 set showmatch                         " show matching brackets (),{},[]
