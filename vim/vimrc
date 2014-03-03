@@ -179,7 +179,7 @@ noremap <LocalLeader>8 8gt
 noremap <LocalLeader>9 9gt
 noremap <LocalLeader>10 10gt
 
-noremap <silent> <C-S>          :update<CR>
+" noremap <silent> <C-S>          :update<CR>
 
 " allow writing root files when forgetting to sudo
 cmap w!! w !sudo tee % >/dev/null<CR>:e!<CR><CR>
@@ -198,7 +198,7 @@ au FileType c           setlocal ts=8 sw=8
 au FileType javascript  setlocal ts=2 sw=2 et
 au FileType cpp         setlocal ts=4 sw=4
 au FileType make        setlocal noet
-au FileType python      setlocal sw=4 ts=4
+au FileType python      setlocal sw=4 ts=4 et
 
 au BufRead,BufNewFile *.md setlocal textwidth=80
 

@@ -27,8 +27,8 @@
 # Bindings
 #
   # start a terminal
-  # bindsym $mod+Return   exec termite
-  bindsym $mod+Return   exec urxvtc
+  bindsym $mod+Return   exec termite
+  # bindsym $mod+Return   exec urxvtc
 
   # bindsym $mod+Shift+Return   exec gnome-terminal
 

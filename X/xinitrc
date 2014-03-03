@@ -13,16 +13,18 @@ transmission-daemon
 #
 mpd
 
+setxkbmap -option ctrl:nocaps &
+
 # enable gnome-keyring (enables some functionality for gnome apps)
 source /etc/X11/xinit/xinitrc.d/30-dbus
 eval $(/usr/bin/gnome-keyring-daemon --start --components=gpg,pkcs11,secrets,ssh)
 export GNOME_KEYRING_CONTROL GNOME_KEYRING_PID GPG_AGENT_INFO SSH_AUTH_SOCK
 
 # nvidia performance boost?
-nvidia-settings -a GlyphCache=1
-nvidia-settings -a InitialPixmapPlacement=2
+#nvidia-settings -a GlyphCache=1
+#nvidia-settings -a InitialPixmapPlacement=2
 
 # feh --bg-scale ~/.config/i3/wallpaper.jpg &
 
 exec /home/hsp/.config/bspwm/start_bspwm
-exec i3
+# exec i3

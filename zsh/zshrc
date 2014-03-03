@@ -115,6 +115,8 @@ if [[ -f ~/.dircolors ]] && type -p dircolors >/dev/null; then
     eval $(dircolors -b "$HOME/.dircolors")
 fi
 
+[[ -e /usr/bin/grunt ]] && eval "$(grunt --completion=zsh)"
+
 for snippets ($HOME/.zsh/*.zsh(N))
   source $snippets
 
