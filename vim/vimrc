@@ -15,11 +15,12 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'Raimondi/delimitMate'
 Bundle 'marijnh/tern_for_vim'
 " Bundle 'bling/vim-airline'
-Bundle 'cazador481/vim-systemverilog'
 "Bundle 'Valloric/YouCompleteMe'
 
 " lesser bundles
+Bundle 'cazador481/vim-systemverilog'
 Bundle 'digitaltoad/vim-jade'
+Bundle 'tpope/vim-markdown'
 
 " General Options
 " -------------------------------------
