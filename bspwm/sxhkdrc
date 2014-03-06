@@ -119,7 +119,7 @@ XF86MonBrightnessDown
 #
 
 super + Return
-  urxvtc
+  termite
 
 super + d
   urxvt -name scratchpad
