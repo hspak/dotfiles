@@ -109,6 +109,11 @@ XF86AudioLowerVolume
 XF86AudioMute
   dunst_vol toggle
 
+super + equal
+  dunst_vol increase
+super + minus
+  dunst_vol decrease
+
 XF86MonBrightnessUp
   dunst_backlight
 XF86MonBrightnessDown
