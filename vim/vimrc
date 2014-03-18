@@ -16,6 +16,7 @@ Bundle 'Raimondi/delimitMate'
 Bundle 'marijnh/tern_for_vim'
 " Bundle 'bling/vim-airline'
 "Bundle 'Valloric/YouCompleteMe'
+Bundle 'vim-scripts/MatlabFilesEdition'
 
 " lesser bundles
 Bundle 'cazador481/vim-systemverilog'
