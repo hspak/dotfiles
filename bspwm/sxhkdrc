@@ -115,9 +115,9 @@ super + minus
   dvol decrease
 
 XF86MonBrightnessUp
-  dunst_backlight
+  dbacklight
 XF86MonBrightnessDown
-  dunst_backlight
+  dbacklight
 
 #
 # wm independent hotkeys
