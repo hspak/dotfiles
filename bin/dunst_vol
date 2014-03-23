@@ -27,5 +27,5 @@ ponymix >/dev/null || exit 1
 action=$1
 type -t $action >/dev/null || exit 1
 
-[[ $# -eq 1 ]] && dunst_notify "volume"  "Volume:" $($action) 100
+[[ $# -eq 1 ]] && dunst_notify "volume" "Volume:" $($action) 100
 

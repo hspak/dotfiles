@@ -8,6 +8,7 @@ bspc rule -a scratchpad floating=on
 bspc rule -a ncmpcpp floating=on
 bspc rule -a gimp floating=on
 bspc rule -a steam desktop=^5 floating=on
+bspc rule -a Steam desktop=^5 floating=on
 
 # Visual options
 bspc config top_padding 18

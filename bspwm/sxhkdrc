@@ -103,16 +103,16 @@ super + F4
   mpc stop
 
 XF86AudioRaiseVolume
-  dunst_vol increase
+  dvol increase
 XF86AudioLowerVolume
-  dunst_vol decrease
+  dvol decrease
 XF86AudioMute
-  dunst_vol toggle
+  dvol toggle
 
 super + equal
-  dunst_vol increase
+  dvol increase
 super + minus
-  dunst_vol decrease
+  dvol decrease
 
 XF86MonBrightnessUp
   dunst_backlight
@@ -127,7 +127,8 @@ super + Return
   termite
 
 super + d
-  urxvt -name scratchpad
+  termite --name="scratchpad"
+  # urxvt -name scratchpad
 
 super + p
   dmenu_run -fn 'Segoe UI-9' -o .9 -l 20 -nf '#bea492' -nb '#181512' -sb '#8c664c' -w 500
