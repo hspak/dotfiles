@@ -23,37 +23,37 @@ while read -r line ; do
         case $item in
           O*)
             # focused occupied desktop
-            wm_infos="$wm_infos %{+u U#FFFFFFFF F#FFFFFFFF}${name}%{U- F-}"
+            wm_infos="$wm_infos %{+u U#FFFFFFFF F#FFFFFFFF}${name}%{-u}"
             ;;
           F*)
             # focused free desktop
-            wm_infos="$wm_infos %{F#FFFFFFFF}${name}%{F-}"
+            wm_infos="$wm_infos %{F#FFFFFFFF}${name}"
             ;;
           U*)
             # focused urgent desktop
-            wm_infos="$wm_infos %{F#FFFFFFFF}${name}%{F-}"
+            wm_infos="$wm_infos %{F#FFFFFFFF}${name}"
             ;;
           o*)
             # occupied desktop
-            wm_infos="$wm_infos %{+u U#FFbea492 F#FFbea492}${name}%{F- U-}"
+            wm_infos="$wm_infos %{F#FFbea492}${name}"
             ;;
           f*)
             # free desktop
-            wm_infos="$wm_infos %{F#FF605655}${name}%{F-}"
+            wm_infos="$wm_infos %{F#FF605655}${name}"
             ;;
           u*)
             # urgent desktop
-            wm_infos="$wm_infos %{F#FF8c644c}${name}%{F-}"
+            wm_infos="$wm_infos %{F#FF8c644c}${name}"
             ;;
           L*)
             # layout
             layout=$(printf "%s" "${name}" | sed 's/\(.\).*/\U\1/')
             if [[ $layout -eq "T" ]]; then
-              wm_infos="$wm_infos    %{F#FF857B52}ø%{F-}"
+              wm_infos="$wm_infos    %{F#FF857B52}ø%"
             elif [[ $layout -eq "M" ]]; then
-              wm_infos="$wm_infos    %{F#FF857B52}ÿ%{F-}"
+              wm_infos="$wm_infos    %{F#FF857B52}ÿ%"
             else
-              wm_infos="$wm_infos    %{F#FF857B52}?%{F-}"
+              wm_infos="$wm_infos    %{F#FF857B52}?%"
             fi
             ;;
         esac
@@ -61,5 +61,5 @@ while read -r line ; do
       done
       ;;
   esac
-  printf "%s\n" "%{l F#FFbea492}$wm_infos%{F-} %{c F#FFbea492}$title%{F-} %{r F#FFbea492}$sys_infos%{F-}  "
+  printf "%s\n" "%{l F#FFbea492}$wm_infos %{c F#FFbea492}$title %{rF#FFbea492 A:termite:}$sys_infos%{A}  "
 done
