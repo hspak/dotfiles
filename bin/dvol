@@ -45,4 +45,4 @@ action=$1
 type -t $action >/dev/null || exit 1
 
 # only runs with an argument
-[[ $# -gt 0 ]] && dunstify -r 1 "Volume" "$(num_to_bar "$($action)" 5)"
+[[ $# -gt 0 ]] && dunstify -r 1 -t 2 "Volume" "$(num_to_bar "$($action)" 5)"

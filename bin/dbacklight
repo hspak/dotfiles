@@ -21,4 +21,4 @@ get_bar() {
 }
 
 
-dunstify -r 2 "Backlight" "$(get_bar)"
+dunstify -r 2 -t 2 "Backlight" "$(get_bar)"
