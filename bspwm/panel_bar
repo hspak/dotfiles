@@ -61,5 +61,5 @@ while read -r line ; do
       done
       ;;
   esac
-  printf "%s\n" "%{l F#FFbea492}$wm_infos%{F-} %{c F#FFbea492}$title%{F-} %{r F#FFbea492}$sys_infos%{F-}  "
+  printf "%s\n" "%{l F#FFbea492}$wm_infos%{F-} %{c F#FFbea492}$title%{F-} %{r F#FFbea492 A:scrot:}$sys_infos%{A F-}  "
 done

@@ -7,7 +7,7 @@ fi
 
 trap 'trap - TERM; kill 0' INT TERM QUIT EXIT
 
-flavor=${1:-bar}
+flavor=${1:-dzen2}
 
 [ -e "$PANEL_FIFO" ] && rm "$PANEL_FIFO"
 mkfifo "$PANEL_FIFO"
@@ -21,7 +21,7 @@ clock -sf 'S%a %H:%M' > "$PANEL_FIFO" &
 
 case "$flavor" in
   bar)
-    cat "$PANEL_FIFO" | panel_bar | bar -B '#dd181512' -f '-*-tamsynmod-medium-r-normal-*-12-*-*-*-*-60-*-*' -u 2 &
+    cat "$PANEL_FIFO" | panel_bar | bar -B '#dd181512' -f '-*-tamsynmod-medium-r-normal-*-12-*-*-*-*-60-*-*' -u 2 | while read line; do eval "$line"; done &
     ;;
   dzen2)
     . panel_colors
