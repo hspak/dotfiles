@@ -3,7 +3,7 @@
 bspc monitor -d I II III IV V VI VII VIII IX X
 
 # Rules
-bspc rule -a mpv floating=on
+bspc rule -a nautilus floating=on
 bspc rule -a scratchpad floating=on
 bspc rule -a ncmpcpp floating=on
 bspc rule -a gimp floating=on
@@ -35,8 +35,8 @@ if [ -e "$BSPWM_TREE" ] ; then
 fi
 
 # Init
-compton -bGc --config /home/hsp/.config/compton/config
 feh --bg-scale /home/hsp/media/image/wallpaper/sun3.jpg &
 xsetroot -cursor_name left_ptr &
-wmname LG3D &
 /home/hsp/.config/bspwm/panel &
+wmname LG3D &
+compton -bGc --config /home/hsp/.config/compton/config

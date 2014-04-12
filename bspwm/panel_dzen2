@@ -102,7 +102,7 @@ while read -r line ; do
     center_indent=$left_width
   else
     max_left_right_width=$left_width
-    [ $left_width -lt $right_width ] && max_left_right_width=$right_width
+    [[ $left_width -lt $right_width ]] && max_left_right_width=$right_width
     if [ $((2 * max_left_right_width + center_width)) -gt $screen_width ] ; then
       center_indent=$((left_width + (available_center - center_width) / 2))
     else

@@ -93,6 +93,12 @@ super + !button{1-3}
 super + @button{1-3}
   bspc pointer -u
 
+super + shift + o
+  chromium
+
+super + shift + i
+  nautilus
+
 super + F1
   mpc prev
 super + F2
