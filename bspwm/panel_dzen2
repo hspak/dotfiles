@@ -2,7 +2,7 @@
 #
 # Example panel for dzen2
 
-font_family='sans-serif'
+font_family='Dejavu Sans'
 font_size=11
 
 . panel_colors
