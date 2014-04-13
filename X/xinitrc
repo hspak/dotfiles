@@ -7,18 +7,10 @@ xset fp rehash
 # ???
 /usr/bin/start-pulseaudio-x11
 
-# torrent
-transmission-daemon
-
 #
 mpd
 
 #setxkbmap -option ctrl:nocaps &
-
-# enable gnome-keyring (enables some functionality for gnome apps)
-source /etc/X11/xinit/xinitrc.d/30-dbus
-eval $(/usr/bin/gnome-keyring-daemon --start --components=gpg,pkcs11,secrets,ssh)
-export GNOME_KEYRING_CONTROL GNOME_KEYRING_PID GPG_AGENT_INFO SSH_AUTH_SOCK
 
 # nvidia performance boost?
 nvidia-settings -a GlyphCache=1
