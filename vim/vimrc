@@ -17,6 +17,7 @@ Bundle 'marijnh/tern_for_vim'
 " Bundle 'bling/vim-airline'
 "Bundle 'Valloric/YouCompleteMe'
 Bundle 'vim-scripts/MatlabFilesEdition'
+Bundle 'JuliaLang/julia-vim'
 
 " lesser bundles
 Bundle 'cazador481/vim-systemverilog'
