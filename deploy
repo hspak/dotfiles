@@ -3,6 +3,7 @@
 # took from vodik
 
 dotfiles=$PWD
+mode="laptop"
 
 die() {
   echo >&2 "$1" && exit 1
@@ -46,7 +47,7 @@ dotfiles_termite() {
 dotfiles_compton() { 
   [[ -d $HOME/.config/compton ]] || mkdir $HOME/.config/compton
 
-  if [[ $2 == "desktop" ]]; then
+  if [[ $mode == "desktop" ]]; then
     link compton/compton.conf.desktop .config/compton/config;
   else
     link compton/compton.conf.laptop .config/compton/config;
@@ -54,7 +55,7 @@ dotfiles_compton() {
 }
 
 dotfiles_X() {
-  if [[ $2 == "desktop" ]]; then
+  if [[ $mode == "desktop" ]]; then
     link X/Xresources.desktop .Xresources
     link X/xinitrc.desktop .xinitrc
   else
@@ -117,6 +118,8 @@ deploy() {
     shift
   done
 }
+
+[[ -n $2 ]] && mode=$2
 
 if (( $# == 0 )); then
   read -r -p "Deploy all? " ans
