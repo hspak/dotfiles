@@ -1,0 +1,19 @@
+# Set terminal options
+[[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources &
+
+xset +fp /usr/share/fonts/local
+xset fp rehash
+
+# ???
+/usr/bin/start-pulseaudio-x11
+
+#
+mpd
+
+setxkbmap -option ctrl:nocaps &
+
+# nvidia performance boost?
+nvidia-settings -a GlyphCache=1
+nvidia-settings -a InitialPixmapPlacement=2
+
+exec /home/hsp/.config/bspwm/start_bspwm

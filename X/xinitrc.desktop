@@ -10,7 +10,7 @@ xset fp rehash
 #
 mpd
 
-#setxkbmap -option ctrl:nocaps &
+setxkbmap -option ctrl:nocaps &
 
 # nvidia performance boost?
 nvidia-settings -a GlyphCache=1

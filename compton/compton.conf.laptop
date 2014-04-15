@@ -55,12 +55,12 @@ invert-color-include = [ ];
 
 # GLX backend
 glx-no-stencil = true;
-glx-copy-from-front = false;
 glx-no-rebind-pixmap = true;
-glx-use-copysubbuffermesa = false;
-glx-swap-method = 4;
+glx-use-copysubbuffermesa = true;
+#glx-swap-method = "copy";
+#glx-copy-from-front = false;
 
-xrender-sync-fence = true;
+# xrender-sync-fence = true;
 
 # Window type settings
 wintypes:

@@ -45,14 +45,23 @@ dotfiles_termite() {
 
 dotfiles_compton() { 
   [[ -d $HOME/.config/compton ]] || mkdir $HOME/.config/compton
-  link compton/compton.conf .config/compton/config;
+
+  if [[ $2 == "desktop" ]]; then
+    link compton/compton.conf.desktop .config/compton/config;
+  else
+    link compton/compton.conf.laptop .config/compton/config;
+  fi
 }
 
 dotfiles_X() {
-  link X/Xmodmap
-  link X/Xresources
-  link X/xbindkeysrc
-  link X/xinitrc
+  if [[ $2 == "desktop" ]]; then
+    link X/Xresources.desktop .Xresources
+    link X/xinitrc.desktop .xinitrc
+  else
+    link X/Xresources.laptop .Xresources
+    link X/xinitrc.laptop .xinitrc
+  fi
+
   link X/user-dirs.dirs .config/user-dirs.dirs
 }
 
@@ -72,6 +81,7 @@ dotfiles_vim() {
   link vim
   link vim/vimrc
   link vim/ycm_extra_conf.py
+
   [[ ! -d ~/.vim/backup ]] && mkdir ~/.vim/backup
   [[ ! -d ~/.vim/swap ]] && mkdir ~/.vim/swap
 }
@@ -97,6 +107,8 @@ HERE
 
 deploy() {
   while (( $# )); do
+    [[ $1 == "desktop" ]] && break
+
     cd && dotfiles_${1#dotfiles_}
     if [[ $? == 127 ]]; then
       echo  >&2 "Error: don't know how to deploy \"$1\""
