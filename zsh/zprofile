@@ -3,6 +3,9 @@ export GTK_IM_MODULE=ibus
 export XMODIFIERS=@im=ibus
 export QT_IM_MODULE=ibus
 
+# ccache
+export CCACHE_DIR=/tmp/ccache
+
 # color for less
 export LESS=-R # use -X to avoid sending terminal initialization
 export LESS_TERMCAP_mb=$'\e[01;34m'
