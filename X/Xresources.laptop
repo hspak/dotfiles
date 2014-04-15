@@ -42,7 +42,7 @@
 URxvt*scrollBar: false
 URxvt*font: xft:Source Code Pro Medium:size=9,\
             xft:Dejavu Sans Mono:size=9
-URxvt*letterSpace: -1
+URxvt*letterSpace: -2
 ! URxvt*transparent: true
 ! URxvt*shading: 10
 URxvt*depth: 32
