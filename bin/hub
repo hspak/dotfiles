@@ -1,0 +1,11 @@
+#!/bin/bash
+
+if [[ $# -lt 2 ]]; then
+  echo "usage: hub <user> <repo> [dir]"
+  exit 1
+fi
+
+which git &>/dev/null
+[[ $? ]] || (echo "hub requires git" && exit 1)
+
+git clone https://github.com/$1/$2 $3
