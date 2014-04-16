@@ -4,6 +4,8 @@
 # ???
 /usr/bin/start-pulseaudio-x11
 
+setxkbmap -option ctrl:nocaps
+
 # nvidia performance boost?
 nvidia-settings -a GlyphCache=1
 nvidia-settings -a InitialPixmapPlacement=2
