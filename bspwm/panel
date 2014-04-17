@@ -7,7 +7,6 @@ fi
 
 trap 'trap - TERM; kill 0' INT TERM QUIT EXIT
 
-flavor=${1:-dzen2}
 [ -e "$PANEL_FIFO" ] && rm "$PANEL_FIFO"
 mkfifo "$PANEL_FIFO"
 
@@ -15,7 +14,7 @@ bspc config top_padding $PANEL_HEIGHT
 
 bspc control --subscribe > "$PANEL_FIFO" &
 xtitle -sf 'T%s' > "$PANEL_FIFO" &
-clock -sf 'S%a %H:%M' > "$PANEL_FIFO" &
+clock -sf 'S%b %e %a %r' > "$PANEL_FIFO" &
 
 . panel_colors
 cat "$PANEL_FIFO" | panel_dzen2 -f "Dejavu Sans" -s "9" | dzen2 -h $PANEL_HEIGHT -dock -ta l -title-name panel -fn "Dejavu Sans-8" -fg "$COLOR_FOREGROUND" -bg "$COLOR_BACKGROUND" -e "nokill" &

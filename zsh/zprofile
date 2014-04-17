@@ -1,4 +1,4 @@
-# Ibus vars (old)
+# Ibus vars
 export GTK_IM_MODULE=ibus
 export XMODIFIERS=@im=ibus
 export QT_IM_MODULE=ibus
@@ -34,7 +34,7 @@ PATH="$PATH:/home/hsp/.config/bspwm"
 export PATH
 
 # bspwm panel vars
-export PANEL_HEIGHT=18
+export PANEL_HEIGHT=20
 export PANEL_FIFO=/tmp/panel-fifo
 
 export BSPWM_TREE=/tmp/bspwm.tree

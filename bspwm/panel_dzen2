@@ -3,7 +3,7 @@
 # Example panel for dzen2
 
 font_family='Dejavu Sans'
-font_size=11
+font_size=10
 
 . panel_colors
 
@@ -96,7 +96,7 @@ while read -r line ; do
   center_width=$2
   right_width=$3
   left_indent=0
-  right_indent=$((screen_width - right_width))
+  right_indent=$((screen_width - right_width - 10))
   available_center=$((screen_width - (left_width + right_width)))
   if [[ $available_center -lt $center_width ]]; then
     center_indent=$left_width

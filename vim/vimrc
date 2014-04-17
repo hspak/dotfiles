@@ -53,7 +53,7 @@ set cmdheight=1                       " set the command height
 set showmatch                         " show matching brackets (),{},[]
 set number                            " show number line
 set hidden                            " allow unsaved buffers to go in background
-set shell=/bin/bash                   " set shell
+set shell=/bin/zsh                    " set shell
 set cursorline                        " highlight current line
 set visualbell                        " don't beep
 set magic                             " enables regex highlight?
@@ -225,8 +225,7 @@ let NERDChristmasTree = 1
 " hi IndentGuidesEven ctermbg=0
 
 " indentLine
-let g:indentLine_color_term = 8
-let g:indentLine_color_term = 239
+let g:indentLine_color_term = 234
 let g:indentLine_char = '|'
 
 " delimiteMate
