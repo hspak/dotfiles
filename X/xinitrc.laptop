@@ -4,9 +4,8 @@
 # ???
 /usr/bin/start-pulseaudio-x11
 
-#
-mpd
-
 setxkbmap -option ctrl:nocaps &
+
+/home/hsp/bin/batalarm
 
 exec /home/hsp/.config/bspwm/start_bspwm

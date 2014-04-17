@@ -10,8 +10,8 @@ Bundle 'gmarik/vundle'
 Bundle 'scrooloose/nerdcommenter'     
 Bundle 'scrooloose/syntastic'         
 Bundle 'scrooloose/nerdtree'          
-" Bundle 'Yggdroot/indentLine'          
-Bundle 'nathanaelkane/vim-indent-guides'
+Bundle 'Yggdroot/indentLine'          
+" Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'kien/ctrlp.vim'
 Bundle 'Raimondi/delimitMate'
 Bundle 'marijnh/tern_for_vim'
@@ -217,17 +217,17 @@ let NERDChristmasTree = 1
 "let NERDRemoveExtraSpaces = 1
 
 " indent guides
-let g:indent_guides_enable_on_vim_startup = 1
-let g:indent_guides_auto_colors = 0
-let g:indent_guides_start_level = 2
-let g:indent_guides_guide_size = 1
-hi IndentGuidesOdd  ctermbg=5
-hi IndentGuidesEven ctermbg=0
+" let g:indent_guides_enable_on_vim_startup = 1
+" let g:indent_guides_auto_colors = 0
+" let g:indent_guides_start_level = 2
+" let g:indent_guides_guide_size = 1
+" hi IndentGuidesOdd  ctermbg=5
+" hi IndentGuidesEven ctermbg=0
 
 " indentLine
-" let g:indentLine_color_term = 8
-" let g:indentLine_color_term = 239
-" let g:indentLine_char = '|'
+let g:indentLine_color_term = 8
+let g:indentLine_color_term = 239
+let g:indentLine_char = '|'
 
 " delimiteMate
 let delimitMate_expand_cr=1
