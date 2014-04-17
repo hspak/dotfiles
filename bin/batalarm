@@ -14,8 +14,8 @@ fi
 
 bat_perc=$(acpi -b | awk '{print $4}' | cut -c1-2)
 while true; do
-  if (( curr_perc < 30 )); then
-    notify-send "Battery State:" "$curr_perc% Remaining"
+  if (( bat_perc < 30 )); then
+    notify-send "Battery State:" "$bat_perc% Remaining"
   fi
   sleep 300
 done
