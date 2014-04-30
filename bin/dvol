@@ -30,11 +30,11 @@ num_to_bar() {
   while [[ $perc -gt 0 ]]; do
     ((perc=perc-jump))
     ((cnt++))
-    bar="$bar▣"
+    bar="$bar◼"
   done
   while [[ $cnt -lt 20 ]]; do
     ((cnt++))
-    bar="$bar▢"
+    bar="$bar◽"
   done
   bar="$bar  $1%"
   echo "$bar"
