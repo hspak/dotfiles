@@ -4,6 +4,7 @@ bspc monitor -d I II III IV V VI VII VIII IX X
 
 # Rules
 bspc rule -a nautilus floating=on border=off
+bspc rule -a Pych floating=on
 bspc rule -a scratchpad floating=on
 bspc rule -a ncmpcpp floating=on
 bspc rule -a gimp floating=on
