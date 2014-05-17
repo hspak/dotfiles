@@ -10,4 +10,5 @@ setxkbmap -option ctrl:nocaps
 nvidia-settings -a GlyphCache=1
 nvidia-settings -a InitialPixmapPlacement=2
 
-exec /home/hsp/.config/bspwm/start_bspwm
+exec i3
+# exec /home/hsp/.config/bspwm/start_bspwm

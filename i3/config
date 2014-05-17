@@ -7,7 +7,7 @@
 
 # i3 config file (v4)
 #
-# Please see http://i3wm.org/docs/hspguide.html for a complete reference!
+# Please see http://i3wm.org/docs/guide.html for a complete reference!
 
 #
 # General
@@ -16,41 +16,35 @@
   set $mod Mod4
 
   # font for window titles. ISO 10646 = Unicode
-  font pango:Dejavu Sans 8
+  font pango:Noto Sans 8
 
   # Use Mouse+$mod to drag floating windows to their wanted position
   floating_modifier $mod
 
   # focus_follows_mouse no
-
-  new_window 1pixel
+  # new_window 1pixel
 
 #
 # Bindings
 #
   # start a terminal
   bindsym $mod+Return   exec termite
-  # bindsym $mod+Return   exec urxvtc
-
-  # bindsym $mod+Shift+Return   exec gnome-terminal
 
   # kill focused window
   bindsym $mod+Shift+Q        kill
 
   # start dmenu (a program launcher)
-  bindsym $mod+p              exec dmenu_run
-
-  # change focus
+  bindsym $mod+p              exec dmenu_run -fn 'Noto Sans-9' -o .9 -l 20 -nf '#bea492' -nb '#181512' -sb '#8c664c' -w 500
   bindsym $mod+H              focus left
   bindsym $mod+J              focus down
   bindsym $mod+K              focus up
   bindsym $mod+L              focus right
 
   # alternatively, you can use the cursor keys:
-  bindsym $mod+Left           focus left
-  bindsym $mod+Down           focus down
-  bindsym $mod+Up             focus up
-  bindsym $mod+Right          focus right
+  # bindsym $mod+Left           focus left
+  # bindsym $mod+Down           focus down
+  # bindsym $mod+Up             focus up
+  # bindsym $mod+Right          focus right
 
   # move focused window
   bindsym $mod+Shift+H        move left
@@ -59,10 +53,10 @@
   bindsym $mod+Shift+L        move right
 
   # alternatively, you can use the cursor keys:
-  bindsym $mod+Shift+Left     move left
-  bindsym $mod+Shift+Down     move down
-  bindsym $mod+Shift+Up       move up
-  bindsym $mod+Shift+Right    move right
+  # bindsym $mod+Shift+Left     move left
+  # bindsym $mod+Shift+Down     move down
+  # bindsym $mod+Shift+Up       move up
+  # bindsym $mod+Shift+Right    move right
 
   # split in horizontal/vertical orientation
   bindsym $mod+g              split h
@@ -133,13 +127,13 @@
   # custom bindings
   bindsym $mod+O                exec chromium --ignore-gpu-blacklist
   bindsym $mod+I                exec nautilus
-  bindsym $mod+D                exec urxvtc -name "scratchpad" 
+  bindsym $mod+D                exec termite --name="scratchpad"
   bindsym $mod+U                exec urxvtc -name "ncmpcpp" -e "ncmpcpp"
 
   # volume control
-  bindsym XF86_AudioRaiseVolume exec /home/hsp/bin/dunst_vol increase
-  bindsym XF86_AudioLowerVolume exec /home/hsp/bin/dunst_vol decrease
-  bindsym XF86_AudioMute        exec /home/hsp/bin/dunst_vol toggle
+  bindsym XF86_AudioRaiseVolume exec /home/hsp/bin/dvol increase
+  bindsym XF86_AudioLowerVolume exec /home/hsp/bin/dvol decrease
+  bindsym XF86_AudioMute        exec /home/hsp/bin/dvol toggle
 
   # MPD control
   bindsym $mod+F1               exec mpc prev
@@ -148,8 +142,8 @@
   bindsym $mod+F4               exec mpc stop
 
   # Notifications
-  bindsym $mod+F5               exec /home/hsp/bin/notify_mpd
-  bindsym $mod+F9               exec /home/hsp/bin/mailcheck
+  # bindsym $mod+F5               exec /home/hsp/bin/notify_mpd
+  # bindsym $mod+F9               exec /home/hsp/bin/mailcheck
 
 #
 # Windowing Rules
@@ -160,34 +154,33 @@
   assign [class="wine"     ] → 4
 
   # Assign floats
-  # for_window [class="Chromium"         ] border none
-  # for_window [class="Firefox"          ] border none
+  for_window [class="Chromium"         ] border none
+  for_window [class="Firefox"          ] border none
   for_window [class="Spotify"          ] move to scratchpad
-  # for_window [class="Gxmessage"        ] floating enable
+  for_window [class="Gxmessage"        ] floating enable
   for_window [class="feh"              ] floating enable
-  # for_window [class="Sonata"           ] floating enable
+  for_window [class="Sonata"           ] floating enable
   for_window [instance="Steam"         ] floating enable border none
-  # for_window [instance="gcr-prompter"  ] floating enable border none
+  for_window [instance="gcr-prompter"  ] floating enable border none
   for_window [instance="skype"         ] floating enable border none
   for_window [class="Steam"            ] floating enable border none
   for_window [instance="scratchpad"    ] floating enable
-  # for_window [instance="tasks_ws"      ] floating enable move scratchpad
   for_window [instance="ranger"        ] floating enable
   for_window [instance="wine"          ] floating enable border none
   for_window [class="Wine"             ] floating enable border none
   for_window [instance="ncmpcpp"       ] floating enable
-  # for_window [instance="tk"            ] floating enable
+  for_window [instance="tk"            ] floating enable
   for_window [instance="nautilus"      ] floating enable border none
   for_window [instance="file_progress" ] floating enable border none
   for_window [instance="nm-applet"     ] border none
-  # for_window [title="Event Tester"     ] floating enable
-  # for_window [window_role="pop-up"     ] floating enable border none
-  # for_window [window_role="dialog"     ] floating enable border none
+  for_window [title="Event Tester"     ] floating enable
+  for_window [window_role="pop-up"     ] floating enable border none
+  for_window [window_role="dialog"     ] floating enable border none
 
   # Java bullshit
-  # for_window [instance="sun-awt-X11-XFramePeer"]  floating enable border none
-  # for_window [instance="sun-awt-X11-XDialogPeer"] floating enable border none
-  # for_window [title="Java"]                       floating enable border none
+  for_window [instance="sun-awt-X11-XFramePeer"]  floating enable border none
+  for_window [instance="sun-awt-X11-XDialogPeer"] floating enable border none
+  for_window [title="Java"]                       floating enable border none
 
   # resize window (you can also use the mouse for that)
   mode "resize" {
@@ -233,9 +226,9 @@
   bindsym $mod+Shift+s mode "Sound: (-/+)"
 
   # class                 border  backgr. text    indicator
-  client.focused          #4e82aa #0c73ca #ffffff #a1b0d6
-  client.focused_inactive #333333 #1f171a #ffffff #484e50
-  client.unfocused        #333333 #222222 #888888 #292d2e
+  client.focused          #504339 #504339 #ffffff #a1b0d6
+  client.focused_inactive #504339 #332d29 #ffffff #484e50
+  client.unfocused        #332d29 #332d29 #888888 #292d2e
   client.urgent           #2f343a #900000 #ffffff #900000
 
 #
@@ -243,24 +236,24 @@
 #
   bar {
     status_command i3status --config ~/.config/i3/i3status.conf
-    # status_command python ~/.config/i3/i3pystatus.py
-    position top
+    position bottom
     workspace_buttons yes
 
     colors {
-        background #131313
-        statusline #8da0a7
+        background #191512
+        statusline #bea492
+        separator #666666
 
-        focused_workspace  #f5f5f5 #131313
-        active_workspace   #d3d3d3 #131313
-        inactive_workspace #888888 #131313
-        urgent_workspace   #ff0000 #131313
+        focused_workspace  #bea492 #504339 #bea492
+        active_workspace   #d3d3d3 #191512 #bea492
+        inactive_workspace #111111 #191512 #bea492
+        urgent_workspace   #ff0000 #191512 #bea492
     }
   }
 
 #
 # Execute
 #
-  exec --no-startup-id compton -bGc --config ~/.config/compton/config &
-  exec --no-startup-id feh --bg-scale wallpaper.jpg &
+  # exec --no-startup-id compton -bGc --config ~/.config/compton/config &
+  exec --no-startup-id feh --bg-scale ~/.config/i3/wallpaper.jpg &
   exec --no-startup-id wmname LG3D &
