@@ -34,29 +34,17 @@
   bindsym $mod+Shift+Q        kill
 
   # start dmenu (a program launcher)
-  bindsym $mod+p              exec dmenu_run -fn 'Noto Sans-9' -o .9 -l 20 -nf '#bea492' -nb '#181512' -sb '#8c664c' -w 500
+  bindsym $mod+p              exec dmenu_run -fn 'Noto Sans-9' -l 20 -nf '#bea492' -nb '#181512' -sb '#8c664c' -w 500
   bindsym $mod+H              focus left
   bindsym $mod+J              focus down
   bindsym $mod+K              focus up
   bindsym $mod+L              focus right
-
-  # alternatively, you can use the cursor keys:
-  # bindsym $mod+Left           focus left
-  # bindsym $mod+Down           focus down
-  # bindsym $mod+Up             focus up
-  # bindsym $mod+Right          focus right
 
   # move focused window
   bindsym $mod+Shift+H        move left
   bindsym $mod+Shift+J        move down
   bindsym $mod+Shift+K        move up
   bindsym $mod+Shift+L        move right
-
-  # alternatively, you can use the cursor keys:
-  # bindsym $mod+Shift+Left     move left
-  # bindsym $mod+Shift+Down     move down
-  # bindsym $mod+Shift+Up       move up
-  # bindsym $mod+Shift+Right    move right
 
   # split in horizontal/vertical orientation
   bindsym $mod+g              split h
@@ -134,6 +122,10 @@
   bindsym XF86_AudioRaiseVolume exec /home/hsp/bin/dvol increase
   bindsym XF86_AudioLowerVolume exec /home/hsp/bin/dvol decrease
   bindsym XF86_AudioMute        exec /home/hsp/bin/dvol toggle
+
+  # brightness
+  bindsym XF86_MonBrightnessUp   exec /home/hsp/bin/dbacklight
+  bindsym XF86_MonBrightnessDown exec /home/hsp/bin/dbacklight
 
   # MPD control
   bindsym $mod+F1               exec mpc prev
@@ -226,10 +218,10 @@
   bindsym $mod+Shift+s mode "Sound: (-/+)"
 
   # class                 border  backgr. text    indicator
-  client.focused          #504339 #504339 #ffffff #a1b0d6
-  client.focused_inactive #504339 #332d29 #ffffff #484e50
-  client.unfocused        #332d29 #332d29 #888888 #292d2e
-  client.urgent           #2f343a #900000 #ffffff #900000
+  client.focused          #504339 #504339 #ffffff #bea492
+  client.focused_inactive #504339 #332d29 #ffffff #111111
+  client.unfocused        #332d29 #332d29 #888888 #111111
+  client.urgent           #2f343a #900000 #ffffff #111111
 
 #
 # i3bar / i3status
@@ -244,6 +236,7 @@
         statusline #bea492
         separator #666666
 
+        #                  border  backgr. text
         focused_workspace  #bea492 #504339 #bea492
         active_workspace   #d3d3d3 #191512 #bea492
         inactive_workspace #111111 #191512 #bea492

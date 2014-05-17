@@ -10,12 +10,12 @@ get_bar() {
   while [[ $lvl -gt 0 ]]; do
     let lvl--
     let cnt++
-    bar="$bar▣"
+    bar="$bar◼"
   done
 
   while [[ $cnt -lt $max ]]; do
     let cnt++
-    bar="$bar▢"
+    bar="$bar◽"
   done
   echo "$bar  $slvl/$max"
 }
