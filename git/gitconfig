@@ -1,6 +1,6 @@
 [user]
 	name = Hong Shick Pak
-	email = hongshick.pak@gmail.com
+	email = hong@hspak.com
 
 [credential]
 	helper = cache --timeout=3600

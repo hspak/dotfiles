@@ -197,7 +197,7 @@ au FileType cpp         setlocal ts=4 sw=4
 au FileType make        setlocal noet
 au FileType python      setlocal sw=4 ts=4 et
 
-au BufRead,BufNewFile *.md setlocal textwidth=80
+au BufRead,BufNewFile *.md setlocal textwidth=80 cc=80 spell
 
 let &titleold=getcwd()
 
