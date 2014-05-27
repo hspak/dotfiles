@@ -108,8 +108,6 @@
   bindsym $mod+plus         scratchpad show
   bindsym $mod+m            [instance="nautilus"] scratchpad show
   bindsym $mod+n            [instance="ncmpcpp"] scratchpad show
-  bindsym $mod+b            [instance="ranger"] scratchpad show
-  bindsym $mod+t            [instance="tasks_ws"] scratchpad show
   # bindsym $mod+y            [class="Spotify"] scratchpad show
 
   # custom bindings
@@ -148,7 +146,8 @@
   # Assign floats
   for_window [class="Chromium"         ] border none
   for_window [class="Firefox"          ] border none
-  for_window [class="Spotify"          ] move to scratchpad
+  for_window [class="mpv"              ] border none
+  for_window [class="Spotify"          ] border none
   for_window [class="Gxmessage"        ] floating enable
   for_window [class="feh"              ] floating enable
   for_window [class="Sonata"           ] floating enable
@@ -208,9 +207,9 @@
   bindsym $mod+Shift+e mode "Exit --> (L)ogout -- (R)eboot -- (P)oweroff"
 
   mode "Sound: (-/+)" {
-    bindsym $mod+equal exec dunst_vol increase
-    bindsym $mod+minus exec dunst_vol decrease
-    bindsym $mod+t exec dunst_vol toggle
+    bindsym $mod+equal exec dvol increase
+    bindsym $mod+minus exec dvol decrease
+    bindsym $mod+t exec dvol toggle
 
     bindsym Return mode "default"
     bindsym Escape mode "default"

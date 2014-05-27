@@ -14,6 +14,7 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'Raimondi/delimitMate'
 Bundle 'vim-scripts/MatlabFilesEdition'
 Bundle 'JuliaLang/julia-vim'
+Bundle 'bronson/vim-trailing-whitespace'
 
 " lesser bundles
 Bundle 'cazador481/vim-systemverilog'
