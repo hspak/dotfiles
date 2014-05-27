@@ -46,7 +46,7 @@ alias pu='sudo pacman -U'
 alias pqe='pacman -Qe'
 alias pcnt='pacman -Q | wc -l'
 
-alias stream='ffmpeg -f alsa -i pulse -f x11grab -r 30 -s 1920x1080 -i $DISPLAY -acodec pcm_s16le -vcodec libx264 -threads 0 test.mkv'
+alias stream='ffmpeg -f alsa -ac 2 -i pulse -f x11grab -r 30 -s 1920x1080 -i $DISPLAY -vcodec libx264 -threads 0'
 
 alias -s png=feh
 alias -s jpg=feh

@@ -111,7 +111,7 @@
   # bindsym $mod+y            [class="Spotify"] scratchpad show
 
   # custom bindings
-  bindsym $mod+O                exec chromium --ignore-gpu-blacklist
+  bindsym $mod+O                exec chromium-dev --ignore-gpu-blacklist
   bindsym $mod+I                exec nautilus
   bindsym $mod+D                exec termite --name="scratchpad"
   bindsym $mod+U                exec urxvtc -name "ncmpcpp" -e "ncmpcpp"

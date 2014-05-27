@@ -7,9 +7,9 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 
 " my bundles
-Bundle 'scrooloose/nerdcommenter'     
-Bundle 'scrooloose/nerdtree'          
-Bundle 'Yggdroot/indentLine'          
+Bundle 'scrooloose/nerdcommenter'
+Bundle 'scrooloose/nerdtree'
+Bundle 'Yggdroot/indentLine'
 Bundle 'kien/ctrlp.vim'
 Bundle 'Raimondi/delimitMate'
 Bundle 'vim-scripts/MatlabFilesEdition'
