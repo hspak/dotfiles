@@ -89,7 +89,7 @@ if &t_Co > 255
 	hi VertSplit               ctermfg=0    ctermbg=11
 	hi Visual                  ctermfg=15   ctermbg=8
 	hi VisualNOS               ctermfg=10   ctermbg=8    cterm=bold
-	hi WarningMsg              ctermfg=9   
+	hi WarningMsg              ctermfg=9
 	hi WildMenu                ctermfg=5    ctermbg=0
 
 	" statusline

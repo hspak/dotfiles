@@ -4,22 +4,26 @@ filetype off                          " I think I needed this up here for someth
 " vundle stuff
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
-Bundle 'gmarik/vundle'
+Plugin 'gmarik/vundle'
 
 " my bundles
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'scrooloose/nerdtree'
-Bundle 'Yggdroot/indentLine'
-Bundle 'kien/ctrlp.vim'
-Bundle 'Raimondi/delimitMate'
-Bundle 'vim-scripts/MatlabFilesEdition'
-Bundle 'JuliaLang/julia-vim'
-Bundle 'bronson/vim-trailing-whitespace'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'scrooloose/nerdtree'
+Plugin 'Yggdroot/indentLine'
+Plugin 'kien/ctrlp.vim'
+Plugin 'Raimondi/delimitMate'
+Plugin 'bronson/vim-trailing-whitespace'
+Plugin 'vim-scripts/a.vim'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'bling/vim-airline'
+Plugin 'scrooloose/syntastic'
 
-" lesser bundles
-Bundle 'cazador481/vim-systemverilog'
-Bundle 'digitaltoad/vim-jade'
-Bundle 'tpope/vim-markdown'
+" syntax bundles
+Plugin 'JuliaLang/julia-vim'
+Plugin 'vim-scripts/MatlabFilesEdition'
+Plugin 'cazador481/vim-systemverilog'
+Plugin 'digitaltoad/vim-jade'
+Plugin 'tpope/vim-markdown'
 
 " General Options
 " -------------------------------------
@@ -32,7 +36,7 @@ set shortmess+=I                      " disable the welcome screen
 set complete+=k                       " enable dictionary completion
 set completeopt=longest,menuone       " better completion popup
 set showcmd                           " display current command
-set title                             " sets terminal title 
+set title                             " sets terminal title
 set virtualedit=all                   " enable visual block edit
 set wildmenu                          " cmd line completion
 set wildmode=list:longest,full        " cmd line completion
@@ -52,7 +56,7 @@ set shell=/bin/zsh                    " set shell
 set cursorline                        " highlight current line
 set visualbell                        " don't beep
 set magic                             " enables regex highlight?
-"set cc=80                            " 80 char column indicator
+set shiftround                        " rounds shifts
 
 "  wrap like other editors
 " -------------------------------------
@@ -220,11 +224,12 @@ let delimitMate_expand_cr=1
 let g:ycm_global_ycm_extra_conf = '/home/hsp/.ycm_extra_conf.py'
 
 " airline
-" let g:airline_powerline_fonts = 1
-" if !exists('g:airline_symbols')
-  " let g:airline_symbols = {}
-" endif
-" let g:airline_symbols.space = "\ua0"
+let g:airline_powerline_fonts = 1
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+let g:airline_symbols.space = "\ua0"
+let g:airline_theme = "wombat"
 
 " Syntastic
 let g:syntastic_error_symbol = '✘'
@@ -235,7 +240,7 @@ let g:syntastic_check_on_wq = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_auto_loc_list = 2
 let g:syntastic_always_populate_loc_list = 1
-" let syntastic_full_redraws = 0
-" let g:sytastic_mode_map = { 'mode': 'active',
-                          " \ 'active_filetypes': ['javascript', 'python'],
-                          " \ 'passive_filetypes': []}
+let syntastic_full_redraws = 0
+let g:sytastic_mode_map = { 'mode': 'active',
+                          \ 'active_filetypes': ['javascript', 'python'],
+                          \ 'passive_filetypes': []}
