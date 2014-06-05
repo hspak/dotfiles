@@ -29,22 +29,21 @@ dotfiles_bspwm()      { link bspwm .config/bspwm;                     }
 dotfiles_mutt()       { link mutt;                                    }
 dotfiles_ncmpcpp()    { link ncmpcpp;                                 }
 dotfiles_tmux()       { link tmux/tmux.conf;                          }
-dotfiles_vimperator() { link vimperator/vimperatorrc;                 }
-dotfiles_subl() { 
-  link subl/Preferences.sublime-settings .config/sublime-text-3/Packages/User/Preferences.sublime-settings;       
+dotfiles_subl() {
+  link subl/Preferences.sublime-settings .config/sublime-text-3/Packages/User/Preferences.sublime-settings;
 }
 
-dotfiles_dunst() { 
+dotfiles_dunst() {
   [[ -d $HOME/.config/dunst ]] || mkdir $HOME/.config/dunst
-  link dunst/dunstrc .config/dunst/dunstrc; 
+  link dunst/dunstrc .config/dunst/dunstrc;
 }
 
-dotfiles_termite() { 
+dotfiles_termite() {
   [[ -d $HOME/.config/termite ]] || mkdir $HOME/.config/termite
-  link termite/termite.cfg .config/termite/config; 
+  link termite/termite.cfg .config/termite/config;
 }
 
-dotfiles_compton() { 
+dotfiles_compton() {
   [[ -d $HOME/.config/compton ]] || mkdir $HOME/.config/compton
 
   if [[ $mode == "desktop" ]]; then

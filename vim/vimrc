@@ -12,13 +12,13 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'Yggdroot/indentLine'
 Plugin 'kien/ctrlp.vim'
 Plugin 'Raimondi/delimitMate'
-Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'vim-scripts/a.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'bling/vim-airline'
 Plugin 'scrooloose/syntastic'
 
 " syntax bundles
+Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'JuliaLang/julia-vim'
 Plugin 'vim-scripts/MatlabFilesEdition'
 Plugin 'cazador481/vim-systemverilog'
@@ -101,15 +101,10 @@ set ofu=syntaxcomplete#Complete
 
 " syntax highlighting
 " -------------------------------------
-syntax on                             " enable syntax highlighting
+syntax on
 syntax enable
 set background=dark
-
-if &term ==# "linux"
-  colorscheme desert
-else
-  colorscheme erosion
-endif
+colorscheme erosion
 
 " custom keybindings
 " -------------------------------------
@@ -120,6 +115,12 @@ map Q <Nop>
 map q: <Nop>
 map <F11> <Nop>
 
+" No arrow keys, ha!
+map <Left> <Nop>
+map <Right> <Nop>
+map <Up> <Nop>
+map <Down> <Nop>
+
 map <F2> :wall<CR>
 map <silent> <F12> :set hlsearch! hlsearch?<CR>
 map <silent> <LocalLeader>l :NERDTreeToggle<CR>
@@ -128,7 +129,7 @@ map <silent> <LocalLeader>m :bnext<cr>
 map <silent> <LocalLeader>v :bprev<cr>
 
 " building
-nnoremap <F5> :w<CR> :SyntasticCheck<CR>
+nnoremap <F5> :w<CR> :SyntasticCheck<CR> :Errors<CR>
 nnoremap <S-F5> :make %<<CR>
 nnoremap <S-F6> :!./"%"<CR>
 
@@ -154,13 +155,6 @@ noremap <silent> H :split<CR> :wincmd j<CR>
 nnoremap Q <C-W>q
 nnoremap W :wq<CR>
 nnoremap B :buffers<CR>:buffer<Space>
-" nnoremap T :TlistAddFiles<Space>
-
-" resizing
-"noremap + <C-w><
-"noremap _ <C-w>>
-"noremap = <C-w>+
-"noremap - <C-w>-
 
 " window movement
 nnoremap <silent> <C-k> :wincmd k<CR>
@@ -179,8 +173,6 @@ noremap <LocalLeader>7 7gt
 noremap <LocalLeader>8 8gt
 noremap <LocalLeader>9 9gt
 noremap <LocalLeader>10 10gt
-
-" noremap <silent> <C-S>          :update<CR>
 
 " allow writing root files when forgetting to sudo
 cmap w!! w !sudo tee % >/dev/null<CR>:e!<CR><CR>
@@ -211,7 +203,7 @@ let NERDSpaceDelims = 1
 let NERDUsePlaceHolders = 0
 let NERDTreeQuitOnOpen = 1
 let NERDChristmasTree = 1
-"let NERDRemoveExtraSpaces = 1
+let NERDRemoveExtraSpaces = 1
 
 " indentLine
 let g:indentLine_color_term = 234
@@ -236,7 +228,6 @@ let g:syntastic_error_symbol = '✘'
 let g:syntastic_warning_symbol = '⚠'
 let g:syntastic_style_error_symbol = '✘'
 let g:syntastic_style_warning_symbol = '⚠'
-let g:syntastic_check_on_wq = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_auto_loc_list = 2
 let g:syntastic_always_populate_loc_list = 1
