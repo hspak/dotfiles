@@ -11,6 +11,7 @@ nvidia-settings -a GlyphCache=1
 nvidia-settings -a InitialPixmapPlacement=2
 
 xset -dpms
+xset s off
 
 exec i3
 # exec /home/hsp/.config/bspwm/start_bspwm
