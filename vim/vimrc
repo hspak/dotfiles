@@ -18,6 +18,7 @@ Plugin 'vim-scripts/a.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'bling/vim-airline'
 Plugin 'scrooloose/syntastic'
+Plugin 'bling/vim-bufferline'
 
 " syntax bundles
 Plugin 'bronson/vim-trailing-whitespace'
@@ -133,7 +134,7 @@ map <silent> <LocalLeader>m :bnext<cr>
 map <silent> <LocalLeader>v :bprev<cr>
 
 " building
-nnoremap <F5> :w<CR> :SyntasticCheck<CR> :Errors<CR>
+nnoremap <silent> <F5> :w<CR> :SyntasticCheck<CR> :Errors<CR>
 nnoremap <S-F5> :make %<<CR>
 nnoremap <S-F6> :!./"%"<CR>
 
@@ -158,7 +159,7 @@ noremap <silent> H :split<CR> :wincmd j<CR>
 
 nnoremap Q <C-W>q
 nnoremap W :wq<CR>
-nnoremap B :buffers<CR>:buffer<Space>
+nnoremap B :buffers<CR>
 
 " window movement
 nnoremap <silent> <C-k> :wincmd k<CR>
@@ -166,17 +167,28 @@ nnoremap <silent> <C-l> <C-W>w
 nnoremap <silent> <C-h> :wincmd h<CR>
 nnoremap <silent> <C-j> :wincmd j<CR>
 
+" buffer navigation
+noremap <silent> <LocalLeader>1 :buffer 1<CR>
+noremap <silent> <LocalLeader>2 :buffer 2<CR>
+noremap <silent> <LocalLeader>3 :buffer 3<CR>
+noremap <silent> <LocalLeader>4 :buffer 4<CR>
+noremap <silent> <LocalLeader>5 :buffer 5<CR>
+noremap <silent> <LocalLeader>6 :buffer 6<CR>
+noremap <silent> <LocalLeader>7 :buffer 7<CR>
+noremap <silent> <LocalLeader>8 :buffer 8<CR>
+noremap <silent> <LocalLeader>9 :buffer 9<CR>
+
 " tab navigation
-noremap <LocalLeader>1 1gt
-noremap <LocalLeader>2 2gt
-noremap <LocalLeader>3 3gt
-noremap <LocalLeader>4 4gt
-noremap <LocalLeader>5 5gt
-noremap <LocalLeader>6 6gt
-noremap <LocalLeader>7 7gt
-noremap <LocalLeader>8 8gt
-noremap <LocalLeader>9 9gt
-noremap <LocalLeader>10 10gt
+" noremap <LocalLeader>1 1gt
+" noremap <LocalLeader>2 2gt
+" noremap <LocalLeader>3 3gt
+" noremap <LocalLeader>4 4gt
+" noremap <LocalLeader>5 5gt
+" noremap <LocalLeader>6 6gt
+" noremap <LocalLeader>7 7gt
+" noremap <LocalLeader>8 8gt
+" noremap <LocalLeader>9 9gt
+" noremap <LocalLeader>10 10gt
 
 " allow writing root files when forgetting to sudo
 cmap w!! w !sudo tee % >/dev/null<CR>:e!<CR><CR>
