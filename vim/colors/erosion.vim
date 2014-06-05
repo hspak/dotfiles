@@ -15,17 +15,19 @@ hi Type                       ctermfg=1
 hi Special                    ctermfg=3
 hi Underlined                 ctermfg=7
 hi Ignore                     ctermfg=9
-hi Error                      ctermfg=255
+hi Error                      ctermfg=25
+hi ErrorMsg                   ctermfg=9         ctermbg=none
 hi Todo                       ctermfg=1
 hi Normal                     ctermfg=none      ctermbg=none
 hi NonText                    ctermfg=0         ctermbg=none
 hi Directory                  ctermfg=12
 " hi Title                                        ctermbg=none
 " hi NoneText                                     ctermbg=none
-" hi Operator                                     ctermbg=none
+hi Operator                                     ctermbg=none
 " hi String                                       ctermbg=none
 " hi Statement                                    ctermbg=none
 " hi WildMenu                                     ctermbg=none
+hi Message                    ctermfg=25
 
 hi WarningMsg                 ctermfg=225
 
