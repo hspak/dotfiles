@@ -129,14 +129,13 @@ map <Down> <Nop>
 map <F2> :wall<CR>
 map <silent> <F12> :set hlsearch! hlsearch?<CR>
 map <silent> <LocalLeader>l :NERDTreeToggle<CR>
-" map <silent> <LocalLeader>p :TlistToggle<CR>
 map <silent> <LocalLeader>m :bnext<cr>
 map <silent> <LocalLeader>v :bprev<cr>
 
 " building
 nnoremap <silent> <F5> :w<CR> :SyntasticCheck<CR> :Errors<CR>
+nnoremap <silent> <F6> :lclose<CR>
 nnoremap <S-F5> :make %<<CR>
-nnoremap <S-F6> :!./"%"<CR>
 
 " whitespace
 "nnoremap <F10> :EraseBadWhitespace<CR>
@@ -240,6 +239,10 @@ let g:airline_symbols.space = "\ua0"
 let g:airline_theme = "wombat"
 
 " Syntastic
+let g:syntastic_cpp_check_header = 1
+let g:syntastic_cpp_compiler_options = '-std=c++11'
+let g:syntastic_cpp_compiler = 'clang++'
+
 let g:syntastic_error_symbol = '✘'
 let g:syntastic_warning_symbol = '⚠'
 let g:syntastic_style_error_symbol = '✘'
