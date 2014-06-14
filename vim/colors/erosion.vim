@@ -15,18 +15,18 @@ hi Type                       ctermfg=1
 hi Special                    ctermfg=3
 hi Underlined                 ctermfg=7
 hi Ignore                     ctermfg=9
-hi Error                      ctermfg=25
+hi Error                      ctermfg=225
 hi ErrorMsg                   ctermfg=9         ctermbg=none
 hi Todo                       ctermfg=1
 hi Normal                     ctermfg=none      ctermbg=none
 hi NonText                    ctermfg=0         ctermbg=none
 hi Directory                  ctermfg=12
-" hi Title                                        ctermbg=none
-" hi NoneText                                     ctermbg=none
 hi Operator                                     ctermbg=none
-" hi String                                       ctermbg=none
-" hi Statement                                    ctermbg=none
-" hi WildMenu                                     ctermbg=none
+hi Title                                        ctermbg=none
+hi NoneText                                     ctermbg=none
+hi String                                       ctermbg=none
+hi Statement                                    ctermbg=none
+hi WildMenu                                     ctermbg=none
 hi Message                    ctermfg=25
 
 hi WarningMsg                 ctermfg=225
@@ -42,15 +42,15 @@ hi Pmenu                      ctermfg=8         ctermbg=none
 hi PmenuSel                   ctermfg=0         ctermbg=9
 
 hi LineNr                     ctermfg=0         ctermbg=none
-hi CursorLine                 ctermfg=none      ctermbg=none cterm=none
+hi CursorLine                 ctermfg=none      ctermbg=none      cterm=none
 hi CursorLineNr               ctermfg=none      ctermbg=0
 hi CursorColumn               ctermfg=none      ctermbg=0
 
 hi Visual                     ctermfg=15        ctermbg=6
-hi VisualNOS                  ctermfg=15        ctermbg=6    cterm=bold
+hi VisualNOS                  ctermfg=15        ctermbg=6         cterm=bold
 
 " Syntax checker colors
-hi SignColumn                                   ctermbg=none cterm=bold
+hi SignColumn                                   ctermbg=none      cterm=bold
 hi SyntasticErrorSign         ctermfg=red       ctermbg=none
 hi SyntasticWarningSign       ctermfg=3         ctermbg=none
 hi SyntasticStyleErrorSign    ctermfg=1         ctermbg=none
@@ -73,4 +73,4 @@ hi DiffDelete                 ctermfg=red       ctermbg=none
 hi DiffRemoved                ctermfg=red       ctermbg=none
 hi DiffChange                 ctermfg=251       ctermbg=10
 hi DiffChanged                ctermfg=251       ctermbg=10
-hi DiffText                   ctermfg=255       ctermbg=white    cterm=bold
+hi DiffText                   ctermfg=255       ctermbg=white     cterm=bold

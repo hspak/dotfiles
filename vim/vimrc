@@ -27,6 +27,7 @@ Plugin 'vim-scripts/MatlabFilesEdition'
 Plugin 'cazador481/vim-systemverilog'
 Plugin 'digitaltoad/vim-jade'
 Plugin 'tpope/vim-markdown'
+Plugin 'octol/vim-cpp-enhanced-highlight'
 
 call vundle#end()
 
@@ -226,7 +227,9 @@ let g:indentLine_color_term = 234
 let g:indentLine_char = '|'
 
 " delimiteMate
-let delimitMate_expand_cr=1
+let delimitMate_expand_cr = 1
+let delimitMateBackspace = 1
+let delimitMate_jump_expansion = 1
 
 " ycm
 let g:ycm_global_ycm_extra_conf = '/home/hsp/.ycm_extra_conf.py'
@@ -240,7 +243,6 @@ let g:airline_symbols.space = "\ua0"
 let g:airline_theme = "wombat"
 
 " Syntastic
-let g:syntastic_cpp_check_header = 1
 let g:syntastic_cpp_compiler_options = '-std=c++11'
 let g:syntastic_cpp_compiler = 'clang++'
 
