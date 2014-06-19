@@ -23,7 +23,7 @@
 
 [merge]
 	tool = vimdiff
-	log = true	
+	log = true
 
 [help]
 	autocorrect = 1
@@ -34,3 +34,8 @@
 	editor = vim
 [push]
 	default = simple
+[sendemail]
+	smtpencryption = tls
+  smtpserver = mail.messagingengine.com
+  smtpuser = hspak@fastmail.fm
+  smtpserverport = 587
