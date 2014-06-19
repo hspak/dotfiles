@@ -17,7 +17,7 @@ hi Underlined                 ctermfg=7
 hi Ignore                     ctermfg=9
 hi Error                      ctermfg=225
 hi ErrorMsg                   ctermfg=9         ctermbg=none
-hi Todo                       ctermfg=16        ctermbg=none      cterm=bold
+hi Todo                       ctermfg=168        ctermbg=none      cterm=bold
 hi Normal                     ctermfg=none      ctermbg=none
 hi NonText                    ctermfg=0         ctermbg=none
 hi Directory                  ctermfg=12
