@@ -8,27 +8,28 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 
-" my bundles
+" functional bundles
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
-Plugin 'Yggdroot/indentLine'
-Plugin 'kien/ctrlp.vim'
 Plugin 'Raimondi/delimitMate'
 Plugin 'vim-scripts/a.vim'
+Plugin 'kien/ctrlp.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'bling/vim-airline'
-Plugin 'scrooloose/syntastic'
 Plugin 'bling/vim-bufferline'
+Plugin 'scrooloose/syntastic'
+Plugin 'Shougo/neocomplete.vim'
+Plugin 'ervandew/supertab'
 
-" syntax bundles
+" prettify bundles
 Plugin 'bronson/vim-trailing-whitespace'
-Plugin 'JuliaLang/julia-vim'
 Plugin 'vim-scripts/MatlabFilesEdition'
+Plugin 'JuliaLang/julia-vim'
 Plugin 'cazador481/vim-systemverilog'
 Plugin 'digitaltoad/vim-jade'
-Plugin 'tpope/vim-markdown'
 Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'wting/rust.vim'
+Plugin 'Yggdroot/indentLine'
 
 call vundle#end()
 
@@ -136,13 +137,9 @@ map <silent> <LocalLeader>m :bnext<cr>
 map <silent> <LocalLeader>v :bprev<cr>
 
 " building
+nnoremap <silent> <F4> :SyntasticToggleMode
 nnoremap <silent> <F5> :w<CR> :SyntasticCheck<CR> :Errors<CR>
 nnoremap <silent> <F6> :lclose<CR>
-nnoremap <S-F5> :make %<<CR>
-
-" whitespace
-"nnoremap <F10> :EraseBadWhitespace<CR>
-"nnoremap <F11> :ToggleBadWhitespace<CR>
 
 " map space to create/open/close fold
 nnoremap <silent> <Space> @=(foldlevel('.')?'za':'l')<CR>
@@ -180,18 +177,6 @@ noremap <silent> <LocalLeader>7 :buffer 7<CR>
 noremap <silent> <LocalLeader>8 :buffer 8<CR>
 noremap <silent> <LocalLeader>9 :buffer 9<CR>
 
-" tab navigation
-" noremap <LocalLeader>1 1gt
-" noremap <LocalLeader>2 2gt
-" noremap <LocalLeader>3 3gt
-" noremap <LocalLeader>4 4gt
-" noremap <LocalLeader>5 5gt
-" noremap <LocalLeader>6 6gt
-" noremap <LocalLeader>7 7gt
-" noremap <LocalLeader>8 8gt
-" noremap <LocalLeader>9 9gt
-" noremap <LocalLeader>10 10gt
-
 " allow writing root files when forgetting to sudo
 cmap w!! w !sudo tee % >/dev/null<CR>:e!<CR><CR>
 
@@ -211,8 +196,7 @@ au FileType cpp         setlocal ts=4 sw=4
 au FileType rust        setlocal ts=4 sw=4
 au FileType make        setlocal noet
 au FileType python      setlocal sw=4 ts=4 et
-
-au BufRead,BufNewFile *.md setlocal textwidth=80 cc=80 spell
+au FileType md          setlocal textwidth=80 cc=80
 
 let &titleold=getcwd()
 
@@ -232,9 +216,6 @@ let g:indentLine_char = '|'
 let delimitMate_expand_cr = 1
 let delimitMateBackspace = 1
 let delimitMate_jump_expansion = 1
-
-" ycm
-let g:ycm_global_ycm_extra_conf = '/home/hsp/.ycm_extra_conf.py'
 
 " airline
 let g:airline_powerline_fonts = 1
@@ -256,6 +237,12 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_auto_loc_list = 2
 let g:syntastic_always_populate_loc_list = 1
 let syntastic_full_redraws = 0
-let g:sytastic_mode_map = { 'mode': 'active',
-                          \ 'active_filetypes': ['javascript', 'python'],
-                          \ 'passive_filetypes': []}
+let g:sytastic_mode_map = {'mode': 'active'}
+
+" neocomplete
+let g:neocomplete#enable_at_startup = 1
+let g:neocomplete#enable_smart_case = 1
+let g:neocomplete#sources#syntax#min_keyword_length = 3
+
+" supertab
+let g:SuperTabDefaultCompletionType = "<c-n>"
