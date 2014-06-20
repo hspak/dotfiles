@@ -20,6 +20,7 @@ Plugin 'bling/vim-bufferline'
 Plugin 'scrooloose/syntastic'
 Plugin 'Shougo/neocomplete.vim'
 Plugin 'ervandew/supertab'
+Plugin 'Lokaltog/vim-easymotion'
 
 " prettify bundles
 Plugin 'bronson/vim-trailing-whitespace'
@@ -123,6 +124,11 @@ let mapleader = ","
 map Q <Nop>
 map q: <Nop>
 map <F11> <Nop>
+map <C-T> <Nop>
+
+" map <Leader> <Plug>(easymotion-prefix)
+nmap s <Plug>(easymotion-s2)
+nmap t <Plug>(easymotion-t2)
 
 " No arrow keys, ha!
 map <Left> <Nop>
@@ -246,3 +252,8 @@ let g:neocomplete#sources#syntax#min_keyword_length = 3
 
 " supertab
 let g:SuperTabDefaultCompletionType = "<c-n>"
+
+" ctrlp
+let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_clear_cache_on_exit = 0
+let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:15,results:15'

@@ -17,7 +17,7 @@ hi Underlined                 ctermfg=7
 hi Ignore                     ctermfg=9
 hi Error                      ctermfg=225
 hi ErrorMsg                   ctermfg=9         ctermbg=none
-hi Todo                       ctermfg=168        ctermbg=none      cterm=bold
+hi Todo                       ctermfg=168       ctermbg=none      cterm=bold
 hi Normal                     ctermfg=none      ctermbg=none
 hi NonText                    ctermfg=0         ctermbg=none
 hi Directory                  ctermfg=12
@@ -60,7 +60,7 @@ hi SyntasticWarningLine       ctermfg=none      ctermbg=none
 hi SyntasticStyleErrorLine    ctermfg=none      ctermbg=none
 hi SyntasticStyleWarningLine  ctermfg=none      ctermbg=none
 
-hi SpellBad                   ctermfg=1         ctermbg=none      cterm=underline
+hi SpellBad                   ctermfg=1         ctermbg=none      cterm=none cterm=underline
 hi SpellCap                   ctermfg=0         ctermbg=1
 
 hi DiffLine                                     ctermbg=none
@@ -74,3 +74,7 @@ hi DiffRemoved                ctermfg=red       ctermbg=none
 hi DiffChange                 ctermfg=251       ctermbg=10
 hi DiffChanged                ctermfg=251       ctermbg=10
 hi DiffText                   ctermfg=255       ctermbg=white     cterm=bold
+
+hi TabLineFill                ctermfg=none      ctermbg=none      cterm=bold
+hi TabLine                    ctermfg=0         ctermbg=none      cterm=bold
+hi TabLineSel                 ctermfg=15        ctermbg=7         cterm=bold
