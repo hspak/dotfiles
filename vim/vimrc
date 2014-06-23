@@ -23,6 +23,7 @@ Plugin 'ervandew/supertab'
 Plugin 'Lokaltog/vim-easymotion'
 
 " prettify bundles
+Plugin 'plasticboy/vim-markdown'
 Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'vim-scripts/MatlabFilesEdition'
 Plugin 'JuliaLang/julia-vim'
@@ -54,6 +55,7 @@ set title                             " sets terminal title
 set virtualedit=all                   " enable visual block edit
 set wildmenu                          " cmd line completion
 set wildmode=list:longest,full        " cmd line completion
+set wildignore=*.o,*.obj,*.bak,*.exe  " ignore these though
 set scrolloff=5                       " lines between cursor and edge
 set shortmess=atI                     " avoid annoying prompts?
 set laststatus=2                      " always show a status line
@@ -72,6 +74,12 @@ set visualbell                        " don't beep
 set magic                             " enables regex highlight?
 set shiftround                        " rounds shifts
 set noshowmode                        " redundant with airline
+
+set ttyfast
+set nocursorcolumn                    " I don't ever see this
+set lazyredraw
+set synmaxcol=200
+syntax sync minlines=200
 
 "  wrap like other editors
 " -------------------------------------
