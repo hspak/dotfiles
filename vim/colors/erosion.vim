@@ -97,8 +97,8 @@ hi StatusLineNC               ctermfg=0
 hi Folded                     ctermbg=0         ctermfg=8
 hi FoldedColumn                                 ctermbg=none
 
-hi Pmenu                      ctermfg=8         ctermbg=none
-hi PmenuSel                   ctermfg=0         ctermbg=9
+hi Pmenu                      ctermfg=7         ctermbg=none
+hi PmenuSel                   ctermfg=13        ctermbg=none      cterm=bold
 
 hi LineNr                     ctermfg=0         ctermbg=none
 hi CursorLine                 ctermfg=none      ctermbg=none      cterm=none
