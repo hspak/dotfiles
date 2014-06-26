@@ -87,7 +87,6 @@ hi Todo                       ctermfg=168       ctermbg=none      cterm=bold
 hi NonText                    ctermfg=0         ctermbg=none
 hi Directory                  ctermfg=12
 hi NoneText                                     ctermbg=none
-hi WildMenu                                     ctermbg=none
 hi Message                    ctermfg=25
 hi ModeMsg                    ctermfg=yellow                      cterm=bold
 hi MoreMsg                    ctermfg=cyan                        cterm=bold
@@ -95,9 +94,10 @@ hi Question                   ctermfg=14
 hi Repeat                     ctermfg=14
 hi Tag                        ctermfg=5
 
-hi VertSplit                  ctermfg=0         ctermbg=0         cterm=bold
-hi StatusLine                 ctermfg=9
-hi StatusLineNC               ctermfg=0
+hi VertSplit                  ctermfg=7         ctermbg=0         cterm=bold
+hi WildMenu                   ctermfg=11        ctermbg=236       cterm=bold
+hi StatusLine                 ctermfg=8         ctermbg=234       cterm=none
+hi StatusLineNC               ctermfg=3         ctermbg=7         cterm=none
 
 hi Folded                     ctermfg=0         ctermbg=8
 hi FoldColumn                 ctermfg=3         ctermbg=7
@@ -133,7 +133,7 @@ hi DiffOldLine                ctermfg=214       ctermbg=none
 hi DiffOldFile                ctermfg=160       ctermbg=none
 hi DiffNewFile                ctermfg=34        ctermbg=none
 
-hi DiffAdded                  ctermfg=225       ctermbg=none
+hi DiffAdded                  ctermfg=34        ctermbg=none
 hi DiffChanged                ctermfg=214       ctermbg=none
 hi DiffRemoved                ctermfg=160       ctermbg=none
 

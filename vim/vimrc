@@ -21,7 +21,6 @@ Plugin 'scrooloose/syntastic'
 Plugin 'Shougo/neocomplete.vim'
 Plugin 'ervandew/supertab'
 Plugin 'Lokaltog/vim-easymotion'
-Plugin 'tpope/vim-fugitive'
 
 " prettify bundles
 Plugin 'plasticboy/vim-markdown'
@@ -55,7 +54,7 @@ set showcmd                           " display current command
 set title                             " sets terminal title
 set virtualedit=all                   " enable visual block edit
 set wildmenu                          " cmd line completion
-set wildmode=list:longest,full        " cmd line completion
+set wildmode=longest,full             " cmd line completion
 set wildignore=*.o,*.obj,*.bak,*.exe  " ignore these though
 set scrolloff=5                       " lines between cursor and edge
 set shortmess=atI                     " avoid annoying prompts?
@@ -239,6 +238,8 @@ if !exists('g:airline_symbols')
 endif
 let g:airline_symbols.space = "\ua0"
 let g:airline_theme = "wombat"
+let g:bufferline_echo = 0
+set timeoutlen=50
 
 " Syntastic
 let g:syntastic_cpp_compiler_options = '-std=c++11'
