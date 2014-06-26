@@ -37,7 +37,7 @@ let g:color_name="erosion"
 
 " Colors
 hi Type                       ctermfg=1
-hi Boolean                    ctermfg=207       ctermbg=none      cterm=bold
+hi Boolean                    ctermfg=133       ctermbg=none
 hi Comment                    ctermfg=8
 hi Constant                   ctermfg=12
 hi Conditional                ctermfg=14
@@ -45,7 +45,7 @@ hi Identifier                 ctermfg=4                           cterm=none
 hi Statement                  ctermfg=2         ctermbg=none
 hi Function                   ctermfg=6                           cterm=bold
 hi Operator                   ctermfg=1         ctermbg=none
-hi Number                     ctermfg=6
+hi Number                     ctermfg=247
 hi Float                      ctermfg=14
 hi String                     ctermfg=15        ctermbg=none
 hi Keyword                    ctermfg=blue
