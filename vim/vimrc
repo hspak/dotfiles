@@ -181,15 +181,15 @@ nnoremap <silent> <C-h> :wincmd h<CR>
 nnoremap <silent> <C-j> :wincmd j<CR>
 
 " buffer navigation
-noremap <silent> <LocalLeader>1 :buffer 1<CR>
-noremap <silent> <LocalLeader>2 :buffer 2<CR>
-noremap <silent> <LocalLeader>3 :buffer 3<CR>
-noremap <silent> <LocalLeader>4 :buffer 4<CR>
-noremap <silent> <LocalLeader>5 :buffer 5<CR>
-noremap <silent> <LocalLeader>6 :buffer 6<CR>
-noremap <silent> <LocalLeader>7 :buffer 7<CR>
-noremap <silent> <LocalLeader>8 :buffer 8<CR>
-noremap <silent> <LocalLeader>9 :buffer 9<CR>
+"noremap <silent> <LocalLeader>1 :buffer 1<CR>
+"noremap <silent> <LocalLeader>2 :buffer 2<CR>
+"noremap <silent> <LocalLeader>3 :buffer 3<CR>
+"noremap <silent> <LocalLeader>4 :buffer 4<CR>
+"noremap <silent> <LocalLeader>5 :buffer 5<CR>
+"noremap <silent> <LocalLeader>6 :buffer 6<CR>
+"noremap <silent> <LocalLeader>7 :buffer 7<CR>
+"noremap <silent> <LocalLeader>8 :buffer 8<CR>
+"noremap <silent> <LocalLeader>9 :buffer 9<CR>
 
 " allow writing root files when forgetting to sudo
 cmap w!! w !sudo tee % >/dev/null<CR>:e!<CR><CR>
@@ -198,7 +198,6 @@ cmap w!! w !sudo tee % >/dev/null<CR>:e!<CR><CR>
 " -------------------------------------
 " turn hash bangs into executeables automatically
 au BufWritePost * if getline(1) =~ "^#!" | silent :!chmod +x <afile>
-au BufWritePost .vimrc source %
 
 " save last position
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif "
@@ -239,7 +238,6 @@ endif
 let g:airline_symbols.space = "\ua0"
 let g:airline_theme = "wombat"
 let g:bufferline_echo = 0
-set timeoutlen=50
 
 " Syntastic
 let g:syntastic_cpp_compiler_options = '-std=c++11'

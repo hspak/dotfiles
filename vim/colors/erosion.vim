@@ -99,8 +99,8 @@ hi WildMenu                   ctermfg=11        ctermbg=236       cterm=bold
 hi StatusLine                 ctermfg=8         ctermbg=234       cterm=none
 hi StatusLineNC               ctermfg=3         ctermbg=7         cterm=none
 
-hi Folded                     ctermfg=0         ctermbg=8
-hi FoldColumn                 ctermfg=3         ctermbg=7
+hi Folded                     ctermfg=8         ctermbg=7         cterm=bold
+hi FoldColumn                 ctermfg=250       ctermbg=none      cterm=bold
 
 hi Pmenu                      ctermfg=7         ctermbg=none
 hi PmenuSel                   ctermfg=13        ctermbg=none      cterm=bold
