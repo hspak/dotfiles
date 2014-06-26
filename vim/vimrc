@@ -21,6 +21,7 @@ Plugin 'scrooloose/syntastic'
 Plugin 'Shougo/neocomplete.vim'
 Plugin 'ervandew/supertab'
 Plugin 'Lokaltog/vim-easymotion'
+Plugin 'tpope/vim-fugitive'
 
 " prettify bundles
 Plugin 'plasticboy/vim-markdown'

@@ -37,7 +37,7 @@ let g:color_name="erosion"
 
 " Colors
 hi Type                       ctermfg=1
-hi Boolean                    ctermfg=7         ctermbg=4         cterm=bold
+hi Boolean                    ctermfg=207       ctermbg=none      cterm=bold
 hi Comment                    ctermfg=8
 hi Constant                   ctermfg=12
 hi Conditional                ctermfg=14
@@ -57,6 +57,8 @@ hi Typedef                    ctermfg=9
 hi StorageClass               ctermfg=4
 hi Structure                  ctermfg=1
 
+hi ColorColumn                ctermfg=0         ctermbg=none
+
 hi Macro                      ctermfg=6
 hi Define                     ctermfg=6
 hi PreProc                    ctermfg=6
@@ -65,11 +67,14 @@ hi PreCondit                  ctermfg=6
 hi Debug                      ctermfg=13
 hi Delimiter                  ctermfg=8
 hi MatchParen                 ctermfg=16        ctermbg=15
-hi IncSearch                  ctermfg=15        ctermbg=1
+hi IncSearch                  ctermfg=16        ctermbg=12        cterm=none
+hi Search                     ctermfg=16        ctermbg=12
+hi Visual                     ctermfg=16        ctermbg=12
+hi VisualNOS                  ctermfg=16        ctermbg=12        cterm=bold
 
 hi Error                      ctermfg=1         ctermbg=none
 hi ErrorMsg                   ctermfg=9         ctermbg=none
-hi WarningMsg                 ctermfg=225
+hi WarningMsg                 ctermfg=225                         cterm=bold
 
 hi Special                    ctermfg=3
 hi SpecialComment             ctermfg=black                       cterm=bold
@@ -94,23 +99,23 @@ hi VertSplit                  ctermfg=0         ctermbg=0         cterm=bold
 hi StatusLine                 ctermfg=9
 hi StatusLineNC               ctermfg=0
 
-hi Folded                     ctermbg=0         ctermfg=8
-hi FoldedColumn                                 ctermbg=none
+hi Folded                     ctermfg=0         ctermbg=8
+hi FoldColumn                 ctermfg=3         ctermbg=7
 
 hi Pmenu                      ctermfg=7         ctermbg=none
 hi PmenuSel                   ctermfg=13        ctermbg=none      cterm=bold
+hi PmenuSbar                  ctermfg=0
+hi PmenuThumb                 ctermfg=0
 
 hi LineNr                     ctermfg=0         ctermbg=none
 hi CursorLine                 ctermfg=none      ctermbg=none      cterm=none
 hi CursorLineNr               ctermfg=none      ctermbg=0
 hi CursorColumn               ctermfg=none      ctermbg=0
 
-hi Visual                     ctermfg=15        ctermbg=6
-hi VisualNOS                  ctermfg=15        ctermbg=6         cterm=bold
-
 " Syntax checker colors
 hi SignColumn                                   ctermbg=none      cterm=bold
-hi SyntasticErrorSign         ctermfg=red       ctermbg=none
+hi SyntasticWarning           ctermfg=1         ctermbg=none      cterm=bold
+hi SyntasticErrorSign         ctermfg=1         ctermbg=none
 hi SyntasticWarningSign       ctermfg=3         ctermbg=none
 hi SyntasticStyleErrorSign    ctermfg=1         ctermbg=none
 hi SyntasticStyleWarningSign  ctermfg=3         ctermbg=none
@@ -121,20 +126,26 @@ hi SyntasticStyleWarningLine  ctermfg=none      ctermbg=none
 
 hi SpellBad                   ctermfg=1         ctermbg=none      cterm=underline
 hi SpellCap                   ctermfg=0         ctermbg=1
-hi SpellLocal                 ctermfg=black     ctermbg=cyan      cterm=bold
-hi SpellRare                  ctermfg=black     ctermbg=magenta   cterm=bold
+hi SpellLocal                 ctermfg=16        ctermbg=cyan      cterm=bold
+hi SpellRare                  ctermfg=16        ctermbg=magenta   cterm=bold
 
-hi DiffLine                                     ctermbg=none
-hi DiffOldLine                ctermfg=red       ctermbg=white
-hi DiffOldFile                ctermfg=red       ctermbg=white
-hi DiffNewFile                ctermfg=green     ctermbg=white
-hi DiffAdd                    ctermfg=225       ctermbg=25        cterm=bold
-hi DiffAdded                  ctermfg=225       ctermbg=white     cterm=bold
-hi DiffDelete                 ctermfg=red       ctermbg=none
-hi DiffRemoved                ctermfg=red       ctermbg=none
-hi DiffChange                 ctermfg=251       ctermbg=10
-hi DiffChanged                ctermfg=251       ctermbg=10
-hi DiffText                   ctermfg=255       ctermbg=white     cterm=bold
+hi DiffOldLine                ctermfg=214       ctermbg=none
+hi DiffOldFile                ctermfg=160       ctermbg=none
+hi DiffNewFile                ctermfg=34        ctermbg=none
+
+hi DiffAdded                  ctermfg=225       ctermbg=none
+hi DiffChanged                ctermfg=214       ctermbg=none
+hi DiffRemoved                ctermfg=160       ctermbg=none
+
+hi DiffLine                   ctermfg=202       ctermbg=none
+hi DiffAdd                    ctermfg=34        ctermbg=none
+hi DiffDelete                 ctermfg=160       ctermbg=none
+hi DiffChange                 ctermfg=214       ctermbg=none
+hi DiffText                   ctermfg=220       ctermbg=none      cterm=bold
+
+hi GitGutterAdd               ctermfg=34        ctermbg=none
+hi GitGutterChange            ctermfg=214       ctermbg=none
+hi GitGutterDelete            ctermfg=160       ctermbg=none
 
 hi TabLineFill                ctermfg=none      ctermbg=none      cterm=bold
 hi TabLine                    ctermfg=0         ctermbg=none      cterm=bold
