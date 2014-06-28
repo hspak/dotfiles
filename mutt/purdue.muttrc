@@ -1,5 +1,0 @@
-set from        = "hpak@purdue.edu"
-set sendmail    = "/usr/bin/msmtp -a purdue"
-set mbox        = "+Purdue/archive"
-set record      = "+Purdue/Sent"
-set postponed   = "+Purdue/Drafts"
