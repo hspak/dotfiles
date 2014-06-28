@@ -32,6 +32,7 @@ Plugin 'digitaltoad/vim-jade'
 Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'wting/rust.vim'
 Plugin 'Yggdroot/indentLine'
+Plugin 'jelera/vim-javascript-syntax'
 
 call vundle#end()
 

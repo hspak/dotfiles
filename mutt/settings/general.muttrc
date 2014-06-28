@@ -1,0 +1,73 @@
+# directories and commands
+set alias_file       = /home/hsp/.mutt/alias         # alias file
+set header_cache     = /home/hsp/.cache/mutt/headers # where to store headers
+set message_cachedir = /home/hsp/.cache/mutt/bodies  # where to store bodies
+set certificate_file = /home/hsp/.mutt/certificates  # where to store certs
+set mailcap_path     = /home/hsp/.mutt/mailcap       # entrys for filetypes
+set signature        = /home/hsp/.mutt/sig           # my signature file
+set tmpdir           = /tmp                          # where to keep temp files
+
+# vim
+set editor           = "/usr/bin/vim +':set textwidth=72' +':set wrap' +/^$"
+
+# index options
+set sort              = threads                     # like gmail
+set sort_aux          = reverse-last-date-received  # like gmail
+set uncollapse_jump                                 # don't collapse on an unread message
+set sort_re                                         # thread based on regex
+set reply_regexp      = "^(([Rr][Ee]?(\[[0-9]+\])?: *)?(\[[^]]+\] *)?)*"
+
+# pager options
+set pager_index_lines = 10  # number of index lines to show
+set pager_context     = 5   # number of context lines to show
+set pager_stop              # don't go to next message automatically
+set menu_scroll             # scroll in menus
+set smart_wrap              # don't split words
+set tilde                   # show tildes like in vim
+unset markers               # no ugly plus signs
+auto_view text/html         # view html automatically
+alternative_order text/plain text/enriched text/html
+set quote_regexp = "^( {0,4}[>|:#%]| {0,4}[a-z0-9]+[>|]+)+"
+
+# formats
+set date_format     = "%m/%d"
+set index_format    = "%3C [%Z] %D %-15.15F %s"
+set alias_format    = "%4n %t %-20a  %r"
+# these just give me headaches
+# bind index i            noop
+bind index,pager \#     noop
+bind index h            noop
+
+# bindings
+bind index l            display-message
+bind pager,attach h     exit
+bind pager d            half-down
+bind pager u            half-up
+
+bind index <space>      collapse-thread
+
+bind pager i            exit
+bind pager /            search
+bind pager <up>         previous-line
+bind pager <down>       next-line
+bind pager k            previous-line
+bind pager j            next-line
+bind pager gg           top
+bind pager G            bottom
+bind index gg           first-entry
+bind index G            last-entry
+bind pager K            previous-undeleted
+bind pager J            next-undeleted
+bind index K            previous-unread
+bind index J            next-unread
+bind index,pager R      group-reply
+
+bind attach l           view-attach
+bind index "^"          imap-fetch-mail
+
+# Allow Mutt to open new imap connection automatically.
+unset imap_passive
+set imap_keepalive = 300
+set mail_check = 120
+
+# vim: filetype=muttrc
