@@ -317,7 +317,7 @@ def print_all():
         sys.stdout.write('\033[48;5;%sm%s:%s' % (short, short, rgb))
         sys.stdout.write("\033[0m  ")
         sys.stdout.write('\033[38;5;%sm%s:%s' % (short, short, rgb))
-        sys.stdout.write("\033[0m\n")
+        sys.stdout.write("\033[0m\n\n")
     print "Printed all codes."
     print "You can translate a hex or 0-255 code by providing an argument."
 
@@ -369,8 +369,8 @@ if __name__ == '__main__':
     if len(arg) < 4 and int(arg) < 256:
         rgb = short2rgb(arg)
         sys.stdout.write('xterm color \033[38;5;%sm%s\033[0m -> RGB exact \033[38;5;%sm%s\033[0m' % (arg, arg, arg, rgb))
-        sys.stdout.write("\033[0m\n")
+        sys.stdout.write("\033[0m\n\n")
     else:
         short, rgb = rgb2short(arg)
         sys.stdout.write('RGB %s -> xterm color approx \033[38;5;%sm%s (%s)' % (arg, short, short, rgb))
-        sys.stdout.write("\033[0m\n")
+        sys.stdout.write("\033[0m\n\n")

@@ -11,8 +11,8 @@ done
 
 cd $HOME
 for file in .*; do
-  if [[ $file == "muttrc" ]]; then
-    echo "found .muttrc in ${pwd}"
+  if [[ $file == ".muttrc" ]]; then
+    echo "found .muttrc in $(pwd)"
     muttrc="$HOME/$file"
   fi
 done
@@ -45,7 +45,7 @@ echo "# from setup_settings" >> "$muttrc"
 echo "set my_server = \"$imap_server\"" >> "$muttrc"
 echo "set my_smtp_server = \"$smtp_server\"" >> "$muttrc"
 echo "set my_user = \"$user\"" >> "$muttrc"
-echo "set set my_pass = \"$pass\"" >> "$muttrc"
+echo "set my_pass = \"$pass\"" >> "$muttrc"
 echo "mailboxes $mboxes" >> "$muttrc"
 echo "$(cat "$muttrc".bak)" >> "$muttrc"
 echo "" >> "$muttrc"

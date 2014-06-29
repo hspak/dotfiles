@@ -33,7 +33,7 @@ dotfiles_subl() {
 }
 
 dotfiles_mutt() {
-  link dotfiles/mutt/settings .mutt
+  link mutt/settings .mutt
 
   # muttrc should be copied, safeguard against accidentally pushing credentials
   from="$dotfiles/mutt/muttrc"
