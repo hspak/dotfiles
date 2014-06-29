@@ -28,13 +28,14 @@ read -ep "Enter SMTP mail server: " smtp_server
 read -ep "Enter user: " user
 read -ep "Enter password: " pass
 read -ep "Enter mailbox prefix: " prefix
+read -ep "Enter mailbox inbox: " inbox
 
 input=""
-mboxes=""
+mboxes="$prefix$inbox"
 while [[ "$input" != "done" ]]; do
   read -ep "Enter mailboxes (enter 'done' to finish): " input
   if [[ "$input" != "done" ]]; then
-    mboxes="$mboxes \"$prefix$input\""
+    mboxes="$mboxes \"$prefix$inbox.$input\""
   fi
 done
 
@@ -48,4 +49,6 @@ echo "set my_user = \"$user\"" >> "$muttrc"
 echo "set my_pass = \"$pass\"" >> "$muttrc"
 echo "mailboxes $mboxes" >> "$muttrc"
 echo "$(cat "$muttrc".bak)" >> "$muttrc"
-echo "" >> "$muttrc"
+echo $"\n" >> "$muttrc"
+
+echo "Finished! Remember to move the mailboxes below the IMAP settings"

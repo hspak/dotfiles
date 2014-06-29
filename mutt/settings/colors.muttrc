@@ -165,11 +165,11 @@ color signature brightmagenta default
 color indicator yellow black
 color attachment brightblue default
 color error red default
-color message color224 default
+color message brightblack default
 color search brightwhite magenta
 color status yellow black
 color tree magenta default
-color normal color224 default
+color normal color250 default
 color tilde green default
 color bold brightyellow default
 color underline magenta default
