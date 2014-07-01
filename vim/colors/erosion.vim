@@ -81,7 +81,7 @@ hi SpecialComment             ctermfg=black                       cterm=bold
 hi SpecialKey                 ctermfg=green                       cterm=bold
 hi SpecialChar                ctermfg=14                          cterm=bold
 
-hi Underlined                 ctermfg=7
+hi Underlined                 ctermfg=0
 hi Ignore                     ctermfg=9
 hi Todo                       ctermfg=168       ctermbg=none      cterm=bold
 hi NonText                    ctermfg=0         ctermbg=none
@@ -94,15 +94,15 @@ hi Question                   ctermfg=14
 hi Repeat                     ctermfg=14
 hi Tag                        ctermfg=5
 
-hi VertSplit                  ctermfg=7         ctermbg=0         cterm=bold
+hi VertSplit                  ctermfg=0         ctermbg=0         cterm=bold
 hi WildMenu                   ctermfg=11        ctermbg=236       cterm=bold
 hi StatusLine                 ctermfg=8         ctermbg=234       cterm=none
-hi StatusLineNC               ctermfg=3         ctermbg=7         cterm=none
+hi StatusLineNC               ctermfg=3         ctermbg=0         cterm=none
 
-hi Folded                     ctermfg=8         ctermbg=7         cterm=bold
+hi Folded                     ctermfg=8         ctermbg=0         cterm=bold
 hi FoldColumn                 ctermfg=250       ctermbg=none      cterm=bold
 
-hi Pmenu                      ctermfg=7         ctermbg=none
+hi Pmenu                      ctermfg=0         ctermbg=none
 hi PmenuSel                   ctermfg=13        ctermbg=none      cterm=bold
 hi PmenuSbar                  ctermfg=0
 hi PmenuThumb                 ctermfg=0
@@ -149,4 +149,4 @@ hi GitGutterDelete            ctermfg=160       ctermbg=none
 
 hi TabLineFill                ctermfg=none      ctermbg=none      cterm=bold
 hi TabLine                    ctermfg=0         ctermbg=none      cterm=bold
-hi TabLineSel                 ctermfg=15        ctermbg=7         cterm=bold
+hi TabLineSel                 ctermfg=15        ctermbg=0         cterm=bold

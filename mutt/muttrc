@@ -1,6 +1,3 @@
-source .mutt/general.muttrc
-source .mutt/colors.muttrc
-
 # imap
 set mbox_type       = Maildir         # mailbox type
 set imap_user       = $my_user
@@ -10,8 +7,7 @@ set spoolfile       = "=INBOX"
 set postponed       = "=INBOX.Drafts"
 
 # going through fastmail, setting this will save the email twice
-#set record          = "=INBOX.Sent Items"
-set record = "/tmp"
+set unset record
 
 # smtp
 set smtp_pass = $my_pass
@@ -21,3 +17,8 @@ set ssl_starttls = yes
 set realname = "Hong Shick Pak"
 set from = hong@hspak.com
 set use_from = yes
+
+source .mutt/general.muttrc
+source .mutt/colors.muttrc
+source .mutt/bindings.muttrc
+

@@ -145,6 +145,7 @@
 
   # Assign floats
   for_window [class="Chromium"         ] border none
+  for_window [class="Google-chrome-stable"         ] border none
   for_window [class="Firefox"          ] border none
   for_window [class="mpv"              ] border none
   for_window [class="Spotify"          ] border none
