@@ -2,8 +2,10 @@
 # bind index i            noop
 bind index,pager \#     noop
 bind index h            noop
+bind index M            noop
 
 # bindings
+bind index Q            quit
 bind index l            display-message
 bind pager,attach h     exit
 bind pager d            half-down
@@ -31,10 +33,13 @@ bind attach l           view-attach
 bind index "^"          imap-fetch-mail
 
 # sidebar
-bind index,pager \CP sidebar-prev
-bind index,pager \CN sidebar-next
-bind index,pager \CO sidebar-open
+bind index,pager \CP     sidebar-prev
+bind index,pager \CN     sidebar-next
+bind index,pager \CO     sidebar-open
 
+macro index,pager \Cw    ":set from=hpak@purdue.edu"
+macro index,pager \Ca    ":set from=hong@hspak.com"
 macro index gi           "<change-folder> =INBOX<enter>"
+macro index A            ":set confirmappend=no delete=yes\n<save-message>=INBOX.Archive\n<sync-mailbox>:set confirmappend=yes delete=ask-yes\n"
 
 # vim: filetype=muttrc
