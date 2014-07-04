@@ -23,7 +23,7 @@ alias tmux='tmux -2'
 
 # -- Type less
 alias v='vim'
-alias sv='sudo -e'
+alias sv='sudo vim'
 alias ncm='ncmpcpp'
 alias snet='sudo netcfg'
 alias xresources='xrdb -merge ~/.Xresources'

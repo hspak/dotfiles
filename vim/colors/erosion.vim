@@ -40,7 +40,7 @@ hi Type                       ctermfg=1
 hi Boolean                    ctermfg=133       ctermbg=none
 hi Comment                    ctermfg=8
 hi Constant                   ctermfg=12
-hi Conditional                ctermfg=14
+hi Conditional                ctermfg=2
 hi Identifier                 ctermfg=4                           cterm=none
 hi Statement                  ctermfg=2         ctermbg=none
 hi Function                   ctermfg=6                           cterm=bold

@@ -45,7 +45,7 @@ bindkey -v
 case $TERM in
   xterm*|*rxvt*|screen*|gnome*)
      precmd() {
-       print -Pn "\e]0;%m:%~\a" 
+       print -Pn "\e]0;%m:%~\a"
        vcs_info
      }
      preexec () { print -Pn "\e]0;$1\a" }
@@ -100,7 +100,7 @@ if $isroot; then
     PROMPT='%B%F{magenta} ┌┤%b%F{white}%n%F{cyan}@%F{white}%m%b %B%F{blue}%~ ${vcs_info_msg_0_}
  %F{magenta}└╼%b%f '
 else
-    PROMPT='(%F{blue}$vimode%b) %b%F{grey}%n%F{cyan}@%F{red}%m %F{grey}$ '
+    PROMPT='(%F{blue}$vimode%b) %b%F{grey}%n%F{cyan}@%F{red}%m%F{grey} $ '
     RPROMPT='${vcs_info_msg_0_} %F{red}%~'
 fi
 # }}}
@@ -125,7 +125,7 @@ zle -A .backward-kill-word vi-backward-kill-word
 zle -A .backward-delete-char vi-backward-delete-char
 
 unset isroot
- 
+
 alias -s png=feh
 alias -s jpg=feh
 alias -s gif=feh

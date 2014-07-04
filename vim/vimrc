@@ -260,6 +260,7 @@ let g:neocomplete#enable_smart_case = 1
 let g:neocomplete#sources#syntax#min_keyword_length = 3
 
 " supertab
+let g:SuperTabMidWordCompletion = 0
 let g:SuperTabDefaultCompletionType = "<c-n>"
 
 " ctrlp
