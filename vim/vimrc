@@ -19,7 +19,6 @@ Plugin 'bling/vim-airline'
 Plugin 'bling/vim-bufferline'
 Plugin 'scrooloose/syntastic'
 Plugin 'Shougo/neocomplete.vim'
-Plugin 'ervandew/supertab'
 Plugin 'Lokaltog/vim-easymotion'
 
 " prettify bundles
@@ -260,8 +259,8 @@ let g:neocomplete#enable_smart_case = 1
 let g:neocomplete#sources#syntax#min_keyword_length = 3
 
 " supertab
-let g:SuperTabMidWordCompletion = 0
-let g:SuperTabDefaultCompletionType = "<c-n>"
+" let g:SuperTabMidWordCompletion = 0
+" let g:SuperTabDefaultCompletionType = "<c-n>"
 
 " ctrlp
 let g:ctrlp_working_path_mode = 'ra'
