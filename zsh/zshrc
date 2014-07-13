@@ -1,7 +1,4 @@
 [[ $- != *i* ]] && return ]]
-(( UID == 0 )) && isroot=true || isroot=false
-
-#fpath=($HOME/.zsh/completion $fpath )
 
 # Turn autocomplete on
 autoload -U compinit edit-command-line vcs_info zmv
@@ -65,7 +62,7 @@ zstyle ':completion:*:processes-names' command 'ps -eo comm'
 
 # cache completion
 zstyle ':completion:*' use-cache on
-zstyle ':completion:*' cache-path /tmp
+zstyle ':completion:*' cache-path "$HOME"/.cache
 
 # don't complete working directory in parent
 zstyle ':completion:*' ignore-parents parent pwd
@@ -89,6 +86,7 @@ zstyle ':vcs_info:git*' formats "%F{green}%s %b%F{white} %m%u%c% "
 
 zle -N zle-line-init
 zle -N zle-keymap-select
+
 vimode=i
 # set vimode to current editing mode
 function zle-line-init zle-keymap-select {
@@ -96,13 +94,8 @@ function zle-line-init zle-keymap-select {
     zle reset-prompt
 }
 
-if $isroot; then
-    PROMPT='%B%F{magenta} ┌┤%b%F{white}%n%F{cyan}@%F{white}%m%b %B%F{blue}%~ ${vcs_info_msg_0_}
- %F{magenta}└╼%b%f '
-else
-    PROMPT='(%F{blue}$vimode%b) %b%F{grey}%n%F{cyan}@%F{red}%m%F{grey} $ '
-    RPROMPT='${vcs_info_msg_0_} %F{red}%~'
-fi
+PROMPT='(%F{blue}$vimode%b) %b%F{grey}%n%F{cyan}@%F{red}%m%F{grey} $ '
+RPROMPT='${vcs_info_msg_0_} %F{red}%~'
 # }}}
 
 # Environmental
@@ -123,8 +116,6 @@ for snippets ($HOME/.zsh/*.zsh(N))
 # Allow backspace past insert position in vi-mode
 zle -A .backward-kill-word vi-backward-kill-word
 zle -A .backward-delete-char vi-backward-delete-char
-
-unset isroot
 
 alias -s png=feh
 alias -s jpg=feh

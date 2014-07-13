@@ -28,7 +28,7 @@
 # Bindings
 #
   # start a terminal
-  bindsym $mod+Return   exec termite
+  bindsym $mod+Return         exec termite
 
   # kill focused window
   bindsym $mod+Shift+Q        kill
@@ -69,17 +69,17 @@
   # bindsym $mod+d          focus child
 
   # switch to workspace
-  bindsym $mod+1          workspace 1
-  bindsym $mod+2          workspace 2
-  bindsym $mod+3          workspace 3
-  bindsym $mod+4          workspace 4
-  bindsym $mod+5          workspace 5
-  bindsym $mod+6          workspace 6
-  bindsym $mod+7          workspace 7
-  bindsym $mod+8          workspace 8
-  bindsym $mod+9          workspace 9
-  bindsym $mod+0          workspace 10
-  bindsym $mod+Tab        workspace back_and_forth
+  bindsym $mod+1              workspace 1
+  bindsym $mod+2              workspace 2
+  bindsym $mod+3              workspace 3
+  bindsym $mod+4              workspace 4
+  bindsym $mod+5              workspace 5
+  bindsym $mod+6              workspace 6
+  bindsym $mod+7              workspace 7
+  bindsym $mod+8              workspace 8
+  bindsym $mod+9              workspace 9
+  bindsym $mod+0              workspace 10
+  bindsym $mod+Tab            workspace back_and_forth
 
   # move focused container to workspace
   bindsym $mod+Shift+exclam       move workspace 1
@@ -108,7 +108,6 @@
   bindsym $mod+plus         scratchpad show
   bindsym $mod+m            [instance="nautilus"] scratchpad show
   bindsym $mod+n            [instance="ncmpcpp"] scratchpad show
-  # bindsym $mod+y            [class="Spotify"] scratchpad show
 
   # custom bindings
   bindsym $mod+O                exec chromium --ignore-gpu-blacklist
@@ -145,7 +144,6 @@
 
   # Assign floats
   for_window [class="Chromium"         ] border none
-  for_window [class="Google-chrome-stable"         ] border none
   for_window [class="Firefox"          ] border none
   for_window [class="mpv"              ] border none
   for_window [class="Spotify"          ] border none
@@ -253,4 +251,5 @@
   exec --no-startup-id feh --bg-scale ~/.config/i3/wallpaper.jpg &
   exec --no-startup-id wmname LG3D &
   exec --no-startup-id compton
+  exec --no-startup-id termite -e tmux
   exec --no-startup-id nm-applet

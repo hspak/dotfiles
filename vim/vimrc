@@ -18,8 +18,9 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'bling/vim-airline'
 Plugin 'bling/vim-bufferline'
 Plugin 'scrooloose/syntastic'
-Plugin 'Shougo/neocomplete.vim'
+"Plugin 'Shougo/neocomplete.vim'
 Plugin 'Lokaltog/vim-easymotion'
+Plugin 'Valloric/YouCompleteMe'
 
 " prettify bundles
 Plugin 'plasticboy/vim-markdown'
@@ -253,10 +254,13 @@ let g:syntastic_always_populate_loc_list = 1
 let syntastic_full_redraws = 0
 let g:sytastic_mode_map = {'mode': 'active'}
 
+" ycm
+let g:ycm_global_ycm_extra_conf = '/home/hsp/.ycm_extra_conf.py'
+
 " neocomplete
-let g:neocomplete#enable_at_startup = 1
-let g:neocomplete#enable_smart_case = 1
-let g:neocomplete#sources#syntax#min_keyword_length = 3
+"let g:neocomplete#enable_at_startup = 1
+"let g:neocomplete#enable_smart_case = 1
+"let g:neocomplete#sources#syntax#min_keyword_length = 3
 
 " supertab
 " let g:SuperTabMidWordCompletion = 0

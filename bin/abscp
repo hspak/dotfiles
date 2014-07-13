@@ -1,0 +1,57 @@
+#!/bin/bash
+
+if (( $# < 1 )); then
+  echo "usage: $0 <package> [target dir]"
+  exit 1
+fi
+
+if (( $# == 1 )); then
+  targ="$HOME/downloads"
+else
+  targ="$2"
+fi
+
+if [[ ! -d "$targ/$1" ]]; then
+  read -ep "Update abs? (y/n) " abs
+  [[ "$abs" != "no" && "$abs" != "n" ]] && sudo abs
+
+  repos=("testing" "core" "extra" "community-testing" "community" "multilib-testing" "multilib" "local")
+
+  for repo in "${repos[@]}"; do
+    if [[ ! -d "/var/abs/$repo" ]]; then
+      echo "$repo not found, ignoring..."
+      continue
+    fi
+
+    pkg="/var/abs/$repo/$1"
+    if [[ -d "$pkg" ]]; then
+      echo "found $1 in $pkg"
+      break
+    fi
+  done
+
+  if [[ ! -d "$pkg" ]]; then
+    echo "$1 not found in abs repo!"
+    exit 1
+  fi
+
+  cp -r "$pkg" "$targ"
+fi
+
+cd "$targ/$1"
+if [[ -f "PKGBUILD" ]]; then
+  read -ep "Edit PKGBUILD? (y/n) " edit
+
+  if [[ "$edit" != "n" && "$edit" != "no" ]]; then
+    [[ ! -z "$EDITOR" ]] && $EDITOR "PKGBUILD" || vim "PKGBUILD"
+  fi
+
+  flags=""
+  read -ep "Build? (y/n) " build
+  if [[ "$build" != "no" && "$build" != 'n' ]]; then
+    flags="-s"
+    read -ep "Install? (y/n) " install
+    [[ "$build" != "no" && "$build" != 'n' ]] && flags="-si"
+    [[ ! -z "$flags" ]] && makepkg $flags
+  fi
+fi
