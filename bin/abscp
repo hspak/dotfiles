@@ -36,6 +36,8 @@ if [[ ! -d "$targ/$1" ]]; then
   fi
 
   cp -r "$pkg" "$targ"
+else
+  echo "found existing directory, using it instead"
 fi
 
 cd "$targ/$1"
