@@ -25,12 +25,10 @@ dotfiles_bin()        { link bin bin;                                 }
 dotfiles_git()        { link git/gitconfig;                           }
 dotfiles_gtk()        { link gtk/gtkrc-2.0;                           }
 dotfiles_i3()         { link i3 .config/i3;                           }
+dotfiles_cower()      { link cower .config/cower;                     }
 dotfiles_bspwm()      { link bspwm .config/bspwm;                     }
 dotfiles_ncmpcpp()    { link ncmpcpp;                                 }
 dotfiles_tmux()       { link tmux/tmux.conf;                          }
-dotfiles_subl() {
-  link subl/Preferences.sublime-settings .config/sublime-text-3/Packages/User/Preferences.sublime-settings;
-}
 
 dotfiles_mutt() {
   link mutt/settings .mutt
@@ -97,6 +95,9 @@ dotfiles_vim() {
     mkdir ~/.vim/bundle
     git clone https://github.com/gmarik/Vundle.vim ~/.vim/bundle/Vundle.vim
     vim +BundleInstall
+
+    read -ep "compile clang for ycm (y/n): " clang
+    [[ "$clang" != "n" && "$clang" != "no" ]] && $HOME/.vim/bundle/YouCompleteMe/install.sh --clang-completer
   fi
 }
 

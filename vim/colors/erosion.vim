@@ -57,7 +57,7 @@ hi Typedef                    ctermfg=9
 hi StorageClass               ctermfg=4
 hi Structure                  ctermfg=1
 
-hi ColorColumn                ctermfg=0         ctermbg=none
+hi ColorColumn                ctermfg=8         ctermbg=0
 
 hi Macro                      ctermfg=6
 hi Define                     ctermfg=6
@@ -125,9 +125,9 @@ hi SyntasticStyleErrorLine    ctermfg=none      ctermbg=none
 hi SyntasticStyleWarningLine  ctermfg=none      ctermbg=none
 
 hi SpellBad                   ctermfg=1         ctermbg=none      cterm=underline
-hi SpellCap                   ctermfg=0         ctermbg=1
-hi SpellLocal                 ctermfg=16        ctermbg=cyan      cterm=bold
-hi SpellRare                  ctermfg=16        ctermbg=magenta   cterm=bold
+hi SpellCap                   ctermfg=8         ctermbg=none
+hi SpellLocal                 ctermfg=8         ctermbg=none      cterm=bold
+hi SpellRare                  ctermfg=8         ctermbg=none      cterm=bold
 
 hi DiffOldLine                ctermfg=214       ctermbg=none
 hi DiffOldFile                ctermfg=160       ctermbg=none

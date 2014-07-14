@@ -18,9 +18,10 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'bling/vim-airline'
 Plugin 'bling/vim-bufferline'
 Plugin 'scrooloose/syntastic'
-"Plugin 'Shougo/neocomplete.vim'
 Plugin 'Lokaltog/vim-easymotion'
+
 Plugin 'Valloric/YouCompleteMe'
+"Plugin 'Shougo/neocomplete.vim'
 
 " prettify bundles
 Plugin 'plasticboy/vim-markdown'
@@ -76,8 +77,9 @@ set magic                             " enables regex highlight?
 set shiftround                        " rounds shifts
 set noshowmode                        " redundant with airline
 
-set ttyfast
-set nocursorcolumn                    " I don't ever see this
+" performance helpers
+" -------------------------------------
+set ttyfast                           " probably doesn't help me
 set lazyredraw
 set synmaxcol=200
 syntax sync minlines=200
@@ -210,7 +212,7 @@ au FileType cpp         setlocal ts=4 sw=4
 au FileType rust        setlocal ts=4 sw=4
 au FileType make        setlocal noet
 au FileType python      setlocal sw=4 ts=4 et
-au FileType md          setlocal textwidth=80 cc=80
+au FileType mkd         setlocal textwidth=80 cc=80
 
 let &titleold=getcwd()
 
@@ -270,3 +272,6 @@ let g:ycm_global_ycm_extra_conf = '/home/hsp/.ycm_extra_conf.py'
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_clear_cache_on_exit = 1
 let g:ctrlp_match_window = 'bottom,order:ttb,min:1,max:15,results:15'
+
+" markdown
+let g:vim_markdown_folding_disabled=1

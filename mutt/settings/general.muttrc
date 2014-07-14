@@ -8,7 +8,7 @@ set signature         = /home/hsp/.mutt/sig           # my signature file
 set tmpdir            = /tmp                          # where to keep temp files
 
 # general options
-set editor            = "/usr/bin/vim +':set textwidth=72' +':set wrap' +/^$"
+set editor            = "/usr/bin/vim +':set textwidth=76' +':set wrap' +/^$"
 set sleep_time        = 0    # remove silly pause
 
 # sidebar
