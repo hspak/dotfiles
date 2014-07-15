@@ -12,7 +12,7 @@ set editor            = "/usr/bin/vim +':set textwidth=76' +':set wrap' +/^$"
 set sleep_time        = 0    # remove silly pause
 
 # sidebar
-set sidebar_visible   = no
+set sidebar_visible   = yes
 set sidebar_width     = 25
 set sidebar_sort      = yes
 set sidebar_format    = "%3N %B"
