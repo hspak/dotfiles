@@ -1,13 +1,27 @@
 #!/bin/bash
 
-DIR="${PWD##*/}"
 shopt -s extglob
+
+pkg="${PWD##*/}"
+
+if (( $# > 0 )); then
+  pkg="$1"
+  if [[ -d "$HOME/code/pkgBUILDs/$pkg" ]]; then
+    cd "$HOME/code/PKGBUILDs/$pkg"
+  elif [[ -d "$HOME/code/pkgBUILDs/$pkg-git" ]]; then
+    cd "$HOME/code/PKGBUILDs/$pkg-git"
+  else
+    printf "couldn't find PKGBUILD directory, abort...\n"
+    exit 1
+  fi
+fi
 
 makepkg -c --nobuild
 mkaurball
 burp *.src.tar.gz
 rm -rf !(PKGBUILD|*.install|*.patch)
+
 cd ..
-git add "$DIR"
-git commit -m "$DIR: updated"
+git add "$pkg"
+git commit -m "$pkg: updated"
 git push -u origin master
