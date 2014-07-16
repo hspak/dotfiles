@@ -1,0 +1,13 @@
+#!/bin/bash
+
+DIR="${PWD##*/}"
+shopt -s extglob
+
+makepkg -c --nobuild
+mkaurball
+burp *.src.tar.gz
+rm -rf !(PKGBUILD|*.install|*.patch)
+cd ..
+git add "$DIR"
+git commit -m "$DIR: updated"
+git push -u origin master

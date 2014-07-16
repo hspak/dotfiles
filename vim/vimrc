@@ -212,7 +212,7 @@ au FileType cpp         setlocal ts=4 sw=4
 au FileType rust        setlocal ts=4 sw=4
 au FileType make        setlocal noet
 au FileType python      setlocal sw=4 ts=4 et
-au FileType mkd         setlocal textwidth=80 cc=80
+au FileType mkd         setlocal ts=4 sw=4 textwidth=80 cc=80 et
 
 let &titleold=getcwd()
 
