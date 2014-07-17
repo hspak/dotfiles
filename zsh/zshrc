@@ -3,51 +3,42 @@
 # Turn autocomplete on
 autoload -U compinit edit-command-line vcs_info zmv
 compinit
-zle -N edit-command-line
 
 # history
 HISTFILE=~/.zhistory
 HISTSIZE=1500
 SAVEHIST=1000
 
-setopt nobeep \
-    notify \
-    nobgnice \
-    correct \
-    interactivecomments \
-    printexitvalue \
-    autocd \
-    autopushd \
-    pushdtohome \
-    chaselinks \
-    histverify \
-    histappend \
-    sharehistory \
-    histreduceblanks \
-    histignorespace \
-    histignorealldups \
-    histsavenodups \
-    braceccl \
-    dotglob \
-    extendedglob \
-    numericglobsort \
-    nolisttypes \
-    promptsubst \
-    completealiases
+# changing directories
+setopt autocd autopushd chaselinks pushdignoredups pushdtohome
 
-# Enable vi mode
+# completion
+setopt alwaystoend automenu completealiases completeinword nolistbeep \
+       listpacked listtypes
+
+# expansion and globbing
+setopt badpattern braceccl extendedglob dotglob numericglobsort
+
+# history
+setopt histfcntllock histignorealldups histignorespace \
+       histreduceblanks histsavenodups histverify hist_append
+
+# io
+setopt correct noflowcontrol interactivecomments printexitvalue
+
+# jobs
+setopt nobgnice notify
+
+# prompt
+setopt promptsubst
+
+# zle
+setopt nobeep vi
+
 bindkey -v
-
-# Enable setting terminal titles
-case $TERM in
-  xterm*|*rxvt*|screen*|gnome*)
-     precmd() {
-       print -Pn "\e]0;%m:%~\a"
-       vcs_info
-     }
-     preexec () { print -Pn "\e]0;$1\a" }
-    ;;
-esac
+zle -N edit-command-line
+zle -A .backward-kill-word vi-backward-kill-word
+zle -A .backward-delete-char vi-backward-delete-char
 
 # completion style {{{
 # menu completion
@@ -98,6 +89,17 @@ PROMPT='(%F{blue}$vimode%b) %b%F{grey}%n%F{cyan}@%F{red}%m%F{grey} $ '
 RPROMPT='${vcs_info_msg_0_} %F{red}%~'
 # }}}
 
+# Enable setting terminal titles
+case $TERM in
+  xterm*|*rxvt*|screen*|gnome*)
+     precmd() {
+       print -Pn "\e]0;%m:%~\a"
+       vcs_info
+     }
+     preexec () { print -Pn "\e]0;$1\a" }
+    ;;
+esac
+
 # Environmental
 [[ -n "$TMUX" ]] && export TERM=screen-256color
 export EDITOR=vim
@@ -112,10 +114,6 @@ fi
 
 for snippets ($HOME/.zsh/*.zsh(N))
   source $snippets
-
-# Allow backspace past insert position in vi-mode
-zle -A .backward-kill-word vi-backward-kill-word
-zle -A .backward-delete-char vi-backward-delete-char
 
 alias -s png=feh
 alias -s jpg=feh
