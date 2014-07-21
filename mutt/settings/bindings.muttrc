@@ -3,6 +3,7 @@
 bind index,pager \#     noop
 bind index h            noop
 bind index M            noop
+bind index P            noop
 
 # bindings
 bind index Q            quit
@@ -41,5 +42,6 @@ macro index,pager \Cw    ":set from=hpak@purdue.edu"
 macro index,pager \Ca    ":set from=hong@hspak.com"
 macro index gi           "<change-folder> =INBOX<enter>"
 macro index A            ":set confirmappend=no delete=yes\n<save-message>=INBOX.Archive\n<sync-mailbox>:set confirmappend=yes delete=ask-yes\n"
+macro index P            ":set confirmappend=no delete=yes\n<save-message>=INBOX.Purdue\n<sync-mailbox>:set confirmappend=yes delete=ask-yes\n"
 
 # vim: filetype=muttrc

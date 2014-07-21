@@ -13,7 +13,7 @@ color_good = "#667448"
 # Tue 30 Jul 11:59:46 PM KW31
 #                          ^-- calendar week
 status.register("clock",
-    format="%a %-d %b %X",
+    format="%a %-d %b %I:%M %p",
     color=color_base,)
 
 # Shows the average load of the last minute and the last 5 minutes
@@ -38,7 +38,7 @@ status.register("temp",
 # This would also display a desktop notification (via dbus) if the percentage
 # goes below 5 percent while discharging. The block will also color RED.
 status.register("battery",
-    format="{status}/{consumption:.2f}W {percentage:.2f}% [{percentage_design:.2f}%] {remaining:%E%hh:%Mm}",
+    format="{status} {percentage:.2f}%",
     alert=True,
     alert_percentage=5,
     status={
@@ -60,6 +60,12 @@ status.register("battery",
 # (defaults of format_down and color_down)
 #
 # Note: the network module requires PyPI package netifaces
+status.register("network",
+    interface="wlp3s0",
+    format_up="{v4cidr}",
+    color_up=color_good,
+    color_down=color_bad,)
+
 status.register("network",
     interface="eno1",
     format_up="{v4cidr}",

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if (( $# < 1 )); then
-  echo "usage: $0 <package> [target dir]"
+  echo "usage: ${0##*/} <package> [target dir]"
   exit 1
 fi
 
@@ -11,13 +11,19 @@ else
   targ="$2"
 fi
 
-if [[ ! -d "$targ/$1" ]]; then
+if [[ -d "$targ/$1" ]]; then
+  read -ep "found existing directory, use? (y/n) " use_dir
+fi
+
+if [[ "$use_dir" != "yes" && "$use_dir" != "no" ]]; then
+  rm -rf "$targ/$1"
   read -ep "Update abs? (y/n) " abs
   [[ "$abs" != "no" && "$abs" != "n" ]] && sudo abs
 
   repos=("testing" "core" "extra" "community-testing" "community" "multilib-testing" "multilib" "local")
 
   for repo in "${repos[@]}"; do
+    echo $repo
     if [[ ! -d "/var/abs/$repo" ]]; then
       echo "$repo not found, ignoring..."
       continue
@@ -36,8 +42,6 @@ if [[ ! -d "$targ/$1" ]]; then
   fi
 
   cp -r "$pkg" "$targ"
-else
-  echo "found existing directory, using it instead"
 fi
 
 cd "$targ/$1"
@@ -53,7 +57,7 @@ if [[ -f "PKGBUILD" ]]; then
   if [[ "$build" != "no" && "$build" != 'n' ]]; then
     flags="-s"
     read -ep "Install? (y/n) " install
-    [[ "$build" != "no" && "$build" != 'n' ]] && flags="-si"
+    [[ "$install" != "no" && "$install" != 'n' ]] && flags="-si"
     [[ ! -z "$flags" ]] && makepkg $flags
   fi
 fi
