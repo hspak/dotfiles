@@ -1,9 +1,6 @@
 # Set terminal options
 [[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources &
 
-# ???
-# /usr/bin/start-pulseaudio-x11
-
 setxkbmap -option ctrl:nocaps &
 exec i3
 # /home/hsp/bin/batalarm &

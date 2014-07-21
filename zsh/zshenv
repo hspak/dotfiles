@@ -1,0 +1,50 @@
+# Ibus vars
+export GTK_IM_MODULE=ibus
+export XMODIFIERS=@im=ibus
+export QT_IM_MODULE=ibus
+
+# ccache
+export CCACHE_DIR=/tmp/ccache
+
+# color for less
+export LESS=-R # use -X to avoid sending terminal initialization
+export LESS_TERMCAP_mb=$'\e[01;34m'
+export LESS_TERMCAP_md=$'\e[01;34m'
+export LESS_TERMCAP_me=$'\e[0m'
+export LESS_TERMCAP_se=$'\e[0m'
+export LESS_TERMCAP_ue=$'\e[0m'
+export LESS_TERMCAP_us=$'\e[01;32m'
+export PAGER=less
+
+# no wine msgs
+export WINEDEBUG=-all
+
+# disable less history file
+export LESSHISTFILE=-
+
+# add things to path
+PATH="$PATH:/usr/local/MATLAB/MATLAB_Production_Server/R2013a/bin:/home/hsp/bin:/home/hsp/.gem/ruby/2.0.0/bin:/home/hsp/.gem/ruby/2.1.0/bin"
+export PATH
+
+# for angular
+export CHROME_BIN=/usr/bin/chromium
+
+# for bspwm
+#PATH="$PATH:/home/hsp/.config/bspwm"
+#export PATH
+
+# bspwm panel vars
+export PANEL_HEIGHT=20
+export PANEL_FIFO=/tmp/panel-fifo
+
+export BSPWM_TREE=/tmp/bspwm.tree
+export BSPWM_HISTORY=/tmp/bspwm.history
+export BSPWM_STACK=/tmp/bspwm.stack
+
+# colors
+if [[ -f ~/.dircolors ]] && type -p dircolors >/dev/null; then
+  eval $(dircolors -b ~/.dircolors)
+fi
+
+# autostart x
+# exec startx &> ~/.xlog

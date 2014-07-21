@@ -25,8 +25,11 @@ dotfiles_bin()        { link bin bin;                                 }
 dotfiles_git()        { link git/gitconfig;                           }
 dotfiles_gtk()        { link gtk/gtkrc-2.0;                           }
 dotfiles_i3()         { link i3 .config/i3;                           }
+dotfiles_dunst()      { link dunst .config/dunst;                     }
 dotfiles_cower()      { link cower .config/cower;                     }
 dotfiles_bspwm()      { link bspwm .config/bspwm;                     }
+dotfiles_htop()       { link htop .config/htop;                       }
+dotfiles_termite()    { link termite .config/termite;                 }
 dotfiles_ncmpcpp()    { link ncmpcpp;                                 }
 dotfiles_tmux()       { link tmux/tmux.conf;                          }
 
@@ -36,18 +39,12 @@ dotfiles_mutt() {
   # muttrc should be copied, safeguard against accidentally pushing credentials
   from="$dotfiles/mutt/muttrc"
   to="$HOME/.muttrc"
-  cp "$from" "$to"
-  echo "copied $from to $to"
-}
-
-dotfiles_dunst() {
-  [[ -d $HOME/.config/dunst ]] || mkdir $HOME/.config/dunst
-  link dunst/dunstrc .config/dunst/dunstrc;
-}
-
-dotfiles_termite() {
-  [[ -d $HOME/.config/termite ]] || mkdir $HOME/.config/termite
-  link termite/termite.cfg .config/termite/config;
+  if [[ ! -f "$to" ]]; then
+    cp "$from" "$to"
+    printf "$to already exists"
+  else
+    echo "copied $from to $to"
+  fi
 }
 
 dotfiles_compton() {
@@ -75,6 +72,7 @@ dotfiles_X() {
 dotfiles_zsh() {
   link zsh/zprofile
   link zsh/zshrc
+  link zsh/zshenv
 
   link zsh/dircolors
   link zsh/inputrc
@@ -91,6 +89,7 @@ dotfiles_vim() {
 
   [[ ! -d ~/.vim/backup ]] && mkdir ~/.vim/backup
   [[ ! -d ~/.vim/swap ]] && mkdir ~/.vim/swap
+
   if [[ ! -d ~/.vim/bundle/Vundle.vim ]]; then
     mkdir ~/.vim/bundle
     git clone https://github.com/gmarik/Vundle.vim ~/.vim/bundle/Vundle.vim

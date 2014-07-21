@@ -70,7 +70,7 @@ set cmdheight=1                       " set the command height
 set showmatch                         " show matching brackets (),{},[]
 set number                            " show number line
 set hidden                            " allow unsaved buffers to go in background
-set shell=/bin/zsh                    " set shell
+set shell=/bin/bash                   " set shell
 set cursorline                        " highlight current line
 set visualbell                        " don't beep
 set magic                             " enables regex highlight?
