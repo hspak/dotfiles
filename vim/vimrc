@@ -19,9 +19,7 @@ Plugin 'bling/vim-airline'
 Plugin 'bling/vim-bufferline'
 Plugin 'scrooloose/syntastic'
 Plugin 'Lokaltog/vim-easymotion'
-
 Plugin 'Valloric/YouCompleteMe'
-"Plugin 'Shougo/neocomplete.vim'
 
 " prettify bundles
 Plugin 'plasticboy/vim-markdown'
@@ -31,9 +29,10 @@ Plugin 'JuliaLang/julia-vim'
 Plugin 'cazador481/vim-systemverilog'
 Plugin 'digitaltoad/vim-jade'
 Plugin 'octol/vim-cpp-enhanced-highlight'
-Plugin 'wting/rust.vim'
+" Plugin 'wting/rust.vim'
 Plugin 'Yggdroot/indentLine'
 Plugin 'jelera/vim-javascript-syntax'
+Plugin 'fatih/vim-go'
 
 call vundle#end()
 
@@ -213,6 +212,7 @@ au FileType rust        setlocal ts=4 sw=4
 au FileType make        setlocal noet
 au FileType python      setlocal sw=4 ts=4 et
 au FileType mkd         setlocal ts=4 sw=4 textwidth=80 cc=80 et
+au FileType go          setlocal sw=8 ts=8 noet
 
 let &titleold=getcwd()
 

@@ -1,2 +1,4 @@
+. ~/.zshenv
+#
 # autostart x
 # exec startx &> ~/.xlog

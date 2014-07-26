@@ -3,7 +3,7 @@
 #
 
 # -- Admin tasks
-alias ls='ls -lh --color'
+alias ls='ls -lhv --color'
 alias df='df -h'
 alias du='du -h'
 alias ..='cd ..'

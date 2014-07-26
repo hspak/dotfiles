@@ -102,9 +102,9 @@ hi StatusLineNC               ctermfg=3         ctermbg=0         cterm=none
 hi Folded                     ctermfg=8         ctermbg=0         cterm=bold
 hi FoldColumn                 ctermfg=250       ctermbg=none      cterm=bold
 
-hi Pmenu                      ctermfg=0         ctermbg=none
-hi PmenuSel                   ctermfg=13        ctermbg=none      cterm=bold
-hi PmenuSbar                  ctermfg=0
+hi Pmenu                      ctermfg=15       ctermbg=0
+hi PmenuSel                   ctermfg=6       ctermbg=0          cterm=bold
+hi PmenuSbar                  ctermfg=2
 hi PmenuThumb                 ctermfg=0
 
 hi LineNr                     ctermfg=0         ctermbg=none
