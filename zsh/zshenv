@@ -24,7 +24,7 @@ export LESSHISTFILE=-
 
 # golang
 GOPATH="/home/hsp/code/gocode"
-export $GOPATH
+export GOPATH
 
 # add things to path
 PATH="$PATH:/usr/local/MATLAB/MATLAB_Production_Server/R2013a/bin:/home/hsp/bin:/home/hsp/.gem/ruby/2.0.0/bin:/home/hsp/.gem/ruby/2.1.0/bin:$GOPATH/bin"
