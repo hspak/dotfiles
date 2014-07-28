@@ -16,6 +16,9 @@ export LESS_TERMCAP_ue=$'\e[0m'
 export LESS_TERMCAP_us=$'\e[01;32m'
 export PAGER=less
 
+# zsh + ssh without it = no backspace
+export TERM=xterm-256color
+
 # no wine msgs
 export WINEDEBUG=-all
 
