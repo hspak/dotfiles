@@ -39,3 +39,4 @@
   smtpserver = mail.messagingengine.com
   smtpuser = hspak@fastmail.fm
   smtpserverport = 587
+	suppresscc = author
