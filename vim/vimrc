@@ -33,7 +33,6 @@ Plugin 'wting/rust.vim'
 Plugin 'Yggdroot/indentLine'
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'fatih/vim-go'
-Plugin 'severin-lemaignan/vim-minimap'
 
 call vundle#end()
 
