@@ -78,7 +78,7 @@ hi WarningMsg                 ctermfg=225                         cterm=bold
 
 hi Special                    ctermfg=3
 hi SpecialComment             ctermfg=black                       cterm=bold
-hi SpecialKey                 ctermfg=green                       cterm=bold
+hi SpecialKey                 ctermfg=235                         cterm=none
 hi SpecialChar                ctermfg=14                          cterm=bold
 
 hi Underlined                 ctermfg=0

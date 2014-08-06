@@ -38,6 +38,7 @@ bind index,pager \CP     sidebar-prev
 bind index,pager \CN     sidebar-next
 bind index,pager \CO     sidebar-open
 
+macro index,pager b      "<enter-command>toggle sidebar_visible<enter>"
 macro index,pager \Cw    ":set from=hpak@purdue.edu"
 macro index,pager \Ca    ":set from=hong@hspak.com"
 macro index gi           "<change-folder> =INBOX<enter>"

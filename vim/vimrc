@@ -19,11 +19,10 @@ Plugin 'bling/vim-airline'
 Plugin 'bling/vim-bufferline'
 Plugin 'scrooloose/syntastic'
 Plugin 'Lokaltog/vim-easymotion'
-Plugin 'Valloric/YouCompleteMe'
 
 " prettify bundles
 Plugin 'plasticboy/vim-markdown'
-Plugin 'bronson/vim-trailing-whitespace'
+" Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'vim-scripts/MatlabFilesEdition'
 Plugin 'JuliaLang/julia-vim'
 Plugin 'cazador481/vim-systemverilog'
@@ -32,6 +31,9 @@ Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'wting/rust.vim'
 Plugin 'Yggdroot/indentLine'
 Plugin 'jelera/vim-javascript-syntax'
+
+" sensitive plugins
+Plugin 'Valloric/YouCompleteMe'
 Plugin 'fatih/vim-go'
 
 call vundle#end()
@@ -196,6 +198,10 @@ noremap <silent> <LocalLeader>9 :buffer 9<CR>
 " allow writing root files when forgetting to sudo
 cmap w!! w !sudo tee % >/dev/null<CR>:e!<CR><CR>
 
+map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
+\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
+
 " auto commands
 " -------------------------------------
 " turn hash bangs into executeables automatically
@@ -212,7 +218,7 @@ au FileType rust        setlocal ts=4 sw=4
 au FileType make        setlocal noet
 au FileType python      setlocal sw=4 ts=4 et
 au FileType mkd         setlocal ts=4 sw=4 textwidth=80 cc=80 et
-au FileType go          setlocal sw=8 ts=8 noet
+au FileType go          setlocal sw=4 ts=4 noet
 
 let &titleold=getcwd()
 
@@ -225,8 +231,9 @@ let NERDChristmasTree = 1
 let NERDRemoveExtraSpaces = 1
 
 " indentLine
-let g:indentLine_color_term = 234
+let g:indentLine_color_term = 235
 let g:indentLine_char = '|'
+set list lcs=trail:·,tab:»⋅,nbsp:⋅,
 
 " delimiteMate
 let delimitMate_expand_cr = 1
@@ -258,16 +265,7 @@ let syntastic_full_redraws = 0
 let g:sytastic_mode_map = {'mode': 'active'}
 
 " ycm
-let g:ycm_global_ycm_extra_conf = '/home/hsp/.ycm_extra_conf.py'
-
-" neocomplete
-"let g:neocomplete#enable_at_startup = 1
-"let g:neocomplete#enable_smart_case = 1
-"let g:neocomplete#sources#syntax#min_keyword_length = 3
-
-" supertab
-" let g:SuperTabMidWordCompletion = 0
-" let g:SuperTabDefaultCompletionType = "<c-n>"
+let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
 
 " ctrlp
 let g:ctrlp_working_path_mode = 'ra'
