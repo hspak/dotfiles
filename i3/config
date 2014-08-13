@@ -163,6 +163,7 @@
   for_window [instance="ncmpcpp"       ] floating enable
   for_window [instance="tk"            ] floating enable
   for_window [instance="nautilus"      ] floating enable border none
+  for_window [instance="virt-manager"  ] floating enable border none
   for_window [instance="file_progress" ] floating enable border none
   for_window [instance="nm-applet"     ] border none
   for_window [title="Event Tester"     ] floating enable
