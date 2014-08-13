@@ -251,8 +251,8 @@
 #
 # Execute
 #
-  # exec --no-startup-id compton -bGc --config ~/.config/compton/config &
+  exec --no-startup-id compton -bGc --config ~/.config/compton/config &
   exec --no-startup-id feh --bg-scale ~/.config/i3/wallpaper.jpg &
   exec --no-startup-id wmname LG3D &
-  exec --no-startup-id compton
+  # exec --no-startup-id compton
   exec --no-startup-id termite -e tmux
