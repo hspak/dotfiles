@@ -153,6 +153,7 @@
   for_window [class="feh"              ] floating enable
   for_window [class="Sonata"           ] floating enable
   for_window [instance="Steam"         ] floating enable border none
+  for_window [instance="qt4-ssh-askpass" ] floating enable border none
   for_window [instance="gcr-prompter"  ] floating enable border none
   for_window [instance="skype"         ] floating enable border none
   for_window [class="Steam"            ] floating enable border none
