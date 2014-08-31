@@ -29,6 +29,7 @@ Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'wting/rust.vim'
 Plugin 'Yggdroot/indentLine'
 Plugin 'jelera/vim-javascript-syntax'
+Plugin 'justinmk/vim-syntax-extra'
 
 " sensitive plugins
 Plugin 'Valloric/YouCompleteMe'
@@ -217,6 +218,7 @@ au FileType make        setlocal noet
 au FileType python      setlocal sw=4 ts=4 et
 au FileType mkd         setlocal ts=4 sw=4 textwidth=80 cc=80 et
 au FileType go          setlocal sw=4 ts=4 noet
+au FileType lex         setlocal sw=8 ts=8
 
 let &titleold=getcwd()
 
