@@ -32,8 +32,6 @@
   decorate = full
 [core]
   editor = vim
-[push]
-  default = simple
 [sendemail]
   smtpencryption = tls
   smtpserver = mail.messagingengine.com
