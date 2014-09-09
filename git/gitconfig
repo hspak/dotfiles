@@ -38,3 +38,5 @@
   smtpuser = hspak@fastmail.fm
   smtpserverport = 587
 	suppresscc = author
+[push]
+	default = simple
