@@ -1,6 +1,10 @@
 #
 # .zalias: sourced by .bashrc and .zshrc
 #
+#
+
+# bleh
+alias iback='sudo ~/code/intel-gpu-tools/tools/intel_backlight 50'
 
 # -- Admin tasks
 alias ls='ls -lhv --color --group-directories-first'
