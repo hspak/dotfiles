@@ -14,7 +14,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'Raimondi/delimitMate'
 Plugin 'vim-scripts/a.vim'
 Plugin 'kien/ctrlp.vim'
-Plugin 'airblade/vim-gitgutter'
+" Plugin 'airblade/vim-gitgutter'
 Plugin 'bling/vim-airline'
 Plugin 'bling/vim-bufferline'
 Plugin 'Lokaltog/vim-easymotion'
@@ -25,7 +25,7 @@ Plugin 'vim-scripts/MatlabFilesEdition'
 Plugin 'JuliaLang/julia-vim'
 Plugin 'cazador481/vim-systemverilog'
 Plugin 'digitaltoad/vim-jade'
-Plugin 'octol/vim-cpp-enhanced-highlight'
+" Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'wting/rust.vim'
 Plugin 'Yggdroot/indentLine'
 Plugin 'jelera/vim-javascript-syntax'
@@ -209,6 +209,13 @@ au BufWritePost * if getline(1) =~ "^#!" | silent :!chmod +x <afile>
 " save last position
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif "
 
+" save on lose focus
+au FocusLost * :wa
+set wildignore+=*.lib,*.dll,*.exe,*.o,*.obj,*.pyc,*.pyo,*.png,*.gif,*.jpg,*.jpeg,*.bmp,*.tiff " ignore filetypes for auto complete
+
+" highlight yacc files as if they were cpp files
+au BufRead,BufNewFile *.y set syntax=cpp
+
 " file type specific settings
 au FileType c           setlocal ts=8 sw=8
 au FileType javascript  setlocal ts=2 sw=2 et
@@ -258,6 +265,7 @@ let g:ycm_error_symbol = '✘'
 let g:ycm_warning_symbol = '⚠'
 let g:ycm_always_populate_location_list = 1
 let g:ycm_auto_start_csharp_server = 0
+let g:ycm_server_log_level = 'critical'
 
 " ctrlp
 let g:ctrlp_working_path_mode = 'ra'
