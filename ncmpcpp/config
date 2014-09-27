@@ -397,7 +397,7 @@ playlist_editor_display_mode = "columns" (classic/columns)
 #
 display_bitrate = "yes"
 #
-display_remaining_time = yesno"
+# display_remaining_time = yes"
 #
 #regular_expressions = "basic" (basic/extended)
 #
@@ -468,7 +468,7 @@ display_remaining_time = yesno"
 #
 #state_flags_color = "default"
 #
-main_window_color = "blue"
+# main_window_color = "blue"
 #
 #color1 = "white"
 #
