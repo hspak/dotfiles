@@ -57,6 +57,8 @@ flags = [
 '-I', './ClangCompleter',
 '-isystem', '/usr/include',
 '-isystem', '/usr/include/sys',
+'-isystem', '/usr/include/arpa',
+'-isystem', '/usr/include/netinet',
 '-isystem', '/usr/local/include',
 
 # Going to have to check this every update
