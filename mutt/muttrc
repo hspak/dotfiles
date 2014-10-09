@@ -18,7 +18,6 @@ set realname = "Hong Shick Pak"
 set from = hong@hspak.com
 set use_from = yes
 
-source .mutt/general.muttrc
-source .mutt/colors.muttrc
-source .mutt/bindings.muttrc
-
+source ~/.mutt/general.muttrc
+source ~/.mutt/colors.muttrc
+source ~/.mutt/bindings.muttrc
