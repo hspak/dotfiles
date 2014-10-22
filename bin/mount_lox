@@ -1,0 +1,9 @@
+#!/bin/bash
+
+while true; do
+  gvfs-mount 'smb://share@lox/share'
+  if (( $? == 0 )); then
+    break
+  fi
+  sleep 1
+done

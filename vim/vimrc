@@ -228,6 +228,11 @@ au FileType go          setlocal sw=4 ts=4 noet
 au FileType lex         setlocal sw=8 ts=8
 au FileType yacc        setlocal sw=8 ts=8
 
+" correct :W to :w, :Q to :q, & :Wq to :wq
+cnoreabbrev <expr> W ((getcmdtype() is# ':' && getcmdline() is# 'W')?('w'):('W'))
+cnoreabbrev <expr> Q ((getcmdtype() is# ':' && getcmdline() is# 'Q')?('q'):('Q'))
+cnoreabbrev <expr> Wq ((getcmdtype() is# ':' && getcmdline() is# 'Wq')?('wq'):('Wq'))
+
 let &titleold=getcwd()
 
 " plugin settings
@@ -274,3 +279,6 @@ let g:ctrlp_match_window = 'bottom,order:ttb,min:1,max:15,results:15'
 
 " markdown
 let g:vim_markdown_folding_disabled=1
+
+" go
+" let g:go_fmt_command = "goimports"
