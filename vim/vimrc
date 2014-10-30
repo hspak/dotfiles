@@ -22,10 +22,8 @@ Plugin 'Lokaltog/vim-easymotion'
 " prettify bundles
 Plugin 'plasticboy/vim-markdown'
 Plugin 'vim-scripts/MatlabFilesEdition'
-Plugin 'JuliaLang/julia-vim'
 Plugin 'cazador481/vim-systemverilog'
-Plugin 'digitaltoad/vim-jade'
-" Plugin 'octol/vim-cpp-enhanced-highlight'
+Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'wting/rust.vim'
 Plugin 'Yggdroot/indentLine'
 Plugin 'jelera/vim-javascript-syntax'
@@ -227,6 +225,7 @@ au FileType mkd         setlocal ts=4 sw=4 textwidth=80 cc=80 et
 au FileType go          setlocal sw=4 ts=4 noet
 au FileType lex         setlocal sw=8 ts=8
 au FileType yacc        setlocal sw=8 ts=8
+au FileType json        setlocal conceallevel=0
 
 " correct :W to :w, :Q to :q, & :Wq to :wq
 cnoreabbrev <expr> W ((getcmdtype() is# ':' && getcmdline() is# 'W')?('w'):('W'))
@@ -281,4 +280,4 @@ let g:ctrlp_match_window = 'bottom,order:ttb,min:1,max:15,results:15'
 let g:vim_markdown_folding_disabled=1
 
 " go
-" let g:go_fmt_command = "goimports"
+let g:go_fmt_command = "goimports"

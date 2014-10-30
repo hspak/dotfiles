@@ -20,8 +20,9 @@ setopt alwaystoend automenu completealiases completeinword nolistbeep \
 setopt badpattern braceccl extendedglob dotglob numericglobsort
 
 # history
-setopt histfcntllock histignorealldups histignorespace \
-       histreduceblanks histsavenodups histverify hist_append
+setopt histignorealldups histignorespace \
+       histreduceblanks histsavenodups histverify appendhistory \
+       noinc_append_history
 
 # io
 setopt correct noflowcontrol interactivecomments printexitvalue
