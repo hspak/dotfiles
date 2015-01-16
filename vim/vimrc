@@ -14,14 +14,12 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'Raimondi/delimitMate'
 Plugin 'vim-scripts/a.vim'
 Plugin 'kien/ctrlp.vim'
-" Plugin 'airblade/vim-gitgutter'
 Plugin 'bling/vim-airline'
 Plugin 'bling/vim-bufferline'
 Plugin 'Lokaltog/vim-easymotion'
 
 " prettify bundles
 Plugin 'plasticboy/vim-markdown'
-Plugin 'vim-scripts/MatlabFilesEdition'
 Plugin 'cazador481/vim-systemverilog'
 Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'wting/rust.vim'
@@ -74,6 +72,7 @@ set visualbell                        " don't beep
 set magic                             " enables regex highlight?
 set shiftround                        " rounds shifts
 set noshowmode                        " redundant with airline
+set formatoptions-=cro                " stop this annoying auto-comment
 
 " performance helpers
 " -------------------------------------
