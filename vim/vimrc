@@ -18,6 +18,7 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'bling/vim-airline'
 Plugin 'bling/vim-bufferline'
 Plugin 'Lokaltog/vim-easymotion'
+Plugin 'vim-scripts/mips.vim'
 
 " prettify bundles
 Plugin 'plasticboy/vim-markdown'
@@ -74,6 +75,7 @@ set visualbell                        " don't beep
 set magic                             " enables regex highlight?
 set shiftround                        " rounds shifts
 set noshowmode                        " redundant with airline
+set formatoptions-=cro                " stop comment marks continuing
 
 " performance helpers
 " -------------------------------------
