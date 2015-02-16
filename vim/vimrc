@@ -18,6 +18,7 @@ Plugin 'bling/vim-airline'
 Plugin 'bling/vim-bufferline'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'vim-scripts/mips.vim'
+Plugin 'SirVer/ultisnips'
 
 " prettify bundles
 Plugin 'plasticboy/vim-markdown'
@@ -219,6 +220,7 @@ au FileType c           setlocal ts=8 sw=8
 au FileType javascript  setlocal ts=2 sw=2 et
 au FileType cpp         setlocal ts=4 sw=4
 au FileType rust        setlocal ts=4 sw=4
+au FileType java        setlocal ts=4 sw=4
 au FileType make        setlocal noet
 au FileType python      setlocal sw=4 ts=4 et
 au FileType mkd         setlocal ts=4 sw=4 textwidth=80 cc=80 et
