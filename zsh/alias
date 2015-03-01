@@ -3,9 +3,6 @@
 #
 #
 
-# bleh
-alias iback='sudo ~/code/intel-gpu-tools/tools/intel_backlight 50'
-
 # -- Admin tasks
 alias ls='ls -lhv --color --group-directories-first'
 alias df='df -h'
@@ -21,18 +18,13 @@ alias sprunge='curl -F "sprunge=<-" http://sprunge.us'
 alias scrompbox='scrot -s '"'"'%Y%m%d.png'"'"' -e '"'"'ompload $f && mv $f ~/bridge/image/screeny/'"'"''
 alias scromp='scrot '"'"'%Y%m%d.png'"'"' -e '"'"'ompload $f && mv $f ~/bridge/image/screeny/'"'"''
 alias aurvote='aurvote -v $(pacman -Qqm)'
-alias lap_mon_on='xrandr --output LVDS1 --mode 1600x900 --right-of HDMI1 --output HDMI1 --primary'
-alias chromium='chromium --ignore-gpu-blacklist'
 alias tmux='tmux -2'
 
 # -- Type less
 alias v='vim'
 alias sv='sudo vim'
-alias ncm='ncmpcpp'
-alias snet='sudo netcfg'
 alias xresources='xrdb -merge ~/.Xresources'
 alias xmap='xmodmap ~/.Xmodmap'
-alias dtella='python2 ~/dtella/dtella.py'
 alias pa='pacaur'
 alias clear_pkg_dir='sudo rm -rf pkg src && sudo rm -f *.gz'
 
@@ -51,6 +43,9 @@ alias pqe='pacman -Qe'
 alias pcnt='pacman -Q | wc -l'
 
 alias stream='ffmpeg -f alsa -ac 2 -i pulse -f x11grab -r 30 -s 1920x1080 -i $DISPLAY -vcodec libx264 -threads 0'
+
+# don't feel like adding this to my path
+alias eclimd='/usr/share/eclipse/plugins/org.eclim_2.4.1/bin/eclimd'
 
 alias -s png=feh
 alias -s jpg=feh

@@ -27,8 +27,9 @@ Plugin 'cazador481/vim-systemverilog'
 Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'wting/rust.vim'
 Plugin 'Yggdroot/indentLine'
-Plugin 'jelera/vim-javascript-syntax'
 Plugin 'justinmk/vim-syntax-extra'
+Plugin 'pangloss/vim-javascript'
+Plugin 'mxw/vim-jsx'
 
 " sensitive plugins
 Plugin 'Valloric/YouCompleteMe'
@@ -292,3 +293,8 @@ let g:vim_markdown_folding_disabled=1
 
 " go
 let g:go_fmt_command = "goimports"
+
+" jsx
+let g:jsx_ext_required = 0
+
+let g:UltiSnipsExpandTrigger="<c-j>"
