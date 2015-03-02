@@ -63,7 +63,7 @@ flags = [
 '-isystem', '/usr/local/include',
 
 # Going to have to check this every update
-'-isystem', '/usr/lib/gcc/x86_64-unknown-linux-gnu/4.9.1/include',
+'-isystem', '/usr/lib/gcc/x86_64-unknown-linux-gnu/4.9.2/include',
 ]
 
 
