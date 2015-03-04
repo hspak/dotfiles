@@ -1,5 +1,0 @@
-#!/usr/bin/bash
-
-pkg_cnt=$(checkupdates | wc -l)
-aur_cnt=$(cower -u | wc -l)
-echo "Updates:" $pkg_cnt "($aur_cnt)"

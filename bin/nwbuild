@@ -1,4 +1,0 @@
-#!/bin/bash
-
-zip app.nw *
-nw app.nw
