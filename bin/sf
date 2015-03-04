@@ -1,0 +1,25 @@
+#!/bin/bash
+
+if [[ -z "$1" ]]; then
+  printf "usage sf <project name>\n"
+  exit 1
+fi
+
+proj="$1"
+paths=("$HOME/code" "$HOME/code/gocode/src")
+$(command -v termite &>/dev/null) && term="termite" || term="$TERM"
+
+for path in "${paths[@]}"; do
+  [[ -z "$path" ]] && continue
+
+  if [[ -d "$path" ]] && [[ -d "$path/$proj" ]]; then
+    proj_dir="$path/$proj"
+    break
+  fi
+done
+
+if [[ -n "$proj_dir" ]]; then
+  termite -e "bash -c 'cd $proj_dir';tmux" &
+else
+  printf "project $proj not found...\n"
+fi
