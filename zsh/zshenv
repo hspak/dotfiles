@@ -24,7 +24,7 @@ GOPATH="$HOME/code/gocode"
 export GOPATH
 
 # add things to path
-PATH="$PATH:$HONE/bin:$GOPATH/bin"
+PATH="$PATH:$HOME/bin:$GOPATH/bin"
 export PATH
 
 # colors
