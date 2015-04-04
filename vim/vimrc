@@ -14,17 +14,15 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'Raimondi/delimitMate'
 Plugin 'vim-scripts/a.vim'
 Plugin 'kien/ctrlp.vim'
-Plugin 'bling/vim-airline'
-Plugin 'bling/vim-bufferline'
-" Plugin 'Lokaltog/vim-easymotion'
-Plugin 'vim-scripts/mips.vim'
 " Plugin 'SirVer/ultisnips'
 Plugin 'junegunn/vim-easy-align'
-Plugin 'vim-ruby/vim-ruby'
 Plugin 'junegunn/goyo.vim'
-Plugin 'junegunn/seoul256.vim'
+Plugin 'tpope/vim-fugitive'
 
 " prettify bundles
+Plugin 'junegunn/seoul256.vim'
+Plugin 'vim-scripts/mips.vim'
+Plugin 'vim-ruby/vim-ruby'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'cazador481/vim-systemverilog'
 " Plugin 'octol/vim-cpp-enhanced-highlight'
@@ -75,7 +73,7 @@ set shell=/bin/bash                   " set shell
 set visualbell                        " don't beep
 set magic                             " enables regex highlight?
 set shiftround                        " rounds shifts
-set noshowmode                        " redundant with airline
+" set noshowmode                        " redundant with airline
 set encoding=utf-8
 set modeline
 set timeoutlen=500 ttimeoutlen=0
@@ -131,6 +129,8 @@ let g:seoul256_background = 234
 colorscheme seoul256
 set background=dark
 
+set statusline=%<[%n]\ %F\ %m%r%y\ %{exists('g:loaded_fugitive')?fugitive#statusline():''}\ %=%-14.(%l,%c%V%)\ %P
+
 " custom keybindings
 " -------------------------------------
 let maplocalleader = ","
@@ -152,6 +152,9 @@ set pastetoggle=<F4>
 " map space to create/open/close fold
 nnoremap <silent> <Space> @=(foldlevel('.')?'za':'l')<CR>
 vnoremap <Space> zf
+
+" show me all open buffers
+nnoremap <C-b> :CtrlPBuffer<CR>
 
 nnoremap <C-e> 3<C-e>
 nnoremap <C-y> 3<C-y>
