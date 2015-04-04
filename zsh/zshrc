@@ -113,6 +113,9 @@ fi
 
 [[ -e /usr/bin/grunt ]] && eval "$(grunt --completion=zsh)"
 
+# z for osx
+. `brew --prefix`/etc/profile.d/z.sh
+
 for snippets ($HOME/.zsh/*.zsh(N))
   source $snippets
 

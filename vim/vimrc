@@ -16,16 +16,19 @@ Plugin 'vim-scripts/a.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'bling/vim-airline'
 Plugin 'bling/vim-bufferline'
-Plugin 'Lokaltog/vim-easymotion'
+" Plugin 'Lokaltog/vim-easymotion'
 Plugin 'vim-scripts/mips.vim'
-Plugin 'SirVer/ultisnips'
+" Plugin 'SirVer/ultisnips'
 Plugin 'junegunn/vim-easy-align'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'junegunn/goyo.vim'
+Plugin 'junegunn/seoul256.vim'
 
 " prettify bundles
 Plugin 'plasticboy/vim-markdown'
 Plugin 'cazador481/vim-systemverilog'
-Plugin 'octol/vim-cpp-enhanced-highlight'
-Plugin 'wting/rust.vim'
+" Plugin 'octol/vim-cpp-enhanced-highlight'
+" Plugin 'wting/rust.vim'
 Plugin 'Yggdroot/indentLine'
 Plugin 'justinmk/vim-syntax-extra'
 Plugin 'pangloss/vim-javascript'
@@ -77,6 +80,7 @@ set magic                             " enables regex highlight?
 set shiftround                        " rounds shifts
 set noshowmode                        " redundant with airline
 set formatoptions-=cro                " stop this annoying auto-comment
+set modeline
 
 " performance helpers
 " -------------------------------------
@@ -92,8 +96,8 @@ set lbr                               " line break
 
 " backup settings
 " -------------------------------------
-set backup                            " keep a backup file
-set backupdir=~/.vim/backup           " backup dir
+" set backup                            " keep a backup file
+" set backupdir=~/.vim/backup           " backup dir
 set directory=~/.vim/swap             " swap file directory
 
 " tabs and indenting
@@ -125,8 +129,10 @@ endif
 " -------------------------------------
 syntax on
 syntax enable
+
+let g:seoul256_background = 234
+colorscheme seoul256
 set background=dark
-colorscheme erosion
 
 " custom keybindings
 " -------------------------------------
@@ -154,10 +160,7 @@ map <silent> <LocalLeader>l :NERDTreeToggle<CR>
 map <silent> <LocalLeader>m :bnext<cr>
 map <silent> <LocalLeader>v :bprev<cr>
 
-" building
-nnoremap <silent> <F4> :SyntasticToggleMode
-nnoremap <silent> <F5> :w<CR> :SyntasticCheck<CR> :Errors<CR>
-nnoremap <silent> <F6> :lclose<CR>
+set pastetoggle=<F4>
 
 " map space to create/open/close fold
 nnoremap <silent> <Space> @=(foldlevel('.')?'za':'l')<CR>
@@ -197,11 +200,6 @@ noremap <silent> <LocalLeader>9 :buffer 9<CR>
 
 " allow writing root files when forgetting to sudo
 cmap w!! w !sudo tee % >/dev/null<CR>:e!<CR><CR>
-
-map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
-\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
-\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
-
 
 " add command to remove all trailing whitespace
 function! s:FixWhitespace(line1,line2)

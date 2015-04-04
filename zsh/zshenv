@@ -32,7 +32,11 @@ if [[ -f ~/.dircolors ]] && type -p dircolors >/dev/null; then
   eval $(dircolors -b ~/.dircolors)
 fi
 
-if [ -n "$DESKTOP_SESSION" ];then
-  eval $(gnome-keyring-daemon --start --components=ssh)
-  export SSH_AUTH_SOCK
-fi
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
+#if [ -n "$DESKTOP_SESSION" ];then
+#  eval $(gnome-keyring-daemon --start --components=ssh)
+#  export SSH_AUTH_SOCK
+#fi
+#
+export HOMEBREW_GITHUB_API_TOKEN=a4f0d5dca8c24ae024051dd6ef845f6b900c9c3b
