@@ -74,18 +74,18 @@ set showmatch                         " show matching brackets (),{},[]
 set number                            " show number line
 set hidden                            " allow unsaved buffers to go in background
 set shell=/bin/bash                   " set shell
-set cursorline                        " highlight current line
 set visualbell                        " don't beep
 set magic                             " enables regex highlight?
 set shiftround                        " rounds shifts
 set noshowmode                        " redundant with airline
 set formatoptions-=cro                " stop this annoying auto-comment
 set modeline
+" set cursorline                        " highlight current line
 
 " performance helpers
 " -------------------------------------
-set ttyfast                           " probably doesn't help me
-set lazyredraw
+" set ttyfast                           " probably doesn't help me
+" set lazyredraw
 set synmaxcol=200
 syntax sync minlines=200
 
@@ -143,16 +143,6 @@ map Q <Nop>
 map q: <Nop>
 map <F11> <Nop>
 map <C-T> <Nop>
-
-" map <Leader> <Plug>(easymotion-prefix)
-nmap s <Plug>(easymotion-s2)
-nmap t <Plug>(easymotion-t2)
-
-" No arrow keys, ha!
-map <Left> <Nop>
-map <Right> <Nop>
-map <Up> <Nop>
-map <Down> <Nop>
 
 map <F2> :wall<CR>
 map <silent> <F12> :set hlsearch! hlsearch?<CR>
