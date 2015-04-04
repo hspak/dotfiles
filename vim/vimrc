@@ -50,9 +50,7 @@ set ofu=syntaxcomplete#Complete
 set t_Co=256                          " enable 256 colors
 set mouse=a                           " make sure mouse is used in all cases.
 set autoread                          " detect external changes
-set autowrite                         " saves file on buffer switch
 set backspace=indent,eol,start        " behave like a normal backspace
-set shortmess+=I                      " disable the welcome screen
 set complete+=k                       " enable dictionary completion
 set completeopt=longest,menuone       " better completion popup
 set showcmd                           " display current command
@@ -62,7 +60,7 @@ set wildmenu                          " cmd line completion
 set wildmode=longest,full             " cmd line completion
 set wildignore=*.o,*.obj,*.bak,*.exe  " ignore these though
 set scrolloff=5                       " lines between cursor and edge
-set shortmess=atI                     " avoid annoying prompts?
+set shortmess=atIT                    " avoid annoying prompts?
 set laststatus=2                      " always show a status line
 set clipboard+=unnamed                " yank and copy to X clipboard
 set backspace=2                       " full backspacing capabilities
@@ -79,13 +77,14 @@ set magic                             " enables regex highlight?
 set shiftround                        " rounds shifts
 set noshowmode                        " redundant with airline
 set formatoptions-=cro                " stop this annoying auto-comment
+set encoding=utf-8
 set modeline
+set timeoutlen=500 ttimeoutlen=0
 " set cursorline                        " highlight current line
 
 " performance helpers
 " -------------------------------------
-" set ttyfast                           " probably doesn't help me
-" set lazyredraw
+set lazyredraw
 set synmaxcol=200
 syntax sync minlines=200
 
@@ -206,10 +205,6 @@ au BufWritePost * if getline(1) =~ "^#!" | silent :!chmod +x <afile>
 
 " save last position
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif "
-
-" save on lose focus
-au FocusLost * :wa
-set wildignore+=*.lib,*.dll,*.exe,*.o,*.obj,*.pyc,*.pyo,*.png,*.gif,*.jpg,*.jpeg,*.bmp,*.tiff " ignore filetypes for auto complete
 
 " highlight yacc files as if they were cpp files
 au BufRead,BufNewFile *.y set syntax=cpp

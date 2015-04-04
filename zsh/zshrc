@@ -4,6 +4,8 @@
 autoload -U compinit edit-command-line vcs_info zmv
 compinit
 
+KEYTIMEOUT=1
+
 # history
 HISTFILE=~/.zhistory
 HISTSIZE=1500
