@@ -76,11 +76,9 @@ set visualbell                        " don't beep
 set magic                             " enables regex highlight?
 set shiftround                        " rounds shifts
 set noshowmode                        " redundant with airline
-set formatoptions-=cro                " stop this annoying auto-comment
 set encoding=utf-8
 set modeline
 set timeoutlen=500 ttimeoutlen=0
-" set cursorline                        " highlight current line
 
 " performance helpers
 " -------------------------------------
@@ -200,6 +198,9 @@ command! -range=% FixWhitespace call <SID>FixWhitespace(<line1>,<line2>)
 
 " auto commands
 " -------------------------------------
+" disable annoying auto comment
+autocmd BufNewFile,BufRead * setlocal formatoptions-=cro
+
 " turn hash bangs into executeables automatically
 au BufWritePost * if getline(1) =~ "^#!" | silent :!chmod +x <afile>
 
@@ -239,7 +240,7 @@ let NERDChristmasTree = 1
 let NERDRemoveExtraSpaces = 1
 
 " indentLine
-let g:indentLine_color_term = 235
+let g:indentLine_color_term = 236
 let g:indentLine_char = '|'
 set list lcs=trail:·,tab:»⋅,nbsp:⋅,
 
@@ -257,7 +258,7 @@ let g:airline_theme = "wombat"
 let g:bufferline_echo = 0
 
 " ycm
-let g:ycm_global_ycm_extra_conf = '/home/hsp/.ycm_extra_conf.py'
+let g:ycm_global_ycm_extra_conf = '$HOME/.ycm_extra_conf.py'
 let g:ycm_confirm_extra_conf = 0
 let g:ycm_error_symbol = '✘'
 let g:ycm_warning_symbol = '⚠'
