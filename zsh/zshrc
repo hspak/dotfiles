@@ -24,7 +24,7 @@ setopt badpattern braceccl extendedglob dotglob numericglobsort
 # history
 setopt histignorealldups histignorespace \
        histreduceblanks histsavenodups histverify appendhistory \
-       noinc_append_history
+       inc_append_history share_history
 
 # io
 setopt correct noflowcontrol interactivecomments printexitvalue

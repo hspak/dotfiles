@@ -131,8 +131,7 @@ set background=dark
 
 set statusline=%<[%n]\ %F\ %m%r%y\ %{exists('g:loaded_fugitive')?fugitive#statusline():''}\ %=%-14.(%l,%c%V%)\ %P
 
-" custom keybindings
-" -------------------------------------
+" custom keybindings {{{
 let maplocalleader = ","
 let mapleader = ","
 
@@ -172,10 +171,15 @@ nnoremap W :wq<CR>
 nnoremap B :buffers<CR>
 
 " window movement
-nnoremap <silent> <C-k> :wincmd k<CR>
+" nnoremap <silent> <C-k> :wincmd k<CR>
 nnoremap <silent> <C-l> <C-W>w
-nnoremap <silent> <C-h> :wincmd h<CR>
-nnoremap <silent> <C-j> :wincmd j<CR>
+nnoremap <silent> <C-h> <C-W>W
+
+" I almost never horizontal split
+" nnoremap <silent> <C-h> :wincmd h<CR>
+" nnoremap <silent> <C-j> :wincmd j<CR>
+map <C-j> :vertical resize +5<CR>
+" map <C-k> :vertical resize +5<CR>
 
 " buffer navigation
 noremap <silent> <LocalLeader>1 :buffer 1<CR>
@@ -198,9 +202,9 @@ function! s:FixWhitespace(line1,line2)
     call setpos('.', l:save_cursor)
 endfunction
 command! -range=% FixWhitespace call <SID>FixWhitespace(<line1>,<line2>)
+" }}}
 
-" auto commands
-" -------------------------------------
+" auto commands {{{
 " disable annoying auto comment
 autocmd BufNewFile,BufRead * setlocal formatoptions-=cro
 
@@ -212,6 +216,9 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 
 " highlight yacc files as if they were cpp files
 au BufRead,BufNewFile *.y set syntax=cpp
+
+au BufRead,BufNewFile *.journal set spell
+au BufRead,BufNewFile *.journal :Goyo
 
 " file type specific settings
 au FileType c           setlocal ts=8 sw=8
@@ -233,8 +240,9 @@ cnoreabbrev <expr> Q ((getcmdtype() is# ':' && getcmdline() is# 'Q')?('q'):('Q')
 cnoreabbrev <expr> Wq ((getcmdtype() is# ':' && getcmdline() is# 'Wq')?('wq'):('Wq'))
 
 let &titleold=getcwd()
+" }}}
 
-" plugin settings
+" plugin settings {{{
 " -------------------------------------
 let NERDSpaceDelims = 1
 let NERDUsePlaceHolders = 0
@@ -245,7 +253,7 @@ let NERDRemoveExtraSpaces = 1
 " indentLine
 let g:indentLine_color_term = 236
 let g:indentLine_char = '|'
-set list lcs=trail:·,tab:»⋅,nbsp:⋅,
+" set list lcs=trail:·,tab:»⋅,nbsp:⋅,
 
 " delimiteMate
 let delimitMate_expand_cr = 1
@@ -285,3 +293,4 @@ let g:go_fmt_command = "goimports"
 let g:jsx_ext_required = 0
 
 let g:UltiSnipsExpandTrigger="<c-j>"
+" }}}
