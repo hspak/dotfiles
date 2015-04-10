@@ -171,15 +171,14 @@ nnoremap W :wq<CR>
 nnoremap B :buffers<CR>
 
 " window movement
-" nnoremap <silent> <C-k> :wincmd k<CR>
+nnoremap <silent> <C-k> :wincmd k<CR>
+nnoremap <silent> <C-j> :wincmd j<CR>
 nnoremap <silent> <C-l> <C-W>w
 nnoremap <silent> <C-h> <C-W>W
 
 " I almost never horizontal split
 " nnoremap <silent> <C-h> :wincmd h<CR>
-" nnoremap <silent> <C-j> :wincmd j<CR>
-map <C-j> :vertical resize +5<CR>
-" map <C-k> :vertical resize +5<CR>
+map <C-g> :vertical resize +5<CR>
 
 " buffer navigation
 noremap <silent> <LocalLeader>1 :buffer 1<CR>
