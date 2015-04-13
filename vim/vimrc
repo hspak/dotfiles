@@ -17,7 +17,6 @@ Plugin 'kien/ctrlp.vim'
 " Plugin 'SirVer/ultisnips'
 Plugin 'junegunn/vim-easy-align'
 Plugin 'junegunn/goyo.vim'
-Plugin 'tpope/vim-fugitive'
 
 " prettify bundles
 Plugin 'junegunn/seoul256.vim'
@@ -25,8 +24,8 @@ Plugin 'vim-scripts/mips.vim'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'cazador481/vim-systemverilog'
-" Plugin 'octol/vim-cpp-enhanced-highlight'
-" Plugin 'wting/rust.vim'
+Plugin 'octol/vim-cpp-enhanced-highlight'
+Plugin 'wting/rust.vim'
 Plugin 'Yggdroot/indentLine'
 Plugin 'justinmk/vim-syntax-extra'
 Plugin 'pangloss/vim-javascript'
@@ -80,7 +79,7 @@ set timeoutlen=500 ttimeoutlen=0
 
 " performance helpers
 " -------------------------------------
-set lazyredraw
+" set lazyredraw
 set synmaxcol=200
 syntax sync minlines=200
 
