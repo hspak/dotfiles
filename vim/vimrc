@@ -14,22 +14,25 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'Raimondi/delimitMate'
 Plugin 'vim-scripts/a.vim'
 Plugin 'kien/ctrlp.vim'
-" Plugin 'SirVer/ultisnips'
 Plugin 'junegunn/vim-easy-align'
 Plugin 'junegunn/goyo.vim'
+" Plugin 'SirVer/ultisnips'
 
 " prettify bundles
 Plugin 'junegunn/seoul256.vim'
-Plugin 'vim-scripts/mips.vim'
-Plugin 'vim-ruby/vim-ruby'
-Plugin 'plasticboy/vim-markdown'
-Plugin 'cazador481/vim-systemverilog'
-Plugin 'octol/vim-cpp-enhanced-highlight'
-Plugin 'wting/rust.vim'
 Plugin 'Yggdroot/indentLine'
 Plugin 'justinmk/vim-syntax-extra'
+
+" language specific
+Plugin 'octol/vim-cpp-enhanced-highlight'
+Plugin 'wting/rust.vim'
 Plugin 'pangloss/vim-javascript'
+Plugin 'plasticboy/vim-markdown'
+Plugin 'cazador481/vim-systemverilog'
 Plugin 'mxw/vim-jsx'
+Plugin 'derekwyatt/vim-scala'
+Plugin 'vim-scripts/mips.vim'
+Plugin 'vim-ruby/vim-ruby'
 
 " sensitive plugins
 Plugin 'Valloric/YouCompleteMe'
@@ -44,6 +47,7 @@ set ofu=syntaxcomplete#Complete
 
 " General Options
 " -------------------------------------
+set encoding=utf-8
 set t_Co=256                          " enable 256 colors
 set mouse=a                           " make sure mouse is used in all cases.
 set autoread                          " detect external changes
@@ -72,10 +76,9 @@ set shell=/bin/bash                   " set shell
 set visualbell                        " don't beep
 set magic                             " enables regex highlight?
 set shiftround                        " rounds shifts
-" set noshowmode                        " redundant with airline
-set encoding=utf-8
-set modeline
-set timeoutlen=500 ttimeoutlen=0
+set modeline                          " enable in-file settings
+set timeoutlen=500 ttimeoutlen=0      " faster mode switching
+
 
 " performance helpers
 " -------------------------------------
