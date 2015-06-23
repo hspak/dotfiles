@@ -1,7 +1,0 @@
-# Set terminal options
-[[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources &
-
-setxkbmap -option ctrl:nocaps &
-exec i3
-# /home/hsp/bin/batalarm &
-# exec /home/hsp/.config/bspwm/start_bspwm

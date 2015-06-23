@@ -24,37 +24,8 @@ link() {
 dotfiles_bin()        { link bin bin;                                 }
 dotfiles_git()        { link git/gitconfig;                           }
 dotfiles_i3()         { link i3 .config/i3;                           }
-dotfiles_dunst()      { link dunst .config/dunst;                     }
 dotfiles_cower()      { link cower .config/cower;                     }
-dotfiles_htop()       { link htop .config/htop;                       }
-dotfiles_termite()    { link termite .config/termite;                 }
 dotfiles_tmux()       { link tmux/tmux.conf;                          }
-
-dotfiles_mutt() {
-  link mutt/settings .mutt
-
-  # muttrc should be copied, safeguard against accidentally pushing credentials
-  from="$dotfiles/mutt/muttrc"
-  to="$HOME/.muttrc"
-  if [[ ! -f "$to" ]]; then
-    cp "$from" "$to"
-    printf "$to already exists"
-  else
-    echo "copied $from to $to"
-  fi
-}
-
-dotfiles_X() {
-  if [[ $mode == "desktop" ]]; then
-    link X/Xresources.desktop .Xresources
-    link X/xinitrc.desktop .xinitrc
-  else
-    link X/Xresources.laptop .Xresources
-    link X/xinitrc.laptop .xinitrc
-  fi
-
-  link X/user-dirs.dirs .config/user-dirs.dirs
-}
 
 dotfiles_zsh() {
   link zsh/zprofile
@@ -87,10 +58,6 @@ dotfiles_vim() {
   fi
 }
 
-dotfiles_weechat() {
-  link weechat/weechat.conf .weechat/weechat.conf
-  link weechat/buffers.conf .weechat/buffers.conf
-}
 # }}}
 
 usage() {

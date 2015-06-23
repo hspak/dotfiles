@@ -10,39 +10,11 @@ alias du='du -h'
 alias ..='cd ..'
 alias ....='cd ../..'
 alias grep='grep --color'
-alias reboot='systemctl reboot'
-alias shutdown='systemctl poweroff'
-
-# -- 1 line Commands
-alias sprunge='curl -F "sprunge=<-" http://sprunge.us'
-alias scrompbox='scrot -s '"'"'%Y%m%d.png'"'"' -e '"'"'ompload $f && mv $f ~/bridge/image/screeny/'"'"''
-alias scromp='scrot '"'"'%Y%m%d.png'"'"' -e '"'"'ompload $f && mv $f ~/bridge/image/screeny/'"'"''
-alias aurvote='aurvote -v $(pacman -Qqm)'
 alias tmux='tmux -2'
 
 # -- Type less
 alias v='vim'
 alias sv='sudo vim'
-alias xresources='xrdb -merge ~/.Xresources'
-alias xmap='xmodmap ~/.Xmodmap'
-alias pa='pacaur'
-alias clear_pkg_dir='sudo rm -rf pkg src && sudo rm -f *.gz'
-
-# -- Pacman
-alias p='pacman'
-alias sp='sudo pacman'
-alias pacman='pacman'
-alias pii='pacman -Qii'
-alias psyu='pacaur -Syu'
-alias prsn='sudo pacman -Rsn'
-alias pas='sudo pacman -S'
-alias pss='sudo pacman -Ss'
-alias pqs='pacman -Qs'
-alias pu='sudo pacman -U'
-alias pqe='pacman -Qe'
-alias pcnt='pacman -Q | wc -l'
-
-alias stream='ffmpeg -f alsa -ac 2 -i pulse -f x11grab -r 30 -s 1920x1080 -i $DISPLAY -vcodec libx264 -threads 0'
 
 # don't feel like adding this to my path
 alias eclimd='/usr/share/eclipse/plugins/org.eclim_2.4.1/bin/eclimd'

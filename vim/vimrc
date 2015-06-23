@@ -1,44 +1,38 @@
 set nocompatible                      " use Vim defaults, screw vi
 filetype off                          " I think I needed this up here for something
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
+call plug#begin('~/.vim/plugged')
 
 " functional bundles
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'scrooloose/nerdtree'
-Plugin 'Raimondi/delimitMate'
-Plugin 'vim-scripts/a.vim'
-Plugin 'kien/ctrlp.vim'
-Plugin 'junegunn/vim-easy-align'
-Plugin 'junegunn/goyo.vim'
-" Plugin 'SirVer/ultisnips'
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'scrooloose/nerdcommenter'
+Plug 'Raimondi/delimitMate'
+Plug 'kien/ctrlp.vim'
+Plug 'airblade/vim-gitgutter'
 
 " prettify bundles
-Plugin 'junegunn/seoul256.vim'
-Plugin 'Yggdroot/indentLine'
-Plugin 'justinmk/vim-syntax-extra'
+Plug 'junegunn/vim-easy-align'
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/seoul256.vim'
+Plug 'Yggdroot/indentLine'
 
-" language specific
-Plugin 'octol/vim-cpp-enhanced-highlight'
-Plugin 'wting/rust.vim'
-Plugin 'pangloss/vim-javascript'
-Plugin 'plasticboy/vim-markdown'
-Plugin 'cazador481/vim-systemverilog'
-Plugin 'mxw/vim-jsx'
-Plugin 'derekwyatt/vim-scala'
-Plugin 'vim-scripts/mips.vim'
-Plugin 'vim-ruby/vim-ruby'
+" language
+Plug 'justinmk/vim-syntax-extra', { 'for': 'c' }
+Plug 'vim-scripts/a.vim', { 'for': 'c' }
+Plug 'cespare/vim-toml', { 'for': 'toml' }
+Plug 'plasticboy/vim-markdown', { 'for': 'md' }
+Plug 'rust-lang/rust.vim', { 'for': 'rust' }
+Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
+Plug 'mxw/vim-jsx', { 'for': 'jsx' }
+Plug 'derekwyatt/vim-scala', { 'for': 'scala' }
+Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
+Plug 'fatih/vim-go', { 'for': 'go' }
 
 " sensitive plugins
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'fatih/vim-go'
+Plug 'Valloric/YouCompleteMe', { 'do': './install.sh --clang-completer' }
+autocmd! User YouCompleteMe call youcompleteme#Enable()
 
-call vundle#end()
+call plug#end()
 
 " plug-in settings
 " -------------------------------------
@@ -75,14 +69,14 @@ set hidden                            " allow unsaved buffers to go in backgroun
 set shell=/bin/bash                   " set shell
 set visualbell                        " don't beep
 set magic                             " enables regex highlight?
+set cursorline                        " highlights current line
 set shiftround                        " rounds shifts
 set modeline                          " enable in-file settings
 set timeoutlen=500 ttimeoutlen=0      " faster mode switching
 
-
 " performance helpers
 " -------------------------------------
-" set lazyredraw
+set lazyredraw
 set synmaxcol=200
 syntax sync minlines=200
 
@@ -219,6 +213,7 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 au BufRead,BufNewFile *.y set syntax=cpp
 
 au BufRead,BufNewFile *.journal set spell
+au BufRead,BufNewFile *.journal set noshowmode
 au BufRead,BufNewFile *.journal :Goyo
 
 " file type specific settings
