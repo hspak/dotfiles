@@ -16,7 +16,7 @@ GOPATH="$HOME/code/gocode"
 export GOPATH
 
 # add things to path
-PATH="$PATH:$HOME/bin:$GOPATH/bin"
+PATH="/usr/local/sbin:$PATH:$HOME/bin:$GOPATH/bin"
 export PATH
 
 # colors
@@ -26,6 +26,6 @@ fi
 
 # let's not expose private keys...
 # old key is gone :p
-homebrew=$(cat secret/homebrew)
+homebrew=$(cat $HOME/dotfiles/keys/homebrew)
 
 export HOMEBREW_GITHUB_API_TOKEN=$homebrew
