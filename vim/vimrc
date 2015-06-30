@@ -249,7 +249,7 @@ let NERDRemoveExtraSpaces = 1
 " indentLine
 let g:indentLine_color_term = 236
 let g:indentLine_char = '|'
-" set list lcs=trail:·,tab:»⋅,nbsp:⋅,
+set list lcs=trail:·,tab:»⋅,nbsp:⋅,
 
 " delimiteMate
 let delimitMate_expand_cr = 1
