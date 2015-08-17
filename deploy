@@ -3,7 +3,7 @@
 # took from vodik
 
 dotfiles=$PWD
-mode="laptop"
+os=$(uname)
 
 die() {
   echo >&2 "$1" && exit 1
@@ -21,29 +21,30 @@ link() {
 }
 
 # Deploy scriptlets {{{
-dotfiles_bin()        { link bin bin;                                 }
-dotfiles_git()        { link git/gitconfig;                           }
-dotfiles_i3()         { link i3 .config/i3;                           }
-dotfiles_cower()      { link cower .config/cower;                     }
-dotfiles_tmux()       { link tmux/tmux.conf;                          }
+dotfiles_bin()        { link Common/bin bin;             }
+dotfiles_git()        { link Common/git/gitconfig;       }
+dotfiles_tmux()       { link Common/tmux/tmux.conf;      }
+dotfiles_i3()         { link "$os"/i3 .config/i3;       }
+dotfiles_cower()      { link "$os"/cower .config/cower; }
 
 dotfiles_zsh() {
-  link zsh/zprofile
-  link zsh/zshrc
-  link zsh/zshenv
+  link "$os"/zsh/zprofile
+  link "$os"/zsh/zshrc
+  link "$os"/zsh/zshenv
 
-  link zsh/dircolors
-  link zsh/inputrc
+  link "$os"/zsh/dircolors
+  link "$os"/zsh/inputrc
 
   [[ -d $HOME/.zsh ]] || mkdir $HOME/.zsh
-  link zsh/alias .zsh/alias.zsh
-  link zsh/functions .zsh/functions.zsh
+
+  link "$os"/zsh/alias .zsh/alias.zsh
+  link "$os"/zsh/functions .zsh/functions.zsh
 }
 
 dotfiles_vim() {
-  link vim
-  link vim/vimrc
-  link vim/ycm_extra_conf.py
+  link Common/vim
+  link Common/vim/vimrc
+  link Common/vim/ycm_extra_conf.py
 
   [[ ! -d ~/.vim/swap ]] && mkdir ~/.vim/swap
 
@@ -80,8 +81,6 @@ deploy() {
     shift
   done
 }
-
-[[ -n $2 ]] && mode=$2
 
 if (( $# == 0 )); then
   read -r -p "Deploy all? " ans

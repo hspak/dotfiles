@@ -28,7 +28,7 @@
 # Bindings
 #
   # start a terminal
-  bindsym $mod+Return         exec termite
+  bindsym $mod+Return         exec gnome-terminal
 
   # kill focused window
   bindsym $mod+Shift+Q        kill
@@ -199,9 +199,9 @@
 
   #Create Log out, Reboot, Poweroff bindings
   mode "Exit --> (L)ogout -- (R)eboot -- (P)oweroff"{
-    bindsym $mod+r exec reboot
-    bindsym $mod+l exit
-    bindsym $mod+p exec poweroff
+    bindsym $mod+r exec systemctl reboot
+    bindsym $mod+l exec gnome-session-quit --logout
+    bindsym $mod+p exec gnome-session-quit --power-off
 
     # back to normal: Enter or Escape
     bindsym Return mode "default"
