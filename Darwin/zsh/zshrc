@@ -16,7 +16,7 @@ setopt autocd autopushd chaselinks pushdignoredups pushdtohome
 
 # completion
 setopt alwaystoend automenu completealiases completeinword nolistbeep \
-       listpacked listtypes
+       listpacked listtypes menu_complete
 
 # expansion and globbing
 setopt badpattern braceccl extendedglob dotglob numericglobsort

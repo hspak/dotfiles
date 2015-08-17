@@ -9,6 +9,7 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'Raimondi/delimitMate'
 Plug 'kien/ctrlp.vim'
 Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
 
 " prettify bundles
 Plug 'junegunn/vim-easy-align'
