@@ -15,6 +15,10 @@ export LESSHISTFILE=-
 GOPATH="$HOME/code/gocode"
 export GOPATH
 
+# rust
+RUST_SRC_PATH="/usr/local/src/rust/src/"
+export RUST_SRC_PATH
+
 # add things to path
 PATH="/usr/local/sbin:$PATH:$HOME/bin:$GOPATH/bin"
 export PATH

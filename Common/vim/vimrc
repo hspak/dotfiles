@@ -22,12 +22,13 @@ Plug 'justinmk/vim-syntax-extra', { 'for': 'c' }
 Plug 'vim-scripts/a.vim', { 'for': 'c' }
 Plug 'cespare/vim-toml', { 'for': 'toml' }
 Plug 'plasticboy/vim-markdown', { 'for': 'md' }
-Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 Plug 'mxw/vim-jsx', { 'for': 'jsx' }
 Plug 'derekwyatt/vim-scala', { 'for': 'scala' }
 Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
 Plug 'fatih/vim-go', { 'for': 'go' }
+Plug 'rust-lang/rust.vim', { 'for': 'rust' }
+Plug 'phildawes/racer', { 'do': 'cargo build --release', 'for': 'rust' }
 
 " sensitive plugins
 Plug 'Valloric/YouCompleteMe', { 'do': './install.sh --clang-completer' }
@@ -290,6 +291,10 @@ let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
+
+" racer
+let g:racer_cmd = "$HOME/dotfiles/Common/vim/plugged/racer/target/release/racer"
+" let $RUST_SRC_PATH="/usr/local/src/rust/src"
 
 " jsx
 let g:jsx_ext_required = 0
