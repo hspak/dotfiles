@@ -10,6 +10,7 @@ Plug 'Raimondi/delimitMate'
 Plug 'kien/ctrlp.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
+Plug 'rking/ag.vim'
 
 " prettify bundles
 Plug 'junegunn/vim-easy-align'
@@ -28,10 +29,10 @@ Plug 'derekwyatt/vim-scala', { 'for': 'scala' }
 Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
 Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
-Plug 'phildawes/racer', { 'do': 'cargo build --release', 'for': 'rust' }
+" Plug 'phildawes/racer', { 'do': 'cargo build --release', 'for': 'rust' }
 
 " sensitive plugins
-Plug 'Valloric/YouCompleteMe', { 'do': './install.sh --clang-completer' }
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer' }
 autocmd! User YouCompleteMe call youcompleteme#Enable()
 
 call plug#end()
@@ -79,8 +80,8 @@ set timeoutlen=500 ttimeoutlen=0      " faster mode switching
 " performance helpers
 " -------------------------------------
 set lazyredraw
-set synmaxcol=200
-syntax sync minlines=200
+set synmaxcol=1000
+syntax sync minlines=1000
 
 "  wrap like other editors
 " -------------------------------------
