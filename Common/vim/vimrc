@@ -301,4 +301,7 @@ let g:racer_cmd = "$HOME/dotfiles/Common/vim/plugged/racer/target/release/racer"
 let g:jsx_ext_required = 0
 
 let g:UltiSnipsExpandTrigger="<c-j>"
+
+" ag
+let g:ag_working_path_mode="r"
 " }}}
