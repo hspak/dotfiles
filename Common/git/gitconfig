@@ -14,7 +14,7 @@
   last = log -1 HEAD
   lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
   bc = cherry -v master
-  brdel = "!f() { git br -D $1 && git push origin --delete $1; }; f"
+  brdel = "!f() { git br -d $1 && git push origin --delete $1; }; f"
 
 [color]
   branch = auto

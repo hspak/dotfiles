@@ -13,8 +13,8 @@ alias grep='grep --color'
 alias tmux='tmux -2'
 
 # -- Type less
-alias v='vim'
-alias sv='sudo vim'
+alias v='nvim'
+alias sv='sudo nvim'
 
 # don't feel like adding this to my path
 alias eclimd='/usr/share/eclipse/plugins/org.eclim_2.4.1/bin/eclimd'

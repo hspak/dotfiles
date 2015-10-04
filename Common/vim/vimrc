@@ -8,7 +8,7 @@ Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'scrooloose/nerdcommenter'
 Plug 'Raimondi/delimitMate'
 Plug 'kien/ctrlp.vim'
-Plug 'airblade/vim-gitgutter'
+" Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 Plug 'rking/ag.vim'
 
@@ -69,7 +69,7 @@ set cmdheight=1                       " set the command height
 set showmatch                         " show matching brackets (),{},[]
 set number                            " show number line
 set hidden                            " allow unsaved buffers to go in background
-set shell=/bin/bash                   " set shell
+set shell=/usr/local/bin/zsh          " set shell
 set visualbell                        " don't beep
 set magic                             " enables regex highlight?
 set cursorline                        " highlights current line
@@ -79,9 +79,12 @@ set timeoutlen=500 ttimeoutlen=0      " faster mode switching
 
 " performance helpers
 " -------------------------------------
-set lazyredraw
-set synmaxcol=1000
-syntax sync minlines=1000
+if has('nvim')
+else
+  set lazyredraw
+  set synmaxcol=1000
+  syntax sync minlines=1000
+endif
 
 "  wrap like other editors
 " -------------------------------------
