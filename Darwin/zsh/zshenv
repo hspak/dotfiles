@@ -23,9 +23,3 @@ export PATH
 if [[ -f ~/.dircolors ]] && type -p dircolors >/dev/null; then
   eval $(dircolors -b ~/.dircolors)
 fi
-
-# let's not expose private keys...
-# old key is gone :p
-homebrew=$(cat $HOME/dotfiles/keys/homebrew)
-
-export HOMEBREW_GITHUB_API_TOKEN=$homebrew

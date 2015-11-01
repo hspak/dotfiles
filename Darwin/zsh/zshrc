@@ -117,16 +117,3 @@ fi
 
 for snippets ($HOME/.zsh/*.zsh(N))
   source $snippets
-
-alias -s png=feh
-alias -s jpg=feh
-alias -s gif=feh
-alias -s GIF=feh
-alias -s JPG=feh
-alias -s PNG=feh
-alias -s gz='tar -xzvf'
-alias -s bz2='tar -xjvf'
-alias -s txt=$EDITOR
-alias -s PKGBUILD=$EDITOR
-
-# echo "todo app: opens like dmenu, act like priority queue + backlog"
