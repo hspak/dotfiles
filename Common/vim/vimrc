@@ -8,9 +8,9 @@ Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'scrooloose/nerdcommenter'
 Plug 'Raimondi/delimitMate'
 Plug 'kien/ctrlp.vim'
-" Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 Plug 'rking/ag.vim'
+Plug 'Chiel92/vim-autoformat'
 
 " prettify bundles
 Plug 'junegunn/vim-easy-align'
@@ -201,9 +201,9 @@ cmap w!! w !sudo tee % >/dev/null<CR>:e!<CR><CR>
 
 " add command to remove all trailing whitespace
 function! s:FixWhitespace(line1,line2)
-    let l:save_cursor = getpos(".")
-    silent! execute ':' . a:line1 . ',' . a:line2 . 's/\s\+$//'
-    call setpos('.', l:save_cursor)
+  let l:save_cursor = getpos(".")
+  silent! execute ':' . a:line1 . ',' . a:line2 . 's/\s\+$//'
+  call setpos('.', l:save_cursor)
 endfunction
 command! -range=% FixWhitespace call <SID>FixWhitespace(<line1>,<line2>)
 " }}}
@@ -266,13 +266,6 @@ let delimitMate_expand_space = 1
 let delimitMateBackspace = 1
 let delimitMate_jump_expansion = 1
 
-" airline
-let g:airline_left_sep=''
-let g:airline_right_sep=''
-let g:airline_powerline_fonts = 0
-let g:airline_theme = "wombat"
-let g:bufferline_echo = 0
-
 " ycm
 let g:ycm_global_ycm_extra_conf = '$HOME/.ycm_extra_conf.py'
 let g:ycm_confirm_extra_conf = 0
@@ -301,10 +294,6 @@ let g:go_highlight_structs = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 
-" racer
-let g:racer_cmd = "$HOME/dotfiles/Common/vim/plugged/racer/target/release/racer"
-" let $RUST_SRC_PATH="/usr/local/src/rust/src"
-
 " jsx
 let g:jsx_ext_required = 0
 
@@ -312,4 +301,10 @@ let g:UltiSnipsExpandTrigger="<c-j>"
 
 " ag
 let g:ag_working_path_mode="r"
+
+" autoformat
+let g_autoformat_verbosemode=0
+let g:formatdef_rustfmt = '"rustfmt"'
+let g:formatters_rust = ['rustfmt']
+au BufWrite *.rs silent :Autoformat<CR>
 " }}}

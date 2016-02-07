@@ -16,7 +16,7 @@ GOPATH="$HOME/code/gocode"
 export GOPATH
 
 # add things to path
-PATH="/usr/local/sbin:$PATH:$HOME/bin:$GOPATH/bin"
+PATH="/usr/local/sbin:$PATH:$HOME/bin:$GOPATH/bin:$HOME/.multirust/toolchains/1.6.0/cargo/bin:$HOME/.multirust/toolchains/nightly/cargo/bin"
 export PATH
 
 # colors
