@@ -10,13 +10,13 @@ Plug 'Raimondi/delimitMate'
 Plug 'kien/ctrlp.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'rking/ag.vim'
-Plug 'Chiel92/vim-autoformat'
 
 " prettify bundles
 Plug 'junegunn/vim-easy-align'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/seoul256.vim'
 Plug 'Yggdroot/indentLine'
+Plug 'Chiel92/vim-autoformat'
 
 " language
 Plug 'justinmk/vim-syntax-extra', { 'for': 'c' }
@@ -29,7 +29,6 @@ Plug 'derekwyatt/vim-scala', { 'for': 'scala' }
 Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
 Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
-" Plug 'phildawes/racer', { 'do': 'cargo build --release', 'for': 'rust' }
 
 " sensitive plugins
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --racer-completer' }
@@ -76,15 +75,6 @@ set cursorline                        " highlights current line
 set shiftround                        " rounds shifts
 set modeline                          " enable in-file settings
 set timeoutlen=500 ttimeoutlen=0      " faster mode switching
-
-" performance helpers
-" -------------------------------------
-if has('nvim')
-else
-  set lazyredraw
-  set synmaxcol=1000
-  syntax sync minlines=1000
-endif
 
 "  wrap like other editors
 " -------------------------------------
