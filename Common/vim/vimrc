@@ -19,6 +19,7 @@ Plug 'Yggdroot/indentLine'
 Plug 'Chiel92/vim-autoformat'
 
 " language
+Plug 'pearofducks/ansible-vim', { 'for': 'ansible' }
 Plug 'justinmk/vim-syntax-extra', { 'for': 'c' }
 Plug 'vim-scripts/a.vim', { 'for': 'c' }
 Plug 'cespare/vim-toml', { 'for': 'toml' }
