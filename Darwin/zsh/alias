@@ -19,7 +19,7 @@ alias notify='osascript -e '"'"'display notification "Hey I finished!" with titl
 
 # don't feel like adding this to my path
 alias eclimd='/usr/share/eclipse/plugins/org.eclim_2.4.1/bin/eclimd'
-alias adb='Library/Android/sdk/platform-tools/adb'
+alias adb='~/Library/Android/sdk/platform-tools/adb'
 
 alias -s png=feh
 alias -s jpg=feh

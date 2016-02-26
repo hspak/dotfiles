@@ -19,6 +19,7 @@ Plug 'Yggdroot/indentLine'
 Plug 'Chiel92/vim-autoformat'
 
 " language
+Plug 'pearofducks/ansible-vim', { 'for': 'ansible' }
 Plug 'justinmk/vim-syntax-extra', { 'for': 'c' }
 Plug 'vim-scripts/a.vim', { 'for': 'c' }
 Plug 'cespare/vim-toml', { 'for': 'toml' }
@@ -196,6 +197,8 @@ function! s:FixWhitespace(line1,line2)
   call setpos('.', l:save_cursor)
 endfunction
 command! -range=% FixWhitespace call <SID>FixWhitespace(<line1>,<line2>)
+
+au BufWrite * :FixWhitespace
 " }}}
 
 " auto commands {{{
