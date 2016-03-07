@@ -214,6 +214,9 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 " highlight yacc files as if they were cpp files
 au BufRead,BufNewFile *.y set syntax=cpp
 
+" highlight lalrop files as if they were rust files
+au BufRead,BufNewFile *.lalrop set filetype=rust syntax=rust
+
 au BufRead,BufNewFile *.journal set spell
 au BufRead,BufNewFile *.journal set noshowmode
 au BufRead,BufNewFile *.journal :Goyo

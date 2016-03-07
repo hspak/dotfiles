@@ -371,6 +371,8 @@
 	<key>HideScrollbar</key>
 	<false/>
 	<key>HideTab</key>
+	<false/>
+	<key>HideTabCloseButton</key>
 	<true/>
 	<key>HideTabNumber</key>
 	<true/>
@@ -441,7 +443,7 @@
 	<key>NSWindow Frame NSFontPanel</key>
 	<string>523 163 570 288 0 0 1280 800 </string>
 	<key>NSWindow Frame Preferences</key>
-	<string>102 236 606 456 0 0 1280 800 </string>
+	<string>102 265 606 456 0 0 1280 800 </string>
 	<key>NSWindow Frame SUUpdateAlert</key>
 	<string>332 306 620 392 0 0 1280 800 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
@@ -1195,6 +1197,10 @@
 			<string>/Users/hsp</string>
 		</dict>
 	</array>
+	<key>NoSyncDoNotWarnBeforeMultilinePaste</key>
+	<true/>
+	<key>NoSyncDoNotWarnBeforeMultilinePaste_selection</key>
+	<integer>0</integer>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
