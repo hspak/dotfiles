@@ -72,10 +72,11 @@ set hidden                            " allow unsaved buffers to go in backgroun
 set shell=/usr/local/bin/zsh          " set shell
 set visualbell                        " don't beep
 set magic                             " enables regex highlight?
-set cursorline                        " highlights current line
+"set cursorline                        " highlights current line
 set shiftround                        " rounds shifts
 set modeline                          " enable in-file settings
 set timeoutlen=500 ttimeoutlen=0      " faster mode switching
+set lazyredraw                        " wait to redraw window
 
 "  wrap like other editors
 " -------------------------------------
@@ -118,7 +119,7 @@ endif
 syntax on
 syntax enable
 
-let g:seoul256_background = 234
+let g:seoul256_background = 235
 colorscheme seoul256
 set background=dark
 
