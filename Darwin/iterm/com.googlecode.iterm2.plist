@@ -443,11 +443,11 @@
 	<key>NSWindow Frame NSFontPanel</key>
 	<string>523 163 570 288 0 0 1280 800 </string>
 	<key>NSWindow Frame Preferences</key>
-	<string>102 265 606 456 0 0 1280 800 </string>
+	<string>102 323 606 456 0 0 1280 800 </string>
 	<key>NSWindow Frame SUUpdateAlert</key>
 	<string>332 306 620 392 0 0 1280 800 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>22 321 570 427 0 0 1280 800 </string>
+	<string>700 227 570 448 0 0 1280 800 </string>
 	<key>NeverWarnAboutShortLivedSessions_41F3EE94-EBB8-4E36-BB59-B85BC28BF24D</key>
 	<true/>
 	<key>New Bookmarks</key>
@@ -1201,12 +1201,18 @@
 	<true/>
 	<key>NoSyncDoNotWarnBeforeMultilinePaste_selection</key>
 	<integer>0</integer>
+	<key>NoSyncDoNotWarnBeforePastingOneLineEndingInNewlineAtShellPrompt</key>
+	<true/>
+	<key>NoSyncDoNotWarnBeforePastingOneLineEndingInNewlineAtShellPrompt_selection</key>
+	<integer>0</integer>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
 	<integer>0</integer>
 	<key>NoSyncPermissionToShowTip</key>
 	<false/>
+	<key>NoSyncSilenceAnnoyingBellAutomatically</key>
+	<true/>
 	<key>NoSyncTimeOfFirstLaunchOfVersionWithTip</key>
 	<real>477304997.86823499</real>
 	<key>NoSyncTimeOfLastPromo</key>
@@ -1279,7 +1285,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2016-02-26T03:46:29Z</date>
+	<date>2016-03-16T01:39:11Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>ShowBookmarkName</key>
@@ -1322,8 +1328,12 @@
 	<integer>0</integer>
 	<key>WordCharacters</key>
 	<string>/-+\~_.</string>
+	<key>findIgnoreCase_iTerm</key>
+	<true/>
+	<key>findRegex_iTerm</key>
+	<false/>
 	<key>iTerm Version</key>
-	<string>2.9.20160224-nightly</string>
+	<string>2.9.20160307-nightly</string>
 	<key>kCPKSelectionViewPreferredModeKey</key>
 	<integer>0</integer>
 	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>

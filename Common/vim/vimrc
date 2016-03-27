@@ -15,7 +15,7 @@ Plug 'rking/ag.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/seoul256.vim'
-Plug 'Yggdroot/indentLine'
+"Plug 'Yggdroot/indentLine' {  }
 Plug 'Chiel92/vim-autoformat'
 
 " language
@@ -216,7 +216,7 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 au BufRead,BufNewFile *.y set syntax=cpp
 
 " highlight lalrop files as if they were rust files
-au BufRead,BufNewFile *.lalrop set filetype=rust syntax=rust
+au BufRead,BufNewFile *.lalrpop set filetype=rust syntax=rust
 
 au BufRead,BufNewFile *.journal set spell
 au BufRead,BufNewFile *.journal set noshowmode
