@@ -30,6 +30,7 @@ Plug 'derekwyatt/vim-scala', { 'for': 'scala' }
 Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
 Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
+Plug 'lambdatoast/elm.vim', { 'for': 'elm' }
 
 " sensitive plugins
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --racer-completer' }
