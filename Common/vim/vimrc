@@ -31,6 +31,8 @@ Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
 Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'lambdatoast/elm.vim', { 'for': 'elm' }
+Plug 'Glench/Vim-Jinja2-Syntax', { 'for': 'jinja' }
+Plug 'hashivim/vim-terraform', { 'for': 'terraform' }
 
 " sensitive plugins
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --racer-completer' }
@@ -218,6 +220,9 @@ au BufRead,BufNewFile *.y set syntax=cpp
 
 " highlight lalrop files as if they were rust files
 au BufRead,BufNewFile *.lalrpop set filetype=rust syntax=rust
+
+" highlight sls files as if they were yaml files
+au BufRead,BufNewFile *.sls set filetype=yaml syntax=yaml
 
 au BufRead,BufNewFile *.journal set spell
 au BufRead,BufNewFile *.journal set noshowmode
