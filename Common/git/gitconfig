@@ -16,6 +16,7 @@
   bc = cherry -v master
   yolo = !git commit --amend -C@ && git push --force
   pp = !git pull -r && git push
+  bruh = !git co master && git pull -r && git co - && git rebase master
 
 [color]
   branch = auto
