@@ -8,6 +8,8 @@ alias df='df -h'
 alias du='du -h'
 alias ..='cd ..'
 alias ....='cd ../..'
+alias ......='cd ../../..'
+alias ........='cd ../../../..'
 alias grep='grep --color'
 alias tmux='tmux -2'
 
