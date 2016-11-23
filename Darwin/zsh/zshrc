@@ -117,3 +117,5 @@ fi
 
 for snippets ($HOME/.zsh/*.zsh(N))
   source $snippets
+
+source $HOME/.cargo/env
