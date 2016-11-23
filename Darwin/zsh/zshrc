@@ -8,8 +8,8 @@ KEYTIMEOUT=1
 
 # history
 HISTFILE=~/.zhistory
-HISTSIZE=1500
-SAVEHIST=1000
+HISTSIZE=55000
+SAVEHIST=50000
 
 # changing directories
 setopt autocd autopushd chaselinks pushdignoredups pushdtohome
