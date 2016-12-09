@@ -15,7 +15,7 @@ export LESSHISTFILE=-
 export GOPATH="$HOME/code/gocode"
 
 # add things to path
-export PATH="/usr/local/sbin:$PATH:$HOME/bin:$GOPATH/bin:$HOME/.multirust/toolchains/1.6.0/cargo/bin:$HOME/.multirust/toolchains/nightly/cargo/bin"
+export PATH="/usr/local/sbin:$PATH:$HOME/bin:$GOPATH/bin"
 
 # make zsh time look like bash's
 export TIMEFMT=$'\nreal\t%E\nuser\t%U\nsys\t%S'
