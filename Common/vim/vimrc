@@ -76,7 +76,7 @@ set hidden                            " allow unsaved buffers to go in backgroun
 set shell=/usr/local/bin/zsh          " set shell
 set visualbell                        " don't beep
 set magic                             " enables regex highlight?
-"set cursorline                        " highlights current line
+set cursorline                        " highlights current line
 set shiftround                        " rounds shifts
 set modeline                          " enable in-file settings
 set timeoutlen=500 ttimeoutlen=0      " faster mode switching
@@ -123,7 +123,6 @@ endif
 syntax on
 syntax enable
 
-let g:seoul256_background = 235
 colorscheme seoul256
 set background=dark
 
@@ -237,7 +236,7 @@ au FileType rust        setlocal ts=4 sw=4
 au FileType java        setlocal ts=4 sw=4
 au FileType make        setlocal noet
 au FileType python      setlocal sw=4 ts=4 et
-au FileType mkd         setlocal ts=4 sw=4 textwidth=80 cc=80 et
+au FileType markdown    setlocal ts=4 sw=4 textwidth=80 cc=80 et
 au FileType go          setlocal sw=4 ts=4 noet
 au FileType lex         setlocal sw=8 ts=8
 au FileType yacc        setlocal sw=8 ts=8
@@ -285,7 +284,7 @@ let g:ycm_rust_src_path = '/User/hsp/code/rust'
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_clear_cache_on_exit = 1
 let g:ctrlp_match_window = 'bottom,order:ttb,min:1,max:15,results:15'
-let g:ctrlp_user_command = 'ag %s -l --color=never -g ""'
+let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 
 " markdown
 let g:vim_markdown_folding_disabled=1

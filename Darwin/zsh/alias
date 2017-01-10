@@ -14,7 +14,7 @@ alias grep='grep --color'
 alias tmux='tmux -2'
 
 # -- Type less
-alias v='nvim'
+alias v='vim'
 alias sv='sudo vim'
 
 alias notify='osascript -e '"'"'display notification "Hey I finished!" with title "Notification"\'"'"''
