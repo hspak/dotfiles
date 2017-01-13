@@ -45,3 +45,5 @@
 	suppresscc = author
 [push]
 	default = simple
+[commit]
+	gpgsign = true
