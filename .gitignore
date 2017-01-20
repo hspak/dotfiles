@@ -21,3 +21,4 @@ matlab
 */vim/bundle/*
 */vim/plugged/*
 keys
+*.old

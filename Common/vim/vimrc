@@ -11,10 +11,10 @@ Plug 'kien/ctrlp.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'rking/ag.vim'
 Plug 'vim-syntastic/syntastic', { 'for': 'python' }
+Plug 'stephpy/vim-yaml'
 
 " prettify bundles
 Plug 'junegunn/vim-easy-align'
-Plug 'junegunn/goyo.vim'
 Plug 'junegunn/seoul256.vim'
 "Plug 'Yggdroot/indentLine' {  }
 Plug 'Chiel92/vim-autoformat'
@@ -27,13 +27,12 @@ Plug 'cespare/vim-toml', { 'for': 'toml' }
 Plug 'plasticboy/vim-markdown', { 'for': 'md' }
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 Plug 'mxw/vim-jsx', { 'for': 'jsx' }
-Plug 'derekwyatt/vim-scala', { 'for': 'scala' }
 Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
 Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
-Plug 'lambdatoast/elm.vim', { 'for': 'elm' }
 Plug 'Glench/Vim-Jinja2-Syntax', { 'for': 'jinja' }
 Plug 'hashivim/vim-terraform', { 'for': 'terraform' }
+Plug 'saltstack/salt-vim', { 'for': 'yaml' }
 
 " sensitive plugins
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --racer-completer' }
