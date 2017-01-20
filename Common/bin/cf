@@ -5,7 +5,7 @@ if [[ -z "$1" ]]; then
   exit 0
 fi
 
-[[ -z "$EDITOR" ]] && editor="$EDITOR" || editor="nvim"
+[[ -z "$EDITOR" ]] && editor="$EDITOR" || editor="vim"
 
 app="$1"
 configs=(".$1rc" \
