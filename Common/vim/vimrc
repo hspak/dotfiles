@@ -127,6 +127,12 @@ set background=dark
 
 set statusline=%<[%n]\ %F\ %m%r%y\ %{exists('g:loaded_fugitive')?fugitive#statusline():''}\ %=%-14.(%l,%c%V%)\ %P
 
+set guifont=Office_Code_Pro:h12
+set guioptions-=T
+set guioptions-=r
+set guioptions-=L
+set gcr=a:blinkon0
+
 " custom keybindings {{{
 let maplocalleader = ","
 let mapleader = ","
@@ -292,7 +298,8 @@ let g:vim_markdown_folding_disabled=1
 let g:go_fmt_command = "goimports"
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
-let g:go_highlight_structs = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_types = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 
