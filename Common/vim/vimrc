@@ -7,7 +7,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'scrooloose/nerdcommenter'
 Plug 'Raimondi/delimitMate'
-Plug 'kien/ctrlp.vim'
+Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'rking/ag.vim'
 Plug 'vim-syntastic/syntastic', { 'for': 'python' }
@@ -59,7 +59,7 @@ set title                             " sets terminal title
 set virtualedit=all                   " enable visual block edit
 set wildmenu                          " cmd line completion
 set wildmode=longest,full             " cmd line completion
-set wildignore=*.o,*.obj,*.bak,*.exe  " ignore these though
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 set scrolloff=5                       " lines between cursor and edge
 set shortmess=atIT                    " avoid annoying prompts?
 set laststatus=2                      " always show a status line
@@ -287,8 +287,12 @@ let g:EclimCompletionMethod = 'omnifunc'
 let g:ycm_rust_src_path = '/User/hsp/code/rust'
 
 " ctrlp
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+  \ 'file': '\v\.(exe|so|dll)$',
+  \ }
 let g:ctrlp_working_path_mode = 'ra'
-let g:ctrlp_clear_cache_on_exit = 1
+let g:ctrlp_clear_cache_on_exit = 0
 let g:ctrlp_match_window = 'bottom,order:ttb,min:1,max:15,results:15'
 let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 
