@@ -10,7 +10,7 @@ Plug 'Raimondi/delimitMate'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'rking/ag.vim'
-Plug 'vim-syntastic/syntastic', { 'for': 'python' }
+" Plug 'vim-syntastic/syntastic'
 Plug 'stephpy/vim-yaml'
 
 " prettify bundles
@@ -20,22 +20,22 @@ Plug 'junegunn/seoul256.vim'
 Plug 'Chiel92/vim-autoformat'
 
 " language
-Plug 'pearofducks/ansible-vim', { 'for': 'ansible' }
+Plug 'pearofducks/ansible-vim',   { 'for': 'ansible' }
 Plug 'justinmk/vim-syntax-extra', { 'for': 'c' }
-Plug 'vim-scripts/a.vim', { 'for': 'c' }
-Plug 'cespare/vim-toml', { 'for': 'toml' }
-Plug 'plasticboy/vim-markdown', { 'for': 'md' }
-Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
-Plug 'mxw/vim-jsx', { 'for': 'jsx' }
-Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
-Plug 'fatih/vim-go', { 'for': 'go' }
-Plug 'rust-lang/rust.vim', { 'for': 'rust' }
-Plug 'Glench/Vim-Jinja2-Syntax', { 'for': 'jinja' }
-Plug 'hashivim/vim-terraform', { 'for': 'terraform' }
-Plug 'saltstack/salt-vim', { 'for': 'yaml' }
+Plug 'vim-scripts/a.vim',         { 'for': 'c' }
+Plug 'cespare/vim-toml',          { 'for': 'toml' }
+Plug 'plasticboy/vim-markdown',   { 'for': 'md' }
+Plug 'pangloss/vim-javascript',   { 'for': ['javascript', 'jsx'] }
+Plug 'mxw/vim-jsx',               { 'for': ['javascript', 'jsx'] }
+Plug 'vim-ruby/vim-ruby',         { 'for': 'ruby' }
+Plug 'fatih/vim-go',              { 'for': 'go' }
+Plug 'rust-lang/rust.vim',        { 'for': 'rust' }
+Plug 'Glench/Vim-Jinja2-Syntax',  { 'for': 'jinja' }
+Plug 'hashivim/vim-terraform',    { 'for': 'terraform' }
+Plug 'saltstack/salt-vim',        { 'for': 'yaml' }
 
 " sensitive plugins
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --racer-completer' }
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer' }
 autocmd! User YouCompleteMe call youcompleteme#Enable()
 
 call plug#end()
@@ -156,7 +156,7 @@ nnoremap <silent> <Space> @=(foldlevel('.')?'za':'l')<CR>
 vnoremap <Space> zf
 
 " show me all open buffers
-nnoremap <C-b> :CtrlPBuffer<CR>
+nnoremap <C-b> :CtrlP<CR>
 
 nnoremap <C-e> 3<C-e>
 nnoremap <C-y> 3<C-y>
@@ -168,6 +168,8 @@ noremap j gj
 " quick split
 noremap <silent> V :vsplit<CR> :wincmd l<CR>
 noremap <silent> H :split<CR> :wincmd j<CR>
+
+noremap <leader>r :NERDTreeFind<cr>
 
 nnoremap Q <C-W>q
 nnoremap W :wq<CR>
@@ -224,15 +226,8 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 " highlight yacc files as if they were cpp files
 au BufRead,BufNewFile *.y set syntax=cpp
 
-" highlight lalrop files as if they were rust files
-au BufRead,BufNewFile *.lalrpop set filetype=rust syntax=rust
-
 " highlight sls files as if they were yaml files
 au BufRead,BufNewFile *.sls set filetype=yaml syntax=yaml
-
-au BufRead,BufNewFile *.journal set spell
-au BufRead,BufNewFile *.journal set noshowmode
-au BufRead,BufNewFile *.journal :Goyo
 
 " file type specific settings
 au FileType c           setlocal ts=8 sw=8
@@ -284,7 +279,6 @@ let g:ycm_always_populate_location_list = 0
 let g:ycm_auto_start_csharp_server = 0
 let g:ycm_server_log_level = 'critical'
 let g:EclimCompletionMethod = 'omnifunc'
-let g:ycm_rust_src_path = '/User/hsp/code/rust'
 
 " ctrlp
 let g:ctrlp_custom_ignore = {
@@ -292,7 +286,7 @@ let g:ctrlp_custom_ignore = {
   \ 'file': '\v\.(exe|so|dll)$',
   \ }
 let g:ctrlp_working_path_mode = 'ra'
-let g:ctrlp_clear_cache_on_exit = 0
+let g:ctrlp_clear_cache_on_exit = 1
 let g:ctrlp_match_window = 'bottom,order:ttb,min:1,max:15,results:15'
 let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 
@@ -313,8 +307,6 @@ let g:go_highlight_format_strings = 1
 
 " jsx
 let g:jsx_ext_required = 0
-
-let g:UltiSnipsExpandTrigger="<c-j>"
 
 " ag
 let g:ag_working_path_mode="r"
