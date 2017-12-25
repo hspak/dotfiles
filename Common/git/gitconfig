@@ -1,7 +1,6 @@
 [user]
   name = Hong Shick Pak
   email = hong@hspak.com
-	signingkey = 801E8B9342093CF6
 
 [credential]
   helper = cache --timeout=3600
@@ -45,5 +44,3 @@
 	suppresscc = author
 [push]
 	default = simple
-[commit]
-	gpgsign = true

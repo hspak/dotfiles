@@ -1,1 +1,1 @@
-/Users/hong/.vimrc
+/home/hong/.vimrc

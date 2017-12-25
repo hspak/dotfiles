@@ -10,8 +10,7 @@ Plug 'Raimondi/delimitMate'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'rking/ag.vim'
-" Plug 'vim-syntastic/syntastic'
-Plug 'stephpy/vim-yaml'
+Plug 'vim-syntastic/syntastic'
 
 " prettify bundles
 Plug 'junegunn/vim-easy-align'
@@ -33,10 +32,8 @@ Plug 'rust-lang/rust.vim',        { 'for': 'rust' }
 Plug 'Glench/Vim-Jinja2-Syntax',  { 'for': 'jinja' }
 Plug 'hashivim/vim-terraform',    { 'for': 'terraform' }
 Plug 'saltstack/salt-vim',        { 'for': 'yaml' }
-
-" sensitive plugins
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer' }
-autocmd! User YouCompleteMe call youcompleteme#Enable()
+Plug 'smerrill/vcl-vim-plugin'
+Plug 'Shougo/neocomplete.vim'
 
 call plug#end()
 
@@ -72,7 +69,6 @@ set cmdheight=1                       " set the command height
 set showmatch                         " show matching brackets (),{},[]
 set number                            " show number line
 set hidden                            " allow unsaved buffers to go in background
-set shell=/usr/local/bin/zsh          " set shell
 set visualbell                        " don't beep
 set magic                             " enables regex highlight?
 set cursorline                        " highlights current line
@@ -323,6 +319,23 @@ highlight link SyntasticErrorSign SignColumn
 highlight link SyntasticWarningSign SignColumn
 highlight link SyntasticStyleErrorSign SignColumn
 highlight link SyntasticStyleWarningSign SignColumn
+
+" neocomplete
+
+let g:acp_enableAtStartup = 0
+" Use neocomplete.
+let g:neocomplete#enable_at_startup = 1
+" Use smartcase.
+let g:neocomplete#enable_smart_case = 1
+" Set minimum syntax keyword length.
+let g:neocomplete#sources#syntax#min_keyword_length = 2
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
 " autoformat
 let g_autoformat_verbosemode=0

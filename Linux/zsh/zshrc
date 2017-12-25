@@ -118,6 +118,8 @@ fi
 for snippets ($HOME/.zsh/*.zsh(N))
   source $snippets
 
+source ~/code/z/z.sh
+
 alias -s png=feh
 alias -s jpg=feh
 alias -s gif=feh

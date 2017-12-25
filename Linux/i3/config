@@ -34,7 +34,7 @@
   bindsym $mod+Shift+Q        kill
 
   # start dmenu (a program launcher)
-  bindsym $mod+p              exec dmenu_run -fn 'Noto Sans-9' -l 20 -nf '#bea492' -nb '#181512' -sb '#8c664c' -w 500
+  bindsym $mod+p              exec --no-startup-id i3-dmenu-desktop
   bindsym $mod+H              focus left
   bindsym $mod+J              focus down
   bindsym $mod+K              focus up
@@ -110,10 +110,8 @@
   bindsym $mod+n            [instance="ncmpcpp"] scratchpad show
 
   # custom bindings
-  bindsym $mod+O                exec chromium --ignore-gpu-blacklist
   bindsym $mod+I                exec nautilus
   bindsym $mod+D                exec termite --name="scratchpad"
-  bindsym $mod+U                exec urxvtc -name "ncmpcpp" -e "ncmpcpp"
 
   # volume control
   bindsym XF86_AudioRaiseVolume exec /home/hsp/bin/dvol increase
@@ -137,11 +135,6 @@
 #
 # Windowing Rules
 #
-  # Assign workspaces
-  assign [instance="Steam" ] → 5
-  assign [instance="wine"  ] → 4
-  assign [class="wine"     ] → 4
-
   # Assign floats
   for_window [class="Chromium"         ] border none
   for_window [class="Firefox"          ] border none
@@ -252,8 +245,4 @@
 #
 # Execute
 #
-  # exec --no-startup-id compton -bGc --config ~/.config/compton/config &
   exec --no-startup-id feh --bg-scale ~/.config/i3/wallpaper.jpg &
-  exec --no-startup-id wmname LG3D &
-  exec --no-startup-id compton
-  exec --no-startup-id termite -e tmux
