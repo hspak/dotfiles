@@ -127,6 +127,7 @@ set guioptions-=L
 set gcr=a:blinkon0
 
 colorscheme seoul256
+let g:seoul256_background = 236
 color seoul256
 set background=dark
 

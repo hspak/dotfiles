@@ -21,11 +21,7 @@ link() {
 }
 
 # Deploy scriptlets {{{
-dotfiles_bin()        { link Common/bin bin;             }
 dotfiles_git()        { link Common/git/gitconfig;       }
-dotfiles_tmux()       { link Common/tmux/tmux.conf;      }
-dotfiles_i3()         { link "$os"/i3 .config/i3;       }
-dotfiles_cower()      { link "$os"/cower .config/cower; }
 
 dotfiles_zsh() {
   link "$os"/zsh/zprofile

@@ -10,24 +10,9 @@ alias du='du -h'
 alias ..='cd ..'
 alias ....='cd ../..'
 alias grep='grep --color'
-alias tmux='tmux -2'
 
 # -- Type less
 alias v='vim'
 alias sv='sudo vim'
-
-# don't feel like adding this to my path
-alias eclimd='/usr/share/eclipse/plugins/org.eclim_2.4.1/bin/eclimd'
-
-alias -s png=feh
-alias -s jpg=feh
-alias -s gif=feh
-alias -s GIF=feh
-alias -s JPG=feh
-alias -s PNG=feh
-alias -s gz='tar -xzvf'
-alias -s bz2='tar -xjvf'
-
-alias psyu='sudo pacman -Syu && auracle sync'
 
 # vim: set syn=sh :
