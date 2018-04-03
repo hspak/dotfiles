@@ -16,6 +16,7 @@
   bc = cherry -v master
   yolo = !git commit --amend -C@ && git push --force
   pp = !git pull -r && git push
+  sps = !git stash && git pull -r && git push && git stash pop
   bruh = !git co master && git pull -r && git co - && git rebase master
 
 [color]
@@ -41,6 +42,6 @@
   smtpserver = mail.messagingengine.com
   smtpuser = hspak@fastmail.com
   smtpserverport = 587
-	suppresscc = author
+  suppresscc = author
 [push]
-	default = simple
+  default = simple

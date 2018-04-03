@@ -30,7 +30,8 @@ Plug 'fatih/vim-go',              { 'for': 'go' }
 Plug 'rust-lang/rust.vim',        { 'for': 'rust' }
 Plug 'Glench/Vim-Jinja2-Syntax',  { 'for': 'jinja' }
 Plug 'hashivim/vim-terraform',    { 'for': 'terraform' }
-Plug 'saltstack/salt-vim',        { 'for': ['yaml', 'sls'] }
+Plug 'saltstack/salt-vim',        { 'for': 'sls' }
+Plug 'smerrill/vcl-vim-plugin'
 Plug 'Shougo/neocomplete.vim'
 
 call plug#end()
@@ -222,9 +223,6 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 
 " highlight yacc files as if they were cpp files
 au BufRead,BufNewFile *.y set syntax=cpp
-
-" highlight sls files as if they were yaml files
-au BufRead,BufNewFile *.sls set filetype=yaml syntax=yaml
 
 " file type specific settings
 au FileType c           setlocal ts=8 sw=8
