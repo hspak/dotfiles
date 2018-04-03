@@ -15,7 +15,6 @@ Plug 'vim-syntastic/syntastic'
 " prettify bundles
 Plug 'junegunn/vim-easy-align'
 Plug 'junegunn/seoul256.vim'
-"Plug 'Yggdroot/indentLine' {  }
 Plug 'Chiel92/vim-autoformat'
 
 " language
@@ -31,8 +30,7 @@ Plug 'fatih/vim-go',              { 'for': 'go' }
 Plug 'rust-lang/rust.vim',        { 'for': 'rust' }
 Plug 'Glench/Vim-Jinja2-Syntax',  { 'for': 'jinja' }
 Plug 'hashivim/vim-terraform',    { 'for': 'terraform' }
-Plug 'saltstack/salt-vim',        { 'for': 'yaml' }
-Plug 'smerrill/vcl-vim-plugin'
+Plug 'saltstack/salt-vim',        { 'for': ['yaml', 'sls'] }
 Plug 'Shougo/neocomplete.vim'
 
 call plug#end()
@@ -140,6 +138,11 @@ map q: <Nop>
 map <F11> <Nop>
 map <C-T> <Nop>
 
+map <F5> :GoVet<CR>
+map <F6> :GoErrCheck<CR>
+map <F7> :GoTest<CR>
+map <F8> :GoBuild<CR>
+
 map <F2> :wall<CR>
 map <silent> <F12> :set hlsearch! hlsearch?<CR>
 map <silent> <LocalLeader>l :NERDTreeToggle<CR>
@@ -192,9 +195,6 @@ noremap <silent> <LocalLeader>6 :buffer 6<CR>
 noremap <silent> <LocalLeader>7 :buffer 7<CR>
 noremap <silent> <LocalLeader>8 :buffer 8<CR>
 noremap <silent> <LocalLeader>9 :buffer 9<CR>
-
-" rust goto
-nnoremap <Leader>] :YcmCompleter GoTo<CR>
 
 " allow writing root files when forgetting to sudo
 cmap w!! w !sudo tee % >/dev/null<CR>:e!<CR><CR>
