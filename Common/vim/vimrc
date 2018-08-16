@@ -9,8 +9,16 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'Raimondi/delimitMate'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-fugitive'
-Plug 'rking/ag.vim'
 Plug 'vim-syntastic/syntastic'
+
+if has('nvim')
+  Plug 'zchee/deoplete-go', { 'do': 'make', 'for': 'go'}
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
 
 " prettify bundles
 Plug 'junegunn/vim-easy-align'
@@ -28,11 +36,10 @@ Plug 'mxw/vim-jsx',               { 'for': ['javascript', 'jsx'] }
 Plug 'vim-ruby/vim-ruby',         { 'for': 'ruby' }
 Plug 'fatih/vim-go',              { 'for': 'go' }
 Plug 'rust-lang/rust.vim',        { 'for': 'rust' }
+Plug 'racer-rust/vim-racer',      { 'for': 'rust' }
 Plug 'Glench/Vim-Jinja2-Syntax',  { 'for': 'jinja' }
 Plug 'hashivim/vim-terraform',    { 'for': 'terraform' }
 Plug 'saltstack/salt-vim',        { 'for': 'sls' }
-Plug 'smerrill/vcl-vim-plugin'
-Plug 'Shougo/neocomplete.vim'
 
 call plug#end()
 
@@ -53,8 +60,8 @@ set completeopt=longest,menuone       " better completion popup
 set showcmd                           " display current command
 set title                             " sets terminal title
 set virtualedit=all                   " enable visual block edit
-set wildmenu                          " cmd line completion
-set wildmode=longest,full             " cmd line completion
+" set wildmenu                          " cmd line completion
+" set wildmode=longest,full             " cmd line completion
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 set scrolloff=5                       " lines between cursor and edge
 set shortmess=atIT                    " avoid annoying prompts?
@@ -72,9 +79,9 @@ set visualbell                        " don't beep
 set magic                             " enables regex highlight?
 set cursorline                        " highlights current line
 set shiftround                        " rounds shifts
-set modeline                          " enable in-file settings
-set timeoutlen=500 ttimeoutlen=0      " faster mode switching
-set lazyredraw                        " wait to redraw window
+" set modeline                          " enable in-file settings
+" set timeoutlen=500 ttimeoutlen=0      " faster mode switching
+" set lazyredraw                        " wait to redraw window
 
 "  wrap like other editors
 " -------------------------------------
@@ -119,12 +126,6 @@ syntax enable
 
 set statusline=%<[%n]\ %F\ %m%r%y\ %{exists('g:loaded_fugitive')?fugitive#statusline():''}\ %=%-14.(%l,%c%V%)\ %P
 
-set guifont=Office_Code_Pro:h12
-set guioptions-=T
-set guioptions-=r
-set guioptions-=L
-set gcr=a:blinkon0
-
 colorscheme seoul256
 let g:seoul256_background = 236
 color seoul256
@@ -139,10 +140,11 @@ map q: <Nop>
 map <F11> <Nop>
 map <C-T> <Nop>
 
-map <F5> :GoVet<CR>
-map <F6> :GoErrCheck<CR>
-map <F7> :GoTest<CR>
-map <F8> :GoBuild<CR>
+map <F5> :GoLint<CR>
+map <F6> :GoVet<CR>
+map <F7> :GoErrCheck<CR>
+map <F8> :GoTest<CR>
+map <F9> :GoBuild<CR>
 
 map <F2> :wall<CR>
 map <silent> <F12> :set hlsearch! hlsearch?<CR>
@@ -221,9 +223,6 @@ au BufWritePost * if getline(1) =~ "^#!" | silent :!chmod +x <afile>
 " save last position
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif "
 
-" highlight yacc files as if they were cpp files
-au BufRead,BufNewFile *.y set syntax=cpp
-
 " file type specific settings
 au FileType c           setlocal ts=8 sw=8
 au FileType javascript  setlocal ts=2 sw=2 et
@@ -265,25 +264,15 @@ let delimitMate_expand_space = 1
 let delimitMateBackspace = 1
 let delimitMate_jump_expansion = 1
 
-" ycm
-let g:ycm_global_ycm_extra_conf = '$HOME/.ycm_extra_conf.py'
-let g:ycm_confirm_extra_conf = 0
-let g:ycm_error_symbol = '✘'
-let g:ycm_warning_symbol = '⚠'
-let g:ycm_always_populate_location_list = 0
-let g:ycm_auto_start_csharp_server = 0
-let g:ycm_server_log_level = 'critical'
-let g:EclimCompletionMethod = 'omnifunc'
-
 " ctrlp
 let g:ctrlp_custom_ignore = {
   \ 'dir':  '\v[\/]\.(git|hg|svn)$',
   \ 'file': '\v\.(exe|so|dll)$',
   \ }
 let g:ctrlp_working_path_mode = 'ra'
-let g:ctrlp_clear_cache_on_exit = 1
-let g:ctrlp_match_window = 'bottom,order:ttb,min:1,max:15,results:15'
-let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+set grepprg=rg\ --color=never
+let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
+let g:ctrlp_use_caching = 0
 
 " markdown
 let g:vim_markdown_folding_disabled=1
@@ -303,15 +292,12 @@ let g:go_highlight_format_strings = 1
 " jsx
 let g:jsx_ext_required = 0
 
-" ag
-let g:ag_working_path_mode="r"
-
 " syntastic
 set statusline+=%{exists('g:loaded_syntastic_plugin')?SyntasticStatuslineFlag():''}
 set statusline+=%*
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 let g:syntastic_loc_list_height = 5
 highlight link SyntasticErrorSign SignColumn
@@ -319,26 +305,29 @@ highlight link SyntasticWarningSign SignColumn
 highlight link SyntasticStyleErrorSign SignColumn
 highlight link SyntasticStyleWarningSign SignColumn
 
-" neocomplete
+" rust-vim
+let g:rustfmt_autosave = 1
 
-let g:acp_enableAtStartup = 0
-" Use neocomplete.
-let g:neocomplete#enable_at_startup = 1
-" Use smartcase.
-let g:neocomplete#enable_smart_case = 1
-" Set minimum syntax keyword length.
-let g:neocomplete#sources#syntax#min_keyword_length = 2
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+" racer
+let g:racer_experimental_completer = 1
 
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+let g:racer_cmd = "$HOME/.cargo/bin/racer"
+au FileType rust nmap gd <Plug>(rust-def)
 
-" autoformat
-let g_autoformat_verbosemode=0
-let g:formatdef_rustfmt = '"rustfmt"'
-let g:formatters_rust = ['rustfmt']
-au BufWrite *.rs silent :Autoformat<CR>
+au FileType rust nmap gs <Plug>(rust-def-split)
+au FileType rust nmap gx <Plug>(rust-def-vertical)
+au FileType rust nmap <leader>gd <Plug>(rust-doc)
+
+
+" deoplete
+let g:deoplete#enable_at_startup = 1
+inoremap <silent><expr> <TAB>
+  \ pumvisible() ? "\<C-n>" :
+  \ <SID>check_back_space() ? "\<TAB>" :
+  \ deoplete#mappings#manual_complete()
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~ '\s'
+endfunction
 " }}}

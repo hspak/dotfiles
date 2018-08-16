@@ -9,10 +9,11 @@ alias df='df -h'
 alias du='du -h'
 alias ..='cd ..'
 alias ....='cd ../..'
+alias ......='cd ../../..'
+alias ........='cd ../../../..'
 alias grep='grep --color'
 
 # -- Type less
-alias v='vim'
-alias sv='sudo vim'
+alias v='nvim'
 
 # vim: set syn=sh :

@@ -33,22 +33,24 @@ dotfiles_zsh() {
 
   [[ -d $HOME/.zsh ]] || mkdir $HOME/.zsh
 
-  link "$os"/zsh/alias .zsh/alias.zsh
-  link "$os"/zsh/functions .zsh/functions.zsh
+  link "$os"/zsh/alias "$HOME/.zsh/alias.zsh"
+  link "$os"/zsh/functions "$HOME/.zsh/functions.zsh"
 }
 
 dotfiles_vim() {
   link Common/vim
   link Common/vim/vimrc
-  link Common/vim/ycm_extra_conf.py
 
-  [[ ! -d ~/.vim/swap ]] && mkdir ~/.vim/swap
+  [[ ! -d "$HOME/.vim/swap" ]] && mkdir -p "$HOME/.vim/swap"
 
   if [[ ! -f ~/.vim/autoload/plug.vim ]]; then
     curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
           https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     vim +PlugInstall
   fi
+
+  [[ ! -d  "$HOME/.config/nvim" ]] && mkdir -p "$HOME/.config/nvim"
+  link Common/neovim/init.vim "$HOME/.config/nvim"
 }
 # }}}
 
