@@ -31,7 +31,7 @@ dotfiles_zsh() {
   link "$os"/zsh/dircolors
   link "$os"/zsh/inputrc
 
-  [[ -d $HOME/.zsh ]] || mkdir $HOME/.zsh
+  [[ -d $HOME/.zsh ]] || mkdir -p $HOME/.zsh
 
   link "$os"/zsh/alias "$HOME/.zsh/alias.zsh"
   link "$os"/zsh/functions "$HOME/.zsh/functions.zsh"
@@ -50,7 +50,7 @@ dotfiles_vim() {
   fi
 
   [[ ! -d  "$HOME/.config/nvim" ]] && mkdir -p "$HOME/.config/nvim"
-  link Common/neovim/init.vim "$HOME/.config/nvim"
+  link Common/neovim/init.vim "$HOME/.config/nvim/init.vim"
 }
 # }}}
 
