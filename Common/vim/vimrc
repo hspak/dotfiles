@@ -140,11 +140,14 @@ map q: <Nop>
 map <F11> <Nop>
 map <C-T> <Nop>
 
-map <F5> :GoLint<CR>
-map <F6> :GoVet<CR>
-map <F7> :GoErrCheck<CR>
-map <F8> :GoTest<CR>
-map <F9> :GoBuild<CR>
+au FileType go map <F5> :GoLint<CR>
+au FileType go map <F6> :GoVet<CR>
+au FileType go map <F7> :GoErrCheck<CR>
+au FileType go map <F8> :GoTest<CR>
+au FileType go map <F9> :GoBuild<CR>
+au FileType rust nmap <F5> :RustFmt<CR>
+au FileType rust nmap <F6> :Cargo clippy<CR>
+au FileType rust nmap <F9> :Cargo run<CR>
 
 map <F2> :wall<CR>
 map <silent> <F12> :set hlsearch! hlsearch?<CR>
@@ -310,14 +313,13 @@ let g:rustfmt_autosave = 1
 
 " racer
 let g:racer_experimental_completer = 1
+call deoplete#custom#option('auto_complete_delay', 0)
 
-let g:racer_cmd = "$HOME/.cargo/bin/racer"
+let g:racer_cmd = "/usr/bin/racer"
 au FileType rust nmap gd <Plug>(rust-def)
-
 au FileType rust nmap gs <Plug>(rust-def-split)
 au FileType rust nmap gx <Plug>(rust-def-vertical)
 au FileType rust nmap <leader>gd <Plug>(rust-doc)
-
 
 " deoplete
 let g:deoplete#enable_at_startup = 1

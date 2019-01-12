@@ -20,5 +20,6 @@ matlab
 */vim/swap/*
 */vim/bundle/*
 */vim/plugged/*
+*/vim/view/*
 keys
 *.old

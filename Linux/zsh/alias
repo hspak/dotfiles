@@ -15,5 +15,7 @@ alias grep='grep --color'
 
 # -- Type less
 alias v='nvim'
+alias c='cargo'
+alias sctl='systemctl'
 
 # vim: set syn=sh :
