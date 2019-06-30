@@ -14,8 +14,11 @@ alias ........='cd ../../../..'
 alias grep='grep --color'
 
 # -- Type less
-alias v='nvim'
+alias g='git'
 alias c='cargo'
+alias t='terraform'
+alias v='nvim'
+alias z='zig'
 alias sctl='systemctl'
 
 # vim: set syn=sh :

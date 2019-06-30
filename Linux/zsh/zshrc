@@ -132,3 +132,4 @@ alias -s txt=$EDITOR
 alias -s PKGBUILD=$EDITOR
 
 # echo "todo app: opens like dmenu, act like priority queue + backlog"
+source /usr/share/chruby/chruby.sh

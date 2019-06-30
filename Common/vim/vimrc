@@ -40,7 +40,8 @@ Plug 'racer-rust/vim-racer',      { 'for': 'rust' }
 Plug 'Glench/Vim-Jinja2-Syntax',  { 'for': 'jinja' }
 Plug 'hashivim/vim-terraform',    { 'for': 'terraform' }
 Plug 'saltstack/salt-vim',        { 'for': 'sls' }
-
+Plug 'ziglang/zig.vim',           { 'for': 'zig' }
+"
 call plug#end()
 
 " plug-in settings
@@ -102,6 +103,7 @@ set shiftwidth=2                      " allows the use of < and > for VISUAL ind
 set autoindent                        " auto indents next new line
 set smarttab                          " it reads your mind?
 set shiftround                        " better tab aligning
+set smartindent
 
 " searching
 " -------------------------------------
