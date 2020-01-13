@@ -16,11 +16,11 @@ GOPATH="$HOME/code/gocode"
 export GOPATH
 
 # rust
-RUST_SRC_PATH="$HOME/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src"
+RUST_SRC_PATH="$HOME/.cargo/bin"
 export RUST_SRC_PATH
 
 # add things to path
-PATH="/usr/local/sbin:$PATH:$HOME/bin:$GOPATH/bin"
+PATH="/usr/local/sbin:$HOME/bin:$GOPATH/bin:$HOME/code/zig/build/bin:$PATH"
 export PATH
 
 # colors
@@ -33,3 +33,5 @@ export MOZ_ENABLE_WAYLAND=1
 export CLUTTER_BACKEND=wayland
 export SDL_VIDEODRIVER=wayland
 export _JAVA_AWT_WM_NONREPARENTING=1
+export SDL_VIDEODRIVER=wayland
+# export QT_QPA_PLATFORM=wayland

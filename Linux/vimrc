@@ -10,15 +10,10 @@ Plug 'Raimondi/delimitMate'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'vim-syntastic/syntastic'
+Plug 'junegunn/goyo.vim'
 
-if has('nvim')
-  Plug 'zchee/deoplete-go', { 'do': 'make', 'for': 'go'}
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
+Plug 'zchee/deoplete-go', { 'do': 'make', 'for': 'go'}
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
 " prettify bundles
 Plug 'junegunn/vim-easy-align'
@@ -67,7 +62,7 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 set scrolloff=5                       " lines between cursor and edge
 set shortmess=atIT                    " avoid annoying prompts?
 set laststatus=2                      " always show a status line
-set clipboard+=unnamed                " yank and copy to X clipboard
+set clipboard+=unnamedplus            " yank and copy to X clipboard
 set backspace=2                       " full backspacing capabilities
 set history=50                        " 50 lines of command line history
 set ruler                             " ruler display in status line
@@ -80,9 +75,6 @@ set visualbell                        " don't beep
 set magic                             " enables regex highlight?
 set cursorline                        " highlights current line
 set shiftround                        " rounds shifts
-" set modeline                          " enable in-file settings
-" set timeoutlen=500 ttimeoutlen=0      " faster mode switching
-" set lazyredraw                        " wait to redraw window
 
 "  wrap like other editors
 " -------------------------------------
