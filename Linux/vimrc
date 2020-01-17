@@ -7,10 +7,11 @@ call plug#begin('~/.vim/plugged')
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'scrooloose/nerdcommenter'
 Plug 'Raimondi/delimitMate'
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'vim-syntastic/syntastic'
 Plug 'junegunn/goyo.vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
+Plug 'junegunn/fzf.vim'
 
 Plug 'zchee/deoplete-go', { 'do': 'make', 'for': 'go'}
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -21,7 +22,6 @@ Plug 'junegunn/seoul256.vim'
 Plug 'Chiel92/vim-autoformat'
 
 " language
-Plug 'pearofducks/ansible-vim',   { 'for': 'ansible' }
 Plug 'justinmk/vim-syntax-extra', { 'for': 'c' }
 Plug 'vim-scripts/a.vim',         { 'for': 'c' }
 Plug 'cespare/vim-toml',          { 'for': 'toml' }
@@ -155,8 +155,8 @@ set pastetoggle=<F4>
 nnoremap <silent> <Space> @=(foldlevel('.')?'za':'l')<CR>
 vnoremap <Space> zf
 
-" show me all open buffers
-nnoremap <C-b> :CtrlP<CR>
+" fzf mimic ctrl+p
+nnoremap <C-p> :Files<CR>
 
 nnoremap <C-e> 3<C-e>
 nnoremap <C-y> 3<C-y>
