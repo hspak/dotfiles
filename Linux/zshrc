@@ -120,5 +120,3 @@ source ~/code/z/z.sh
 
 alias -s txt=$EDITOR
 alias -s PKGBUILD=$EDITOR
-
-source /usr/share/chruby/chruby.sh
