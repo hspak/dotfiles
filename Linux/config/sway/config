@@ -17,7 +17,7 @@ set $right l
 
 set $term alacritty
 set $filemanager nautilus
-set $browser firefox-nightly
+set $browser firefox
 
 # TODO: Define some colors here
 set $c_foreground #D0D0D0
@@ -58,6 +58,7 @@ input "1739:0:Synaptics_TM3289-002" {
 # Basics:
 #
     bindsym $mod+Return exec $term
+    bindsym $mod+d exec $term --title scratchpad
     bindsym $mod+o exec $browser
     bindsym $mod+p exec $menu
     bindsym $mod+e exec $filemanager
@@ -190,6 +191,7 @@ for_window [class="Nightly"] inhibit_idle fullscreen
 for_window [class="Spotify"] border none inhibit_idle fullscreen
 for_window [app_id="firefox"] border none
 for_window [class="org.gnome.*"] border none
+for_window [title="scratchpad"] floating enable
 
 # window colors         border  background text    indicator child_border
 client.focused          #525252 #414141    #cccccc #FFFFFF   #525252

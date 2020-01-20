@@ -40,12 +40,6 @@ block = "battery"
 driver = "upower"
 format = "{percentage}% {time}"
 
-[icons.overrides]
-backlight_empty = "B: "
-backlight_partial1 = "B: "
-backlight_partial2 = "B: "
-backlight_partial3 = "B: "
-backlight_full = "B: "
 [[block]]
 block = "backlight"
 device = "intel_backlight"
@@ -53,6 +47,9 @@ device = "intel_backlight"
 [[block]]
 block = "sound"
 step_width = 3
+
+# [[block]]
+# block = "ibus"
 
 [[block]]
 block = "time"
