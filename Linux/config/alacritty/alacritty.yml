@@ -100,7 +100,7 @@ tabspaces: 8
 font:
   normal:
     family: Source Code Pro Medium
-    style: Regular
+    style: Medium
   bold:
     family: Source Code Pro Medium
     style: Bold

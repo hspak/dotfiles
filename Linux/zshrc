@@ -1,7 +1,7 @@
 [[ $- != *i* ]] && return ]]
 
 # Turn autocomplete on
-autoload -U compinit edit-command-line vcs_info zmv
+autoload -Uz compinit edit-command-line vcs_info zmv
 compinit
 
 KEYTIMEOUT=1
@@ -47,6 +47,9 @@ zle -A .backward-delete-char vi-backward-delete-char
 # menu completion
 zstyle ':completion:*' menu select
 
+# autoload new files in $PATH
+zstyle ':completion:*' rehash true
+
 # colors for file completion
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 
@@ -64,7 +67,7 @@ zstyle ':completion:*' ignore-parents parent pwd
 
 # title (for vte, xterm and rxvt) {{{
 case "$TERM" in
-    vte*|xterm*|rxvt*)
+    vte*|xterm*|rxvt*|alacritty)
         update_title() { print -Pn '\e];%n (%~) - Terminal\a' } ;;
     *)
         update_title() {} ;;
@@ -94,7 +97,7 @@ RPROMPT='${vcs_info_msg_0_} %F{red}%~'
 
 # Enable setting terminal titles
 case $TERM in
-  xterm*|*rxvt*|screen*|gnome*)
+  xterm*|*rxvt*|screen*|gnome*|alacritty)
      precmd() {
        print -Pn "\e]0;%m:%~\a"
        vcs_info
@@ -105,7 +108,7 @@ esac
 
 # Environmental
 [[ -n "$TMUX" ]] && export TERM=screen-256color
-export EDITOR=vim
+export EDITOR=nvim
 export PAGER=less
 
 # External Config

@@ -195,6 +195,8 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 hide_edge_borders smart
+for_window [instance="google-chrome.*"] border none
+for_window [window_role="browser"] border none
 for_window [app_id="^firefox$"] border none
 for_window [app_id="^firefox$"] inhibit_idle fullscreen
 for_window [app_id="pavucontrol"] border none
@@ -246,5 +248,7 @@ exec_always {
 
 exec swayidle -w \
     timeout 600 'systemctl suspend' \
+    timeout 450 'swaymsg "output * dpms off"' \
+         resume 'swaymsg "output * dpms on"' \
     timeout 300 'swaylock -f -c 000000' \
-    before-sleep 'swaylock -f -c 000000'
+   before-sleep 'swaylock -f -c 000000'
