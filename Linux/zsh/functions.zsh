@@ -3,10 +3,11 @@
 #
 #
 
-# $1 = github account
-# $2 = github repo
-git_add_origin () {
-  git remote add origin "git@github.com:$1/$2.git"
+share_alacritty_terminfo() {
+  # usage: share_alacritty_terminfo "user@host" "/some/path"
+  scp ~/.config/alacritty/alacritty.info "$1:$2/alacritty.info"
+  ssh "$1" "sudo tic -xe alacritty,alacritty-direct $2/alacritty.info"
+  rm ./alacritty.info
 }
 
 # vim: set syn=sh:

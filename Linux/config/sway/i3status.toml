@@ -18,7 +18,7 @@ name = "bad-wolf"
 block = "net"
 device = "wlan0"
 ssid = true
-interval = 5
+interval = 1
 
 [[block]]
 block = "temperature"
@@ -36,7 +36,7 @@ format_mem = "{Mup}%"
 display_type = "memory"
 icons = true
 clickable = false
-interval = 5
+interval = 1
 warning_mem = 80
 critical_mem = 95
 

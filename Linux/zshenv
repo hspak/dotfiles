@@ -12,16 +12,10 @@ export PAGER=less
 export LESSHISTFILE=-
 
 # golang
-GOPATH="$HOME/code/gocode"
-export GOPATH
-
-# rust
-RUST_SRC_PATH="$HOME/.cargo/bin"
-export RUST_SRC_PATH
+export GOPATH="$HOME/code/gocode"
 
 # add things to path
-PATH="/usr/local/sbin:$HOME/bin:$GOPATH/bin:$HOME/code/zig/build/bin:$PATH"
-export PATH
+export PATH="/usr/local/sbin:$HOME/bin:$GOPATH/bin:$HOME/code/zig/build/bin:$PATH"
 
 # colors
 if [[ -f ~/.dircolors ]] && type -p dircolors >/dev/null; then

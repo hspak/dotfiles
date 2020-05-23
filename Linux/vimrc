@@ -8,13 +8,14 @@ Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'scrooloose/nerdcommenter'
 Plug 'Raimondi/delimitMate'
 Plug 'tpope/vim-fugitive'
-Plug 'vim-syntastic/syntastic'
-Plug 'junegunn/goyo.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
+Plug 'Yggdroot/indentLine'
 
-Plug 'zchee/deoplete-go', { 'do': 'make', 'for': 'go'}
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" lsp
+Plug 'neovim/nvim-lsp'
+Plug 'haorenW1025/completion-nvim'
+Plug 'haorenW1025/diagnostic-nvim'
 
 " prettify bundles
 Plug 'junegunn/vim-easy-align'
@@ -22,22 +23,74 @@ Plug 'junegunn/seoul256.vim'
 Plug 'Chiel92/vim-autoformat'
 
 " language
-Plug 'justinmk/vim-syntax-extra', { 'for': 'c' }
-Plug 'vim-scripts/a.vim',         { 'for': 'c' }
 Plug 'cespare/vim-toml',          { 'for': 'toml' }
+Plug 'fatih/vim-go',              { 'for': 'go', 'do': ':GoInstallBinaries' }
 Plug 'plasticboy/vim-markdown',   { 'for': 'md' }
-Plug 'pangloss/vim-javascript',   { 'for': ['javascript', 'jsx'] }
-Plug 'mxw/vim-jsx',               { 'for': ['javascript', 'jsx'] }
-Plug 'vim-ruby/vim-ruby',         { 'for': 'ruby' }
-Plug 'fatih/vim-go',              { 'for': 'go' }
-Plug 'rust-lang/rust.vim',        { 'for': 'rust' }
-Plug 'racer-rust/vim-racer',      { 'for': 'rust' }
-Plug 'Glench/Vim-Jinja2-Syntax',  { 'for': 'jinja' }
 Plug 'hashivim/vim-terraform',    { 'for': 'terraform' }
-Plug 'saltstack/salt-vim',        { 'for': 'sls' }
 Plug 'ziglang/zig.vim',           { 'for': 'zig' }
 "
 call plug#end()
+
+" lsp {{{
+
+" let g:completion_enable_auto_popup = 0
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+" Set completeopt to have a better completion experience
+set completeopt=menuone,noinsert,noselect
+
+function! s:check_back_space() abort
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~ '\s'
+endfunction
+
+inoremap <silent><expr> <TAB>
+  \ pumvisible() ? "\<C-n>" :
+  \ <SID>check_back_space() ? "\<TAB>" :
+  \ completion#trigger_completion()
+
+" zls
+lua << EOF
+local nvim_lsp = require'nvim_lsp'
+local configs = require'nvim_lsp/configs'
+local util = require 'nvim_lsp/util'
+configs.zig_lsp = {
+  default_config = {
+    cmd = {'/home/hsp/code/zls/zig-cache/bin/zls'};
+    filetypes = {'zig'};
+    root_dir = util.root_pattern("build.zig", ".git");
+    settings = {};
+  };
+}
+nvim_lsp.zig_lsp.setup{}
+EOF
+
+lua require'nvim_lsp'.zig_lsp.setup{on_attach=require'completion'.on_attach}
+lua require'nvim_lsp'.zig_lsp.setup{on_attach=require'diagnostic'.on_attach}
+lua require'nvim_lsp'.gopls.setup{on_attach=require'completion'.on_attach}
+lua require'nvim_lsp'.gopls.setup{on_attach=require'diagnostic'.on_attach}
+
+let g:diagnostic_enable_virtual_text = 1
+let g:diagnostic_insert_delay = 1
+let g:diagnostic_auto_popup_while_jump = 0
+let g:diagnostic_virtual_text_prefix = '💩'
+
+call sign_define("LspDiagnosticsErrorSign", {"text" : "💩", "texthl" : "LspDiagnosticsError"})
+call sign_define("LspDiagnosticsWarningSign", {"text" : "💩", "texthl" : "LspDiagnosticsWarning"})
+call sign_define("LspDiagnosticInformationSign", {"text" : "💩", "texthl" : "LspDiagnosticsInformation"})
+call sign_define("LspDiagnosticHintSign", {"text" : "💩", "texthl" : "LspDiagnosticsHint"})
+
+nnoremap <silent> gd    <cmd>lua vim.lsp.buf.declaration()<CR>
+nnoremap <silent> <c-]> <cmd>lua vim.lsp.buf.definition()<CR>
+nnoremap <silent> K     <cmd>lua vim.lsp.buf.hover()<CR>
+nnoremap <silent> gD    <cmd>lua vim.lsp.buf.implementation()<CR>
+nnoremap <silent> <c-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
+nnoremap <silent> 1gD   <cmd>lua vim.lsp.buf.type_definition()<CR>
+nnoremap <silent> gr    <cmd>lua vim.lsp.buf.references()<CR>
+nnoremap <silent> g0    <cmd>lua vim.lsp.buf.document_symbol()<CR>
+nnoremap <silent> gW    <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
+"}}}
 
 " plug-in settings
 " -------------------------------------
@@ -52,15 +105,12 @@ set mouse=a                           " make sure mouse is used in all cases.
 set autoread                          " detect external changes
 set backspace=indent,eol,start        " behave like a normal backspace
 set complete+=k                       " enable dictionary completion
-set completeopt=longest,menuone       " better completion popup
 set showcmd                           " display current command
 set title                             " sets terminal title
 set virtualedit=all                   " enable visual block edit
-" set wildmenu                          " cmd line completion
-" set wildmode=longest,full             " cmd line completion
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 set scrolloff=5                       " lines between cursor and edge
-set shortmess=atIT                    " avoid annoying prompts?
+set shortmess=catIT                    " avoid annoying prompts?
 set laststatus=2                      " always show a status line
 set clipboard+=unnamedplus            " yank and copy to X clipboard
 set backspace=2                       " full backspacing capabilities
@@ -125,6 +175,8 @@ let g:seoul256_background = 236
 color seoul256
 set background=dark
 
+let g:python3_host_prog = '/usr/bin/python'
+
 " custom keybindings {{{
 let maplocalleader = ","
 let mapleader = ","
@@ -134,16 +186,6 @@ map q: <Nop>
 map <F11> <Nop>
 map <C-T> <Nop>
 
-au FileType go map <F5> :GoLint<CR>
-au FileType go map <F6> :GoVet<CR>
-au FileType go map <F7> :GoErrCheck<CR>
-au FileType go map <F8> :GoTest<CR>
-au FileType go map <F9> :GoBuild<CR>
-au FileType rust nmap <F5> :RustFmt<CR>
-au FileType rust nmap <F6> :Cargo clippy<CR>
-au FileType rust nmap <F9> :Cargo run<CR>
-
-map <F2> :wall<CR>
 map <silent> <F12> :set hlsearch! hlsearch?<CR>
 map <silent> <LocalLeader>l :NERDTreeToggle<CR>
 map <silent> <LocalLeader>m :bnext<cr>
@@ -251,7 +293,8 @@ let NERDChristmasTree = 1
 let NERDRemoveExtraSpaces = 1
 
 " indentLine
-let g:indentLine_color_term = 236
+let g:indentLine_enabled = 1
+let g:indentLine_color_term = 237
 let g:indentLine_char = '|'
 set list lcs=trail:·,tab:»⋅,nbsp:⋅,
 
@@ -260,16 +303,6 @@ let delimitMate_expand_cr = 1
 let delimitMate_expand_space = 1
 let delimitMateBackspace = 1
 let delimitMate_jump_expansion = 1
-
-" ctrlp
-let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/]\.(git|hg|svn)$',
-  \ 'file': '\v\.(exe|so|dll)$',
-  \ }
-let g:ctrlp_working_path_mode = 'ra'
-set grepprg=rg\ --color=never
-let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
-let g:ctrlp_use_caching = 0
 
 " markdown
 let g:vim_markdown_folding_disabled=1
@@ -285,45 +318,4 @@ let g:go_highlight_build_constraints = 1
 let g:go_highlight_extra_types = 1
 let g:go_highlight_string_spellcheck = 1
 let g:go_highlight_format_strings = 1
-
-" jsx
-let g:jsx_ext_required = 0
-
-" syntastic
-set statusline+=%{exists('g:loaded_syntastic_plugin')?SyntasticStatuslineFlag():''}
-set statusline+=%*
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 0
-let g:syntastic_loc_list_height = 5
-highlight link SyntasticErrorSign SignColumn
-highlight link SyntasticWarningSign SignColumn
-highlight link SyntasticStyleErrorSign SignColumn
-highlight link SyntasticStyleWarningSign SignColumn
-
-" rust-vim
-let g:rustfmt_autosave = 1
-
-" racer
-let g:racer_experimental_completer = 1
-call deoplete#custom#option('auto_complete_delay', 0)
-
-let g:racer_cmd = "/usr/bin/racer"
-au FileType rust nmap gd <Plug>(rust-def)
-au FileType rust nmap gs <Plug>(rust-def-split)
-au FileType rust nmap gx <Plug>(rust-def-vertical)
-au FileType rust nmap <leader>gd <Plug>(rust-doc)
-
-" deoplete
-let g:deoplete#enable_at_startup = 1
-inoremap <silent><expr> <TAB>
-  \ pumvisible() ? "\<C-n>" :
-  \ <SID>check_back_space() ? "\<TAB>" :
-  \ deoplete#mappings#manual_complete()
-
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~ '\s'
-endfunction
 " }}}

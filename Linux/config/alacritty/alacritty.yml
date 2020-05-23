@@ -87,25 +87,16 @@ scrolling:
   # scrollback is enabled (history > 0).
   multiplier: 3
 
-# Spaces per Tab (changes require restart)
-#
-# This setting defines the width of a tab in cells.
-#
-# Some applications, like Emacs, rely on knowing about the width of a tab.
-# To prevent unexpected behavior in these applications, it's also required to
-# change the `it` value in terminfo when altering this setting.
-tabspaces: 8
-
 # Font configuration (changes require restart)
 font:
   normal:
-    family: Source Code Pro Medium
-    style: Medium
+    family: monospace
+    style: Regular
   bold:
-    family: Source Code Pro Medium
+    family: monospace
     style: Bold
   italic:
-    family: Source Code Pro Medium
+    family: monospace
     style: Italic
   # Normal (roman) font face
   #normal:
@@ -143,7 +134,7 @@ font:
     #style: Italic
 
   # Point size
-  size: 9.0
+  size: 10.0
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.

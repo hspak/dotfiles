@@ -79,6 +79,8 @@ bindswitch --reload lid:off output $laptop enable
     # mouse button for dragging.
     floating_modifier $mod normal
 
+    focus_follows_mouse yes
+
     bindsym $mod+Shift+c reload
     bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
 #
@@ -166,7 +168,7 @@ bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
 bindsym XF86MonBrightnessDown exec brightnessztl set dec 5
 bindsym XF86MonBrightnessUp exec brightnessztl set inc 5
-bindsym $mod+Print exec grim -o $laptop "$HOME/Pictures/Screenshot from $(date +'%Y-%m-%d %H-%M-%S').png"
+bindsym Print exec grim -o $laptop "$HOME/Pictures/Screenshot from $(date +'%Y-%m-%d %H-%M-%S').png"
 
 bindsym Ctrl+Shift+l exec swaylock -c 000000
 #
