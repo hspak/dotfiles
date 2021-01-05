@@ -18,9 +18,10 @@ Plug 'haorenW1025/diagnostic-nvim'
 
 " prettify bundles
 Plug 'junegunn/vim-easy-align'
-Plug 'junegunn/seoul256.vim'
+"Plug 'junegunn/seoul256.vim'
 Plug 'Chiel92/vim-autoformat'
 Plug 'Yggdroot/indentLine'
+Plug 'arcticicestudio/nord-vim'
 
 " language
 Plug 'cespare/vim-toml',        { 'for': 'toml' }
@@ -173,10 +174,10 @@ syntax enable
 
 set statusline=%<[%n]\ %F\ %m%r%y\ %{exists('g:loaded_fugitive')?fugitive#statusline():''}\ %=%-14.(%l,%c%V%)\ %P
 
-colorscheme seoul256
-let g:seoul256_background = 236
-color seoul256
-set background=dark
+colorscheme nord
+"let g:seoul256_background = 236
+"color seoul256
+"set background=dark
 
 let g:python3_host_prog = '/usr/bin/python'
 

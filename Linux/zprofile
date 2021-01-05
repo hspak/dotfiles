@@ -1,1 +1,4 @@
 source ~/.zshenv
+
+# start window manager
+[[ "$(uname)" == "Linux" ]] && exec sway

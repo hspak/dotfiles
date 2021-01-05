@@ -3,6 +3,22 @@
 # Copy this to ~/.config/sway/config and edit it to your liking.
 #
 # Read `man 5 sway` for a complete reference.
+set $nord0 #2e3440
+set $nord1 #3b4252
+set $nord2 #434c5e
+set $nord3 #4c566a
+set $nord4 #d8dee9
+set $nord5 #e5e9f0
+set $nord6 #eceff4
+set $nord7 #8fbcbb
+set $nord8 #88c0d0
+set $nord9 #81a1c1
+set $nord10 #5e81ac
+set $nord11 #bf616a
+set $nord12 #d08770
+set $nord13 #ebcb8b
+set $nord14 #a3be8c
+set $nord15 #b48ead
 
 font Noto Sans Medium 9
 
@@ -19,10 +35,11 @@ set $right l
 
 set $term alacritty
 set $browser firefox
-set $menu bemenu-run --fn 'Noto Sans Medium 10'
-
-# TODO: Define some colors here
-set $c_foreground #D0D0D0
+set $menu bemenu-run --tb '$nord0' --tf '$nord4' \
+                     --nb '$nord0' --nf '$nord4' \
+                     --fb '$nord0' --ff '$nord4' \
+                     --hb '$nord3' --hf '$nord6' \
+                     --fn 'Noto Sans Medium 10'
 
 ### Output configuration
 #
@@ -213,10 +230,10 @@ for_window [app_id="^alacritty$"] max_render_time 2
 for_window [app_id="org.gnome.*"] floating enable
 for_window [app_id="evince"] border none
 
-# window colors         border  background text    indicator child_border
-client.focused          #525252 #414141    #cccccc #FFFFFF   #525252
-client.focused_inactive #313131 #313131    #bbbbbb #123213   #333333
-client.unfocused        #111111 #111111    #bbbbbb #123213   #333333
+# window colors         border background text   indicator child_border
+client.focused          $nord1 $nord2     $nord6 $nord6    $nord2
+client.focused_inactive $nord0 $nord1     $nord4 $nord4    $nord1
+client.unfocused        $nord0 $nord1     $nord4 $nord4    $nord1
 
 #
 # Status Bar:
@@ -228,20 +245,20 @@ bar {
     status_command /usr/bin/i3status-rs ~/.config/sway/i3status.toml
 
     colors {
-        statusline $c_foreground
-        background #262626
-        separator  #FFFFFF
+        statusline $nord4
+        background $nord0
+        separator  $nord6
 
-        focused_statusline $c_foreground
-        focused_background #262626
-        focused_separator  #FFFFFF
+        focused_statusline $nord4
+        focused_background $nord1
+        focused_separator  $nord6
 
         #                  border  backgroud text
-        focused_workspace  #303030 #525252   $c_foreground
-        active_workspace   #303030 #525252   $c_foreground
-        inactive_workspace #323232 #323232   $c_foreground
-        binding_mode       #E16363 #6E2142   #FFD692
-        urgent_workspace   #323232 #323232   $c_foreground
+        focused_workspace  $nord1  $nord10 $nord6
+        active_workspace   $nord2  $nord10 $nord6
+        inactive_workspace $nord0  $nord1  $nord4
+        binding_mode       $nord3  $nord15 $nord4
+        urgent_workspace   $nord1  $nord11 $nord4
     }
 }
 

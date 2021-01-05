@@ -2,17 +2,18 @@
 name = "awesome"
 
 [theme]
-name = "bad-wolf"
-# [theme.overrides]
-# idle_bg = "#262626"
-# info_bg = "#262626"
-# idle_fg = "#cccccc"
-# info_fg = "#cccccc"
-# separator_fg = "#dddddd"
-# separator_bg = "#262626"
-# good_bg = "#262626"
-# warning_bg = "#262626"
-# critical_bg = "#262626"
+name = "plain"
+[theme.overrides]
+idle_bg = "#3b4252"
+info_bg = "#3b4252"
+idle_fg = "#d8dee9"
+info_fg = "#d8dee9"
+separator = "    "
+separator_fg = "#d8dee9"
+separator_bg = "#3b4252"
+good_bg = "#3b4252"
+warning_bg = "#3b4252"
+critical_bg = "#3b4252"
 
 [[block]]
 block = "net"
