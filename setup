@@ -1,6 +1,8 @@
 #!/bin/bash
 
-cd Linux
+set -e
+
+cd arch
 for dir in *; do
   if [[ "$dir" == "config" ]]; then
     for config in $dir/*; do
@@ -8,8 +10,15 @@ for dir in *; do
       rm -rf "$HOME/.$config"
       ln -sf "$PWD/$config" "$HOME/.$config"
     done
+  elif [[ "$dir" == "local" ]]; then
+    mkdir -p $HOME/.local/share/systemd/user
+    for unit in $dir/share/systemd/user/*; do
+      echo "linking $unit to $HOME/.$unit"
+      rm -rf "$HOME/.$unit"
+      ln -sf "$PWD/$unit" "$HOME/.$unit"
+    done
   else
     echo "linking $dir to $HOME/.$dir"
-    ln -sf "$PWD/$dir" "$HOME/.$dir"
+    ln -sfT "$PWD/$dir" "$HOME/.$dir"
   fi
 done

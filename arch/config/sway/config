@@ -35,6 +35,8 @@ set $right l
 
 set $term alacritty
 set $browser firefox
+set $screenshot grim
+set $lock swaylock
 set $menu bemenu-run --tb '$nord0' --tf '$nord4' \
                      --nb '$nord0' --nf '$nord4' \
                      --fb '$nord0' --ff '$nord4' \
@@ -183,8 +185,8 @@ bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
 bindsym XF86MonBrightnessDown exec brightnessztl set dec 5
 bindsym XF86MonBrightnessUp exec brightnessztl set inc 5
 # bindsym XF86Favorites = F12
-bindsym Print exec grim -o $laptop "$HOME/Pictures/Screenshot from $(date +'%Y-%m-%d %H-%M-%S').png"
-bindsym Ctrl+Shift+l exec swaylock -c 000000
+bindsym Print exec $screenshot -o $laptop "$HOME/Pictures/Screenshot from $(date +'%Y-%m-%d %H-%M-%S').png"
+bindsym Ctrl+Shift+l exec $lock -c 000000
 #
 # Resizing containers:
 #
@@ -229,6 +231,7 @@ for_window [title="^scratchpad$"] floating enable
 for_window [app_id="^alacritty$"] max_render_time 2
 for_window [app_id="org.gnome.*"] floating enable
 for_window [app_id="evince"] border none
+for_window [instance="^1password$"] floating enable
 
 # window colors         border background text   indicator child_border
 client.focused          $nord1 $nord2     $nord6 $nord6    $nord2
@@ -254,11 +257,11 @@ bar {
         focused_separator  $nord6
 
         #                  border  backgroud text
-        focused_workspace  $nord1  $nord10 $nord6
-        active_workspace   $nord2  $nord10 $nord6
-        inactive_workspace $nord0  $nord1  $nord4
-        binding_mode       $nord3  $nord15 $nord4
-        urgent_workspace   $nord1  $nord11 $nord4
+        focused_workspace  $nord1  $nord10   $nord6
+        active_workspace   $nord2  $nord10   $nord6
+        inactive_workspace $nord0  $nord1    $nord4
+        binding_mode       $nord3  $nord15   $nord4
+        urgent_workspace   $nord1  $nord11   $nord4
     }
 }
 
@@ -276,5 +279,5 @@ exec swayidle -w \
     timeout 600 'systemctl suspend' \
     timeout 450 'swaymsg "output * dpms off"' \
          resume 'swaymsg "output * dpms on"' \
-    timeout 300 'swaylock -f -c 000000' \
-   before-sleep 'swaylock -f -c 000000'
+    timeout 300 '$lock -f -c 000000' \
+   before-sleep '$lock -f -c 000000'

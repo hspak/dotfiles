@@ -16,6 +16,7 @@ alias grep='grep --color'
 # -- Type less
 alias g='git'
 alias c='cargo'
+alias k='kak'
 alias t='terraform'
 alias v='nvim'
 alias z='zig'
