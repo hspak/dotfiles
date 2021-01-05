@@ -11,19 +11,18 @@ export PAGER=less
 # disable less history file
 export LESSHISTFILE=-
 
-# golang
-export GOPATH="$HOME/code/gocode"
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_DATA_HOME="$HOME/.local/share"
 
 # add things to path
-export PATH="/usr/local/sbin:$HOME/bin:$GOPATH/bin:$HOME/code/zig/build/bin:$PATH"
+export PATH="/usr/local/sbin:$HOME/bin:$HOME/code/zig/build/bin:$HOME/go/bin:$PATH"
 
 # colors
 if [[ -f ~/.dircolors ]] && type -p dircolors >/dev/null; then
   eval $(dircolors -b ~/.dircolors)
 fi
 
-# gnome-keyring-daemon
-if [ -n "$DESKTOP_SESSION" ];then
-    eval $(gnome-keyring-daemon --start)
-    export SSH_AUTH_SOCK
-fi
+export GTK_IM_MODULE=ibus
+export XMODIFIERS=@im=ibus
+export QT_IM_MODULE=ibus

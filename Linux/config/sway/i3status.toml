@@ -53,8 +53,12 @@ device = "intel_backlight"
 block = "sound"
 step_width = 3
 
-# [[block]]
-# block = "ibus"
+#[[block]]
+#block = "ibus"
+#[block.mappings]
+#"hangul" = "KO"
+#"xkb:us:dvorak:eng" = "EN(DV)"
+#"xkb:us::eng" = "EN"
 
 [[block]]
 block = "time"
