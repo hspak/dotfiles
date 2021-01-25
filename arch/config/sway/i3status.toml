@@ -20,6 +20,7 @@ block = "net"
 device = "wlan0"
 ssid = true
 interval = 1
+bitrate = true
 
 [[block]]
 block = "temperature"

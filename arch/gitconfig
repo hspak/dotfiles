@@ -47,3 +47,5 @@
   default = simple
 [pull]
 	rebase = true
+[init]
+	defaultBranch = master

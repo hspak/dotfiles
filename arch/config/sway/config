@@ -74,8 +74,8 @@ input "1739:0:Synaptics_TM3289-002" {
 
 ### Display Config
 set $laptop eDP-1
-bindswitch --reload lid:on output $laptop disable
-bindswitch --reload lid:off output $laptop enable
+#bindswitch --reload lid:on output $laptop disable
+#bindswitch --reload lid:off output $laptop enable
 
 ### Key bindings
 #

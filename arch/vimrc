@@ -12,9 +12,8 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
 
 " lsp
-Plug 'neovim/nvim-lsp'
+Plug 'neovim/nvim-lspconfig'
 Plug 'haorenW1025/completion-nvim'
-Plug 'haorenW1025/diagnostic-nvim'
 
 " prettify bundles
 Plug 'junegunn/vim-easy-align'
@@ -25,75 +24,110 @@ Plug 'arcticicestudio/nord-vim'
 
 " language
 Plug 'cespare/vim-toml',        { 'for': 'toml' }
-Plug 'fatih/vim-go',            { 'for': 'go', 'do': ':GoInstallBinaries' }
 Plug 'plasticboy/vim-markdown', { 'for': 'md' }
 Plug 'hashivim/vim-terraform',  { 'for': 'terraform' }
 Plug 'ziglang/zig.vim',         { 'for': 'zig' }
 "
 call plug#end()
 
-" " lsp {{{
-" inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
-" inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-"
-" " Set completeopt to have a better completion experience
-" set completeopt=menuone,noinsert,noselect
-"
-" function! s:check_back_space() abort
-"     let col = col('.') - 1
-"     return !col || getline('.')[col - 1]  =~ '\s'
-" endfunction
-"
-" inoremap <silent><expr> <TAB>
-"   \ pumvisible() ? "\<C-n>" :
-"   \ <SID>check_back_space() ? "\<TAB>" :
-"   \ completion#trigger_completion()
-"
-" " zls
-" lua << EOF
-" local nvim_lsp = require'nvim_lsp'
-" local configs = require'nvim_lsp/configs'
-" local util = require 'nvim_lsp/util'
-" configs.zig_lsp = {
-"   default_config = {
-"     cmd = {'/home/hsp/code/zls/zig-cache/bin/zls'};
-"     filetypes = {'zig'};
-"     root_dir = util.root_pattern("build.zig", ".git");
-"     settings = {};
-"   };
-" }
-" nvim_lsp.zig_lsp.setup{}
-" EOF
-"
-" lua require'nvim_lsp'.zig_lsp.setup{on_attach=require'completion'.on_attach}
-" lua require'nvim_lsp'.zig_lsp.setup{on_attach=require'diagnostic'.on_attach}
-" lua require'nvim_lsp'.gopls.setup{on_attach=require'completion'.on_attach}
-" lua require'nvim_lsp'.gopls.setup{on_attach=require'diagnostic'.on_attach}
-"
-" let g:completion_enable_auto_popup = 1
-" let g:completion_enable_auto_signature = 1
-"
-" let g:diagnostic_enable_virtual_text = 1
-" let g:diagnostic_insert_delay = 1
-" let g:diagnostic_auto_popup_while_jump = 1
-" let g:diagnostic_virtual_text_prefix = '💩'
-"
-" call sign_define("LspDiagnosticsErrorSign", {"text" : "💩", "texthl" : "LspDiagnosticsError"})
-" call sign_define("LspDiagnosticsWarningSign", {"text" : "💩", "texthl" : "LspDiagnosticsWarning"})
-" call sign_define("LspDiagnosticInformationSign", {"text" : "💩", "texthl" : "LspDiagnosticsInformation"})
-" call sign_define("LspDiagnosticHintSign", {"text" : "💩", "texthl" : "LspDiagnosticsHint"})
-"
-" nnoremap <silent> gd    <cmd>lua vim.lsp.buf.declaration()<CR>
-" nnoremap <silent> <c-]> <cmd>lua vim.lsp.buf.definition()<CR>
-" nnoremap <silent> K     <cmd>lua vim.lsp.buf.hover()<CR>
-" nnoremap <silent> gD    <cmd>lua vim.lsp.buf.implementation()<CR>
-" nnoremap <silent> <c-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
-" nnoremap <silent> 1gD   <cmd>lua vim.lsp.buf.type_definition()<CR>
-" nnoremap <silent> gr    <cmd>lua vim.lsp.buf.references()<CR>
-" nnoremap <silent> g0    <cmd>lua vim.lsp.buf.document_symbol()<CR>
-" nnoremap <silent> gW    <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
-"
-" nnoremap <silent> <c-n> :NextDiagnosticCycle<CR>
+colorscheme nord
+
+" lsp {{{
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+" Set completeopt to have a better completion experience
+set completeopt=menuone,noinsert,noselect
+
+function! s:check_back_space() abort
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~ '\s'
+endfunction
+
+inoremap <silent><expr> <TAB>
+  \ pumvisible() ? "\<C-n>" :
+  \ <SID>check_back_space() ? "\<TAB>" :
+  \ completion#trigger_completion()
+
+:lua << EOF
+  vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+    vim.lsp.diagnostic.on_publish_diagnostics, {
+      -- This will disable virtual text, like doing:
+      -- let g:diagnostic_enable_virtual_text = 1
+      virtual_text = false,
+
+      -- This is similar to:
+      -- let g:diagnostic_show_sign = 1
+      -- To configure sign display,
+      --  see: ":help vim.lsp.diagnostic.set_signs()"
+      signs = true,
+
+      -- This is similar to:
+      -- "let g:diagnostic_insert_delay = 1"
+      update_in_insert = false,
+    }
+  )
+
+  local lspconfig = require('lspconfig')
+  local configs = require('lspconfig/configs')
+  local util = require('lspconfig/util')
+
+  local on_attach = function(_, bufnr)
+    vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+    require('completion').on_attach()
+  end
+
+  configs.zls = {
+    default_config = {
+      cmd = {'/home/hsp/code/zls/zig-cache/bin/zls'};
+      filetypes = {'zig'};
+      root_dir = util.root_pattern("build.zig", ".git");
+      settings = {};
+    };
+  }
+
+  configs.gopls = {
+    default_config = {
+      cmd = {"gopls", "serve"};
+      filetypes = { "go", "gomod" };
+      root_dir = util.root_pattern("go.mod", ".git");
+      settings = {
+        gopls = {
+          analyses = {
+            unusedparams = true,
+          },
+          staticcheck = true,
+        },
+      };
+    };
+  }
+
+  local servers = {'gopls', 'zls'}
+  for _, lsp in ipairs(servers) do
+    lspconfig[lsp].setup {
+      on_attach = on_attach,
+    }
+  end
+EOF
+
+let g:completion_enable_auto_popup = 1
+let g:completion_enable_auto_signature = 1
+
+call sign_define("LspDiagnosticsSignError", {"text" : "💩", "texthl" : "LspDiagnosticsError"})
+call sign_define("LspDiagnosticsSignWarning", {"text" : "💩", "texthl" : "LspDiagnosticsWarning"})
+call sign_define("LspDiagnosticSignInformation", {"text" : "💩", "texthl" : "LspDiagnosticsInformation"})
+call sign_define("LspDiagnosticSignHint", {"text" : "💩", "texthl" : "LspDiagnosticsHint"})
+
+nnoremap <silent> gd    <cmd>lua vim.lsp.buf.declaration()<CR>
+nnoremap <silent> <c-]> <cmd>lua vim.lsp.buf.definition()<CR>
+nnoremap <silent> K     <cmd>lua vim.lsp.buf.hover()<CR>
+nnoremap <silent> gD    <cmd>lua vim.lsp.buf.implementation()<CR>
+nnoremap <silent> <c-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
+nnoremap <silent> 1gD   <cmd>lua vim.lsp.buf.type_definition()<CR>
+nnoremap <silent> gr    <cmd>lua vim.lsp.buf.references()<CR>
+nnoremap <silent> g0    <cmd>lua vim.lsp.buf.document_symbol()<CR>
+nnoremap <silent> gW    <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
+nnoremap <silent> <c-n> <cmd>lua vim.lsp.diagnostic.goto_next()<CR>
 "}}}
 
 " plug-in settings
@@ -174,7 +208,6 @@ syntax enable
 
 set statusline=%<[%n]\ %F\ %m%r%y\ %{exists('g:loaded_fugitive')?fugitive#statusline():''}\ %=%-14.(%l,%c%V%)\ %P
 
-colorscheme nord
 "let g:seoul256_background = 236
 "color seoul256
 "set background=dark
@@ -310,18 +343,6 @@ let delimitMate_jump_expansion = 1
 
 " markdown
 let g:vim_markdown_folding_disabled=1
-
-" go
-let g:go_fmt_command = "goimports"
-let g:go_highlight_functions = 1
-let g:go_highlight_methods = 1
-let g:go_highlight_fields = 1
-let g:go_highlight_types = 1
-let g:go_highlight_operators = 1
-let g:go_highlight_build_constraints = 1
-let g:go_highlight_extra_types = 1
-let g:go_highlight_string_spellcheck = 1
-let g:go_highlight_format_strings = 1
 
 " fzf
 command! -bang -nargs=* Rg

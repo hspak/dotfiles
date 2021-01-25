@@ -23,6 +23,8 @@ if [[ -f ~/.dircolors ]] && type -p dircolors >/dev/null; then
   eval $(dircolors -b ~/.dircolors)
 fi
 
+export MOZ_ENABLE_WAYLAND=1
+export GDK_BACKEND=wayland
 export GTK_IM_MODULE=ibus
 export XMODIFIERS=@im=ibus
 export QT_IM_MODULE=ibus
