@@ -97,7 +97,7 @@ RPROMPT='${vcs_info_msg_0_} %F{red}%~'
 
 # Enable setting terminal titles
 case $TERM in
-  xterm*|*rxvt*|screen*|gnome*|alacritty)
+  xterm*|*rxvt*|screen*|gnome*|alacritty|foot)
      precmd() {
        print -Pn "\e]0;%m:%~\a"
        vcs_info

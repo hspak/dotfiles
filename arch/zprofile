@@ -1,4 +1,7 @@
 source ~/.zshenv
 
 # start window manager
-[[ "$(uname)" == "Linux" ]] && exec sway
+case $(tty) in
+  (/dev/tty1)       [[ "$(uname)" == "Linux" ]] && exec sway;;
+  (/dev/tty[2-9])   ;;
+esac

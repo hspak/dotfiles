@@ -10,10 +10,12 @@ Plug 'Raimondi/delimitMate'
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'novakne/kosmikoa.nvim'
 
 " lsp
 Plug 'neovim/nvim-lspconfig'
-Plug 'haorenW1025/completion-nvim'
+Plug 'nvim-lua/completion-nvim'
 
 " prettify bundles
 Plug 'junegunn/vim-easy-align'
@@ -27,10 +29,12 @@ Plug 'cespare/vim-toml',        { 'for': 'toml' }
 Plug 'plasticboy/vim-markdown', { 'for': 'md' }
 Plug 'hashivim/vim-terraform',  { 'for': 'terraform' }
 Plug 'ziglang/zig.vim',         { 'for': 'zig' }
+Plug 'm-pilia/vim-pkgbuild',    { 'for': 'PKGBUILD' }
 "
 call plug#end()
 
-colorscheme nord
+" colorscheme nord
+colorscheme kosmikoa
 
 " lsp {{{
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
@@ -88,17 +92,10 @@ inoremap <silent><expr> <TAB>
 
   configs.gopls = {
     default_config = {
-      cmd = {"gopls", "serve"};
+      cmd = {"gopls"};
       filetypes = { "go", "gomod" };
       root_dir = util.root_pattern("go.mod", ".git");
-      settings = {
-        gopls = {
-          analyses = {
-            unusedparams = true,
-          },
-          staticcheck = true,
-        },
-      };
+      settings = {};
     };
   }
 
@@ -119,15 +116,15 @@ call sign_define("LspDiagnosticSignInformation", {"text" : "💩", "texthl" : "L
 call sign_define("LspDiagnosticSignHint", {"text" : "💩", "texthl" : "LspDiagnosticsHint"})
 
 nnoremap <silent> gd    <cmd>lua vim.lsp.buf.declaration()<CR>
-nnoremap <silent> <c-]> <cmd>lua vim.lsp.buf.definition()<CR>
+nnoremap <silent> gf <cmd>lua vim.lsp.buf.definition()<CR>
 nnoremap <silent> K     <cmd>lua vim.lsp.buf.hover()<CR>
 nnoremap <silent> gD    <cmd>lua vim.lsp.buf.implementation()<CR>
-nnoremap <silent> <c-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
+nnoremap <silent> <C-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
 nnoremap <silent> 1gD   <cmd>lua vim.lsp.buf.type_definition()<CR>
 nnoremap <silent> gr    <cmd>lua vim.lsp.buf.references()<CR>
 nnoremap <silent> g0    <cmd>lua vim.lsp.buf.document_symbol()<CR>
 nnoremap <silent> gW    <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
-nnoremap <silent> <c-n> <cmd>lua vim.lsp.diagnostic.goto_next()<CR>
+nnoremap <silent> <C-n> <cmd>lua vim.lsp.diagnostic.goto_next()<CR>
 "}}}
 
 " plug-in settings

@@ -33,7 +33,7 @@ set $down j
 set $up k
 set $right l
 
-set $term alacritty
+set $term foot
 set $browser firefox
 set $screenshot grim
 set $lock swaylock
@@ -63,8 +63,8 @@ input * {
     xkb_variant ""
     xkb_options "ctrl:nocaps"
 
-    repeat_delay 175
-    repeat_rate 45
+    repeat_delay 200
+    repeat_rate 50
 }
 
 input "1739:0:Synaptics_TM3289-002" {
@@ -230,6 +230,7 @@ for_window [app_id="pavucontrol"] floating enable
 for_window [title="^scratchpad$"] floating enable
 for_window [app_id="^alacritty$"] max_render_time 2
 for_window [app_id="org.gnome.*"] floating enable
+for_window [app_id="zoom"] floating enable
 for_window [app_id="evince"] border none
 for_window [instance="^1password$"] floating enable
 
