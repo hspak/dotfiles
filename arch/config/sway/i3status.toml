@@ -18,9 +18,9 @@ critical_bg = "#3b4252"
 [[block]]
 block = "net"
 device = "wlan0"
-ssid = true
+format = "{ssid} {speed_up;K} {speed_down;K}"
+# ssid = true
 interval = 1
-bitrate = true
 
 [[block]]
 block = "temperature"
@@ -34,7 +34,6 @@ format = "{utilization}%"
 
 [[block]]
 block = "memory"
-format_mem = "{Mup}%"
 display_type = "memory"
 icons = true
 clickable = false

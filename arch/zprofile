@@ -2,6 +2,6 @@ source ~/.zshenv
 
 # start window manager
 case $(tty) in
-  (/dev/tty1)       [[ "$(uname)" == "Linux" ]] && exec sway;;
+  (/dev/tty1)       [[ "$(uname)" == "Linux" ]] && exec sway &>/home/hsp/sway.log;;
   (/dev/tty[2-9])   ;;
 esac

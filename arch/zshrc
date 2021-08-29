@@ -91,7 +91,7 @@ function zle-line-init zle-keymap-select {
     zle reset-prompt
 }
 
-PROMPT='(%F{blue}$vimode%b) %b%F{grey}%n%F{cyan}@%F{red}%m%F{grey} $ '
+PROMPT='(%F{blue}$vimode%b%f) %b%F{grey}%n%F{cyan}@%F{red}%m%F{grey} $ '
 RPROMPT='${vcs_info_msg_0_} %F{red}%~'
 # }}}
 

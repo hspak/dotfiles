@@ -16,7 +16,7 @@ export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_DATA_HOME="$HOME/.local/share"
 
 # add things to path
-export PATH="/usr/local/sbin:$HOME/bin:$HOME/code/zig/build/bin:$HOME/go/bin:$PATH"
+export PATH="/usr/local/sbin:$HOME/bin:$HOME/code/zig/build:$HOME/go/bin:$PATH"
 
 # colors
 if [[ -f ~/.dircolors ]] && type -p dircolors >/dev/null; then

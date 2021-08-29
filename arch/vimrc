@@ -209,6 +209,8 @@ set statusline=%<[%n]\ %F\ %m%r%y\ %{exists('g:loaded_fugitive')?fugitive#status
 "color seoul256
 "set background=dark
 
+set guifont=monospace:h15
+
 let g:python3_host_prog = '/usr/bin/python'
 
 " custom keybindings {{{
@@ -276,14 +278,14 @@ noremap <silent> <LocalLeader>9 :buffer 9<CR>
 cmap w!! w !sudo tee % >/dev/null<CR>:e!<CR><CR>
 
 " add command to remove all trailing whitespace
-function! s:FixWhitespace(line1,line2)
-  let l:save_cursor = getpos(".")
-  silent! execute ':' . a:line1 . ',' . a:line2 . 's/\s\+$//'
-  call setpos('.', l:save_cursor)
-endfunction
-command! -range=% FixWhitespace call <SID>FixWhitespace(<line1>,<line2>)
+" function! s:FixWhitespace(line1,line2)
+  " let l:save_cursor = getpos(".")
+  " silent! execute ':' . a:line1 . ',' . a:line2 . 's/\s\+$//'
+  " call setpos('.', l:save_cursor)
+" endfunction
+" command! -range=% FixWhitespace call <SID>FixWhitespace(<line1>,<line2>)
 
-au BufWrite * :FixWhitespace
+" au BufWrite * :FixWhitespace
 " }}}
 
 " auto commands {{{

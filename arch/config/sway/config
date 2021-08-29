@@ -74,8 +74,8 @@ input "1739:0:Synaptics_TM3289-002" {
 
 ### Display Config
 set $laptop eDP-1
-#bindswitch --reload lid:on output $laptop disable
-#bindswitch --reload lid:off output $laptop enable
+bindswitch --reload --locked lid:on output $laptop disable
+bindswitch --reload --locked lid:off output $laptop enable
 
 ### Key bindings
 #
@@ -184,6 +184,7 @@ bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
 bindsym XF86MonBrightnessDown exec brightnessztl set dec 5
 bindsym XF86MonBrightnessUp exec brightnessztl set inc 5
+bindsym XF86Display exec clamshell_toggle.sh
 # bindsym XF86Favorites = F12
 bindsym Print exec $screenshot -o $laptop "$HOME/Pictures/Screenshot from $(date +'%Y-%m-%d %H-%M-%S').png"
 bindsym Ctrl+Shift+l exec $lock -c 000000
@@ -269,9 +270,7 @@ bar {
 include /etc/sway/config.d/*
 
 exec_always {
-    org.gnome.desktop.interface gtk-theme 'Adwaita-dark'
-    org.gnome.desktop.interface icon-theme 'Adwaita'
-    org.gnome.desktop.interface cursor-theme 'Adwaita'
+    clamshell_toggle.sh
 }
 
 # exec ibus-daemon -x -d
