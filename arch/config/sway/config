@@ -223,9 +223,11 @@ bindsym $mod+i mode "k: korean; d: dvorak; esc: english"
 
 hide_edge_borders smart
 for_window [instance="google-chrome.*"] border none
+for_window [app_id="google-chrome.*" title="Meet - .*-.*-.*"] inhibit_idle visible
 for_window [window_role="browser"] border none
 for_window [app_id="^firefox$"] border none
 for_window [app_id="^firefox$"] inhibit_idle fullscreen
+for_window [app_id="^firefox$" title="Meet - .*-.*-.*"] inhibit_idle visible
 for_window [app_id="pavucontrol"] border none
 for_window [app_id="pavucontrol"] floating enable
 for_window [title="^scratchpad$"] floating enable

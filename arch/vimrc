@@ -21,7 +21,7 @@ Plug 'nvim-lua/completion-nvim'
 Plug 'junegunn/vim-easy-align'
 "Plug 'junegunn/seoul256.vim'
 Plug 'Chiel92/vim-autoformat'
-Plug 'Yggdroot/indentLine'
+" Plug 'Yggdroot/indentLine'
 Plug 'arcticicestudio/nord-vim'
 
 " language
