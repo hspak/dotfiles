@@ -15,7 +15,7 @@ Plug 'novakne/kosmikoa.nvim'
 
 " lsp
 Plug 'neovim/nvim-lspconfig'
-Plug 'nvim-lua/completion-nvim'
+Plug 'ms-jpq/coq_nvim', { 'branch': 'coq' }
 
 " prettify bundles
 Plug 'junegunn/vim-easy-align'
@@ -53,6 +53,9 @@ inoremap <silent><expr> <TAB>
   \ <SID>check_back_space() ? "\<TAB>" :
   \ completion#trigger_completion()
 
+let g:coq_settings = { 'auto_start': v:true }
+let g:coq_settings = { 'display.icons.mode': 'none' }
+
 :lua << EOF
   vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
     vim.lsp.diagnostic.on_publish_diagnostics, {
@@ -73,17 +76,13 @@ inoremap <silent><expr> <TAB>
   )
 
   local lspconfig = require('lspconfig')
+  local coq = require("coq")
   local configs = require('lspconfig/configs')
   local util = require('lspconfig/util')
 
-  local on_attach = function(_, bufnr)
-    vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
-    require('completion').on_attach()
-  end
-
   configs.zls = {
     default_config = {
-      cmd = {'/home/hsp/code/zls/zig-cache/bin/zls'};
+      cmd = {'/home/hsp/code/zls/zig-out/bin/zls'};
       filetypes = {'zig'};
       root_dir = util.root_pattern("build.zig", ".git");
       settings = {};
@@ -101,9 +100,7 @@ inoremap <silent><expr> <TAB>
 
   local servers = {'gopls', 'zls'}
   for _, lsp in ipairs(servers) do
-    lspconfig[lsp].setup {
-      on_attach = on_attach,
-    }
+    lspconfig[lsp].setup(coq.lsp_ensure_capabilities())
   end
 EOF
 
