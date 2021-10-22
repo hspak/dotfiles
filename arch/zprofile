@@ -2,6 +2,10 @@ source ~/.zshenv
 
 # start window manager
 case $(tty) in
-  (/dev/tty1)       [[ "$(uname)" == "Linux" ]] && exec sway &>/home/hsp/sway.log;;
+  (/dev/tty1)       if [[ "$(uname)" == "Linux" ]]; then
+    eval $(gnome-keyring-daemon --start --components=secrets,ssh)
+    export SSH_AUTH_SOCK
+    exec sway &>/home/hsp/sway.log
+  fi;;
   (/dev/tty[2-9])   ;;
 esac

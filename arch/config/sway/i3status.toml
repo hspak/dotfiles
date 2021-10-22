@@ -2,7 +2,7 @@
 name = "awesome"
 
 [theme]
-name = "plain"
+name = "native"
 [theme.overrides]
 idle_bg = "#3b4252"
 info_bg = "#3b4252"
@@ -25,12 +25,12 @@ interval = 1
 [[block]]
 block = "temperature"
 collapsed = false
-format = "{max}°"
+format = "{max}"
 
 [[block]]
 block = "cpu"
 interval = 1
-format = "{utilization}%"
+format = "{utilization}"
 
 [[block]]
 block = "memory"
@@ -44,11 +44,12 @@ critical_mem = 95
 [[block]]
 block = "battery"
 driver = "upower"
-format = "{percentage}% {time}"
+format = "{percentage} {time}"
 
 [[block]]
 block = "backlight"
 device = "intel_backlight"
+invert_icons = true
 
 [[block]]
 block = "sound"
