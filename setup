@@ -17,6 +17,9 @@ for dir in *; do
       rm -rf "$HOME/.$unit"
       ln -sf "$PWD/$unit" "$HOME/.$unit"
     done
+  elif [[ "$dir" == "bin" ]]; then
+    echo "linking $dir to $HOME/$dir"
+    ln -sfT "$PWD/$dir" "$HOME/$dir"
   else
     echo "linking $dir to $HOME/.$dir"
     ln -sfT "$PWD/$dir" "$HOME/.$dir"
