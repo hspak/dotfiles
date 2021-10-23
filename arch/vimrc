@@ -16,6 +16,7 @@ Plug 'novakne/kosmikoa.nvim'
 " lsp
 Plug 'neovim/nvim-lspconfig'
 Plug 'ms-jpq/coq_nvim', { 'branch': 'coq' }
+Plug 'ms-jpq/coq.artifacts', {'branch': 'artifacts'}
 
 " prettify bundles
 Plug 'junegunn/vim-easy-align'
@@ -32,6 +33,7 @@ Plug 'ziglang/zig.vim',         { 'for': 'zig' }
 Plug 'm-pilia/vim-pkgbuild',    { 'for': 'PKGBUILD' }
 "
 call plug#end()
+
 
 " colorscheme nord
 colorscheme kosmikoa
@@ -53,8 +55,6 @@ inoremap <silent><expr> <TAB>
   \ <SID>check_back_space() ? "\<TAB>" :
   \ completion#trigger_completion()
 
-let g:coq_settings = { 'auto_start': v:true }
-let g:coq_settings = { 'display.icons.mode': 'none' }
 
 :lua << EOF
   vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
@@ -74,6 +74,8 @@ let g:coq_settings = { 'display.icons.mode': 'none' }
       update_in_insert = false,
     }
   )
+
+  vim.g['coq_settings'] = {auto_start = 'shut-up'}
 
   local lspconfig = require('lspconfig')
   local coq = require("coq")
@@ -104,8 +106,6 @@ let g:coq_settings = { 'display.icons.mode': 'none' }
   end
 EOF
 
-let g:completion_enable_auto_popup = 1
-let g:completion_enable_auto_signature = 1
 
 call sign_define("LspDiagnosticsSignError", {"text" : "💩", "texthl" : "LspDiagnosticsError"})
 call sign_define("LspDiagnosticsSignWarning", {"text" : "💩", "texthl" : "LspDiagnosticsWarning"})

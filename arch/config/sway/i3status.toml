@@ -40,6 +40,7 @@ clickable = false
 interval = 1
 warning_mem = 80
 critical_mem = 95
+format_mem = "{mem_used}/{mem_total} ({mem_used_percents})"
 
 [[block]]
 block = "battery"
