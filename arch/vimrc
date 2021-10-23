@@ -100,7 +100,7 @@ inoremap <silent><expr> <TAB>
     };
   }
 
-  local servers = {'gopls', 'zls'}
+  local servers = {'gopls', 'zls', 'denols'}
   for _, lsp in ipairs(servers) do
     lspconfig[lsp].setup(coq.lsp_ensure_capabilities())
   end
