@@ -30,7 +30,7 @@ Plug 'cespare/vim-toml',        { 'for': 'toml' }
 Plug 'plasticboy/vim-markdown', { 'for': 'md' }
 Plug 'hashivim/vim-terraform',  { 'for': 'terraform' }
 Plug 'ziglang/zig.vim',         { 'for': 'zig' }
-Plug 'm-pilia/vim-pkgbuild',    { 'for': 'PKGBUILD' }
+Plug 'm-pilia/vim-pkgbuild',    { 'for': 'pkgbuild' }
 "
 call plug#end()
 
@@ -100,7 +100,7 @@ inoremap <silent><expr> <TAB>
     };
   }
 
-  local servers = {'gopls', 'zls', 'denols'}
+  local servers = {'gopls', 'zls', 'tsserver'}
   for _, lsp in ipairs(servers) do
     lspconfig[lsp].setup(coq.lsp_ensure_capabilities())
   end

@@ -30,7 +30,7 @@ format = "{max}"
 [[block]]
 block = "cpu"
 interval = 1
-format = "{utilization}"
+format = "{barchart} {utilization}"
 
 [[block]]
 block = "memory"
