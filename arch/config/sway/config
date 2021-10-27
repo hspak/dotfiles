@@ -236,8 +236,8 @@ hide_edge_borders smart
 for_window [class="^.*"] inhibit_idle fullscreen
 for_window [app_id="^.*"] inhibit_idle fullscreen
 
-for_window [instance="google-chrome.*"] border none
-for_window [instance="google-chrome.*" title="Meet - .*-.*-.*"] inhibit_idle visible
+for_window [app_id="google-chrome.*"] border none
+for_window [app_id="google-chrome.*" title="Meet - .*-.*-.*"] inhibit_idle visible
 for_window [window_role="browser"] border none
 for_window [app_id="^firefox$"] border none
 for_window [app_id="^firefox$"] inhibit_idle fullscreen
