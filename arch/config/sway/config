@@ -82,7 +82,7 @@ input "2362:628:PIXA3854:00_093A:0274_Touchpad" {
 
 ### Display Config
 set $laptop eDP-1
-output "Unknown 0x095F 0x00000000" scale 1
+output "Unknown 0x095F 0x00000000" scale 1.2
 
 bindswitch --reload --locked lid:on output $laptop disable
 bindswitch --reload --locked lid:off output $laptop enable
@@ -196,7 +196,7 @@ bindsym XF86MonBrightnessDown exec brightnessztl set dec 5
 bindsym XF86MonBrightnessUp exec brightnessztl set inc 5
 bindsym XF86Display exec clamshell_toggle.sh
 # bindsym XF86Favorites = F12
-bindsym Print exec $screenshot -o $laptop "$HOME/Pictures/Screenshot from $(date +'%Y-%m-%d %H-%M-%S').png"
+bindsym Print exec $screenshot "$HOME/Pictures/Screenshot from $(date +'%Y-%m-%d %H-%M-%S').png"
 bindsym Ctrl+Shift+l exec $lock -c 000000
 #
 # Resizing containers:
