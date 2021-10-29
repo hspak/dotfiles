@@ -1,0 +1,128 @@
+[[ $- != *i* ]] && return ]]
+
+# Turn autocomplete on
+autoload -Uz compinit edit-command-line vcs_info zmv
+compinit
+
+KEYTIMEOUT=1
+
+# history
+HISTFILE=~/.zhistory
+HISTSIZE=1500
+SAVEHIST=1000
+
+# changing directories
+setopt autocd autopushd chaselinks pushdignoredups pushdtohome
+
+# completion
+setopt alwaystoend automenu completealiases completeinword nolistbeep \
+       listpacked listtypes
+
+# expansion and globbing
+setopt badpattern braceccl extendedglob dotglob numericglobsort
+
+# history
+setopt histignorealldups histignorespace \
+       histreduceblanks histsavenodups histverify appendhistory \
+       inc_append_history share_history
+
+# io
+setopt correct noflowcontrol interactivecomments printexitvalue
+
+# jobs
+setopt nobgnice notify
+
+# prompt
+setopt promptsubst
+
+# zle
+setopt nobeep vi
+
+bindkey -v
+zle -N edit-command-line
+zle -A .backward-kill-word vi-backward-kill-word
+zle -A .backward-delete-char vi-backward-delete-char
+
+# completion style {{{
+# menu completion
+zstyle ':completion:*' menu select
+
+# autoload new files in $PATH
+zstyle ':completion:*' rehash true
+
+# colors for file completion
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+
+# complete all processes
+zstyle ':completion:*:processes' command 'ps -e'
+zstyle ':completion:*:processes-names' command 'ps -eo comm'
+
+# cache completion
+zstyle ':completion:*' use-cache on
+zstyle ':completion:*' cache-path "$HOME"/.cache
+
+# don't complete working directory in parent
+zstyle ':completion:*' ignore-parents parent pwd
+# }}}
+
+# title (for vte, xterm and rxvt) {{{
+case "$TERM" in
+    vte*|xterm*|rxvt*|alacritty)
+        update_title() { print -Pn '\e];%n (%~) - Terminal\a' } ;;
+    *)
+        update_title() {} ;;
+esac
+# }}}
+
+# prompt {{{
+zstyle ':vcs_info:*' enable git
+zstyle ':vcs_info:*' check-for-changes true
+zstyle ':vcs_info:*' stagedstr '%F{red}s%F{white}'
+zstyle ':vcs_info:*' unstagedstr '%F{red}u%F{white}'
+zstyle ':vcs_info:git*' formats "%F{green}%s %b%F{white} %m%u%c% "
+
+zle -N zle-line-init
+zle -N zle-keymap-select
+
+vimode=i
+# set vimode to current editing mode
+function zle-line-init zle-keymap-select {
+    vimode="${${KEYMAP/vicmd/c}/(main|viins)/i}"
+    zle reset-prompt
+}
+
+PROMPT='(%F{blue}$vimode%b%f) %b%F{grey}%n%F{cyan}@%F{red}%m%F{grey} $ '
+RPROMPT='${vcs_info_msg_0_} %F{red}%~'
+# }}}
+
+# Enable setting terminal titles
+case $TERM in
+  xterm*|*rxvt*|screen*|gnome*|alacritty|foot)
+     precmd() {
+       print -Pn "\e]0;%m:%~\a"
+       vcs_info
+     }
+     preexec () { print -Pn "\e]0;$1\a" }
+    ;;
+esac
+
+# Environmental
+[[ -n "$TMUX" ]] && export TERM=screen-256color
+export EDITOR=nvim
+export PAGER=less
+
+# External Config
+if [[ -f ~/.dircolors ]] && type -p dircolors >/dev/null; then
+    eval $(dircolors -b "$HOME/.dircolors")
+fi
+
+for snippets ($HOME/.zsh/*.zsh(N))
+  source $snippets
+
+source ~/code/z/z.sh
+
+alias -s txt=$EDITOR
+alias -s PKGBUILD=$EDITOR
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && . "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm

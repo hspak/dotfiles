@@ -1,0 +1,394 @@
+set nocompatible                      " use Vim defaults, screw vi
+filetype off                          " I think I needed this up here for something
+
+call plug#begin('~/.vim/plugged')
+
+" functional bundles
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'scrooloose/nerdcommenter'
+Plug 'Raimondi/delimitMate'
+Plug 'tpope/vim-fugitive'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
+Plug 'junegunn/fzf.vim'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'novakne/kosmikoa.nvim'
+
+" lsp
+Plug 'neovim/nvim-lspconfig'
+Plug 'ms-jpq/coq_nvim', { 'branch': 'coq' }
+Plug 'ms-jpq/coq.artifacts', {'branch': 'artifacts'}
+
+" prettify bundles
+Plug 'junegunn/vim-easy-align'
+"Plug 'junegunn/seoul256.vim'
+Plug 'Chiel92/vim-autoformat'
+" Plug 'Yggdroot/indentLine'
+Plug 'arcticicestudio/nord-vim'
+
+" language
+Plug 'cespare/vim-toml',        { 'for': 'toml' }
+Plug 'plasticboy/vim-markdown', { 'for': 'md' }
+Plug 'hashivim/vim-terraform',  { 'for': 'terraform' }
+Plug 'ziglang/zig.vim',         { 'for': 'zig' }
+Plug 'm-pilia/vim-pkgbuild',    { 'for': 'pkgbuild' }
+"
+call plug#end()
+
+
+colorscheme nord
+" colorscheme kosmikoa
+
+" lsp {{{
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+" Set completeopt to have a better completion experience
+set completeopt=menuone,noinsert,noselect
+
+function! s:check_back_space() abort
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~ '\s'
+endfunction
+
+inoremap <silent><expr> <TAB>
+  \ pumvisible() ? "\<C-n>" :
+  \ <SID>check_back_space() ? "\<TAB>" :
+  \ completion#trigger_completion()
+
+
+:lua << EOF
+  vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+    vim.lsp.diagnostic.on_publish_diagnostics, {
+      -- This will disable virtual text, like doing:
+      -- let g:diagnostic_enable_virtual_text = 1
+      virtual_text = false,
+
+      -- This is similar to:
+      -- let g:diagnostic_show_sign = 1
+      -- To configure sign display,
+      --  see: ":help vim.lsp.diagnostic.set_signs()"
+      signs = true,
+
+      -- This is similar to:
+      -- "let g:diagnostic_insert_delay = 1"
+      update_in_insert = false,
+    }
+  )
+
+  vim.g['coq_settings'] = {auto_start = 'shut-up'}
+
+  local lspconfig = require('lspconfig')
+  local coq = require("coq")
+  local configs = require('lspconfig/configs')
+  local util = require('lspconfig/util')
+
+  configs.zls = {
+    default_config = {
+      cmd = {'/home/hsp/code/zls/zig-out/bin/zls'};
+      filetypes = {'zig'};
+      root_dir = util.root_pattern("build.zig", ".git");
+      settings = {};
+    };
+  }
+
+  configs.gopls = {
+    default_config = {
+      cmd = {"gopls"};
+      filetypes = { "go", "gomod" };
+      root_dir = util.root_pattern("go.mod", ".git");
+      settings = {};
+    };
+  }
+
+  local servers = {'gopls', 'zls', 'tsserver'}
+  for _, lsp in ipairs(servers) do
+    lspconfig[lsp].setup(coq.lsp_ensure_capabilities())
+  end
+EOF
+
+
+call sign_define("LspDiagnosticsSignError", {"text" : "💩", "texthl" : "LspDiagnosticsError"})
+call sign_define("LspDiagnosticsSignWarning", {"text" : "💩", "texthl" : "LspDiagnosticsWarning"})
+call sign_define("LspDiagnosticSignInformation", {"text" : "💩", "texthl" : "LspDiagnosticsInformation"})
+call sign_define("LspDiagnosticSignHint", {"text" : "💩", "texthl" : "LspDiagnosticsHint"})
+
+nnoremap <silent> gd    <cmd>lua vim.lsp.buf.declaration()<CR>
+nnoremap <silent> gf <cmd>lua vim.lsp.buf.definition()<CR>
+nnoremap <silent> K     <cmd>lua vim.lsp.buf.hover()<CR>
+nnoremap <silent> gD    <cmd>lua vim.lsp.buf.implementation()<CR>
+nnoremap <silent> <C-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
+nnoremap <silent> 1gD   <cmd>lua vim.lsp.buf.type_definition()<CR>
+nnoremap <silent> gr    <cmd>lua vim.lsp.buf.references()<CR>
+nnoremap <silent> g0    <cmd>lua vim.lsp.buf.document_symbol()<CR>
+nnoremap <silent> gW    <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
+nnoremap <silent> <C-n> <cmd>lua vim.lsp.diagnostic.goto_next()<CR>
+
+lua <<EOF
+  -- …
+
+  function goimports(timeout_ms)
+    local context = { only = { "source.organizeImports" } }
+    vim.validate { context = { context, "t", true } }
+
+    local params = vim.lsp.util.make_range_params()
+    params.context = context
+
+    -- See the implementation of the textDocument/codeAction callback
+    -- (lua/vim/lsp/handler.lua) for how to do this properly.
+    local result = vim.lsp.buf_request_sync(0, "textDocument/codeAction", params, timeout_ms)
+    if not result or next(result) == nil then return end
+    local actions = result[1].result
+    if not actions then return end
+    local action = actions[1]
+
+    -- textDocument/codeAction can return either Command[] or CodeAction[]. If it
+    -- is a CodeAction, it can have either an edit, a command or both. Edits
+    -- should be executed first.
+    if action.edit or type(action.command) == "table" then
+      if action.edit then
+        vim.lsp.util.apply_workspace_edit(action.edit)
+      end
+      if type(action.command) == "table" then
+        vim.lsp.buf.execute_command(action.command)
+      end
+    else
+      vim.lsp.buf.execute_command(action)
+    end
+  end
+EOF
+
+autocmd BufWritePre *.go lua goimports(1000)
+"}}}
+
+" plug-in settings
+" -------------------------------------
+filetype plugin indent on
+set ofu=syntaxcomplete#Complete
+
+" General Options
+" -------------------------------------
+set encoding=utf-8
+set t_Co=256                          " enable 256 colors
+set mouse=a                           " make sure mouse is used in all cases.
+set autoread                          " detect external changes
+set backspace=indent,eol,start        " behave like a normal backspace
+set complete+=k                       " enable dictionary completion
+set showcmd                           " display current command
+set title                             " sets terminal title
+set virtualedit=all                   " enable visual block edit
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip
+set scrolloff=5                       " lines between cursor and edge
+set shortmess=catIT                    " avoid annoying prompts?
+set laststatus=2                      " always show a status line
+set clipboard+=unnamedplus            " yank and copy to X clipboard
+set backspace=2                       " full backspacing capabilities
+set history=50                        " 50 lines of command line history
+set ruler                             " ruler display in status line
+set ww=<,>,[,]                        " whichwrap -- left/right keys can traverse up/down
+set cmdheight=1                       " set the command height
+set showmatch                         " show matching brackets (),{},[]
+set number                            " show number line
+set hidden                            " allow unsaved buffers to go in background
+set visualbell                        " don't beep
+set magic                             " enables regex highlight?
+set cursorline                        " highlights current line
+set shiftround                        " rounds shifts
+
+"  wrap like other editors
+" -------------------------------------
+set wrap                              " word wrap
+set lbr                               " line break
+
+" backup settings
+" -------------------------------------
+" set backup                            " keep a backup file
+" set backupdir=~/.vim/backup           " backup dir
+set directory=~/.vim/swap             " swap file directory
+
+" tabs and indenting
+" -------------------------------------
+set expandtab                         " replace tabs with spaces
+set tabstop=2                         " a n-space tab width
+set shiftwidth=2                      " allows the use of < and > for VISUAL indenting
+set autoindent                        " auto indents next new line
+set smarttab                          " it reads your mind?
+set shiftround                        " better tab aligning
+set smartindent
+
+" searching
+" -------------------------------------
+set hlsearch                          " highlight search results
+set incsearch                         " increment search
+set ignorecase                        " case-insensitive search
+set smartcase                         " upper-case sensitive search
+
+" Code Folding
+"---------------------------------
+if has ('folding')
+  set foldenable
+  set foldmethod=marker
+  set foldmarker={{{,}}}
+  set foldcolumn=0
+endif
+
+" syntax highlighting
+" -------------------------------------
+syntax on
+syntax enable
+
+set statusline=%<[%n]\ %F\ %m%r%y\ %{exists('g:loaded_fugitive')?fugitive#statusline():''}\ %=%-14.(%l,%c%V%)\ %P
+
+"let g:seoul256_background = 236
+"color seoul256
+"set background=dark
+
+set guifont=monospace:h15
+
+let g:python3_host_prog = '/opt/homebrew/bin/python3'
+
+" custom keybindings {{{
+let maplocalleader = ","
+let mapleader = ","
+
+map Q <Nop>
+map q: <Nop>
+map <F11> <Nop>
+map <C-T> <Nop>
+
+map <silent> <F12> :set hlsearch! hlsearch?<CR>
+map <silent> <LocalLeader>l :NERDTreeToggle<CR>
+map <silent> <LocalLeader>m :bnext<cr>
+map <silent> <LocalLeader>v :bprev<cr>
+
+set pastetoggle=<F4>
+
+" map space to create/open/close fold
+nnoremap <silent> <Space> @=(foldlevel('.')?'za':'l')<CR>
+vnoremap <Space> zf
+
+" fzf mimic ctrl+p
+nnoremap <C-p> :Files<CR>
+
+nnoremap <C-e> 3<C-e>
+nnoremap <C-y> 3<C-y>
+
+" normal movement for wrapped lines
+noremap k gk
+noremap j gj
+
+" quick split
+noremap <silent> V :vsplit<CR> :wincmd l<CR>
+noremap <silent> H :split<CR> :wincmd j<CR>
+
+noremap <leader>r :NERDTreeFind<cr>
+
+nnoremap Q <C-W>q
+nnoremap W :wq<CR>
+nnoremap B :buffers<CR>
+
+" window movement
+nnoremap <silent> <C-k> :wincmd k<CR>
+nnoremap <silent> <C-j> :wincmd j<CR>
+nnoremap <silent> <C-l> <C-W>w
+nnoremap <silent> <C-h> <C-W>W
+
+" I almost never horizontal split
+" nnoremap <silent> <C-h> :wincmd h<CR>
+map <C-g> :vertical resize +5<CR>
+
+" buffer navigation
+noremap <silent> <LocalLeader>1 :buffer 1<CR>
+noremap <silent> <LocalLeader>2 :buffer 2<CR>
+noremap <silent> <LocalLeader>3 :buffer 3<CR>
+noremap <silent> <LocalLeader>4 :buffer 4<CR>
+noremap <silent> <LocalLeader>5 :buffer 5<CR>
+noremap <silent> <LocalLeader>6 :buffer 6<CR>
+noremap <silent> <LocalLeader>7 :buffer 7<CR>
+noremap <silent> <LocalLeader>8 :buffer 8<CR>
+noremap <silent> <LocalLeader>9 :buffer 9<CR>
+
+" allow writing root files when forgetting to sudo
+cmap w!! w !sudo tee % >/dev/null<CR>:e!<CR><CR>
+
+" add command to remove all trailing whitespace
+" function! s:FixWhitespace(line1,line2)
+  " let l:save_cursor = getpos(".")
+  " silent! execute ':' . a:line1 . ',' . a:line2 . 's/\s\+$//'
+  " call setpos('.', l:save_cursor)
+" endfunction
+" command! -range=% FixWhitespace call <SID>FixWhitespace(<line1>,<line2>)
+
+" au BufWrite * :FixWhitespace
+" }}}
+
+" auto commands {{{
+" disable annoying auto comment
+autocmd BufNewFile,BufRead * setlocal formatoptions-=cro
+
+" turn hash bangs into executeables automatically
+au BufWritePost * if getline(1) =~ "^#!" | silent :!chmod +x <afile>
+
+" save last position
+au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif "
+
+" file type specific settings
+au FileType c           setlocal ts=8 sw=8
+au FileType javascript  setlocal ts=2 sw=2 et
+au FileType cpp         setlocal ts=4 sw=4
+au FileType rust        setlocal ts=4 sw=4
+au FileType java        setlocal ts=4 sw=4
+au FileType make        setlocal noet
+au FileType python      setlocal sw=4 ts=4 et
+au FileType markdown    setlocal ts=4 sw=4 textwidth=80 cc=80 et
+au FileType go          setlocal sw=4 ts=4 noet
+au FileType lex         setlocal sw=8 ts=8
+au FileType yacc        setlocal sw=8 ts=8
+au FileType json        setlocal conceallevel=0
+
+" correct :W to :w, :Q to :q, & :Wq to :wq
+cnoreabbrev <expr> W ((getcmdtype() is# ':' && getcmdline() is# 'W')?('w'):('W'))
+cnoreabbrev <expr> Q ((getcmdtype() is# ':' && getcmdline() is# 'Q')?('q'):('Q'))
+cnoreabbrev <expr> Wq ((getcmdtype() is# ':' && getcmdline() is# 'Wq')?('wq'):('Wq'))
+
+let &titleold=getcwd()
+" }}}
+
+" plugin settings {{{
+" -------------------------------------
+let NERDSpaceDelims = 1
+let NERDUsePlaceHolders = 0
+let NERDTreeQuitOnOpen = 1
+let NERDChristmasTree = 1
+let NERDRemoveExtraSpaces = 1
+
+" indentLine
+let g:indentLine_enabled = 1
+let g:indentLine_color_term = 237
+let g:indentLine_char = '|'
+set list lcs=trail:·,tab:»⋅,nbsp:⋅,
+
+" delimiteMate
+let delimitMate_expand_cr = 1
+let delimitMate_expand_space = 1
+let delimitMateBackspace = 1
+let delimitMate_jump_expansion = 1
+
+" markdown
+let g:vim_markdown_folding_disabled=1
+
+" fzf
+command! -bang -nargs=* Rg
+  \ call fzf#vim#grep(
+  \   'rg --column --line-number --no-heading --color=always --smart-case -- '.shellescape(<q-args>), 1,
+  \   fzf#vim#with_preview(), <bang>0)
+
+function! RipgrepFzf(query, fullscreen)
+  let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case -- %s || true'
+  let initial_command = printf(command_fmt, shellescape(a:query))
+  let reload_command = printf(command_fmt, '{q}')
+  let spec = {'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command]}
+  call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
+endfunction
+
+command! -nargs=* -bang RG call RipgrepFzf(<q-args>, <bang>0)
+" }}}

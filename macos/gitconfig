@@ -1,0 +1,51 @@
+[user]
+  name = Hong Shick Pak
+  email = hong@hspak.com
+
+[credential]
+  helper = cache --timeout=3600
+
+[alias]
+  st = status
+  co = checkout
+  br = branch
+  ci = commit
+  unstage = reset HEAD --
+  last = log -1 HEAD
+  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+  bc = cherry -v master
+  yolo = !git commit --amend -C@ && git push --force
+  pp = !git pull -r && git push
+  sps = !git stash && git pull -r && git push && git stash pop
+  bruh = !git co master && git pull -r && git co - && git rebase master
+
+[color]
+  branch = auto
+  diff = auto
+  interactive = auto
+  status = auto
+  grep = yes
+
+[merge]
+  tool = vimdiff
+  log = true
+
+[help]
+  autocorrect = 1
+
+[log]
+  decorate = full
+[core]
+  editor = nvim
+[sendemail]
+  smtpencryption = tls
+  smtpserver = mail.messagingengine.com
+  smtpuser = hspak@fastmail.com
+  smtpserverport = 587
+  suppresscc = author
+[push]
+  default = simple
+[pull]
+	rebase = true
+[init]
+	defaultBranch = master

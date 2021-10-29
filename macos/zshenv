@@ -1,0 +1,20 @@
+# color for less
+export LESS=-R # use -X to avoid sending terminal initialization
+export LESS_TERMCAP_mb=$'\e[01;34m'
+export LESS_TERMCAP_md=$'\e[01;34m'
+export LESS_TERMCAP_me=$'\e[0m'
+export LESS_TERMCAP_se=$'\e[0m'
+export LESS_TERMCAP_ue=$'\e[0m'
+export LESS_TERMCAP_us=$'\e[01;32m'
+export PAGER=less
+
+# disable less history file
+export LESSHISTFILE=-
+
+# add things to path
+export PATH="/opt/homebrew/opt/openjdk/bin:/opt/homebrew/bin:/usr/local/sbin:$HOME/google-cloud-sdk/bin:$HOME/bin:$HOME/code/zig/build:$HOME/go/bin:$PATH"
+
+# colors
+if [[ -f ~/.dircolors ]] && type -p dircolors >/dev/null; then
+  eval $(dircolors -b ~/.dircolors)
+fi
