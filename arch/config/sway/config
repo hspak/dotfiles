@@ -82,7 +82,7 @@ input "2362:628:PIXA3854:00_093A:0274_Touchpad" {
 
 ### Display Config
 set $laptop eDP-1
-output "Unknown 0x095F 0x00000000" scale 1.2
+output "Unknown 0x095F 0x00000000" scale 1.0
 
 bindswitch --reload --locked lid:on output $laptop disable
 bindswitch --reload --locked lid:off output $laptop enable
@@ -242,6 +242,7 @@ for_window [window_role="browser"] border none
 for_window [app_id="^firefox$"] border none
 for_window [app_id="^firefox$"] inhibit_idle fullscreen
 for_window [app_id="^firefox$" title="Meet - .*-.*-.*"] inhibit_idle visible
+for_window [app_id="^firefox$" title=".* - YouTube - Mozilla Firefox"] inhibit_idle visible
 for_window [app_id="pavucontrol"] border none
 for_window [app_id="pavucontrol"] floating enable
 for_window [title="^scratchpad$"] floating enable
@@ -286,7 +287,7 @@ bar {
 include /etc/sway/config.d/*
 
 exec_always {
-    clamshell_toggle.sh
+    /home/hsp/bin/clamshell_toggle.sh
 }
 
 # exec ibus-daemon -x -d
