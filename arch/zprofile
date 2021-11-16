@@ -1,10 +1,13 @@
 source ~/.zshenv
 
+if [[ -n "$DESKTOP_SESSION" ]]; then
+  eval $(gnome-keyring-daemon --start --components=secrets,ssh)
+  export SSH_AUTH_SOCK
+fi
+
 # start window manager
 case $(tty) in
   (/dev/tty1)       if [[ "$(uname)" == "Linux" ]]; then
-    eval $(gnome-keyring-daemon --start --components=secrets,ssh)
-    export SSH_AUTH_SOCK
     exec sway &>/home/hsp/sway.log
   fi;;
   (/dev/tty[2-9])   ;;

@@ -23,13 +23,23 @@ if [[ -f ~/.dircolors ]] && type -p dircolors >/dev/null; then
   eval $(dircolors -b ~/.dircolors)
 fi
 
-export MOZ_ENABLE_WAYLAND=1
-export GDK_BACKEND=wayland
+# Session
 export XDG_SESSION_TYPE=wayland
-export CLUTTER_BACKEND=wayland
+export XDG_SESSION_DESKTOP=sway
 export XDG_CURRENT_DESKTOP=sway
+
+export MOZ_ENABLE_WAYLAND=1
+export CLUTTER_BACKEND=wayland
+export QT_QPA_PLATFORM=wayland-egl
+export ECORE_EVAS_ENGINE=wayland-egl
+export ELM_ENGINE=wayland_egl
+export SDL_VIDEODRIVER=wayland
+export _JAVA_AWT_WM_NONREPARENTING=1
+export NO_AT_BRIDGE=1
 
 export GTK_IM_MODULE=ibus
 export XMODIFIERS=@im=ibus
 export QT_IM_MODULE=ibus
 
+# I'm just naively setting this because starting gnome-keyring-daemon is a pita for some reason.
+export SSH_AUTH_SOCK=/run/user/1000/keyring/ssh
