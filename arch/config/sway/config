@@ -49,8 +49,7 @@ set $menu bemenu-run --tb '$nord0' --tf '$nord4' \
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg ~/.config/sway/bg.jpg fill
-output eDP-1 max_render_time 5
+# output * bg ~/.config/sway/bg.jpg fill
 #
 # Example configuration:
 #
@@ -86,6 +85,7 @@ input "2362:628:PIXA3854:00_093A:0274_Touchpad" {
 ### Display Config
 set $laptop eDP-1
 output "Unknown 0x095F 0x00000000" scale 1.3
+output "Unknown 0x095F 0x00000000" subpixel none
 
 bindswitch --reload --locked lid:on output $laptop disable
 bindswitch --reload --locked lid:off output $laptop enable
@@ -294,6 +294,7 @@ exec_always {
 }
 
 # exec ibus-daemon -x -d
+exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 exec swayidle -w \
     timeout 600 'systemctl suspend' \

@@ -18,8 +18,7 @@ critical_bg = "#3b4252"
 [[block]]
 block = "net"
 device = "wlan0"
-format = "{ssid} {speed_up;K} {speed_down;K}"
-# ssid = true
+format = "{ssid} ({ip}) {speed_up;K} {speed_down;K}   {frequency}"
 interval = 1
 
 [[block]]

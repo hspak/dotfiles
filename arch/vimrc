@@ -6,7 +6,6 @@ call plug#begin('~/.vim/plugged')
 " functional bundles
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'scrooloose/nerdcommenter'
-Plug 'Raimondi/delimitMate'
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
@@ -20,9 +19,7 @@ Plug 'ms-jpq/coq.artifacts', {'branch': 'artifacts'}
 
 " prettify bundles
 Plug 'junegunn/vim-easy-align'
-"Plug 'junegunn/seoul256.vim'
-Plug 'Chiel92/vim-autoformat'
-" Plug 'Yggdroot/indentLine'
+" Plug 'Chiel92/vim-autoformat'
 Plug 'arcticicestudio/nord-vim'
 
 " language
@@ -33,7 +30,6 @@ Plug 'ziglang/zig.vim',         { 'for': 'zig' }
 Plug 'm-pilia/vim-pkgbuild',    { 'for': 'pkgbuild' }
 "
 call plug#end()
-
 
 " colorscheme nord
 colorscheme kosmikoa
@@ -55,55 +51,73 @@ inoremap <silent><expr> <TAB>
   \ <SID>check_back_space() ? "\<TAB>" :
   \ completion#trigger_completion()
 
+lua << EOF
+vim.g['coq_settings'] = {auto_start = 'shut-up'}
 
-:lua << EOF
-  vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
-    vim.lsp.diagnostic.on_publish_diagnostics, {
-      -- This will disable virtual text, like doing:
-      -- let g:diagnostic_enable_virtual_text = 1
-      virtual_text = false,
+local nvim_lsp = require('lspconfig')
 
-      -- This is similar to:
-      -- let g:diagnostic_show_sign = 1
-      -- To configure sign display,
-      --  see: ":help vim.lsp.diagnostic.set_signs()"
-      signs = true,
+-- Use an on_attach function to only map the following keys
+-- after the language server attaches to the current buffer
+local on_attach = function(client, bufnr)
+  local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
+  local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
-      -- This is similar to:
-      -- "let g:diagnostic_insert_delay = 1"
-      update_in_insert = false,
-    }
-  )
+  -- Enable completion triggered by <c-x><c-o>
+  buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
 
-  vim.g['coq_settings'] = {auto_start = 'shut-up'}
+  -- Mappings.
+  local opts = { noremap=true, silent=true }
 
-  local lspconfig = require('lspconfig')
-  local coq = require("coq")
-  local configs = require('lspconfig/configs')
-  local util = require('lspconfig/util')
+  -- See `:help vim.lsp.*` for documentation on any of the below functions
+  buf_set_keymap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
+  buf_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
+  buf_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
+  buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
+  buf_set_keymap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
+  buf_set_keymap('n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
+  buf_set_keymap('n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
+  buf_set_keymap('n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
+  buf_set_keymap('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
+  buf_set_keymap('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
+  buf_set_keymap('n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
+  buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
+  buf_set_keymap('n', '<space>e', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
+  buf_set_keymap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
+  buf_set_keymap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
+  buf_set_keymap('n', '<space>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
+  buf_set_keymap('n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
+end
 
-  configs.zls = {
-    default_config = {
-      cmd = {'/home/hsp/code/zls/zig-out/bin/zls'};
-      filetypes = {'zig'};
-      root_dir = util.root_pattern("build.zig", ".git");
-      settings = {};
-    };
+local coq = require("coq")
+local util = require('lspconfig/util')
+
+nvim_lsp['gopls'].setup{
+  cmd = {"gopls"};
+  filetypes = { "go", "gomod" };
+  root_dir = util.root_pattern("go.mod", ".git");
+  on_attach = on_attach,
+  flags = {
+    debounce_text_changes = 150,
   }
+}
 
-  configs.gopls = {
-    default_config = {
-      cmd = {"gopls"};
-      filetypes = { "go", "gomod" };
-      root_dir = util.root_pattern("go.mod", ".git");
-      settings = {};
-    };
+nvim_lsp['zls'].setup{
+  cmd = {'/home/hsp/code/zls/zig-out/bin/zls'};
+  filetypes = {'zig', 'zir'};
+  root_dir = util.root_pattern("build.zig", ".git");
+  single_file_support = true;
+  on_attach = on_attach,
+  flags = {
+    debounce_text_changes = 150,
   }
+}
 
-  local servers = {'gopls', 'zls', 'tsserver'}
-  for _, lsp in ipairs(servers) do
-    lspconfig[lsp].setup(coq.lsp_ensure_capabilities())
-  end
+nvim_lsp['tsserver'].setup{
+  on_attach = on_attach,
+  flags = {
+    debounce_text_changes = 150,
+  }
+}
 EOF
 
 
@@ -193,6 +207,7 @@ set visualbell                        " don't beep
 set magic                             " enables regex highlight?
 set cursorline                        " highlights current line
 set shiftround                        " rounds shifts
+set signcolumn=yes                    " always keep sign column open
 
 "  wrap like other editors
 " -------------------------------------
@@ -237,10 +252,6 @@ syntax on
 syntax enable
 
 set statusline=%<[%n]\ %F\ %m%r%y\ %{exists('g:loaded_fugitive')?fugitive#statusline():''}\ %=%-14.(%l,%c%V%)\ %P
-
-"let g:seoul256_background = 236
-"color seoul256
-"set background=dark
 
 set guifont=monospace:h15
 
@@ -360,18 +371,6 @@ let NERDUsePlaceHolders = 0
 let NERDTreeQuitOnOpen = 1
 let NERDChristmasTree = 1
 let NERDRemoveExtraSpaces = 1
-
-" indentLine
-let g:indentLine_enabled = 1
-let g:indentLine_color_term = 237
-let g:indentLine_char = '|'
-set list lcs=trail:·,tab:»⋅,nbsp:⋅,
-
-" delimiteMate
-let delimitMate_expand_cr = 1
-let delimitMate_expand_space = 1
-let delimitMateBackspace = 1
-let delimitMate_jump_expansion = 1
 
 " markdown
 let g:vim_markdown_folding_disabled=1
