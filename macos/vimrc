@@ -6,7 +6,6 @@ call plug#begin('~/.vim/plugged')
 " functional bundles
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'scrooloose/nerdcommenter'
-Plug 'Raimondi/delimitMate'
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
@@ -20,23 +19,21 @@ Plug 'ms-jpq/coq.artifacts', {'branch': 'artifacts'}
 
 " prettify bundles
 Plug 'junegunn/vim-easy-align'
-"Plug 'junegunn/seoul256.vim'
 Plug 'Chiel92/vim-autoformat'
-" Plug 'Yggdroot/indentLine'
 Plug 'arcticicestudio/nord-vim'
+Plug 'https://git.sr.ht/~novakane/kosmikoa.nvim'
 
 " language
 Plug 'cespare/vim-toml',        { 'for': 'toml' }
 Plug 'plasticboy/vim-markdown', { 'for': 'md' }
 Plug 'hashivim/vim-terraform',  { 'for': 'terraform' }
 Plug 'ziglang/zig.vim',         { 'for': 'zig' }
-Plug 'm-pilia/vim-pkgbuild',    { 'for': 'pkgbuild' }
 "
 call plug#end()
 
 
-colorscheme nord
-" colorscheme kosmikoa
+" colorscheme nord
+colorscheme kosmikoa
 
 " lsp {{{
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
@@ -326,10 +323,12 @@ cmap w!! w !sudo tee % >/dev/null<CR>:e!<CR><CR>
 autocmd BufNewFile,BufRead * setlocal formatoptions-=cro
 
 " turn hash bangs into executeables automatically
-au BufWritePost * if getline(1) =~ "^#!" | silent :!chmod +x <afile>
+" au BufWritePost * if getline(1) =~ "^#!" | silent :!chmod +x <afile>
 
 " save last position
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif "
+
+au BufWritePost *.tf :TerraformFmt
 
 " file type specific settings
 au FileType c           setlocal ts=8 sw=8
@@ -339,7 +338,7 @@ au FileType rust        setlocal ts=4 sw=4
 au FileType java        setlocal ts=4 sw=4
 au FileType make        setlocal noet
 au FileType python      setlocal sw=4 ts=4 et
-au FileType markdown    setlocal ts=4 sw=4 textwidth=80 cc=80 et
+au FileType markdown    setlocal ts=4 sw=4 textwidth=80 cc=100 et
 au FileType go          setlocal sw=4 ts=4 noet
 au FileType lex         setlocal sw=8 ts=8
 au FileType yacc        setlocal sw=8 ts=8
@@ -366,12 +365,6 @@ let g:indentLine_enabled = 1
 let g:indentLine_color_term = 237
 let g:indentLine_char = '|'
 set list lcs=trail:·,tab:»⋅,nbsp:⋅,
-
-" delimiteMate
-let delimitMate_expand_cr = 1
-let delimitMate_expand_space = 1
-let delimitMateBackspace = 1
-let delimitMate_jump_expansion = 1
 
 " markdown
 let g:vim_markdown_folding_disabled=1

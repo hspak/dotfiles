@@ -20,6 +20,8 @@ alias k='kak'
 alias t='terraform'
 alias v='nvim'
 alias z='zig'
-alias sctl='systemctl'
+
+alias gc='gcloud'
+alias tf='terraform'
 
 # vim: set syn=sh :

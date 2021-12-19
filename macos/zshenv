@@ -12,7 +12,7 @@ export PAGER=less
 export LESSHISTFILE=-
 
 # add things to path
-export PATH="/opt/homebrew/opt/openjdk/bin:/opt/homebrew/bin:/usr/local/sbin:$HOME/google-cloud-sdk/bin:$HOME/bin:$HOME/code/zig/build:$HOME/go/bin:$PATH"
+export PATH="/opt/homebrew/Cellar/python@3.9/3.9.7_1/libexec/bin:/opt/homebrew/opt/openjdk/bin:/opt/homebrew/bin:/usr/local/sbin:$HOME/google-cloud-sdk/bin:$HOME/bin:$HOME/code/zig/build:$HOME/go/bin:$PATH"
 
 # colors
 if [[ -f ~/.dircolors ]] && type -p dircolors >/dev/null; then

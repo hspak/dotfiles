@@ -91,6 +91,7 @@ function zle-line-init zle-keymap-select {
     zle reset-prompt
 }
 
+# PROMPT='(%F{blue}$vimode%b%f) %b%F{grey}%n%F{cyan}@%F{red}%m%F{grey} gcp:%F{red}$(gcloud_project)%b%f $ '
 PROMPT='(%F{blue}$vimode%b%f) %b%F{grey}%n%F{cyan}@%F{red}%m%F{grey} $ '
 RPROMPT='${vcs_info_msg_0_} %F{red}%~'
 # }}}
@@ -126,3 +127,5 @@ alias -s PKGBUILD=$EDITOR
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && . "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+
+export TIMEFMT=$'real\t%E\nuser\t%U\nsys\t%S'

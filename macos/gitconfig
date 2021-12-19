@@ -18,6 +18,7 @@
   pp = !git pull -r && git push
   sps = !git stash && git pull -r && git push && git stash pop
   bruh = !git co master && git pull -r && git co - && git rebase master
+  squash = !git reset $(git merge-base main $(git branch --show-current))
 
 [color]
   branch = auto
