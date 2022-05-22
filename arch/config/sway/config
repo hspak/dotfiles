@@ -37,7 +37,7 @@ set $up k
 set $right l
 
 set $term foot
-set $browser firefox
+set $browser brave
 set $screenshot grim
 set $lock swaylock
 set $menu bemenu-run --tb '$nord0' --tf '$nord4' \
@@ -239,13 +239,12 @@ hide_edge_borders smart
 for_window [class="^.*"] inhibit_idle fullscreen
 for_window [app_id="^.*"] inhibit_idle fullscreen
 
-for_window [app_id="google-chrome.*"] border none
-for_window [app_id="google-chrome.*" title="Meet - .*-.*-.*"] inhibit_idle visible
+for_window [app_id="brave-browser.*"] border none
+for_window [app_id="brave-browser.*" title="Meet - .*-.*-.*"] inhibit_idle visible
 for_window [window_role="browser"] border none
-for_window [app_id="^firefox$"] border none
-for_window [app_id="^firefox$"] inhibit_idle fullscreen
-for_window [app_id="^firefox$" title="Meet - .*-.*-.*"] inhibit_idle visible
-for_window [app_id="^firefox$" title=".* - YouTube - Mozilla Firefox"] inhibit_idle visible
+for_window [app_id="^brave-browser$"] border none
+for_window [app_id="^brave-browser$"] inhibit_idle fullscreen
+for_window [app_id="^brave-browser$" title="Meet - .*-.*-.*"] inhibit_idle visible
 for_window [app_id="pavucontrol"] border none
 for_window [app_id="pavucontrol"] floating enable
 for_window [title="^scratchpad$"] floating enable
@@ -253,7 +252,7 @@ for_window [app_id="^alacritty$"] max_render_time 2
 for_window [app_id="org.gnome.*"] floating enable
 for_window [app_id="zoom"] floating enable
 for_window [app_id="evince"] border none
-for_window [instance="^1password$"] floating enable
+for_window [app_id="^1Password$"] floating enable border none
 
 # window colors         border background text   indicator child_border
 client.focused          $nord1 $nord2     $nord6 $nord6    $nord2
