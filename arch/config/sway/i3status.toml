@@ -17,39 +17,25 @@ critical_bg = "#3b4252"
 
 [[block]]
 block = "net"
-format = "wired {ip} {speed_up;K} {speed_down;K}"
 interval = 1
-
-[[block]]
-block = "net"
-device = "wlan0"
-format = "{ssid} ({ip}) {speed_up;K} {speed_down;K}   {frequency}"
-interval = 1
+format = "$speed_down.eng(3,B,K)$speed_up.eng(3,B,K) {$signal_strength $ssid $frequency|Wired} ($device)"
 
 [[block]]
 block = "temperature"
 collapsed = false
-format = "{max}"
 
 [[block]]
 block = "cpu"
 interval = 1
-format = "{barchart} {utilization}"
+format = "$barchart.str() $utilization.eng()"
 
 [[block]]
 block = "memory"
-display_type = "memory"
-icons = true
-clickable = false
-interval = 1
-warning_mem = 80
-critical_mem = 95
-format_mem = "{mem_used}/{mem_total} ({mem_used_percents})"
+format_mem = "$mem_total_used_percents.eng(2)"
 
 [[block]]
 block = "battery"
-driver = "upower"
-format = "{percentage} {time}"
+format = "$percentage| $time"
 
 [[block]]
 block = "backlight"
