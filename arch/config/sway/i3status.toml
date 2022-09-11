@@ -1,8 +1,8 @@
 [icons]
-name = "awesome"
+icons = "awesome"
 
 [theme]
-name = "native"
+theme = "native"
 [theme.overrides]
 idle_bg = "#3b4252"
 info_bg = "#3b4252"
@@ -14,6 +14,11 @@ separator_bg = "#3b4252"
 good_bg = "#3b4252"
 warning_bg = "#3b4252"
 critical_bg = "#3b4252"
+
+[[block]]
+block = "bluetooth"
+mac = "34:31:8F:45:F2:78"
+hide_disconnected = true
 
 [[block]]
 block = "net"
