@@ -7,7 +7,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-fugitive'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'novakne/kosmikoa.nvim'
@@ -22,12 +22,14 @@ Plug 'junegunn/vim-easy-align'
 Plug 'Chiel92/vim-autoformat'
 Plug 'arcticicestudio/nord-vim'
 Plug 'https://git.sr.ht/~novakane/kosmikoa.nvim'
+Plug 'shaunsingh/oxocarbon.nvim', { 'do': './install.sh' }
 
 " language
 Plug 'cespare/vim-toml',        { 'for': 'toml' }
 Plug 'plasticboy/vim-markdown', { 'for': 'md' }
 Plug 'hashivim/vim-terraform',  { 'for': 'terraform' }
 Plug 'ziglang/zig.vim',         { 'for': 'zig' }
+Plug 'jparise/vim-graphql',     { 'for': 'graphql' }
 "
 call plug#end()
 
@@ -54,71 +56,83 @@ inoremap <silent><expr> <TAB>
 
 
 :lua << EOF
-  vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
-    vim.lsp.diagnostic.on_publish_diagnostics, {
-      -- This will disable virtual text, like doing:
-      -- let g:diagnostic_enable_virtual_text = 1
-      virtual_text = false,
+vim.g['coq_settings'] = {auto_start = 'shut-up'}
 
-      -- This is similar to:
-      -- let g:diagnostic_show_sign = 1
-      -- To configure sign display,
-      --  see: ":help vim.lsp.diagnostic.set_signs()"
-      signs = true,
+local lsp = require "lspconfig"
+local coq = require "coq" -- add this
 
-      -- This is similar to:
-      -- "let g:diagnostic_insert_delay = 1"
-      update_in_insert = false,
-    }
-  )
+-- Mappings.
+-- See `:help vim.diagnostic.*` for documentation on any of the below functions
+local opts = { noremap=true, silent=true }
+vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
+vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
+vim.keymap.set('n', '<C-n>', vim.diagnostic.goto_next, opts)
+vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, opts)
 
-  vim.g['coq_settings'] = {auto_start = 'shut-up'}
+-- Use an on_attach function to only map the following keys
+-- after the language server attaches to the current buffer
+local on_attach = function(client, bufnr)
+  -- Enable completion triggered by <c-x><c-o>
+  vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
-  local lspconfig = require('lspconfig')
-  local coq = require("coq")
-  local configs = require('lspconfig/configs')
-  local util = require('lspconfig/util')
+  -- Mappings.
+  -- See `:help vim.lsp.*` for documentation on any of the below functions
+  local bufopts = { noremap=true, silent=true, buffer=bufnr }
+  vim.keymap.set('n', 'gd', vim.lsp.buf.declaration, bufopts)
+  vim.keymap.set('n', 'gf', vim.lsp.buf.definition, bufopts)
+  vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
+  vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
+  vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
+  vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, bufopts)
+  vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, bufopts)
+  vim.keymap.set('n', '<space>wl', function()
+    print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+  end, bufopts)
+  vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, bufopts)
+  vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, bufopts)
+  vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
+  vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
+  vim.keymap.set('n', '<space>f', function() vim.lsp.buf.format { async = true } end, bufopts)
 
-  configs.zls = {
-    default_config = {
-      cmd = {'/home/hsp/code/zls/zig-out/bin/zls'};
-      filetypes = {'zig'};
-      root_dir = util.root_pattern("build.zig", ".git");
-      settings = {};
-    };
-  }
-
-  configs.gopls = {
-    default_config = {
-      cmd = {"gopls"};
-      filetypes = { "go", "gomod" };
-      root_dir = util.root_pattern("go.mod", ".git");
-      settings = {};
-    };
-  }
-
-  local servers = {'gopls', 'zls', 'tsserver'}
-  for _, lsp in ipairs(servers) do
-    lspconfig[lsp].setup(coq.lsp_ensure_capabilities())
+  vim.diagnostic.config({virtual_text = false})
+  local signs = { Error = "💩", Warn = "💩", Hint = "💩", Info = "💩" }
+  for type, icon in pairs(signs) do
+    local hl = "DiagnosticSign" .. type
+    vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
   end
+end
+
+local lsp_flags = {
+  -- This is the default in Nvim 0.7+
+  debounce_text_changes = 150,
+}
+
+local coq = require("coq")
+local util = require('lspconfig/util')
+
+lsp['gopls'].setup{
+  cmd = {"gopls"};
+  filetypes = { "go", "gomod" };
+  root_dir = util.root_pattern("go.mod", ".git");
+  on_attach = on_attach,
+}
+
+lsp['zls'].setup{
+  cmd = {'/home/hsp/code/zls/zig-out/bin/zls'};
+  filetypes = {'zig', 'zir'};
+  root_dir = util.root_pattern("build.zig", ".git");
+  single_file_support = true;
+  on_attach = on_attach,
+}
+
+lsp['tsserver'].setup{
+  on_attach = on_attach,
+}
+
+lsp['pylsp'].setup{
+  on_attach = on_attach,
+}
 EOF
-
-
-call sign_define("LspDiagnosticsSignError", {"text" : "💩", "texthl" : "LspDiagnosticsError"})
-call sign_define("LspDiagnosticsSignWarning", {"text" : "💩", "texthl" : "LspDiagnosticsWarning"})
-call sign_define("LspDiagnosticSignInformation", {"text" : "💩", "texthl" : "LspDiagnosticsInformation"})
-call sign_define("LspDiagnosticSignHint", {"text" : "💩", "texthl" : "LspDiagnosticsHint"})
-
-nnoremap <silent> gd    <cmd>lua vim.lsp.buf.declaration()<CR>
-nnoremap <silent> gf <cmd>lua vim.lsp.buf.definition()<CR>
-nnoremap <silent> K     <cmd>lua vim.lsp.buf.hover()<CR>
-nnoremap <silent> gD    <cmd>lua vim.lsp.buf.implementation()<CR>
-nnoremap <silent> <C-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
-nnoremap <silent> 1gD   <cmd>lua vim.lsp.buf.type_definition()<CR>
-nnoremap <silent> gr    <cmd>lua vim.lsp.buf.references()<CR>
-nnoremap <silent> g0    <cmd>lua vim.lsp.buf.document_symbol()<CR>
-nnoremap <silent> gW    <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
-nnoremap <silent> <C-n> <cmd>lua vim.lsp.diagnostic.goto_next()<CR>
 
 lua <<EOF
   -- …
@@ -308,14 +322,14 @@ noremap <silent> <LocalLeader>9 :buffer 9<CR>
 cmap w!! w !sudo tee % >/dev/null<CR>:e!<CR><CR>
 
 " add command to remove all trailing whitespace
-" function! s:FixWhitespace(line1,line2)
-  " let l:save_cursor = getpos(".")
-  " silent! execute ':' . a:line1 . ',' . a:line2 . 's/\s\+$//'
-  " call setpos('.', l:save_cursor)
-" endfunction
-" command! -range=% FixWhitespace call <SID>FixWhitespace(<line1>,<line2>)
+function! s:FixWhitespace(line1,line2)
+  let l:save_cursor = getpos(".")
+  silent! execute ':' . a:line1 . ',' . a:line2 . 's/\s\+$//'
+  call setpos('.', l:save_cursor)
+endfunction
+command! -range=% FixWhitespace call <SID>FixWhitespace(<line1>,<line2>)
 
-" au BufWrite * :FixWhitespace
+au BufWrite * :FixWhitespace
 " }}}
 
 " auto commands {{{
@@ -338,7 +352,7 @@ au FileType rust        setlocal ts=4 sw=4
 au FileType java        setlocal ts=4 sw=4
 au FileType make        setlocal noet
 au FileType python      setlocal sw=4 ts=4 et
-au FileType markdown    setlocal ts=4 sw=4 textwidth=80 cc=100 et
+au FileType markdown    setlocal ts=4 sw=4 textwidth=80 et
 au FileType go          setlocal sw=4 ts=4 noet
 au FileType lex         setlocal sw=8 ts=8
 au FileType yacc        setlocal sw=8 ts=8

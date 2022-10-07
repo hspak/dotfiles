@@ -11,10 +11,13 @@ export PAGER=less
 # disable less history file
 export LESSHISTFILE=-
 
+export PYENV_ROOT="$HOME/.pyenv"
+
 # add things to path
-export PATH="/opt/homebrew/Cellar/python@3.9/3.9.7_1/libexec/bin:/opt/homebrew/opt/openjdk/bin:/opt/homebrew/bin:/usr/local/sbin:$HOME/google-cloud-sdk/bin:$HOME/bin:$HOME/code/zig/build:$HOME/go/bin:$PATH"
+export PATH="/opt/homebrew/opt/python@3.8/bin:$HOME/.local/bin:$HOME/.cargo/bin:/opt/homebrew/opt/openjdk/bin:/opt/homebrew/bin:/usr/local/sbin:$HOME/google-cloud-sdk/bin:$HOME/bin:$HOME/code/zig/build:$HOME/go/bin:$PYENV_ROOT/bin:$PATH"
 
 # colors
 if [[ -f ~/.dircolors ]] && type -p dircolors >/dev/null; then
   eval $(dircolors -b ~/.dircolors)
 fi
+. "$HOME/.cargo/env"

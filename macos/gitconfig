@@ -14,7 +14,7 @@
   last = log -1 HEAD
   lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
   bc = cherry -v master
-  yolo = !git commit --amend -C@ && git push --force
+  yolo = !git commit --amend --no-verify -C@ && git push --force
   pp = !git pull -r && git push
   sps = !git stash && git pull -r && git push && git stash pop
   bruh = !git co master && git pull -r && git co - && git rebase master
@@ -46,7 +46,13 @@
   suppresscc = author
 [push]
   default = simple
+  autoSetupRemote = true
 [pull]
 	rebase = true
 [init]
 	defaultBranch = master
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true

@@ -126,6 +126,17 @@ alias -s txt=$EDITOR
 alias -s PKGBUILD=$EDITOR
 
 export NVM_DIR="$HOME/.nvm"
-[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && . "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
 
 export TIMEFMT=$'real\t%E\nuser\t%U\nsys\t%S'
+export FZF_DEFAULT_COMMAND='rg --hidden --files --color=never'
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+eval "$(pyenv init --path)"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+export PATH="/opt/homebrew/opt/openjdk/bin/:$PATH"
+export PATH="/opt/homebrew/opt/openjdk/bin/:$PATH"
+
+# bun completions
+[ -s "/opt/homebrew/share/zsh/site-functions/_bun" ] && source "/opt/homebrew/share/zsh/site-functions/_bun"
