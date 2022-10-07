@@ -40,7 +40,7 @@ format_mem = "$mem_total_used_percents.eng(2)"
 
 [[block]]
 block = "battery"
-format = "$percentage| $time"
+format = "$percentage ($time)"
 
 [[block]]
 block = "backlight"
