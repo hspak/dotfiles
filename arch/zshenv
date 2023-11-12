@@ -43,3 +43,4 @@ export QT_IM_MODULE=ibus
 
 # I'm just naively setting this because starting gnome-keyring-daemon is a pita for some reason.
 export SSH_AUTH_SOCK=/run/user/1000/keyring/ssh
+. "$HOME/.cargo/env"

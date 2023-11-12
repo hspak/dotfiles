@@ -124,6 +124,13 @@ lsp['zls'].setup{
 lsp['tsserver'].setup{
   on_attach = on_attach,
 }
+
+lsp['rust_analyzer'].setup{
+  on_attach = on_attach,
+  settings = {
+    ['rust-analyzer'] = {},
+  },
+}
 EOF
 
 " nnoremap <silent> gd    <cmd>lua vim..buf.declaration()<CR>
