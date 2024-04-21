@@ -126,9 +126,5 @@ alias -s PKGBUILD=$EDITOR
 
 export TIMEFMT=$'real\t%E\nuser\t%U\nsys\t%S'
 
-#if [[ -z "$NVM_DIR" ]]; then
-#  export NVM_DIR="$HOME/.nvm"
-#  source /usr/share/nvm/nvm.sh
-#  source /usr/share/nvm/bash_completion
-#  source /usr/share/nvm/install-nvm-exec
-#fi
+# bun completions
+[ -s "/home/hsp/.bun/_bun" ] && source "/home/hsp/.bun/_bun"

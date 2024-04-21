@@ -22,3 +22,9 @@ export PATH="$HOME/.local/bin:/usr/local/sbin:$HOME/bin:$HOME/go/bin:$PATH"
 if [[ -f ~/.dircolors ]] && type -p dircolors >/dev/null; then
   eval $(dircolors -b ~/.dircolors)
 fi
+
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH" 
