@@ -28,6 +28,7 @@ Plug 'plasticboy/vim-markdown', { 'for': 'md' }
 Plug 'hashivim/vim-terraform',  { 'for': 'terraform' }
 Plug 'ziglang/zig.vim',         { 'for': 'zig' }
 Plug 'm-pilia/vim-pkgbuild',    { 'for': 'pkgbuild' }
+Plug 'Tetralux/odin.vim',       { 'for': 'odin' }
 "
 call plug#end()
 
@@ -113,8 +114,12 @@ lsp['gopls'].setup{
   on_attach = on_attach,
 }
 
+lsp['ols'].setup{
+  cmd = {"/home/hsp/code/ols/ols"};
+  on_attach = on_attach,
+}
+
 lsp['zls'].setup{
-  cmd = {'/home/hsp/code/zls/zig-out/bin/zls'};
   filetypes = {'zig', 'zir'};
   root_dir = util.root_pattern("build.zig", ".git");
   single_file_support = true;
@@ -125,13 +130,19 @@ lsp['tsserver'].setup{
   on_attach = on_attach,
 }
 
+lsp['pyright'].setup{
+  on_attach = on_attach,
+}
+
 lsp['rust_analyzer'].setup{
   on_attach = on_attach,
   settings = {
     ['rust-analyzer'] = {},
   },
 }
+
 EOF
+
 
 " nnoremap <silent> gd    <cmd>lua vim..buf.declaration()<CR>
 " nnoremap <silent> gf <cmd>lua vim.buf.definition()<CR>
