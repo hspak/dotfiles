@@ -9,3 +9,6 @@ case $(tty) in
   fi;;
   (/dev/tty[2-9])   ;;
 esac
+
+# Created by `pipx` on 2023-10-31 03:05:10
+export PATH="$PATH:/Users/hsp/.local/bin"

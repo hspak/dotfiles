@@ -23,3 +23,5 @@ alias gc='gcloud'
 alias tf='terraform'
 
 # vim: set syn=sh :
+
+alias joe='gioctl'

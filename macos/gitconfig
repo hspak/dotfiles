@@ -19,6 +19,7 @@
   sps = !git stash && git pull -r && git push && git stash pop
   bruh = !git co master && git pull -r && git co - && git rebase master
   squash = !git reset $(git merge-base main $(git branch --show-current))
+  brnew = !git branch --sort=-committerdate
 
 [color]
   branch = auto
@@ -48,11 +49,15 @@
   default = simple
   autoSetupRemote = true
 [pull]
-	rebase = true
+  rebase = true
 [init]
-	defaultBranch = master
+  defaultBranch = master
 [filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true
+
+[diff "lockb"]
+  textconv = bun
+  binary = true

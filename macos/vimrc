@@ -10,7 +10,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plug 'novakne/kosmikoa.nvim'
+Plug 'Shatur/neovim-ayu'
 
 " lsp
 Plug 'neovim/nvim-lspconfig'
@@ -20,9 +20,8 @@ Plug 'ms-jpq/coq.artifacts', {'branch': 'artifacts'}
 " prettify bundles
 Plug 'junegunn/vim-easy-align'
 Plug 'Chiel92/vim-autoformat'
-Plug 'arcticicestudio/nord-vim'
 Plug 'https://git.sr.ht/~novakane/kosmikoa.nvim'
-Plug 'shaunsingh/oxocarbon.nvim', { 'do': './install.sh' }
+Plug 'rmehri01/onenord.nvim', { 'branch': 'main' }
 
 " language
 Plug 'cespare/vim-toml',        { 'for': 'toml' }
@@ -30,12 +29,11 @@ Plug 'plasticboy/vim-markdown', { 'for': 'md' }
 Plug 'hashivim/vim-terraform',  { 'for': 'terraform' }
 Plug 'ziglang/zig.vim',         { 'for': 'zig' }
 Plug 'jparise/vim-graphql',     { 'for': 'graphql' }
+Plug 'HerringtonDarkholme/yats.vim', { 'for': 'typescript' }
 "
 call plug#end()
 
-
-" colorscheme nord
-colorscheme kosmikoa
+colorscheme ayu-mirage
 
 " lsp {{{
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
@@ -56,6 +54,7 @@ inoremap <silent><expr> <TAB>
 
 
 :lua << EOF
+
 vim.g['coq_settings'] = {auto_start = 'shut-up'}
 
 local lsp = require "lspconfig"
@@ -125,50 +124,38 @@ lsp['zls'].setup{
   on_attach = on_attach,
 }
 
-lsp['tsserver'].setup{
+lsp['ts_ls'].setup{
   on_attach = on_attach,
 }
 
-lsp['pylsp'].setup{
+lsp['pyright'].setup{
   on_attach = on_attach,
 }
 EOF
 
 lua <<EOF
-  -- …
-
-  function goimports(timeout_ms)
-    local context = { only = { "source.organizeImports" } }
-    vim.validate { context = { context, "t", true } }
-
-    local params = vim.lsp.util.make_range_params()
-    params.context = context
-
-    -- See the implementation of the textDocument/codeAction callback
-    -- (lua/vim/lsp/handler.lua) for how to do this properly.
-    local result = vim.lsp.buf_request_sync(0, "textDocument/codeAction", params, timeout_ms)
-    if not result or next(result) == nil then return end
-    local actions = result[1].result
-    if not actions then return end
-    local action = actions[1]
-
-    -- textDocument/codeAction can return either Command[] or CodeAction[]. If it
-    -- is a CodeAction, it can have either an edit, a command or both. Edits
-    -- should be executed first.
-    if action.edit or type(action.command) == "table" then
-      if action.edit then
-        vim.lsp.util.apply_workspace_edit(action.edit)
+    function org_imports(wait_ms)
+      local params = vim.lsp.util.make_range_params()
+      params.context = {only = {"source.organizeImports"}}
+      local result = vim.lsp.buf_request_sync(0, "textDocument/codeAction", params, wait_ms)
+      for _, res in pairs(result or {}) do
+        for _, r in pairs(res.result or {}) do
+          if r.edit then
+            vim.lsp.util.apply_workspace_edit(r.edit)
+          else
+            vim.lsp.buf.execute_command(r.command)
+          end
+        end
       end
-      if type(action.command) == "table" then
-        vim.lsp.buf.execute_command(action.command)
-      end
-    else
-      vim.lsp.buf.execute_command(action)
-    end
   end
 EOF
 
-autocmd BufWritePre *.go lua goimports(1000)
+augroup GO_LSP
+	autocmd!
+	autocmd BufWritePre *.go :silent! lua vim.lsp.buf.formatting()
+	autocmd BufWritePre *.go :silent! lua org_imports(3000)
+augroup END
+
 "}}}
 
 " plug-in settings
