@@ -1,0 +1,10 @@
+gtk-titlebar = false
+gtk-wide-tabs = false
+gtk-adwaita = false
+adw-toolbar-style = flat
+gtk-tabs-location = bottom
+
+font-family = Hack
+font-size = 10
+
+theme = GruvboxDark
