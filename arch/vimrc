@@ -10,7 +10,8 @@ Plug 'tpope/vim-fugitive'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plug 'novakne/kosmikoa.nvim'
+Plug 'Shatur/neovim-ayu'
+Plug 'ellisonleao/gruvbox.nvim'
 
 " lsp
 Plug 'neovim/nvim-lspconfig'
@@ -32,8 +33,9 @@ Plug 'Tetralux/odin.vim',       { 'for': 'odin' }
 "
 call plug#end()
 
-" colorscheme nord
-colorscheme kosmikoa
+set background=dark
+colorscheme gruvbox
+
 
 " lsp {{{
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
@@ -126,7 +128,7 @@ lsp['zls'].setup{
   on_attach = on_attach,
 }
 
-lsp['tsserver'].setup{
+lsp['ts_ls'].setup{
   on_attach = on_attach,
 }
 
