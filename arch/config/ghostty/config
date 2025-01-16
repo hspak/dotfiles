@@ -1,10 +1,15 @@
-gtk-titlebar = false
+# gtk-titlebar = false
 gtk-wide-tabs = false
-gtk-adwaita = false
-adw-toolbar-style = flat
 gtk-tabs-location = bottom
+adw-toolbar-style = flat
+gtk-adwaita = false
 
 font-family = Hack
 font-size = 10
 
 theme = GruvboxDark
+
+keybind = ctrl+alt+l=goto_split:right
+keybind = ctrl+alt+h=goto_split:left
+
+window-decoration = server
