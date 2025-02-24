@@ -22,6 +22,7 @@ vim.g.mapleader = ","
 vim.g.maplocalleader = ","
 vim.opt.number = true -- enable line numbers
 vim.opt.clipboard:append("unnamedplus") -- copy&paste support for wayland
+vim.opt.cursorline = true
 vim.opt.virtualedit = "all" -- allow cursor to go anywhere
 
 require("lazy").setup({
