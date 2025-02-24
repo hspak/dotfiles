@@ -21,7 +21,6 @@ Plug 'ms-jpq/coq.artifacts', {'branch': 'artifacts'}
 Plug 'junegunn/vim-easy-align'
 Plug 'Chiel92/vim-autoformat'
 Plug 'https://git.sr.ht/~novakane/kosmikoa.nvim'
-Plug 'rmehri01/onenord.nvim', { 'branch': 'main' }
 
 " language
 Plug 'cespare/vim-toml',        { 'for': 'toml' }
@@ -242,7 +241,7 @@ set statusline=%<[%n]\ %F\ %m%r%y\ %{exists('g:loaded_fugitive')?fugitive#status
 
 set guifont=monospace:h15
 
-let g:python3_host_prog = '/opt/homebrew/bin/python3'
+let g:python3_host_prog = '/Users/hsp/.local/bin/python'
 
 " custom keybindings {{{
 let maplocalleader = ","
