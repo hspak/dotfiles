@@ -7,7 +7,7 @@ gtk-adwaita = false
 font-family = Hack
 font-size = 10
 
-theme = GruvboxDark
+theme = carbonfox
 
 keybind = ctrl+alt+l=goto_split:right
 keybind = ctrl+alt+h=goto_split:left
