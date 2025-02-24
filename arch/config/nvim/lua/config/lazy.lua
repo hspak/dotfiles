@@ -86,6 +86,9 @@ require("lazy").setup({
         lspconfig.pyright.setup({
           on_attach = on_attach,
         })
+        lspconfig.ts_ls.setup({
+          on_attach = on_attach,
+        })
       end,
     },
     {
