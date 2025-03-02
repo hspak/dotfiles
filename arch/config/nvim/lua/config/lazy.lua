@@ -21,6 +21,7 @@ vim.opt.rtp:prepend(lazypath)
 vim.g.mapleader = ","
 vim.g.maplocalleader = ","
 vim.opt.number = true -- enable line numbers
+vim.opt.title = true -- update terminal title
 vim.opt.clipboard:append("unnamedplus") -- copy&paste support for wayland
 vim.opt.virtualedit = "all" -- allow cursor to go anywhere
 
