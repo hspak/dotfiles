@@ -2,7 +2,6 @@
 gtk-wide-tabs = false
 gtk-tabs-location = bottom
 adw-toolbar-style = flat
-gtk-adwaita = false
 
 font-family = Hack
 font-size = 10

@@ -120,21 +120,6 @@ require("lazy").setup({
         vim.cmd.colorscheme("carbonfox")
       end,
     },
-    {
-      "ms-jpq/chadtree",
-      lazy = false, 
-      branch = "chad",
-      build = "python -m chadtree deps",
-      config = function()
-        local chadtree_settings = {
-          options = {
-            close_on_open = true,
-          }
-        }
-        vim.api.nvim_set_var("chadtree_settings", chadtree_settings)
-        vim.keymap.set("n", "<Leader>l", ":CHADopen<CR>")
-      end,
-    },
     { "numToStr/Comment.nvim" },
     { "tpope/vim-fugitive" },
   },
