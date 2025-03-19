@@ -8,6 +8,7 @@ vim.keymap.set("n", "H", ":split<CR> :wincmd j<CR>")
 vim.keymap.set("n", "<F12>", ":set hlsearch! hlsearch?<CR>")
 vim.keymap.set("n", "j", "gj")
 vim.keymap.set("n", "k", "gk")
+vim.keymap.set('n', '<LocalLeader>l', ":Lexplore<CR> :vertical resize 30<CR>")
 
 -- vimscript stuff from my old vimrc I can't be bothered to convert
 vim.cmd([[
