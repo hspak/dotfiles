@@ -24,6 +24,8 @@ vim.opt.number = true -- enable line numbers
 vim.opt.title = true -- update terminal title
 vim.opt.clipboard:append("unnamedplus") -- copy&paste support for wayland
 vim.opt.virtualedit = "all" -- allow cursor to go anywhere
+vim.opt.ignorecase = true -- case-insensitive search
+vim.opt.smartcase = true -- upper-case sensitive search
 
 require("lazy").setup({
   spec = {
