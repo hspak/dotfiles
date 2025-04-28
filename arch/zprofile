@@ -1,14 +1,9 @@
 source ~/.zshenv
 
-if [[ -n "$DESKTOP_SESSION" ]]; then
-  eval $(gnome-keyring-daemon --start --components=secrets,ssh)
-  export SSH_AUTH_SOCK
+if uwsm check may-start; then
+  if [[ -f /usr/share/wayland-sessions/hyprland.desktop ]]; then
+    exec uwsm start hyprland.desktop
+  elif uwsm select; then
+    exec uwsm start desktop
+  fi
 fi
-
-# start window manager
-case $(tty) in
-  (/dev/tty1)       if [[ "$(uname)" == "Linux" ]]; then
-    exec sway &>/home/hsp/sway.log
-  fi;;
-  (/dev/tty[2-9])   ;;
-esac
