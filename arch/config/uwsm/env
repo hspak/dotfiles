@@ -5,4 +5,4 @@ export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
 export GDK_BACKEND=wayland
 export SDL_VIDEODRIVER=wayland
 export CLUTTER_BACKEND=wayland
-export GTK_THEME=Breeze
+export GTK_THEME=Adwaita-dark
