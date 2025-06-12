@@ -27,6 +27,10 @@ vim.opt.virtualedit = "all" -- allow cursor to go anywhere
 vim.opt.ignorecase = true -- case-insensitive search
 vim.opt.smartcase = true -- upper-case sensitive search
 
+vim.opt.expandtab = true -- conver tabs to spaces
+vim.opt.tabstop = 2 -- 2 spaces per tab
+vim.opt.shiftwidth=2 -- use < > for shifting tabs
+
 require("lazy").setup({
   spec = {
     {

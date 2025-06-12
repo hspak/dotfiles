@@ -2,7 +2,8 @@ export QT_QPA_PLATFORMTHEME=qt6ct
 export QT_QPA_PLATFORM=wayland
 export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
 
+export GTK_THEME=Adwaita-dark
 export GDK_BACKEND=wayland
+
 export SDL_VIDEODRIVER=wayland
 export CLUTTER_BACKEND=wayland
-export GTK_THEME=Adwaita-dark
