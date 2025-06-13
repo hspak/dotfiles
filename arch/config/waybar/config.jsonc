@@ -5,7 +5,7 @@
     "spacing": 4, // Gaps between modules (4px)
     "modules-left": [
         "hyprland/workspaces",
-        "hyprland/submap",
+        "hyprland/submap"
     ],
     "modules-center": ["hyprland/window"],
     "modules-right": [
@@ -21,6 +21,7 @@
     ],
     "hyprland/workspaces": {
       "format": "{icon}",
+      "on-click": "activate",
       "on-scroll-up": "hyprctl dispatch workspace e+1",
       "on-scroll-down": "hyprctl dispatch workspace e-1"
     },
