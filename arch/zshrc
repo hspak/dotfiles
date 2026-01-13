@@ -76,7 +76,7 @@ esac
 
 # prompt {{{
 zstyle ':vcs_info:*' enable git
-zstyle ':vcs_info:*' check-for-changes true
+zstyle ':vcs_info:*' check-for-changes false
 zstyle ':vcs_info:*' stagedstr '%F{red}s%F{white}'
 zstyle ':vcs_info:*' unstagedstr '%F{red}u%F{white}'
 zstyle ':vcs_info:git*' formats "%F{green}%s %b%F{white} %m%u%c% "
@@ -93,23 +93,13 @@ function zle-line-init zle-keymap-select {
 
 PROMPT='(%F{blue}$vimode%b%f) %b%F{grey}%n%F{cyan}@%F{red}%m%F{grey} $ '
 RPROMPT='${vcs_info_msg_0_} %F{red}%~'
-# }}}
 
-# Enable setting terminal titles
-case $TERM in
-  xterm*|*rxvt*|screen*|gnome*|alacritty|foot)
-     precmd() {
-       print -Pn "\e]0;%m:%~\a"
-       vcs_info
-     }
-     preexec () { print -Pn "\e]0;$1\a" }
-    ;;
-esac
-
-# Environmental
-[[ -n "$TMUX" ]] && export TERM=screen-256color
 export EDITOR=nvim
 export PAGER=less
+
+precmd() {
+  vcs_info
+}
 
 # External Config
 if [[ -f ~/.dircolors ]] && type -p dircolors >/dev/null; then
@@ -128,9 +118,3 @@ export TIMEFMT=$'real\t%E\nuser\t%U\nsys\t%S'
 
 # bun completions
 [ -s "/home/hsp/.bun/_bun" ] && source "/home/hsp/.bun/_bun"
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/hsp/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/home/hsp/Downloads/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/home/hsp/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/hsp/Downloads/google-cloud-sdk/completion.zsh.inc'; fi

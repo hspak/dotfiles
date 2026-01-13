@@ -10,6 +10,16 @@ vim.keymap.set("n", "j", "gj")
 vim.keymap.set("n", "k", "gk")
 vim.keymap.set('n', '<LocalLeader>l', ":Lexplore<CR> :vertical resize 30<CR>")
 
+vim.api.nvim_create_autocmd('BufWritePre', {
+  desc = 'Removes trailing whitespace on save',
+  callback = function()
+    local save_cursor = vim.fn.getpos('.')
+    vim.cmd([[%s/\s\+$//e]])
+    vim.fn.setpos('.', save_cursor)
+  end,
+})
+
+
 -- vimscript stuff from my old vimrc I can't be bothered to convert
 vim.cmd([[
 set list

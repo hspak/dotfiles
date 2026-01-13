@@ -48,7 +48,6 @@ require("lazy").setup({
         }
       end,
       config = function()
-        local lspconfig = require("lspconfig")
         local coq = require("coq")
 
         local opts = { noremap=true, silent=true }
@@ -88,15 +87,12 @@ require("lazy").setup({
             end
         end
 
-        lspconfig.zls.setup({
-          on_attach = on_attach,
-        })
-        lspconfig.pyright.setup({
-          on_attach = on_attach,
-        })
-        lspconfig.ts_ls.setup({
-          on_attach = on_attach,
-        })
+        vim.lsp.config('zls', {})
+        vim.lsp.enable({'zls'})
+        vim.lsp.config('pyright', {})
+        vim.lsp.enable({'pyright'})
+        vim.lsp.config('ts_ls', {})
+        vim.lsp.enable({'ts_ls'})
       end,
     },
     {

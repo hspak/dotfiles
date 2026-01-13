@@ -3,10 +3,8 @@ gtk-wide-tabs = false
 gtk-tabs-location = bottom
 adw-toolbar-style = flat
 
-font-family = Hack
+font-family = IosevkaSerif
 font-size = 10
-
-theme = carbonfox
 
 keybind = ctrl+alt+l=goto_split:right
 keybind = ctrl+alt+h=goto_split:left
