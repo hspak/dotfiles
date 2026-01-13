@@ -35,7 +35,7 @@ require("lazy").setup({
   spec = {
     {
       "neovim/nvim-lspconfig",
-      lazy = false, 
+      lazy = false,
       priority = 99,
       dependencies = {
         { "ms-jpq/coq_nvim", branch = "coq" },
@@ -115,9 +115,9 @@ require("lazy").setup({
         vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
       end,
     },
-    { 
+    {
       "EdenEast/nightfox.nvim",
-      lazy = false, 
+      lazy = false,
       config = function()
         vim.cmd.colorscheme("carbonfox")
       end,
@@ -126,4 +126,6 @@ require("lazy").setup({
     { "tpope/vim-fugitive" },
   },
   checker = { enabled = true },
+}, {
+  rocks = { enabled = false },
 })

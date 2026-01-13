@@ -20,27 +20,47 @@ vim.api.nvim_create_autocmd('BufWritePre', {
 })
 
 
--- vimscript stuff from my old vimrc I can't be bothered to convert
+-- Lua equivalents for previous Vimscript settings
+
+-- Show whitespace characters
+vim.opt.list = true
+
+-- Don't show intro message
+vim.opt.shortmess:append('I')
+
+-- Enable filetype plugins (usually on by default)
+vim.cmd('filetype plugin on')
+
+-- Filetype specific options
+local ft_settings = {
+  c = {tabstop = 8, shiftwidth = 8},
+  javascript = {tabstop = 2, shiftwidth = 2, expandtab = true},
+  cpp = {tabstop = 4, shiftwidth = 4},
+  rust = {tabstop = 4, shiftwidth = 4},
+  java = {tabstop = 4, shiftwidth = 4},
+  make = {expandtab = false},
+  python = {tabstop = 4, shiftwidth = 4, expandtab = true},
+  markdown = {tabstop = 2, shiftwidth = 2, textwidth = 80, colorcolumn = '100', expandtab = true},
+  go = {tabstop = 4, shiftwidth = 4, expandtab = false},
+  lex = {tabstop = 8, shiftwidth = 8},
+  yacc = {tabstop = 8, shiftwidth = 8},
+  lua = {tabstop = 2, shiftwidth = 2, expandtab = true},
+  json = {conceallevel = 0},
+}
+
+for ft, opts in pairs(ft_settings) do
+  vim.api.nvim_create_autocmd('FileType', {
+    pattern = ft,
+    callback = function()
+      for opt, val in pairs(opts) do
+        vim.bo[opt] = val
+      end
+    end,
+  })
+end
+
+-- Command-line abbreviations (kept as Vimscript for simplicity)
 vim.cmd([[
-set list
-set shortmess=I
-
-filetype plugin on
-
-au FileType c           setlocal ts=8 sw=8
-au FileType javascript  setlocal ts=2 sw=2 et
-au FileType cpp         setlocal ts=4 sw=4
-au FileType rust        setlocal ts=4 sw=4
-au FileType java        setlocal ts=4 sw=4
-au FileType make        setlocal noet
-au FileType python      setlocal sw=4 ts=4 et
-au FileType markdown    setlocal ts=2 sw=2 textwidth=80 cc=100 et
-au FileType go          setlocal sw=4 ts=4 noet
-au FileType lex         setlocal sw=8 ts=8
-au FileType yacc        setlocal sw=8 ts=8
-au FileType lua         setlocal sw=2 ts=2 et
-au FileType json        setlocal conceallevel=0
-
 cnoreabbrev <expr> W ((getcmdtype() is# ':' && getcmdline() is# 'W')?('w'):('W'))
 cnoreabbrev <expr> Q ((getcmdtype() is# ':' && getcmdline() is# 'Q')?('q'):('Q'))
 cnoreabbrev <expr> Wq ((getcmdtype() is# ':' && getcmdline() is# 'Wq')?('wq'):('Wq'))
