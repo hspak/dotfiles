@@ -32,7 +32,7 @@ require("lazy").setup({
   spec = {
     {
       "neovim/nvim-lspconfig",
-      lazy = false, 
+      lazy = false,
       priority = 99,
       dependencies = {
         { "ms-jpq/coq_nvim", branch = "coq" },
@@ -45,8 +45,7 @@ require("lazy").setup({
         }
       end,
       config = function()
-        local lspconfig = require("lspconfig")
-        local coq = require("coq")
+        require("coq")
 
         local opts = { noremap=true, silent=true }
         vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
@@ -54,12 +53,18 @@ require("lazy").setup({
         vim.keymap.set('n', '<C-n>', vim.diagnostic.goto_next, opts)
         vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, opts)
 
-        local on_attach = function(client, bufnr)
-            -- Enable completion triggered by <c-x><c-o>
-            vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+        vim.diagnostic.config({virtual_text = false})
+        local signs = { Error = "💩", Warn = "💩", Hint = "💩", Info = "💩" }
+        for type, icon in pairs(signs) do
+          local hl = "DiagnosticSign" .. type
+          vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+        end
 
-            -- Mappings.
-            -- See `:help vim.lsp.*` for documentation on any of the below functions
+        vim.api.nvim_create_autocmd('LspAttach', {
+          callback = function(args)
+            local bufnr = args.buf
+            vim.bo[bufnr].omnifunc = 'v:lua.vim.lsp.omnifunc'
+
             local bufopts = { noremap=true, silent=true, buffer=bufnr }
             vim.keymap.set('n', 'gd', vim.lsp.buf.declaration, bufopts)
             vim.keymap.set('n', 'gf', vim.lsp.buf.definition, bufopts)
@@ -76,24 +81,19 @@ require("lazy").setup({
             vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
             vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
             vim.keymap.set('n', '<space>f', function() vim.lsp.buf.format { async = true } end, bufopts)
+          end,
+        })
 
-            vim.diagnostic.config({virtual_text = false})
-            local signs = { Error = "💩", Warn = "💩", Hint = "💩", Info = "💩" }
-            for type, icon in pairs(signs) do
-              local hl = "DiagnosticSign" .. type
-              vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
-            end
-        end
-
-        lspconfig.zls.setup({
-          on_attach = on_attach,
+        vim.lsp.config('ty', {
+          cmd = { '.venv/bin/ty', 'server' },
+          settings = {
+            ty = {
+              diagnosticMode = 'workspace',
+            },
+          },
         })
-        lspconfig.pyright.setup({
-          on_attach = on_attach,
-        })
-        lspconfig.ts_ls.setup({
-          on_attach = on_attach,
-        })
+        vim.lsp.enable('ty')
+        vim.lsp.enable('ts_ls')
       end,
     },
     {
@@ -116,9 +116,9 @@ require("lazy").setup({
         vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
       end,
     },
-    { 
+    {
       "EdenEast/nightfox.nvim",
-      lazy = false, 
+      lazy = false,
       config = function()
         vim.cmd.colorscheme("carbonfox")
       end,

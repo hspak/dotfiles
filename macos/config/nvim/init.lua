@@ -19,6 +19,7 @@ filetype plugin on
 
 au FileType c           setlocal ts=8 sw=8
 au FileType javascript  setlocal ts=2 sw=2 et
+au FileType typescript  setlocal ts=2 sw=2 et
 au FileType cpp         setlocal ts=4 sw=4
 au FileType rust        setlocal ts=4 sw=4
 au FileType java        setlocal ts=4 sw=4
@@ -30,6 +31,7 @@ au FileType lex         setlocal sw=8 ts=8
 au FileType yacc        setlocal sw=8 ts=8
 au FileType lua         setlocal sw=2 ts=2 et
 au FileType json        setlocal conceallevel=0
+au FileType typescriptreact  setlocal ts=2 sw=2 et
 
 cnoreabbrev <expr> W ((getcmdtype() is# ':' && getcmdline() is# 'W')?('w'):('W'))
 cnoreabbrev <expr> Q ((getcmdtype() is# ':' && getcmdline() is# 'Q')?('q'):('Q'))

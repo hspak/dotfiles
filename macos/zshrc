@@ -125,9 +125,6 @@ source ~/code/z/z.sh
 alias -s txt=$EDITOR
 alias -s PKGBUILD=$EDITOR
 
-export NVM_DIR="$HOME/.nvm"
-# . "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
-
 export TIMEFMT=$'real\t%E\nuser\t%U\nsys\t%S'
 export FZF_DEFAULT_COMMAND='rg --hidden --files --color=never'
 
@@ -141,3 +138,13 @@ export PATH="$PATH:/Users/hsp/.local/bin"
 . "$HOME/.cargo/env"
 
 ulimit -n 10240
+
+# pnpm
+export PNPM_HOME="/Users/hsp/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+
+alias claude="/Users/hsp/.claude/local/claude"

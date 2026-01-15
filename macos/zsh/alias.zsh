@@ -25,3 +25,6 @@ alias tf='terraform'
 # vim: set syn=sh :
 
 alias joe='gioctl'
+
+alias kprod='kubectl config use gke_poggio-production-experiments_us-central1_primary'
+alias kstaging='kubectl config use gke_poggio-staging-experiments_us-central1_primary'
