@@ -1,7 +1,4 @@
-# gtk-titlebar = false
-gtk-wide-tabs = false
 gtk-tabs-location = bottom
-adw-toolbar-style = flat
 
 font-family = IosevkaSerif
 font-size = 10

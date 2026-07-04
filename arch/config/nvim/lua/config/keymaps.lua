@@ -1,0 +1,20 @@
+vim.keymap.set("n", "Q", "<C-W>q", { desc = "Close window" })
+vim.keymap.set("n", "W", "<Cmd>wq<CR>", { desc = "Write and quit" })
+vim.keymap.set("n", "<F12>", "<Cmd>set hlsearch! hlsearch?<CR>", { desc = "Toggle search highlight" })
+vim.keymap.set({ "n", "x", "o" }, "j", "gj", { desc = "Move down by display line" })
+vim.keymap.set({ "n", "x", "o" }, "k", "gk", { desc = "Move up by display line" })
+
+vim.keymap.set("n", "V", function()
+  vim.cmd.vsplit()
+  vim.cmd.wincmd("l")
+end, { desc = "Open vertical split" })
+
+vim.keymap.set("n", "H", function()
+  vim.cmd.split()
+  vim.cmd.wincmd("j")
+end, { desc = "Open horizontal split" })
+
+vim.keymap.set("n", "<LocalLeader>l", function()
+  vim.cmd.Lexplore()
+  vim.cmd("vertical resize 30")
+end, { desc = "Open netrw explorer" })

@@ -1,9 +1,1 @@
 source ~/.zshenv
-
-if uwsm check may-start; then
-  if [[ -f /usr/share/wayland-sessions/hyprland.desktop ]]; then
-    exec uwsm start hyprland.desktop
-  elif uwsm select; then
-    exec uwsm start desktop
-  fi
-fi
