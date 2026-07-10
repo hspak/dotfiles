@@ -115,6 +115,3 @@ alias -s txt=$EDITOR
 alias -s PKGBUILD=$EDITOR
 
 export TIMEFMT=$'real\t%E\nuser\t%U\nsys\t%S'
-
-# bun completions
-[ -s "/home/hsp/.bun/_bun" ] && source "/home/hsp/.bun/_bun"

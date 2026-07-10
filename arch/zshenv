@@ -16,7 +16,7 @@ export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_DATA_HOME="$HOME/.local/share"
 
 # add things to path
-export PATH="$HOME/.local/bin:/usr/local/sbin:$HOME/bin:$HOME/go/bin:$PATH"
+export PATH="$HOME/.local/bin:/usr/local/sbin:$HOME/bin:$HOME/go/bin:$PATH:$HOME/.grok/bin:$HOME/.local/bin"
 
 # colors
 if [[ -f ~/.dircolors ]] && type -p dircolors >/dev/null; then
@@ -27,4 +27,4 @@ export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 
 # bun
 export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH" 
+export PATH="$BUN_INSTALL/bin:$PATH"

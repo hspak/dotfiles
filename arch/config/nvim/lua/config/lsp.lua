@@ -27,6 +27,18 @@ vim.diagnostic.config({
 })
 vim.opt.completeopt = { 'menu', 'menuone', 'noselect', 'popup' }
 
+vim.keymap.set('i', '<Tab>', function()
+  if vim.fn.pumvisible() == 1 then
+    local selected = vim.fn.complete_info({ 'selected' }).selected
+    if selected == -1 then
+      return '<C-n><C-y>'
+    end
+    return '<C-y>'
+  end
+
+  return '<Tab>'
+end, { expr = true, replace_keycodes = true, desc = 'Accept completion or insert tab' })
+
 local lsp_attach_group = vim.api.nvim_create_augroup('UserLspAttach', { clear = true })
 vim.api.nvim_create_autocmd('LspAttach', {
   group = lsp_attach_group,

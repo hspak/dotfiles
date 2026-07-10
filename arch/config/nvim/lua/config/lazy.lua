@@ -46,6 +46,7 @@ require("lazy").setup({
     },
     { "numToStr/Comment.nvim", opts = {} },
     { "tpope/vim-fugitive" },
+    { "https://codeberg.org/ziglang/zig.vim" },
   },
   checker = { enabled = true },
   rocks = { enabled = false },
