@@ -1,15 +1,28 @@
-[[ $- != *i* ]] && return ]]
+[[ -o interactive ]] || return
 
 # Turn autocomplete on
 autoload -Uz compinit edit-command-line vcs_info zmv
-compinit
+
+# completion dump under XDG; rebuild at most once per day
+_zcompdump="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/zcompdump"
+mkdir -p "${_zcompdump:h}"
+if [[ -n ${_zcompdump}(#qN.mh+24) ]]; then
+  compinit -d "$_zcompdump"
+else
+  compinit -C -d "$_zcompdump"
+fi
+unset _zcompdump
 
 KEYTIMEOUT=1
 
 # history
-HISTFILE=~/.zhistory
-HISTSIZE=1500
-SAVEHIST=1000
+mkdir -p "${XDG_STATE_HOME:-$HOME/.local/state}/zsh"
+HISTFILE="${XDG_STATE_HOME:-$HOME/.local/state}/zsh/history"
+if [[ ! -f $HISTFILE && -f ~/.zhistory ]]; then
+  mv -n ~/.zhistory "$HISTFILE"
+fi
+HISTSIZE=50000
+SAVEHIST=50000
 
 # changing directories
 setopt autocd autopushd chaselinks pushdignoredups pushdtohome
@@ -40,15 +53,13 @@ setopt nobeep vi
 
 bindkey -v
 zle -N edit-command-line
+bindkey -M vicmd v edit-command-line
 zle -A .backward-kill-word vi-backward-kill-word
 zle -A .backward-delete-char vi-backward-delete-char
 
 # completion style {{{
 # menu completion
 zstyle ':completion:*' menu select
-
-# autoload new files in $PATH
-zstyle ':completion:*' rehash true
 
 # colors for file completion
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
@@ -59,7 +70,7 @@ zstyle ':completion:*:processes-names' command 'ps -eo comm'
 
 # cache completion
 zstyle ':completion:*' use-cache on
-zstyle ':completion:*' cache-path "$HOME"/.cache
+zstyle ':completion:*' cache-path "${XDG_CACHE_HOME:-$HOME/.cache}/zsh"
 
 # don't complete working directory in parent
 zstyle ':completion:*' ignore-parents parent pwd
@@ -67,7 +78,7 @@ zstyle ':completion:*' ignore-parents parent pwd
 
 # title (for vte, xterm and rxvt) {{{
 case "$TERM" in
-    vte*|xterm*|rxvt*|alacritty)
+    vte*|xterm*|rxvt*|alacritty|ghostty|xterm-ghostty)
         update_title() { print -Pn '\e];%n (%~) - Terminal\a' } ;;
     *)
         update_title() {} ;;
@@ -99,17 +110,14 @@ export PAGER=less
 
 precmd() {
   vcs_info
+  update_title
 }
 
 # External Config
-if [[ -f ~/.dircolors ]] && type -p dircolors >/dev/null; then
-    eval $(dircolors -b "$HOME/.dircolors")
-fi
-
 for snippets ($HOME/.zsh/*.zsh(N))
   source $snippets
 
-source ~/code/z/z.sh
+[[ -f ~/code/z/z.sh ]] && source ~/code/z/z.sh
 
 alias -s txt=$EDITOR
 alias -s PKGBUILD=$EDITOR

@@ -1,11 +1,19 @@
 #!/bin/bash
+set -euo pipefail
 
-set -e
+if [[ $# -ne 1 || -z ${1:-} ]]; then
+  echo "usage: ${0##*/} <pkgbase>" >&2
+  exit 1
+fi
 
 pkgbase=$1
-git clone "ssh://aur@aur.archlinux.org/${pkgbase}.git"
-git remote add aur "ssh://aur@aur.archlinux.org/${pkgbase}.git"
-cd "${pkgbase}"
-git fetch aur
-makepkg
-makepkg --printsrcinfo > .SRCINFO
+repo="ssh://aur@aur.archlinux.org/${pkgbase}.git"
+
+if [[ -e $pkgbase ]]; then
+  echo "error: ./${pkgbase} already exists" >&2
+  exit 1
+fi
+
+git clone "$repo" "$pkgbase"
+cd "$pkgbase"
+echo "cloned ${pkgbase}; edit PKGBUILD, then: makepkg --printsrcinfo > .SRCINFO"

@@ -11,20 +11,30 @@ export PAGER=less
 # disable less history file
 export LESSHISTFILE=-
 
-export XDG_CONFIG_HOME="$HOME/.config"
-export XDG_CACHE_HOME="$HOME/.cache"
-export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
+export XDG_CACHE_HOME="${XDG_CACHE_HOME:-$HOME/.cache}"
+export XDG_DATA_HOME="${XDG_DATA_HOME:-$HOME/.local/share}"
+export XDG_STATE_HOME="${XDG_STATE_HOME:-$HOME/.local/state}"
 
-# add things to path
-export PATH="$HOME/.local/bin:/usr/local/sbin:$HOME/bin:$HOME/go/bin:$PATH:$HOME/.grok/bin:$HOME/.local/bin"
+# PATH — prepend user bins once; typeset -U de-dupes across nested shells
+path=(
+  $HOME/.local/bin
+  $HOME/bin
+  $HOME/go/bin
+  $HOME/.bun/bin
+  /usr/local/sbin
+  $path
+)
+typeset -U path PATH
+
+export BUN_INSTALL="$HOME/.bun"
 
 # colors
-if [[ -f ~/.dircolors ]] && type -p dircolors >/dev/null; then
-  eval $(dircolors -b ~/.dircolors)
+if [[ -f ~/.dircolors ]] && (( $+commands[dircolors] )); then
+  eval "$(dircolors -b ~/.dircolors)"
 fi
 
-export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
-
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
+# systemd --user ssh-agent.socket (enable with: systemctl --user enable --now ssh-agent.socket)
+if [[ -n $XDG_RUNTIME_DIR ]]; then
+  export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/ssh-agent.socket"
+fi

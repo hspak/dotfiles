@@ -23,3 +23,10 @@ matlab
 */vim/view/*
 keys
 *.old
+
+# editor / agent noise under nvim config
+arch/config/nvim/nvim.log
+arch/config/nvim/.git/
+arch/config/nvim/.agents/
+arch/config/nvim/.codex/
+

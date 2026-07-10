@@ -1,1 +1,2 @@
-source ~/.zshenv
+# Login shells already source ~/.zshenv first — do not re-source it here
+# (that duplicates PATH and re-runs dircolors). Put login-only setup below.

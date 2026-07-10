@@ -13,7 +13,8 @@
   # characters not in the chosen font will fail to render.
   #
   # Otherwise, fonts are interpreted in Pango format.
-  font = "Sans"
+  # Path form avoids fontconfig lookup and starts faster.
+  font = "/usr/share/fonts/noto/NotoSans-Regular.ttf"
 
   # Point size of text.
   font-size = 14

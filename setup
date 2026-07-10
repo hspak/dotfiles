@@ -1,27 +1,56 @@
 #!/bin/bash
+set -euo pipefail
 
-set -e
+root=$(cd "$(dirname "$0")" && pwd)
 
-cd arch
-for dir in *; do
-  if [[ "$dir" == "config" ]]; then
-    for config in $dir/*; do
-      echo "linking $config to $HOME/.$config"
-      rm -rf "$HOME/.$config"
-      ln -sf "$PWD/$config" "$HOME/.$config"
-    done
-  elif [[ "$dir" == "local" ]]; then
-    mkdir -p $HOME/.local/share/systemd/user
-    for unit in $dir/share/systemd/user/*; do
-      echo "linking $unit to $HOME/.$unit"
-      rm -rf "$HOME/.$unit"
-      ln -sf "$PWD/$unit" "$HOME/.$unit"
-    done
-  elif [[ "$dir" == "bin" ]]; then
-    echo "linking $dir to $HOME/$dir"
-    ln -sfT "$PWD/$dir" "$HOME/$dir"
+# Link src -> dest. Never rm -rf. Skip if dest exists and is not a symlink.
+safe_link() {
+  local src=$1 dest=$2
+  mkdir -p "$(dirname "$dest")"
+  if [[ -L $dest ]]; then
+    ln -sfn "$src" "$dest"
+    echo "linked $dest -> $src"
+  elif [[ -e $dest ]]; then
+    echo "skip (exists, not a symlink): $dest" >&2
+    return 1
   else
-    echo "linking $dir to $HOME/.$dir"
-    ln -sfT "$PWD/$dir" "$HOME/.$dir"
+    ln -s "$src" "$dest"
+    echo "linked $dest -> $src"
   fi
+}
+
+cd "$root/arch"
+
+for config in config/*; do
+  name=${config#config/}
+  # Portal configs live alongside distro/user files; link the file only.
+  if [[ $name == xdg-desktop-portal ]]; then
+    mkdir -p "$HOME/.config/xdg-desktop-portal"
+    for conf in "$config"/*; do
+      safe_link "$PWD/$conf" "$HOME/.config/xdg-desktop-portal/$(basename "$conf")" || true
+    done
+    continue
+  fi
+  safe_link "$PWD/$config" "$HOME/.config/$name" || true
 done
+
+if [[ -d local/share/systemd/user ]]; then
+  mkdir -p "$HOME/.local/share/systemd/user"
+  shopt -s nullglob
+  for unit in local/share/systemd/user/*; do
+    safe_link "$PWD/$unit" "$HOME/.local/share/systemd/user/$(basename "$unit")" || true
+  done
+  shopt -u nullglob
+fi
+
+safe_link "$PWD/bin" "$HOME/bin" || true
+
+for item in dircolors gitconfig inputrc zprofile zsh zshenv zshrc; do
+  [[ -e $item ]] || continue
+  safe_link "$PWD/$item" "$HOME/.$item" || true
+done
+
+# Hyprland lives next to arch/ in this repo
+if [[ -d $root/hypr ]]; then
+  safe_link "$root/hypr" "$HOME/.config/hypr" || true
+fi
