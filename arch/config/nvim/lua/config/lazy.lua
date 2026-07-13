@@ -18,26 +18,53 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
   spec = {
     {
+      -- master is frozen and does not support Neovim 0.12; main is the rewrite.
       "nvim-treesitter/nvim-treesitter",
-      event = { "BufReadPost", "BufNewFile" },
+      branch = "main",
+      lazy = false,
       build = ":TSUpdate",
       config = function()
-        require("nvim-treesitter.configs").setup({
-          highlight = { enable = true },
-          indent = { enable = true },
+        require("nvim-treesitter").setup({})
+
+        -- Highlighting / indent are no longer modules; enable via Neovim APIs.
+        vim.api.nvim_create_autocmd("FileType", {
+          desc = "Enable treesitter highlight and indent",
+          callback = function(event)
+            local ok = pcall(vim.treesitter.start, event.buf)
+            if ok then
+              vim.bo[event.buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+            end
+          end,
         })
       end,
     },
     {
-      "nvim-telescope/telescope.nvim",
-      tag = "0.1.8",
-      cmd = "Telescope",
-      dependencies = { "nvim-lua/plenary.nvim" },
+      'dmtrKovalenko/fff.nvim',
+      build = function()
+        -- downloads a prebuilt binary or falls back to cargo build
+        require("fff.download").download_or_build_binary()
+      end,
+      -- for nixos:
+      -- build = "nix run .#release",
+      opts = {
+        debug = {
+          enabled = true,
+          show_scores = true,
+        },
+      },
+      lazy = false, -- the plugin lazy-initialises itself
       keys = {
-        { "<C-p>", function() require("telescope.builtin").find_files() end, desc = "Telescope find files" },
-        { "<leader>fg", function() require("telescope.builtin").live_grep() end, desc = "Telescope live grep" },
-        { "<leader>fb", function() require("telescope.builtin").buffers() end, desc = "Telescope buffers" },
-        { "<leader>fh", function() require("telescope.builtin").help_tags() end, desc = "Telescope help tags" },
+        { "ff", function() require('fff').find_files() end, desc = 'FFFind files' },
+        { "fg", function() require('fff').live_grep() end, desc = 'LiFFFe grep' },
+        { "fz",
+          function() require('fff').live_grep({ grep = { modes = { 'fuzzy', 'plain' } } }) end,
+          desc = 'Live fffuzy grep',
+        },
+        { "fw",
+          function() require('fff').live_grep_under_cursor() end,
+          mode = { 'n', 'x' },
+          desc = 'Search current word / selection',
+        },
       },
     },
     {

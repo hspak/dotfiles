@@ -2,18 +2,22 @@
 
 set -e
 
-cd macos
+root=$(cd "$(dirname "$0")" && pwd)
+cd "$root/macos"
+
 for dir in *; do
   if [[ "$dir" == "config" ]]; then
-    for config in $dir/*; do
-      echo "linking $config to $HOME/.$config"
-      rm -rf "$HOME/.$config"
-      ln -sf "$PWD/$config" "$HOME/.$config"
-    done
-  else
-    echo "linking $dir to $HOME/.$dir"
-    ln -sf "$PWD/$dir" "$HOME/.$dir"
+    # Platform-agnostic configs live under arch/config (see shared nvim below).
+    continue
   fi
+  echo "linking $dir to $HOME/.$dir"
+  ln -sf "$PWD/$dir" "$HOME/.$dir"
 done
+
+# Single nvim config for both platforms (arch is the source of truth).
+mkdir -p "$HOME/.config"
+echo "linking nvim to $HOME/.config/nvim"
+rm -rf "$HOME/.config/nvim"
+ln -sf "$root/arch/config/nvim" "$HOME/.config/nvim"
 
 brew install neovim python3 ripgrep fd ranger

@@ -16,6 +16,8 @@ vim.api.nvim_create_autocmd('BufWritePre', {
 local ft_settings = {
   c = { tabstop = 8, shiftwidth = 8 },
   javascript = { tabstop = 2, shiftwidth = 2, expandtab = true },
+  typescript = { tabstop = 2, shiftwidth = 2, expandtab = true },
+  typescriptreact = { tabstop = 2, shiftwidth = 2, expandtab = true },
   cpp = { tabstop = 4, shiftwidth = 4 },
   rust = { tabstop = 4, shiftwidth = 4 },
   java = { tabstop = 4, shiftwidth = 4 },

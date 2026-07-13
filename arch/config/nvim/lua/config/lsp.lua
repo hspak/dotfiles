@@ -67,7 +67,25 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
     vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
     vim.keymap.set('n', '<space>f', function() vim.lsp.buf.format { async = true } end, bufopts)
+
+    -- Format Odin files with odinfmt via ols on save.
+    if client and client.name == 'ols' and client:supports_method('textDocument/formatting') then
+      local format_group = vim.api.nvim_create_augroup('OlsFormatOnSave', { clear = false })
+      vim.api.nvim_clear_autocmds({ group = format_group, buffer = bufnr })
+      vim.api.nvim_create_autocmd('BufWritePre', {
+        group = format_group,
+        buffer = bufnr,
+        desc = 'Format Odin with odinfmt via ols',
+        callback = function()
+          vim.lsp.buf.format({
+            bufnr = bufnr,
+            id = client.id,
+            async = false,
+          })
+        end,
+      })
+    end
   end,
 })
 
-vim.lsp.enable({'zls', 'pyright', 'ts_ls'})
+vim.lsp.enable({'zls', 'pyright', 'ts_ls', 'ols', 'ty'})
