@@ -1,7 +1,7 @@
 gtk-tabs-location = bottom
 
 font-family = IosevkaSerif
-font-size = 10
+font-size = 12
 
 keybind = ctrl+alt+l=goto_split:right
 keybind = ctrl+alt+h=goto_split:left
