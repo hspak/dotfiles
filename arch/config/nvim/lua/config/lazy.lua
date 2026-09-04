@@ -67,14 +67,6 @@ require("lazy").setup({
         },
       },
     },
-    {
-      "EdenEast/nightfox.nvim",
-      lazy = false,
-      priority = 1000,
-      config = function()
-        vim.cmd.colorscheme("carbonfox")
-      end,
-    },
     { "numToStr/Comment.nvim", opts = {} },
     { "tpope/vim-fugitive" },
     { "https://codeberg.org/ziglang/zig.vim" },

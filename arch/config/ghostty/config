@@ -1,10 +1,35 @@
 gtk-tabs-location = bottom
 
-font-family = IosevkaSerif
-font-size = 12
+font-family = Iosevka Serif
+font-size = 11
 
 keybind = ctrl+alt+l=goto_split:right
 keybind = ctrl+alt+h=goto_split:left
 keybind = alt+d=new_split:right
 
 window-decoration = server
+
+# Cinderwell — Ghostty
+background = #28231A
+foreground = #E7E0D2
+cursor-color = #EFAC58
+cursor-text = #28231A
+selection-background = #4A351F
+selection-foreground = #E7E0D2
+
+palette = 0=#37332A
+palette = 1=#D96F61
+palette = 2=#69A465
+palette = 3=#C9AB40
+palette = 4=#6494C5
+palette = 5=#CE72A0
+palette = 6=#50A8AB
+palette = 7=#C6C0B4
+palette = 8=#868075
+palette = 9=#FB8376
+palette = 10=#88CB84
+palette = 11=#F0C860
+palette = 12=#7AB0E8
+palette = 13=#F190BF
+palette = 14=#73CFD2
+palette = 15=#F0EBE2

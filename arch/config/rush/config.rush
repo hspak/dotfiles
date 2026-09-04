@@ -1,0 +1,27 @@
+set -m  # Enables fg
+set -o vi
+
+# Use abbr to avoid self-referential commands, causes hang
+#abbr ls 'ls -lhv --color --group-directories-first'
+abbr df 'df -h'
+abbr du 'du -h'
+abbr grep 'grep --color'
+abbr g 'git'
+abbr c 'cargo'
+abbr k 'kak'
+abbr t 'terraform'
+abbr v 'nvim'
+abbr sctl 'systemctl'
+
+alias ls='ls -lhv --color --group-directories-first'
+alias ..='cd ..'
+alias ....='cd ../..'
+alias ......='cd ../../..'
+alias ........='cd ../../../..'
+
+rush_prompt() {
+  prompt segment --fg blue "$(prompt_pwd)"
+  prompt text ' ●  '
+}
+
+export PATH="$PATH:$HOME/.local/bin"
