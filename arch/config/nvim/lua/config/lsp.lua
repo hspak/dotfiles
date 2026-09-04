@@ -18,10 +18,10 @@ vim.diagnostic.config({
   virtual_text = false,
   signs = {
     text = {
-      [vim.diagnostic.severity.ERROR] = "💩",
-      [vim.diagnostic.severity.WARN] = "💩",
-      [vim.diagnostic.severity.HINT] = "💩",
-      [vim.diagnostic.severity.INFO] = "💩",
+      [vim.diagnostic.severity.ERROR] = "E",
+      [vim.diagnostic.severity.WARN] = "W",
+      [vim.diagnostic.severity.HINT] = "H",
+      [vim.diagnostic.severity.INFO] = "I",
     },
   },
 })
@@ -88,4 +88,4 @@ vim.api.nvim_create_autocmd('LspAttach', {
   end,
 })
 
-vim.lsp.enable({'zls', 'pyright', 'ts_ls', 'ols', 'ty'})
+vim.lsp.enable({'zls', 'ts_ls', 'ols', 'ty'})

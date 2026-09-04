@@ -1,3 +1,28 @@
+local treesitter_parsers = {
+  "javascript",
+  "odin",
+  "python",
+  "tsx",
+  "typescript",
+  "zig",
+}
+
+local treesitter_filetypes = {
+  "c",
+  "javascript",
+  "javascriptreact",
+  "lua",
+  "markdown",
+  "odin",
+  "python",
+  "query",
+  "typescript",
+  "typescriptreact",
+  "vim",
+  "vimdoc",
+  "zig",
+}
+
 -- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
@@ -24,14 +49,21 @@ require("lazy").setup({
       lazy = false,
       build = ":TSUpdate",
       config = function()
-        require("nvim-treesitter").setup({})
+        local treesitter = require("nvim-treesitter")
+        treesitter.setup({})
+        treesitter.install(treesitter_parsers)
 
         -- Highlighting / indent are no longer modules; enable via Neovim APIs.
+        local treesitter_group = vim.api.nvim_create_augroup("UserTreesitter", { clear = true })
         vim.api.nvim_create_autocmd("FileType", {
+          group = treesitter_group,
+          pattern = treesitter_filetypes,
           desc = "Enable treesitter highlight and indent",
           callback = function(event)
             local ok = pcall(vim.treesitter.start, event.buf)
-            if ok then
+            local lang = vim.treesitter.language.get_lang(event.match)
+            local query_ok, indent_query = pcall(vim.treesitter.query.get, lang, "indents")
+            if ok and query_ok and indent_query then
               vim.bo[event.buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
             end
           end,
@@ -39,7 +71,7 @@ require("lazy").setup({
       end,
     },
     {
-      'dmtrKovalenko/fff.nvim',
+      'dmtrKovalenko/fff',
       build = function()
         -- downloads a prebuilt binary or falls back to cargo build
         require("fff.download").download_or_build_binary()
@@ -48,8 +80,8 @@ require("lazy").setup({
       -- build = "nix run .#release",
       opts = {
         debug = {
-          enabled = true,
-          show_scores = true,
+          enabled = false,
+          show_scores = false,
         },
       },
       lazy = false, -- the plugin lazy-initialises itself
@@ -67,9 +99,31 @@ require("lazy").setup({
         },
       },
     },
-    { "numToStr/Comment.nvim", opts = {} },
-    { "tpope/vim-fugitive" },
-    { "https://codeberg.org/ziglang/zig.vim" },
+    {
+      "tpope/vim-fugitive",
+      cmd = {
+        "G",
+        "Git",
+        "GBrowse",
+        "GDelete",
+        "GMove",
+        "GRename",
+        "Gdiffsplit",
+        "Gedit",
+        "Ggrep",
+        "Glgrep",
+        "Gread",
+        "Gsplit",
+        "Gtabedit",
+        "Gvdiffsplit",
+        "Gvsplit",
+        "Gwrite",
+      },
+    },
+    {
+      "https://codeberg.org/ziglang/zig.vim",
+      ft = "zig",
+    },
   },
   checker = { enabled = false },
   rocks = { enabled = false },

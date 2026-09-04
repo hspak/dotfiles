@@ -1,15 +1,28 @@
 local trim_group = vim.api.nvim_create_augroup('UserTrimWhitespace', { clear = true })
+local trim_excluded_filetypes = {
+  diff = true,
+  gitcommit = true,
+  markdown = true,
+}
+
 vim.api.nvim_create_autocmd('BufWritePre', {
   group = trim_group,
   desc = 'Remove trailing whitespace on save',
   callback = function(event)
-    if not vim.bo[event.buf].modifiable then
+    if not vim.bo[event.buf].modifiable
+        or vim.bo[event.buf].buftype ~= ''
+        or trim_excluded_filetypes[vim.bo[event.buf].filetype]
+        or vim.api.nvim_buf_line_count(event.buf) > 50000
+        or vim.api.nvim_buf_get_offset(event.buf, vim.api.nvim_buf_line_count(event.buf)) > 1024 * 1024
+    then
       return
     end
 
-    local view = vim.fn.winsaveview()
-    vim.cmd([[keeppatterns %s/\s\+$//e]])
-    vim.fn.winrestview(view)
+    vim.api.nvim_buf_call(event.buf, function()
+      local view = vim.fn.winsaveview()
+      vim.cmd([[silent keepjumps keeppatterns %s/\s\+$//e]])
+      vim.fn.winrestview(view)
+    end)
   end,
 })
 
@@ -23,7 +36,7 @@ local ft_settings = {
   java = { tabstop = 4, shiftwidth = 4 },
   make = { expandtab = false },
   python = { tabstop = 4, shiftwidth = 4, expandtab = true },
-  markdown = { tabstop = 2, shiftwidth = 2, textwidth = 80, colorcolumn = '100', expandtab = true },
+  markdown = { tabstop = 2, shiftwidth = 2, textwidth = 80, colorcolumn = '+1', expandtab = true },
   go = { tabstop = 4, shiftwidth = 4, expandtab = false },
   lex = { tabstop = 8, shiftwidth = 8 },
   yacc = { tabstop = 8, shiftwidth = 8 },

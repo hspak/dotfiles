@@ -1,6 +1,6 @@
 ---@type vim.lsp.Config
 return {
-  cmd = { '.venv/bin/ty', 'server' },
+  cmd = { 'ty', 'server' },
   filetypes = { 'python' },
   root_markers = {
     'pyproject.toml',
@@ -10,7 +10,7 @@ return {
   },
   settings = {
     ty = {
-      diagnosticMode = 'workspace',
+      diagnosticMode = 'openFilesOnly',
     },
   },
 }
