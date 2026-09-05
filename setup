@@ -1,56 +1,250 @@
 #!/bin/bash
+# Compatible with the Bash 3.2 shipped by macOS.
 set -euo pipefail
 
 root=$(cd "$(dirname "$0")" && pwd)
+platform=auto
+dry_run=0
+backup=0
+check=0
+install_packages=0
+problems=0
+fonts_changed=0
 
-# Link src -> dest. Never rm -rf. Skip if dest exists and is not a symlink.
-safe_link() {
-  local src=$1 dest=$2
-  mkdir -p "$(dirname "$dest")"
-  if [[ -L $dest ]]; then
-    ln -sfn "$src" "$dest"
-    echo "linked $dest -> $src"
-  elif [[ -e $dest ]]; then
-    echo "skip (exists, not a symlink): $dest" >&2
-    return 1
+usage() {
+  cat <<'EOF'
+Usage: ./setup [--platform arch|macos] [--dry-run] [--backup]
+               [--install-packages] [--check]
+
+Auto-detect the platform, link its dotfiles, and install bundled Iosevka Serif fonts.
+  --dry-run           Print changes without writing or installing anything.
+  --backup            Move conflicting files/directories/symlinks to adjacent backups.
+  --install-packages  Install dependencies from the platform's package manifest first.
+  --check             Check dotfiles, fonts, and dependencies without changing them.
+Existing files are preserved unless --backup is given. Conflicts exit nonzero.
+EOF
+}
+
+die() { printf 'error: %s\n' "$*" >&2; exit 1; }
+problem() { printf 'problem: %s\n' "$*" >&2; problems=$((problems + 1)); }
+
+while [[ $# -gt 0 ]]; do
+  case $1 in
+    --platform)
+      [[ $# -ge 2 ]] || die '--platform needs arch or macos'
+      platform=$2; shift 2 ;;
+    --dry-run) dry_run=1; shift ;;
+    --backup) backup=1; shift ;;
+    --check) check=1; shift ;;
+    --install-packages) install_packages=1; shift ;;
+    -h|--help) usage; exit 0 ;;
+    *) die "unknown option: $1" ;;
+  esac
+done
+
+host_os=$(uname -s)
+if [[ $platform == auto ]]; then
+  case $host_os in
+    Darwin) platform=macos ;;
+    Linux)
+      [[ -f /etc/arch-release ]] || die 'Linux auto-setup supports Arch only; use --platform arch to stage links elsewhere'
+      platform=arch ;;
+    *) die "unsupported operating system: $host_os" ;;
+  esac
+fi
+[[ $platform == arch || $platform == macos ]] || die "unsupported platform: $platform"
+[[ $check == 0 || ( $install_packages == 0 && $backup == 0 ) ]] || die '--check cannot be combined with --install-packages or --backup'
+[[ -n ${HOME:-} && $HOME == /* ]] || die 'HOME must be an absolute path'
+config_home=${XDG_CONFIG_HOME:-$HOME/.config}
+[[ $config_home == /* ]] || die 'XDG_CONFIG_HOME must be an absolute path'
+data_home=${XDG_DATA_HOME:-$HOME/.local/share}
+[[ $data_home == /* ]] || die 'XDG_DATA_HOME must be an absolute path'
+[[ -z ${ZDOTDIR:-} || $ZDOTDIR == "$HOME" ]] || die 'unset ZDOTDIR or set it to HOME so zsh can load these dotfiles'
+
+find_brew() {
+  if command -v brew >/dev/null 2>&1; then
+    command -v brew
+  elif [[ -x /opt/homebrew/bin/brew ]]; then
+    printf '%s\n' /opt/homebrew/bin/brew
+  elif [[ -x /usr/local/bin/brew ]]; then
+    printf '%s\n' /usr/local/bin/brew
   else
-    ln -s "$src" "$dest"
-    echo "linked $dest -> $src"
+    return 1
   fi
 }
 
-cd "$root/arch"
-
-for config in config/*; do
-  name=${config#config/}
-  # Portal configs live alongside distro/user files; link the file only.
-  if [[ $name == xdg-desktop-portal ]]; then
-    mkdir -p "$HOME/.config/xdg-desktop-portal"
-    for conf in "$config"/*; do
-      safe_link "$PWD/$conf" "$HOME/.config/xdg-desktop-portal/$(basename "$conf")" || true
-    done
-    continue
+if [[ $install_packages == 1 ]]; then
+  if [[ $platform == arch ]]; then
+    packages=()
+    while IFS= read -r package || [[ -n $package ]]; do
+      [[ -z $package || $package == \#* ]] || packages+=("$package")
+    done < "$root/arch/packages.txt"
+    if [[ $dry_run == 1 ]]; then
+      printf 'would run: sudo pacman -Syu --needed'; printf ' %q' "${packages[@]}"; printf '\n'
+    else
+      [[ $host_os == Linux && -f /etc/arch-release ]] || die 'Arch package installation requires an Arch host'
+      command -v pacman >/dev/null || die 'pacman is required'
+      # A full upgrade avoids unsupported Arch partial upgrades.
+      if [[ $EUID == 0 ]]; then
+        pacman -Syu --needed "${packages[@]}"
+      else
+        sudo pacman -Syu --needed "${packages[@]}"
+      fi
+    fi
+  else
+    if [[ $dry_run == 1 ]]; then
+      printf 'would run: brew bundle --file=%q\n' "$root/macos/Brewfile"
+    else
+      [[ $host_os == Darwin ]] || die 'Homebrew package installation requires a macOS host'
+      brew_bin=$(find_brew) || die 'install Homebrew first: https://brew.sh'
+      xcode-select -p >/dev/null 2>&1 || die 'install Command Line Tools first: xcode-select --install'
+      eval "$("$brew_bin" shellenv bash)"
+      "$brew_bin" bundle --file="$root/macos/Brewfile"
+    fi
   fi
-  safe_link "$PWD/$config" "$HOME/.config/$name" || true
-done
-
-if [[ -d local/share/systemd/user ]]; then
-  mkdir -p "$HOME/.local/share/systemd/user"
-  shopt -s nullglob
-  for unit in local/share/systemd/user/*; do
-    safe_link "$PWD/$unit" "$HOME/.local/share/systemd/user/$(basename "$unit")" || true
-  done
-  shopt -u nullglob
 fi
 
-safe_link "$PWD/bin" "$HOME/bin" || true
+# Never follow a destination symlink or delete a user's directory.
+safe_install() {
+  local src=$1 dest=$2 method=${3:-link} saved
+  [[ -e $src ]] || { problem "missing source: $src"; return; }
+  if [[ $method == link && -L $dest && $dest -ef $src ]] ||
+     { [[ $method == copy && -f $dest && ! -L $dest ]] && cmp -s "$src" "$dest"; }; then
+    printf 'ok: %s\n' "$dest"
+    return
+  fi
+  if [[ $check == 1 ]]; then
+    problem "missing or conflicting $method: $dest (expected $src)"
+    return
+  fi
+  if [[ -e $dest || -L $dest ]]; then
+    if [[ $backup == 0 ]]; then
+      problem "conflict: $dest; inspect it, then rerun with --backup"
+      return
+    fi
+    saved="$dest.backup.$(date +%Y%m%d-%H%M%S).$$"
+    [[ ! -e $saved && ! -L $saved ]] || die "backup already exists: $saved"
+    if [[ $dry_run == 1 ]]; then
+      printf 'would back up: %s -> %s\n' "$dest" "$saved"
+    else
+      mv "$dest" "$saved"
+      printf 'backed up: %s -> %s\n' "$dest" "$saved"
+    fi
+  fi
+  if [[ $dry_run == 1 ]]; then
+    printf 'would %s: %s -> %s\n' "$method" "$src" "$dest"
+  else
+    mkdir -p "$(dirname "$dest")"
+    if [[ $method == copy ]]; then
+      cp "$src" "$dest"
+      fonts_changed=1
+      printf 'copied: %s -> %s\n' "$src" "$dest"
+    else
+      ln -s "$src" "$dest"
+      printf 'linked: %s -> %s\n' "$dest" "$src"
+    fi
+  fi
+}
 
 for item in dircolors gitconfig inputrc zprofile zsh zshenv zshrc; do
-  [[ -e $item ]] || continue
-  safe_link "$PWD/$item" "$HOME/.$item" || true
+  [[ ! -e $root/$platform/$item ]] || safe_install "$root/$platform/$item" "$HOME/.$item"
 done
+if [[ $platform == arch ]]; then
+  # Remove only obsolete links made by earlier versions of this installer.
+  for obsolete in tofi uwsm waybar xdg-desktop-portal/hyprland-portals.conf hypr; do
+    dest="$config_home/$obsolete"
+    old_src="$root/arch/config/$obsolete"
+    [[ $obsolete != hypr ]] || old_src="$root/hypr"
+    if [[ -L $dest && $(readlink "$dest") == "$old_src" ]]; then
+      if [[ $check == 1 ]]; then
+        problem "obsolete managed link: $dest; rerun setup to remove it"
+      elif [[ $dry_run == 1 ]]; then
+        printf 'would remove obsolete link: %s\n' "$dest"
+      else
+        rm "$dest"
+        printf 'removed obsolete link: %s\n' "$dest"
+      fi
+    fi
+  done
+  # Keep ~/bin available for unrelated user scripts.
+  if [[ -L $HOME/bin && $HOME/bin -ef $root/arch/bin ]]; then
+    printf 'ok: %s\n' "$HOME/bin"
+  else
+    for script in "$root/arch/bin/"*; do
+      safe_install "$script" "$HOME/bin/$(basename "$script")"
+    done
+  fi
+  for config in "$root/arch/config/"*; do
+    safe_install "$config" "$config_home/$(basename "$config")"
+  done
+else
+  safe_install "$root/arch/config/nvim" "$config_home/nvim"
+fi
 
-# Hyprland lives next to arch/ in this repo
-if [[ -d $root/hypr ]]; then
-  safe_link "$root/hypr" "$HOME/.config/hypr" || true
+# Install one desktop format; unhinted/web variants would duplicate font faces.
+if [[ $platform == macos ]]; then
+  font_dir="$HOME/Library/Fonts"
+else
+  font_dir="$data_home/fonts/IosevkaSerif"
+fi
+for font in "$root/IosevkaSerif/TTF/"*.ttf; do
+  safe_install "$font" "$font_dir/$(basename "$font")" copy
+done
+if [[ $platform == arch ]]; then
+  if [[ $dry_run == 1 && $check == 0 ]]; then
+    printf 'would refresh font cache: fc-cache %q\n' "$font_dir"
+  elif [[ $fonts_changed == 1 ]]; then
+    if command -v fc-cache >/dev/null 2>&1; then
+      fc-cache "$font_dir" || problem 'font cache refresh failed; rerun fc-cache after fixing the reported error'
+    else
+      problem 'fc-cache is missing; install fontconfig and run fc-cache'
+    fi
+  fi
+fi
+
+if [[ $check == 1 ]]; then
+  # Run under the configured login shell so Homebrew and user bins are visible.
+  if command -v zsh >/dev/null 2>&1; then
+    if ! zsh -lc 'for tool in git git-lfs nvim less curl tar cc tree-sitter rg fd python3 node typescript-language-server tsc ty zls zig ols odin; do
+      (( $+commands[$tool] )) || { print -u2 "missing command: $tool"; missing=1; }
+    done
+    exit ${missing:-0}'; then
+      problem 'install missing shell/editor dependencies with --install-packages'
+    fi
+    if ! zsh -lc 'command nvim --clean --headless "+lua if vim.fn.has(\"nvim-0.12\") == 0 then vim.cmd.cquit() end" +qa'; then
+      problem 'Neovim >= 0.12 is required by the pinned Treesitter plugin'
+    fi
+    if ! zsh -lc 'command tree-sitter --version' | awk '
+      $1 == "tree-sitter" { split($2, v, "."); ok = v[1] > 0 || v[2] > 26 || (v[2] == 26 && v[3] >= 1) }
+      END { exit !ok }'; then
+      problem 'tree-sitter CLI >= 0.26.1 is required'
+    fi
+    if ! zsh -lc '(( $+commands[ols] )) || exit 0
+      ols_bin=${commands[ols]:A}
+      builtin=${OLS_BUILTIN_FOLDER:-${ols_bin:h}/builtin}
+      [[ -d $builtin ]]'; then
+      problem 'OLS builtin data is missing; set OLS_BUILTIN_FOLDER to the builtin directory from the matching OLS source (see README.md)'
+    fi
+  else
+    problem 'zsh is missing; install the platform dependencies'
+  fi
+  if [[ $platform == arch ]]; then
+    for tool in ghostty mpv yt-dlp wl-copy wl-paste fc-cache fc-match; do
+      command -v "$tool" >/dev/null 2>&1 || problem "missing command: $tool"
+    done
+    command -v rush >/dev/null 2>&1 || printf 'note: optional rush shell is not installed; zsh is the supported default\n' >&2
+    if command -v fc-match >/dev/null 2>&1; then
+      [[ $(fc-match -f '%{family}' 'Iosevka Serif') == *'Iosevka Serif'* ]] || problem 'Iosevka Serif is not discoverable; rerun setup and fc-cache'
+    fi
+  fi
+fi
+
+if [[ $problems -gt 0 ]]; then
+  printf '%s problem(s) found. See README.md for machine-specific steps.\n' "$problems" >&2
+  exit 1
+fi
+if [[ $check == 1 ]]; then
+  printf 'Links and dependencies passed. Run :checkhealth in Neovim to check downloaded plugins.\n'
+elif [[ $dry_run == 0 ]]; then
+  printf 'Links ready. Run ./setup --check to verify dependencies, then open a new zsh session.\n'
 fi

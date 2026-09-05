@@ -11,16 +11,43 @@ export PAGER=less
 # disable less history file
 export LESSHISTFILE=-
 
-export PYENV_ROOT="$HOME/.pyenv"
+export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
+export XDG_CACHE_HOME="${XDG_CACHE_HOME:-$HOME/.cache}"
+export XDG_DATA_HOME="${XDG_DATA_HOME:-$HOME/.local/share}"
+export XDG_STATE_HOME="${XDG_STATE_HOME:-$HOME/.local/state}"
+export PYENV_ROOT="${PYENV_ROOT:-$HOME/.pyenv}"
+export BUN_INSTALL="${BUN_INSTALL:-$HOME/.bun}"
+export PNPM_HOME="${PNPM_HOME:-$HOME/Library/pnpm}"
 
-# add things to path
-export PATH="/opt/homebrew/Cellar/python@3.13/3.13.1/bin:$HOME/.local/bin:$HOME/.cargo/bin:/opt/homebrew/opt/openjdk/bin:/opt/homebrew/bin:/usr/local/sbin:$HOME/google-cloud-sdk/bin:$HOME/bin:$HOME/code/zig/build:$HOME/go/bin:$PYENV_ROOT/bin:$PATH"
-
-# colors
-if [[ -f ~/.dircolors ]] && type -p dircolors >/dev/null; then
-  eval $(dircolors -b ~/.dircolors)
+# Both Homebrew prefixes work in non-login shells too. Avoid versioned Cellar paths.
+_dotfiles_brew_prefix=${HOMEBREW_PREFIX:-}
+if [[ ! -x $_dotfiles_brew_prefix/bin/brew ]]; then
+  if [[ -x /opt/homebrew/bin/brew ]]; then
+    _dotfiles_brew_prefix=/opt/homebrew
+  elif [[ -x /usr/local/bin/brew ]]; then
+    _dotfiles_brew_prefix=/usr/local
+  else
+    _dotfiles_brew_prefix=
+  fi
 fi
-. "$HOME/.cargo/env"
+if [[ -n $_dotfiles_brew_prefix ]]; then
+  path=("$_dotfiles_brew_prefix/bin" "$_dotfiles_brew_prefix/sbin" "$_dotfiles_brew_prefix/opt/openjdk/bin" $path)
+  fpath=("$_dotfiles_brew_prefix/share/zsh/site-functions" $fpath)
+fi
+unset _dotfiles_brew_prefix
+
+path=(
+  "$HOME/.local/bin"
+  "$HOME/.cargo/bin"
+  "$HOME/bin"
+  "$HOME/google-cloud-sdk/bin"
+  "$HOME/go/bin"
+  "$PYENV_ROOT/bin"
+  "$BUN_INSTALL/bin"
+  "$PNPM_HOME"
+  /usr/local/sbin
+  $path
+)
+typeset -U path PATH fpath
 
 export USE_GKE_GCLOUD_AUTH_PLUGIN=True
-export CLOUDSDK_PYTHON_SITEPACKAGES=1

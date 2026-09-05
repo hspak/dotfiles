@@ -1,4 +1,4 @@
-[[ -o interactive ]] || return
+[[ -o interactive ]] || return 0
 
 # Turn autocomplete on
 autoload -Uz compinit edit-command-line vcs_info zmv
@@ -6,7 +6,7 @@ autoload -Uz compinit edit-command-line vcs_info zmv
 # completion dump under XDG; rebuild at most once per day
 _zcompdump="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/zcompdump"
 mkdir -p "${_zcompdump:h}"
-if [[ -n ${_zcompdump}(#qN.mh+24) ]]; then
+if [[ ! -f $_zcompdump || -n ${_zcompdump}(#qN.mh+24) ]]; then
   compinit -d "$_zcompdump"
 else
   compinit -C -d "$_zcompdump"
@@ -37,7 +37,7 @@ setopt badpattern braceccl extendedglob dotglob numericglobsort
 # history
 setopt histignorealldups histignorespace \
        histreduceblanks histsavenodups histverify appendhistory \
-       inc_append_history share_history
+       share_history
 
 # io
 setopt correct noflowcontrol interactivecomments printexitvalue
@@ -60,6 +60,11 @@ zle -A .backward-delete-char vi-backward-delete-char
 # completion style {{{
 # menu completion
 zstyle ':completion:*' menu select
+
+# Colors belong in interactive shells, not every zsh script invocation.
+if [[ -f ~/.dircolors ]] && (( $+commands[dircolors] )); then
+  eval "$(dircolors -b "$HOME/.dircolors")"
+fi
 
 # colors for file completion
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}

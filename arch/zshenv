@@ -20,6 +20,7 @@ export XDG_STATE_HOME="${XDG_STATE_HOME:-$HOME/.local/state}"
 path=(
   $HOME/.local/bin
   $HOME/bin
+  $HOME/.cargo/bin
   $HOME/go/bin
   $HOME/.bun/bin
   /usr/local/sbin
@@ -29,12 +30,7 @@ typeset -U path PATH
 
 export BUN_INSTALL="$HOME/.bun"
 
-# colors
-if [[ -f ~/.dircolors ]] && (( $+commands[dircolors] )); then
-  eval "$(dircolors -b ~/.dircolors)"
-fi
-
-# systemd --user ssh-agent.socket (enable with: systemctl --user enable --now ssh-agent.socket)
-if [[ -n $XDG_RUNTIME_DIR ]]; then
+# Respect forwarded/desktop agents. Use a custom socket only if it exists.
+if [[ -z ${SSH_AUTH_SOCK:-} && -n ${XDG_RUNTIME_DIR:-} && -S $XDG_RUNTIME_DIR/ssh-agent.socket ]]; then
   export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/ssh-agent.socket"
 fi

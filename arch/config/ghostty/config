@@ -8,6 +8,7 @@ keybind = ctrl+alt+h=goto_split:left
 keybind = alt+d=new_split:right
 
 window-decoration = server
+unfocused-split-opacity = 1
 
 # Cinderwell — Ghostty
 background = #28231A

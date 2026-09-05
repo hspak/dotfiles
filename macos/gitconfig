@@ -3,7 +3,7 @@
   email = hong@hspak.com
 
 [credential]
-  helper = cache --timeout=3600
+  helper = osxkeychain
 
 [alias]
   st = status
@@ -14,7 +14,7 @@
   last = log -1 HEAD
   lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
   bc = cherry -v master
-  yolo = !git commit --amend --no-verify -C@ && git push --force
+  yolo = !git commit --amend -C@ && git push --force-with-lease
   pp = !git pull -r && git push
   sps = !git stash && git pull -r && git push && git stash pop
   bruh = !git co master && git pull -r && git co - && git rebase master
@@ -29,7 +29,7 @@
   grep = yes
 
 [merge]
-  tool = vimdiff
+  tool = nvimdiff
   log = true
 
 [help]

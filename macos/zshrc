@@ -1,15 +1,26 @@
-[[ $- != *i* ]] && return ]]
+[[ -o interactive ]] || return 0
 
 # Turn autocomplete on
 autoload -Uz compinit edit-command-line vcs_info zmv
-compinit
+_zcompdump="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/zcompdump"
+mkdir -p "${_zcompdump:h}"
+if [[ ! -f $_zcompdump || -n ${_zcompdump}(#qN.mh+24) ]]; then
+  compinit -d "$_zcompdump"
+else
+  compinit -C -d "$_zcompdump"
+fi
+unset _zcompdump
 
 KEYTIMEOUT=1
 
 # history
-HISTFILE=~/.zhistory
-HISTSIZE=1500
-SAVEHIST=1000
+mkdir -p "${XDG_STATE_HOME:-$HOME/.local/state}/zsh"
+HISTFILE="${XDG_STATE_HOME:-$HOME/.local/state}/zsh/history"
+if [[ ! -f $HISTFILE && -f ~/.zhistory ]]; then
+  mv -n ~/.zhistory "$HISTFILE"
+fi
+HISTSIZE=50000
+SAVEHIST=50000
 
 # changing directories
 setopt autocd autopushd chaselinks pushdignoredups pushdtohome
@@ -24,7 +35,7 @@ setopt badpattern braceccl extendedglob dotglob numericglobsort
 # history
 setopt histignorealldups histignorespace \
        histreduceblanks histsavenodups histverify appendhistory \
-       inc_append_history share_history
+       share_history
 
 # io
 setopt correct noflowcontrol interactivecomments printexitvalue
@@ -40,6 +51,7 @@ setopt nobeep vi
 
 bindkey -v
 zle -N edit-command-line
+bindkey -M vicmd v edit-command-line
 zle -A .backward-kill-word vi-backward-kill-word
 zle -A .backward-delete-char vi-backward-delete-char
 
@@ -50,6 +62,15 @@ zstyle ':completion:*' menu select
 # autoload new files in $PATH
 zstyle ':completion:*' rehash true
 
+# Homebrew coreutils prefixes GNU dircolors with g on macOS.
+if [[ -f ~/.dircolors ]]; then
+  if (( $+commands[gdircolors] )); then
+    eval "$(gdircolors -b "$HOME/.dircolors")"
+  elif (( $+commands[dircolors] )); then
+    eval "$(dircolors -b "$HOME/.dircolors")"
+  fi
+fi
+
 # colors for file completion
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 
@@ -59,7 +80,7 @@ zstyle ':completion:*:processes-names' command 'ps -eo comm'
 
 # cache completion
 zstyle ':completion:*' use-cache on
-zstyle ':completion:*' cache-path "$HOME"/.cache
+zstyle ':completion:*' cache-path "${XDG_CACHE_HOME:-$HOME/.cache}/zsh"
 
 # don't complete working directory in parent
 zstyle ':completion:*' ignore-parents parent pwd
@@ -67,7 +88,7 @@ zstyle ':completion:*' ignore-parents parent pwd
 
 # title (for vte, xterm and rxvt) {{{
 case "$TERM" in
-    vte*|xterm*|rxvt*|alacritty)
+    vte*|xterm*|rxvt*|alacritty|ghostty|screen*|tmux*|foot)
         update_title() { print -Pn '\e];%n (%~) - Terminal\a' } ;;
     *)
         update_title() {} ;;
@@ -96,31 +117,20 @@ PROMPT='(%F{blue}$vimode%b%f) %b%F{grey}%n%F{cyan}@%F{red}%m%F{grey} $ '
 RPROMPT='${vcs_info_msg_0_} %F{red}%~'
 # }}}
 
-# Enable setting terminal titles
-case $TERM in
-  xterm*|*rxvt*|screen*|gnome*|alacritty|foot)
-     precmd() {
-       print -Pn "\e]0;%m:%~\a"
-       vcs_info
-     }
-     preexec () { print -Pn "\e]0;$1\a" }
-    ;;
-esac
+precmd() {
+  vcs_info
+  update_title
+}
 
 # Environmental
-[[ -n "$TMUX" ]] && export TERM=screen-256color
 export EDITOR=nvim
 export PAGER=less
 
 # External Config
-if [[ -f ~/.dircolors ]] && type -p dircolors >/dev/null; then
-    eval $(dircolors -b "$HOME/.dircolors")
-fi
-
 for snippets ($HOME/.zsh/*.zsh(N))
   source $snippets
 
-source ~/code/z/z.sh
+[[ -f ~/code/z/z.sh ]] && source ~/code/z/z.sh
 
 alias -s txt=$EDITOR
 alias -s PKGBUILD=$EDITOR
@@ -128,23 +138,5 @@ alias -s PKGBUILD=$EDITOR
 export TIMEFMT=$'real\t%E\nuser\t%U\nsys\t%S'
 export FZF_DEFAULT_COMMAND='rg --hidden --files --color=never'
 
-# bun completions
-# [ -s "/opt/homebrew/share/zsh/site-functions/_bun" ] && source "/opt/homebrew/share/zsh/site-functions/_bun"
-
-# bun completions
-[ -s "/Users/hsp/.bun/_bun" ] && source "/Users/hsp/.bun/_bun"
-# Created by `pipx` on 2023-10-31 03:05:10
-export PATH="$PATH:/Users/hsp/.local/bin"
-. "$HOME/.cargo/env"
-
-ulimit -n 10240
-
-# pnpm
-export PNPM_HOME="/Users/hsp/Library/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-# pnpm end
-
-alias claude="/Users/hsp/.claude/local/claude"
+# Optional tools must not make a fresh shell fail to start.
+[[ ! -s $BUN_INSTALL/_bun ]] || source "$BUN_INSTALL/_bun"

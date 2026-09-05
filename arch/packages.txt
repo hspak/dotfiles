@@ -1,0 +1,26 @@
+# Shell, shared Neovim, and configured Linux apps (official repositories).
+base-devel
+zsh
+git
+git-lfs
+neovim
+less
+curl
+tar
+tree-sitter-cli
+ripgrep
+fd
+python
+nodejs
+typescript
+typescript-language-server
+ty
+zig
+zls
+odin
+ols
+wl-clipboard
+ghostty
+mpv
+yt-dlp
+fontconfig

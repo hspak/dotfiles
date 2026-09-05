@@ -88,4 +88,10 @@ vim.api.nvim_create_autocmd('LspAttach', {
   end,
 })
 
-vim.lsp.enable({'zls', 'ts_ls', 'ols', 'ty'})
+-- Missing optional language tools should not error whenever a file is opened.
+-- setup --check reports missing executables with installation guidance.
+for name, executable in pairs({ zls = 'zls', ts_ls = 'typescript-language-server', ols = 'ols', ty = 'ty' }) do
+  if vim.fn.executable(executable) == 1 then
+    vim.lsp.enable(name)
+  end
+end

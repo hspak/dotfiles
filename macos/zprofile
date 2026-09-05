@@ -1,14 +1,4 @@
-source ~/.zshenv
-
-# start window manager
-case $(tty) in
-  (/dev/tty1)       if [[ "$(uname)" == "Linux" ]]; then
-    eval $(gnome-keyring-daemon --start --components=secrets,ssh)
-    export SSH_AUTH_SOCK
-    exec sway &>/home/hsp/sway.log
-  fi;;
-  (/dev/tty[2-9])   ;;
-esac
-
-# Created by `pipx` on 2023-10-31 03:05:10
-export PATH="$PATH:/Users/hsp/.local/bin"
+# ~/.zshenv has already run. Initialize Homebrew after macOS path_helper.
+if (( $+commands[brew] )); then
+  eval "$(brew shellenv zsh)"
+fi

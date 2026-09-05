@@ -4,7 +4,11 @@
 #
 
 # -- Admin tasks
-alias ls='ls -lhv --color'
+if (( $+commands[gls] )); then
+  alias ls='gls -lhv --color --group-directories-first'
+else
+  alias ls='ls -lhG'
+fi
 alias ..='cd ..'
 alias ....='cd ../..'
 alias ......='cd ../../..'
@@ -26,5 +30,5 @@ alias tf='terraform'
 
 alias joe='gioctl'
 
-alias kprod='kubectl config use gke_poggio-production-experiments_us-central1_primary'
-alias kstaging='kubectl config use gke_poggio-staging-experiments_us-central1_primary'
+alias kprod='kubectl config use-context gke_poggio-production-experiments_us-central1_primary'
+alias kstaging='kubectl config use-context gke_poggio-staging-experiments_us-central1_primary'
